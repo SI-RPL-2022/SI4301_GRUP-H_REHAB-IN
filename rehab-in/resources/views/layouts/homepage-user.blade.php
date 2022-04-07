@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-		
+
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="{{ asset('assets/style/user/css/style.css') }}">
-        
+		<link rel="stylesheet" href="{{ asset('assets/style/user/css/profil.css') }}">
   </head>
   <body>
-		
+
 		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar" class="active">
 				<h1><a href="index.html" class="logo">
                     <img src="{{ asset('assets/style/images/favicon-log-v2.png') }}" alt=""></a></h1>
         <ul class="list-unstyled components mb-5">
           <li class="active">
-            <a href="#"><span class="fa fa-home"></span> Home</a>
+            <a href="{{ route('landinguser') }}"><span class="fa fa-home"></span> Home</a>
           </li>
           <li>
             <a href="{{ route('user-consult') }}"><span class="fa fa-paper-plane"></span> Tanya Dokter</a>
@@ -27,19 +27,16 @@
           <li>
               <a href="{{ route('user-profile') }}"><span class="fa fa-user"></span> Profile</a>
           </li>
-          {{-- <li>
-            <a href="#"><span class="fa fa-sticky-note"></span> Blog</a>
-          </li> --}}
           <li>
             <a href="#"><span class="fa fa-cogs"></span> Services</a>
           </li>
-        
+
         </ul>
 
         <div class="footer">
         	<p>
-					  &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="icon-heart" aria-hidden="true"></i> by Group 162<a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-					</p>
+                &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="icon-heart" aria-hidden="true"></i> by Group 162<a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+            </p>
         </div>
     	</nav>
 
@@ -85,7 +82,7 @@
     <script src="{{ asset('assets/style/user/js/popper.js') }}"></script>
     <script src="{{ asset('assets/style/user/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/style/user/js/main.js') }}"></script>
-    
-    
+
+
   </body>
 </html>

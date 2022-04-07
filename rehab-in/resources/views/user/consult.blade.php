@@ -1,3 +1,6 @@
+@extends('layouts.homepage-user')
+
+@section('main')
 <div id="container" class="bg">
     <aside>
       <header>
@@ -14,7 +17,7 @@
               offline
             </h3>
           </div>
-          
+
         </li>
         <li>
           <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_10.jpg" alt="">
@@ -25,10 +28,10 @@
               online
             </h3>
           </div>
-          
+
         </li>
-        
-       
+
+
       </ul>
     </aside>
     <main>
@@ -115,4 +118,5 @@
         <a href="#">Send</a>
       </footer>
     </main>
-  </div>
+</div>
+@endsection
