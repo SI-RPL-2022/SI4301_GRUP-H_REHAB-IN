@@ -25,4 +25,19 @@ class UserController extends Controller
     public function consult(){
         return view('user.consult');
     }
+    public function services(){
+        return view('user.service');
+    }
+    public function hospital(){
+        return view('user.service');
+    }
+    public function reservasi(){
+        return view('user.reservasi');
+    }
+    public function dokter(){
+        return view('user.dokter');
+    }
+    public function edukasi(){
+        return view('user.service');
+    }
 }

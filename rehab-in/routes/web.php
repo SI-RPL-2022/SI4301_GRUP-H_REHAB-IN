@@ -36,6 +36,11 @@ Route::get('/register',[UserController::class,'register'])->name('register'); //
 Route::get('/forgetpw',[UserController::class,'forgetpw'])->name('forgetpw'); // Forget password for user
 Route::get('/user/profile',[UserController::class,'profile'])->name('user-profile'); // Profile manage for user
 Route::get('/user/consult',[UserController::class,'consult'])->name('user-consult'); // Chat manage for user
+Route::get('/user/service',[UserController::class,'services'])->name('user-services'); // Chat manage for user
+Route::get('/user/service/hospital',[UserController::class,'hospital'])->name('hospital'); // Service dokter
+Route::get('/user/service/reservasi',[UserController::class,'reservasi'])->name('reservasi'); // Service dokter
+Route::get('/user/service/dokter',[UserController::class,'dokter'])->name('dokter'); // Service dokter
+Route::get('/user/service/edukasi',[UserController::class,'edukasi'])->name('edukasi'); // Service dokter
 
 // //Admin
 // Route::get('/admin',[AdminController::class, 'index'])->name('landingadmin'); //Landing page for admin
