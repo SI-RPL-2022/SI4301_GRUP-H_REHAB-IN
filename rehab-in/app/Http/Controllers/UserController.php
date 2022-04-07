@@ -28,11 +28,14 @@ class UserController extends Controller
     public function services(){
         return view('user.service');
     }
-    public function hospital(){
-        return view('user.service');
-    }
+    // public function hospital(){
+    //     return view('user.service');
+    // }
     public function reservasi(){
         return view('user.reservasi');
+    }
+    public function ruangan(){
+        return view('user.ruangan');
     }
     public function dokter(){
         return view('user.dokter');

@@ -1,12 +1,6 @@
 @extends('layouts.homepage-user')
 @section('main')
     <div class="container mb-3">
-        <a href="{{ route('user-services') }}">
-            <button type="button" id="sidebarCollapse" class="btn btn-primary mb-4">
-                <i class="fa fa-backward"></i>
-                <span class="sr-only">Toggle Menu</span>
-            </button>
-        </a>
         <div class="row">
             <div class="col">
                 <div class="rounded text-center me-2 bg-primary text-white">
@@ -35,7 +29,13 @@
         </div>
     </div>
     <div class="container">
-        <p style="font-size:20px">Dokter Kami</p>
+        <a href="{{ route('user-services') }}">
+            <button type="button" id="sidebarCollapse" class="btn btn-primary mb-4">
+                <i class="fa fa-backward"></i>
+                <span class="sr-only">Toggle Menu</span>
+            </button>
+        </a>
+        <span class="p-2 text-black" style="font-size:30px">Dokter Kami</span>
         <div class="row">
             <div class="shadow-sm p-3 mb-5 bg-body rounded">
                 <div class="row">
