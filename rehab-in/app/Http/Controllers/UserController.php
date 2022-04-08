@@ -20,6 +20,10 @@ class UserController extends Controller
         return view('user.forgetpw');
     }
 
+    public function riwayat(){
+        return view('user.riwayat');
+    }
+
     public function notes(){
         return view('user.notes');
     }

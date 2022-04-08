@@ -27,16 +27,20 @@
             <a href="{{ route('landinguser') }}"><span class="fa fa-home"></span> Home</a>
           </li>
           <li>
-            <a href="#"><span class="fa fa-sticky-note"></span>Catatan Kesehatan</a>
+            <a href="{{ route('user-healthnotes') }}"><span class="fa fa-sticky-note"></span>Catatan Kesehatan</a>
           </li>
           <li>
             <a href="{{ route('user-consult') }}"><span class="fa fa-paper-plane"></span> Tanya Dokter</a>
           </li>
           <li>
+            <a href="{{ route('user-history') }}"><span class="fa fa-history"></span>Riwayat Layanan</a>
+          </li>
+          <li>
               <a href="{{ route('user-profile') }}"><span class="fa fa-user"></span> Profile</a>
           </li>
           <li>
-            <a href="{{ route('user-services') }}"><span class="fa fa-cogs"></span> Services</a>
+            <a href="{{ route('user-services') }}"><span class="fa fa-users"></span>Layanan Kami</a>
+            {{-- fa fa-cogs --}}
           </li>
 
         </ul>
