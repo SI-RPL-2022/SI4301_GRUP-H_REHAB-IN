@@ -34,7 +34,7 @@ Route::get('/user',[UserController::class,'index'])->name('landinguser'); //Lond
 Route::get('/login',[UserController::class,'login'])->name('login'); //Login for user
 Route::get('/register',[UserController::class,'register'])->name('register'); //Register for user
 Route::get('/forgetpw',[UserController::class,'forgetpw'])->name('forgetpw'); // Forget password for user
-Route::get('/user/history',[UserController::class,'riwayat'])->name('user-history'); // 
+Route::get('/user/history',[UserController::class,'riwayat'])->name('user-history'); //
 Route::get('/user/profile',[UserController::class,'profile'])->name('user-profile'); // Profile manage for user
 Route::get('/user/notes',[UserController::class,'notes'])->name('user-healthnotes'); // Profile manage for user
 Route::get('/user/profile/edit',[UserController::class,'editprofile'])->name('user-profile-edit'); // Profile manage for user
@@ -45,6 +45,7 @@ Route::get('/user/service/dokter',[UserController::class,'dokter'])->name('dokte
 Route::get('/user/service/edukasi',[UserController::class,'edukasi'])->name('edukasi'); // Edukasi untuk pasien
 Route::get('/user/service/reservasi',[UserController::class,'reservasi'])->name('reservasi'); // Template reservasi pasien
 Route::get('/user/service/reservasi/ruangan',[UserController::class,'ruangan'])->name('ruangan'); // Template jadwal ruangan pasien
+Route::get('/user/service/reservasi/invoice',[UserController::class,'total'])->name('harga'); // Template jadwal ruangan pasien
 
 
 

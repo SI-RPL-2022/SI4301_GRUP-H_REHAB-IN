@@ -57,4 +57,7 @@ class UserController extends Controller
     public function edukasi(){
         return view('user.service');
     }
+    public function total(){
+        return view('user.result');
+    }
 }

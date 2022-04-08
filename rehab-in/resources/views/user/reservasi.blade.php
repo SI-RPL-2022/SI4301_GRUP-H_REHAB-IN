@@ -54,7 +54,8 @@
                     </div>
                     <div class="col text-center">
                         <br>
-                        <button type="button" class="btn btn-primary ">Pilih Kamar</button>
+                        <a href="{{ route('ruangan') }}" class="btn btn-primary mb-2">Pilih Kamar</a>
+                        {{-- <button type="button" class="btn btn-primary ">Pilih Kamar</button> --}}
                     </div>
                 </div>
             </div>
