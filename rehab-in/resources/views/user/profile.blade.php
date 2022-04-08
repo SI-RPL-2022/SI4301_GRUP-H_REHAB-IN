@@ -56,9 +56,9 @@
                             <p class="user-profile-label-p">081234567890</p>
                         </div>
                     </div>
-                    <div class="col-lg-4" style="margin-left: 50px">
+                    <div class="col-lg-4" style="margin-left: 50px" href="#">
                       <fieldset>
-                        <button type="submit" id="form-submit" class="main-button ">Edit Profil</button>
+                        <button type="submit" id="form-submit" class="main-button">Edit Profil</button>
                       </fieldset>
                     </div>
                   </div>

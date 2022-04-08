@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Dashboard</title>
+  	<title>Dashboard Pasien</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -11,12 +11,16 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 		<link rel="stylesheet" href="{{ asset('assets/style/user/css/style.css') }}">
 		<link rel="stylesheet" href="{{ asset('assets/style/user/css/profil.css') }}">
+
+     <!-- Favicon -->
+     <link rel="shortcut icon" href="{{asset('assets/style/images/favicon-log.png')}}" type="image/x-icon" />
+     <link rel="apple-touch-icon" href="{{asset('assets/style/images/favicon-log.png')}}">
   </head>
   <body>
 
 		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar" class="active">
-				<h1><a href="index.html" class="logo">
+				<h1><a href="{{ route('landinguser') }}" class="logo">
                     <img src="{{ asset('assets/style/images/favicon-log-v2.png') }}" alt=""></a></h1>
         <ul class="list-unstyled components mb-5">
           <li class="active">
