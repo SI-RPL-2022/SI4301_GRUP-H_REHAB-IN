@@ -35,6 +35,7 @@ Route::get('/login',[UserController::class,'login'])->name('login'); //Login for
 Route::get('/register',[UserController::class,'register'])->name('register'); //Register for user
 Route::get('/forgetpw',[UserController::class,'forgetpw'])->name('forgetpw'); // Forget password for user
 Route::get('/user/profile',[UserController::class,'profile'])->name('user-profile'); // Profile manage for user
+Route::get('/user/notes',[UserController::class,'notes'])->name('user-healthnotes'); // Profile manage for user
 Route::get('/user/profile/edit',[UserController::class,'editprofile'])->name('user-profile-edit'); // Profile manage for user
 Route::get('/user/consult',[UserController::class,'consult'])->name('user-consult'); // Chat manage for user
 Route::get('/user/service',[UserController::class,'services'])->name('user-services'); // Chat manage for user
