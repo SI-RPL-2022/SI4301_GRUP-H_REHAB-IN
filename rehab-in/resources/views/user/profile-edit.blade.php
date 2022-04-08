@@ -69,7 +69,7 @@
                         </div>
                     </div>
                   
-                    <div class="col-lg-4" style="margin-left: 50px" href="#">
+                    <div class="col-lg-4" style="margin-left: 50px" href="{{ route('user-profile-edit') }}"> 
                       <fieldset>
                         <button type="submit" id="form-submit" class="main-button">Update Profil</button>
                       </fieldset>

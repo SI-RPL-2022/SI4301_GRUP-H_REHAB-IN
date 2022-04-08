@@ -27,6 +27,9 @@
             <a href="{{ route('landinguser') }}"><span class="fa fa-home"></span> Home</a>
           </li>
           <li>
+            <a href="#"><span class="fa fa-sticky-note"></span>Catatan Kesehatan</a>
+          </li>
+          <li>
             <a href="{{ route('user-consult') }}"><span class="fa fa-paper-plane"></span> Tanya Dokter</a>
           </li>
           <li>
