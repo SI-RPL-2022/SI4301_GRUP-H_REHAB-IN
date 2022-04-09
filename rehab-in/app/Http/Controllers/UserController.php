@@ -42,9 +42,6 @@ class UserController extends Controller
     public function services(){
         return view('user.service');
     }
-    // public function hospital(){
-    //     return view('user.service');
-    // }
     public function reservasi(){
         return view('user.reservasi');
     }
