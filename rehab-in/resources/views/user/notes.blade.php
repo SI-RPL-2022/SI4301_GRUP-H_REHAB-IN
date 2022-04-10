@@ -1,21 +1,14 @@
 @extends('layouts.homepage-user')
 
 @section('main')
-<div id="notes" class="notes section">
-  <div class="container">
+<div id="services" class="services section">
+  
     <div class="row">
-      {{-- <div class="col-lg-12">
-        <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
-          <h6>Our Services</h6>
-          <h4>What Our Agency <em>Provides</em></h4>
-          <div class="line-dec"></div>
-        </div>
-      </div> --}}
       <div class="col-lg-12">
         <div class="naccs">
           <div class="grid">
             <div class="row">
-              <div class="col-lg-12">
+              <div class="col-lg-2">
                 <div class="menu">
                   <div class="first-thumb active">
                     <div class="thumb">
@@ -43,7 +36,7 @@
                   </div>
                 </div>
               </div> 
-              <div class="col-lg-12">
+              <div class="col-lg-10">
                 <ul class="nacc">
                   <li class="active">
                     <div>
@@ -145,7 +138,7 @@
         </div>
       </div>
     </div>
-  </div>
+  
 </div>
 
 @endsection

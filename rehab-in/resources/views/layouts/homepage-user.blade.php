@@ -86,7 +86,7 @@
           </div>
         </nav>
 
-        <h2 class="mb-4">Halo, user! Semangatt 162!</h2>
+        {{-- <h2 class="mb-4">Halo, user! Semangatt 162!</h2> --}}
         @yield('main')
       </div>
 		</div>

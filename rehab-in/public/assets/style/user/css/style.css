@@ -8330,18 +8330,18 @@ a[data-toggle="collapse"] {
 
 /*
 ---------------------------------------------
-notes Style
+services Style
 ---------------------------------------------
 */
 
-.notes {
+.services {
   /* padding-top: 130px; */
   position: relative;
 }
 
-.notes:after {
+.services:after {
   content: '';
-  background-image: url(../style/images/notes-left-dec.jpg);
+  /* background-image: url(../style/images/services-left-dec.jpg); */
   background-repeat: no-repeat;
   position: absolute;
   left: 0;
@@ -8351,9 +8351,9 @@ notes Style
   z-index: 0;
 }
 
-.notes:before {
+.services:before {
   content: '';
-  background-image: url(../style/images/notes-right-dec.jpg);
+  /* background-image: url(../style/images/services-right-dec.jpg); */
   background-repeat: no-repeat;
   position: absolute;
   right: 0;
@@ -8363,49 +8363,49 @@ notes Style
   z-index: 0;
 }
 
-.notes .section-heading {
+.services .section-heading {
   text-align: center;
   margin-bottom: 80px;
 }
 
-.notes .section-heading .line-dec {
+.services .section-heading .line-dec {
   margin: 0 auto;
 }
 
-.notes .naccs {
+.services .naccs {
   position: relative;
   z-index: 1;
 }
 
-.notes .icon {
+.services .icon {
   display: block;
   text-align: center;
   margin: 0 auto;
 }
 
-.notes .naccs .menu div h4 {
+.services .naccs .menu div h4 {
   color: #fff;
   font-size: 15px;
   font-weight: 400;
   width: 100%;
 }
 
-.notes .icon img {
+.services .icon img {
   margin-bottom: 10px;
-  max-width: 60px;
-  min-width: 60px;
+  max-width: 40px;
+  min-width: 40px;
 }
 
-.notes .naccs .menu {
+.services .naccs .menu {
   text-align: center;
   margin-bottom: 30px;
 }
 
-.notes .naccs .menu div {
+.services .naccs .menu div {
   color: #2a2a2a;
-  margin: 0px;
-  width: 15%;
-  font-size: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 15px;
   font-weight: 700;
   display: inline-block;
   text-align: center;
@@ -8415,18 +8415,18 @@ notes Style
   transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.notes .naccs .menu div .thumb {
+.services .naccs .menu div .thumb {
   display: inline-block;
   width: 100%;
   padding: 30px 5px;
   background-color: #fff;
 }
 
-.notes .naccs .menu div.active {
+.services .naccs .menu div.active {
   box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
 }
 
-.notes ul.nacc {
+.services ul.nacc {
   height: 100% !important;
   position: relative;
   min-height: 100%;
@@ -8436,7 +8436,7 @@ notes Style
   transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.notes ul.nacc li {
+.services ul.nacc li {
   opacity: 0;
   transform: translateX(-50px);
   position: absolute;
@@ -8444,7 +8444,7 @@ notes Style
   transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.notes ul.nacc li.active {
+.services ul.nacc li.active {
   transition-delay: 0.3s;
   position: relative;
   z-index: 2;
@@ -8456,16 +8456,16 @@ notes Style
   padding: 80px 120px 50px 120px;
 }
 
-.notes ul.nacc li {
+.services ul.nacc li {
   width: 100%;
 }
 
-.notes ul.nacc li .right-image img {
+.services ul.nacc li .right-image img {
   max-width: 420px;
   float: right;
 }
 
-.notes .nacc .thumb h4 {
+.services .nacc .thumb h4 {
   color: #2a2a2a;
   font-size: 20px;
   font-weight: 700;
@@ -8473,28 +8473,28 @@ notes Style
   margin-bottom: 25px;
 }
 
-.notes .nacc .thumb .main-white-button {
+.services .nacc .thumb .main-white-button {
   text-align: right;
   margin-top: 40px;
 }
 
-.notes .nacc .thumb .main-white-button a {
+.services .nacc .thumb .main-white-button a {
   background-color: #8d99af;
   color: #fff;
 }
 
-.notes .nacc .thumb .main-white-button a i {
+.services .nacc .thumb .main-white-button a i {
   background-color: #fff;
   color: #8d99af;
 }
 
-.notes .left-text h4 {
+.services .left-text h4 {
   font-size: 20px;
   font-weight: 700;
   color: #4da6e7 !important;
 }
 
-.notes .left-text p {
+.services .left-text p {
   margin-bottom: 30px;
 }
 
