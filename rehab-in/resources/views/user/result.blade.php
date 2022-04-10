@@ -103,8 +103,33 @@
                         </div>
                         <hr>
                         <div class="hidden-print col-md-12 text-right">
-                            <a href="javascript:window.print()" class="btn btn-raised btn-success"><i class="fa fa-print"></i></a>
-                            <a href="#" class="btn btn-raised btn-primary">Upload bukti pembayaran</a>
+                            {{-- <a href="javascript:window.print()" class="btn btn-raised btn-success"><i class="fa fa-print"></i></a> --}}
+                            {{-- <a href="#" class="btn btn-raised btn-warning">Menununggu confirm</a> --}}
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                Upload bukti pembayaran
+                            </button>
+                              <!-- Modal -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Upload file bukti pembayaran</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="#" method="POST" enctype="multipart/form-data">
+                                            <div class="upload-container">
+                                                <input type="file" id="file_upload" />
+                                            </div>
+                                            <br>
+                                            <button class="btn btn-primary" onclick="uploadFiles()">Submit</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            {{-- <a href="#" class="btn btn-raised btn-primary"></a> --}}
                             {{-- <div class="btn btn-raised btn-success" disabled>Bukti pembayaran suskes</div> --}}
                         </div>
                     </div>

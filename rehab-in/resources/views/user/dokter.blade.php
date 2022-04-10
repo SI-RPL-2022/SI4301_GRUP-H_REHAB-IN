@@ -43,101 +43,111 @@
         </a>
         <span class="p-2 text-black" style="font-size:30px">Dokter Kami</span>
         <div class="row clearfix">
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                <div class="card">
-                    <div class="body">
-                        <div class="member-card verified">                            
-                            <div class="thumb-xl member-thumb">
-                                <img src="assets/images/random-avatar3.jpg" class="img-thumbnail rounded-circle" alt="profile-image">                               
-                            </div>
-
-                            <div class="">
-                                <h4 class="m-b-5 m-t-20">Dr. John</h4>
-                                <p class="text-muted">Dentist<span> <a href="#" class="text-pink">websitename.com</a> </span></p>
-                            </div>
-
-                            <p class="text-muted">795 Folsom Ave, Suite 600 San Francisco, CADGE 94107</p>                           
-                            <a href="profile.html"  class="btn btn-raised btn-sm">View Profile</a>
-                            <ul class="social-links list-inline m-t-10">
-                                <li><a title="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                                <li><a title="twitter" href="#" ><i class="zmdi zmdi-twitter"></i></a></li>
-                                <li><a title="instagram" href="3" ><i class="zmdi zmdi-instagram"></i></a></li>
-                            </ul>
-                        </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-3">
+                <div class="card" style="width: 18em;">
+                    <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title text-center">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    
+                    <div class="mt-3 mb-3 text-center">
+                        <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-instagram fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-linkedin fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-google fa-2x me-2"></i></a>
+                    </div>
+                    <a href="{{ route('jadwal') }}" class="btn btn-primary d-flex justify-content-center">Atur jadwal</a>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                <div class="card">
-                    <div class="body">
-                        <div class="member-card">                            
-                            <div class="thumb-xl member-thumb">
-                                <img src="assets/images/random-avatar4.jpg" class="img-thumbnail rounded-circle" alt="profile-image">                               
-                            </div>
-
-                            <div class="">
-                                <h4 class="m-b-5 m-t-20">Kendra V. Alfaro</h4>
-                                <p class="text-muted">ENT Specialist<span> <a href="#" class="text-pink">websitename.com</a> </span></p>
-                            </div>
-
-                            <p class="text-muted">795 Folsom Ave, Suite 600 San Francisco, CADGE 94107</p>
-                            <a href=""  class="btn btn-raised btn-sm">View Profile</a>
-                            <ul class="social-links list-inline m-t-10">
-                                <li><a title="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                                <li><a title="twitter" href="#" ><i class="zmdi zmdi-twitter"></i></a></li>
-                                <li><a title="instagram" href="3" ><i class="zmdi zmdi-instagram"></i></a></li>
-                            </ul>
-                        </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-3">
+                <div class="card" style="width: 18em;">
+                    <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title text-center">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    
+                    <div class="mt-3 mb-3 text-center">
+                        <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-instagram fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-linkedin fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-google fa-2x me-2"></i></a>
+                    </div>
+                    <a href="#" class="btn btn-primary d-flex justify-content-center">Atur jadwal</a>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                <div class="card">
-                    <div class="body">
-                        <div class="member-card verified">                           
-                            <div class="thumb-xl member-thumb">
-                                <img src="assets/images/random-avatar6.jpg" class="img-thumbnail rounded-circle" alt="profile-image">
-                               
-                            </div>
-
-                            <div class="">
-                                <h4 class="m-b-5 m-t-20">Kendra V. Alfaro</h4>
-                                <p class="text-muted">Neurologist<span> <a href="#" class="text-pink">websitename.com</a> </span></p>
-                            </div>
-
-                            <p class="text-muted">795 Folsom Ave, Suite 600 San Francisco, CADGE 94107</p>
-                            <a href=""  class="btn btn-raised btn-sm">View Profile</a>
-                            <ul class="social-links list-inline m-t-10">
-                                <li><a title="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                                <li><a title="twitter" href="#" ><i class="zmdi zmdi-twitter"></i></a></li>
-                                <li><a title="instagram" href="3" ><i class="zmdi zmdi-instagram"></i></a></li>
-                            </ul>
-                        </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-3">
+                <div class="card" style="width: 18em;">
+                    <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title text-center">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    
+                    <div class="mt-3 mb-3 text-center">
+                        <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-instagram fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-linkedin fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-google fa-2x me-2"></i></a>
+                    </div>
+                    <a href="#" class="btn btn-primary d-flex justify-content-center">Atur jadwal</a>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                <div class="card">
-                    <div class="body">
-                        <div class="member-card verified">                           
-                            <div class="thumb-xl member-thumb">
-                                <img src="assets/images/random-avatar6.jpg" class="img-thumbnail rounded-circle" alt="profile-image">
-                               
-                            </div>
-
-                            <div class="">
-                                <h4 class="m-b-5 m-t-20">Kendra V. Alfaro</h4>
-                                <p class="text-muted">Neurologist<span> <a href="#" class="text-pink">websitename.com</a> </span></p>
-                            </div>
-
-                            <p class="text-muted">795 Folsom Ave, Suite 600 San Francisco, CADGE 94107</p>
-                            <a href=""  class="btn btn-raised btn-sm">View Profile</a>
-                            <ul class="social-links list-inline m-t-10">
-                                <li><a title="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                                <li><a title="twitter" href="#" ><i class="zmdi zmdi-twitter"></i></a></li>
-                                <li><a title="instagram" href="3" ><i class="zmdi zmdi-instagram"></i></a></li>
-                            </ul>
-                        </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-3">
+                <div class="card" style="width: 18em;">
+                    <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title text-center">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    
+                    <div class="mt-3 mb-3 text-center">
+                        <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-instagram fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-linkedin fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-google fa-2x me-2"></i></a>
+                    </div>
+                    <a href="#" class="btn btn-primary d-flex justify-content-center">Atur jadwal</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-3">
+                <div class="card" style="width: 18em;">
+                    <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title text-center">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    
+                    <div class="mt-3 mb-3 text-center">
+                        <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-instagram fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-linkedin fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-google fa-2x me-2"></i></a>
+                    </div>
+                    <a href="#" class="btn btn-primary d-flex justify-content-center">Atur jadwal</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-3">
+                <div class="card" style="width: 18em;">
+                    <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title text-center">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    
+                    <div class="mt-3 mb-3 text-center">
+                        <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-instagram fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-linkedin fa-2x me-2"></i></a>
+                        <a href="#"><i class="fa fa-google fa-2x me-2"></i></a>
+                    </div>
+                    <a href="#" class="btn btn-primary d-flex justify-content-center">Atur jadwal</a>
                     </div>
                 </div>
             </div>

@@ -49,7 +49,7 @@
                             <a href="#"><i class="fa fa-linkedin fa-2x me-2"></i></a>
                             <a href="#"><i class="fa fa-google fa-2x me-2"></i></a>
                         </div>
-                        <button class="btn btn-outline-primary px-4">Contact</button> 
+                        <a href="mailto:someone@example.com" class="btn btn-outline-primary px-4">Contact</a> 
                     </div>
                 </div>
             </div>

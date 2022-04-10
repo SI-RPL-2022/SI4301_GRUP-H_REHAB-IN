@@ -1,6 +1,6 @@
 @extends('layouts.homepage-user')
 @section('main')
-   <div class="container">
+    <div class="container">
         <div class="row">
             <div class="shadow-sm p-3 mb-5 bg-body rounded">
                 <div class="row">

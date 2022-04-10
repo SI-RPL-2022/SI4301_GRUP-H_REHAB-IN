@@ -57,4 +57,7 @@ class UserController extends Controller
     public function total(){
         return view('user.result');
     }
+    public function jadwal(){
+        return view('user.jadwal');
+    }
 }

@@ -42,6 +42,7 @@ Route::get('/user/consult',[UserController::class,'consult'])->name('user-consul
 Route::get('/user/service',[UserController::class,'services'])->name('user-services'); // Chat manage for user
 Route::get('/user/service/hospital',[UserController::class,'hospital'])->name('hospital'); // Tampilan hospital untuk pasien
 Route::get('/user/service/dokter',[UserController::class,'dokter'])->name('dokter'); // List dokter untuk pasien
+Route::get('/user/service/dokter/jadwal',[UserController::class,'jadwal'])->name('jadwal'); // List dokter untuk pasien
 Route::get('/user/service/edukasi',[UserController::class,'edukasi'])->name('edukasi'); // Edukasi untuk pasien
 Route::get('/user/service/reservasi',[UserController::class,'reservasi'])->name('reservasi'); // Template reservasi pasien
 Route::get('/user/service/reservasi/ruangan',[UserController::class,'ruangan'])->name('ruangan'); // Template jadwal ruangan pasien
