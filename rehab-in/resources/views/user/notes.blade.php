@@ -78,7 +78,7 @@
                           </div>
                           <div class="col-lg-6 align-self-center">
                             <div class="right-image">
-                              <img src="{{asset('assets/style/images/moodco.png')}}" alt="">
+                              <img src="{{asset('assets/style/images/sleepqualityco.png')}}" alt="">
                             </div>
                           </div>
                         </div>
@@ -101,7 +101,7 @@
                           </div>
                           <div class="col-lg-6 align-self-center">
                             <div class="right-image">
-                              <img src="{{asset('assets/style/images/moodco.png')}}" alt="">
+                              <img src="{{asset('assets/style/images/sportco.png')}}" alt="">
                             </div>
                           </div>
                         </div>
