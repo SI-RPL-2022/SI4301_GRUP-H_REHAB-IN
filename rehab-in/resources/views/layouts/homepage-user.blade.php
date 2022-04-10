@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="{{ asset('assets/style/user/css/style.css') }}">
 		<link rel="stylesheet" href="{{ asset('assets/style/user/css/profil.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/style/css/animated.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/style/css/owl.css') }}">
 
      <!-- Favicon -->
      <link rel="shortcut icon" href="{{asset('assets/style/images/favicon-log.png')}}" type="image/x-icon" />
@@ -86,6 +87,10 @@
     <script src="{{ asset('assets/style/js/animation.js') }}"></script>
     <script src="{{ asset('assets/style/js/imagesloaded.js') }}"></script>
     <script src="{{ asset('assets/style/js/custom.js') }}"></script>
+
+
+
+
 
   </body>
 </html>

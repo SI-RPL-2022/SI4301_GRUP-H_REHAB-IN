@@ -36,7 +36,7 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-7">
                 <div class="card p-3 py-4">
-                    <div class="text-center"> <img src="{{asset('assets/style/images/logo-v5.png')}}" width="500"></div>
+                    <div class="text-center"> <img src="{{asset('assets/style/images/logo-v7.png')}}" width="500"></div>
                     <div class="text-center mt-2">
                         <h5 class="mt-5 mb-0">NAMA RUMAH SAKIT</h5> <span>HOSPITAL</span>
                         <div class="px-4 mt-1">
