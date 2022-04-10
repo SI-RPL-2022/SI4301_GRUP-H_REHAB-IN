@@ -11,6 +11,7 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 		<link rel="stylesheet" href="{{ asset('assets/style/user/css/style.css') }}">
 		<link rel="stylesheet" href="{{ asset('assets/style/user/css/profil.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/style/css/animated.css') }}">
 
      <!-- Favicon -->
      <link rel="shortcut icon" href="{{asset('assets/style/images/favicon-log.png')}}" type="image/x-icon" />
@@ -95,6 +96,12 @@
     <script src="{{ asset('assets/style/user/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/style/user/js/main.js') }}"></script>
 
+    <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src=" {{ asset('assets/style/js/owl-carousel.js') }}"></script>
+    <script src="{{ asset('assets/style/js/animation.js') }}"></script>
+    <script src="{{ asset('assets/style/js/imagesloaded.js') }}"></script>
+    <script src="{{ asset('assets/style/js/custom.js') }}"></script>
 
   </body>
 </html>
