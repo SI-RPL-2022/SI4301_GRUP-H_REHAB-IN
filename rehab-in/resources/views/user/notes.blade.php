@@ -61,54 +61,8 @@
                           </div>
                           <div class="col-lg-6 align-self-center">
                             <div class="right-image">
-                              <img src="{{asset('assets/style/images/services-image.jpg')}}" alt="">
+                              <img src="{{asset('assets/style/images/jamsleepco.png')}}" alt="">
                               
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <div class="thumb">
-                        <div class="row">
-                          <div class="col-lg-6 align-self-center">
-                            <div class="left-text">
-                              <h4>Healthy Food &amp; Life</h4>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt ut labore et dolore kengan darwin doerski token.
-                                dover lipsum lorem and the others.</p>
-                              <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span> <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span>
-                                <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span></div>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt.</p>
-                            </div>
-                          </div>
-                          <div class="col-lg-6 align-self-center">
-                            <div class="right-image">
-                              <img src="assets/images/services-image-02.jpg" alt="">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <div class="thumb">
-                        <div class="row">
-                          <div class="col-lg-6 align-self-center">
-                            <div class="left-text">
-                              <h4>Car Re-search &amp; Transport</h4>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt ut labore et dolore kengan darwin doerski token.
-                                dover lipsum lorem and the others.</p>
-                              <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span> <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span>
-                                <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span></div>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt.</p>
-                            </div>
-                          </div>
-                          <div class="col-lg-6 align-self-center">
-                            <div class="right-image">
-                              <img src="assets/images/services-image-03.jpg" alt="">
                             </div>
                           </div>
                         </div>
@@ -131,7 +85,7 @@
                           </div>
                           <div class="col-lg-6 align-self-center">
                             <div class="right-image">
-                              <img src="assets/images/services-image-04.jpg" alt="">
+                              <img src="{{asset('assets/style/images/moodco.png')}}" alt="">
                             </div>
                           </div>
                         </div>
@@ -140,9 +94,50 @@
                   </li>
                   <li>
                     <div>
-                      
+                      <div class="thumb">
+                        <div class="row">
+                          <div class="col-lg-6 align-self-center">
+                            <div class="left-text">
+                              <h4>Online Shopping &amp; Tracking ID</h4>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt ut labore et dolore kengan darwin doerski token.
+                                dover lipsum lorem and the others.</p>
+                              <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span> <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span>
+                                <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span></div>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt.</p>
+                            </div>
+                          </div>
+                          <div class="col-lg-6 align-self-center">
+                            <div class="right-image">
+                              <img src="{{asset('assets/style/images/moodco.png')}}" alt="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </li>
+                  <li>
+                    <div>
+                      <div class="thumb">
+                        <div class="row">
+                          <div class="col-lg-6 align-self-center">
+                            <div class="left-text">
+                              <h4>Online Shopping &amp; Tracking ID</h4>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt ut labore et dolore kengan darwin doerski token.
+                                dover lipsum lorem and the others.</p>
+                              <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span> <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span>
+                                <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span></div>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt.</p>
+                            </div>
+                          </div>
+                          <div class="col-lg-6 align-self-center">
+                            <div class="right-image">
+                              <img src="{{asset('assets/style/images/moodco.png')}}" alt="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li> 
                 </ul>
               </div>          
             </div>
