@@ -29,24 +29,24 @@ Route::get('/tips', [HomeController::class, 'tips'])->name('tips');
 Route::get('/service', [ServiceController::class, 'index'])->name('service');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
-// //User
-Route::get('/user',[UserController::class,'index'])->name('landinguser'); //Londing page user after login
+// //pasien
+Route::get('/pasien',[UserController::class,'index'])->name('landinguser'); //Londing page user after login
 Route::get('/login',[UserController::class,'login'])->name('login'); //Login for user
 Route::get('/register',[UserController::class,'register'])->name('register'); //Register for user
 Route::get('/forgetpw',[UserController::class,'forgetpw'])->name('forgetpw'); // Forget password for user
-Route::get('/user/history',[UserController::class,'riwayat'])->name('user-history'); //
-Route::get('/user/profile',[UserController::class,'profile'])->name('user-profile'); // Profile manage for user
-Route::get('/user/notes',[UserController::class,'notes'])->name('user-healthnotes'); // Profile manage for user
-Route::get('/user/profile/edit',[UserController::class,'editprofile'])->name('user-profile-edit'); // Profile manage for user
-Route::get('/user/consult',[UserController::class,'consult'])->name('user-consult'); // Chat manage for user
-Route::get('/user/service',[UserController::class,'services'])->name('user-services'); // Chat manage for user
-Route::get('/user/service/hospital',[UserController::class,'hospital'])->name('hospital'); // Tampilan hospital untuk pasien
-Route::get('/user/service/dokter',[UserController::class,'dokter'])->name('dokter'); // List dokter untuk pasien
-Route::get('/user/service/dokter/jadwal',[UserController::class,'jadwal'])->name('jadwal'); // List dokter untuk pasien
-Route::get('/user/service/edukasi',[UserController::class,'edukasi'])->name('edukasi'); // Edukasi untuk pasien
-Route::get('/user/service/reservasi',[UserController::class,'reservasi'])->name('reservasi'); // Template reservasi pasien
-Route::get('/user/service/reservasi/ruangan',[UserController::class,'ruangan'])->name('ruangan'); // Template jadwal ruangan pasien
-Route::get('/user/service/reservasi/invoice',[UserController::class,'total'])->name('harga'); // Template jadwal ruangan pasien
+Route::get('/pasien/history',[UserController::class,'riwayat'])->name('user-history'); //
+Route::get('/pasien/profile',[UserController::class,'profile'])->name('user-profile'); // Profile manage for user
+Route::get('/pasien/notes',[UserController::class,'notes'])->name('user-healthnotes'); // Profile manage for user
+Route::get('/pasien/profile/edit',[UserController::class,'editprofile'])->name('user-profile-edit'); // Profile manage for user
+Route::get('/pasien/consult',[UserController::class,'consult'])->name('user-consult'); // Chat manage for user
+Route::get('/pasien/service',[UserController::class,'services'])->name('user-services'); // Chat manage for user
+Route::get('/pasien/service/hospital',[UserController::class,'hospital'])->name('hospital'); // Tampilan hospital untuk pasien
+Route::get('/pasien/service/dokter',[UserController::class,'dokter'])->name('dokter'); // List dokter untuk pasien
+Route::get('/pasien/service/dokter/jadwal',[UserController::class,'jadwal'])->name('jadwal'); // List dokter untuk pasien
+Route::get('/pasien/service/edukasi',[UserController::class,'edukasi'])->name('edukasi'); // Edukasi untuk pasien
+Route::get('/pasien/service/reservasi',[UserController::class,'reservasi'])->name('reservasi'); // Template reservasi pasien
+Route::get('/pasien/service/reservasi/ruangan',[UserController::class,'ruangan'])->name('ruangan'); // Template jadwal ruangan pasien
+Route::get('/pasien/service/reservasi/invoice',[UserController::class,'total'])->name('harga'); // Template jadwal ruangan pasien
 
 
 
