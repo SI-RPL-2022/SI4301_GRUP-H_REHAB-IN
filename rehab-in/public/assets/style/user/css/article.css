@@ -20,6 +20,7 @@ html, body, main {
   #carousel-article div img {
     width: 400px;
     transition: width 1s;
+    border-radius: 30px;
   }
   #carousel-article div.hideLeft {
     left: 0%;
@@ -78,8 +79,54 @@ html, body, main {
   }
   
   .buttons {
-    position: fixed;
-    left: 50%;
+    position: relative;
+    left: 94%;
     transform: translateX(-50%);
     bottom: 10px;
+   
   }
+  .border-first-button a {
+    display: inline-block !important;
+    padding: 10px 20px !important;
+    color: #4da6e7 !important;
+    border: 1px solid #4da6e7 !important;
+    border-radius: 23px;
+    font-weight: 500 !important;
+    letter-spacing: 0.3px !important;
+    transition: all .5s;
+  }
+  
+  .border-first-button-join-us a {
+    display: inline-block !important;
+    padding: 10px 20px !important;
+    color: #ffff !important;
+    border: 1px solid #fff !important;
+    border-radius: 23px;
+    font-weight: 500 !important;
+    letter-spacing: 0.3px !important;
+    transition: all .5s;
+  }
+  
+  .border-first-button-join-us a:hover {
+    background-color: #fff;
+    color: #4da6e7 !important;
+  }
+  
+  
+  .border-first-button-login a {
+    display: inline-block !important;
+    padding: 5px 20px !important;
+    color: #4da6e7 !important;
+    /* border: 1px solid #4da6e7 !important; */
+    border-radius: 23px;
+    font-weight: 500 !important;
+    letter-spacing: 0.3px !important;
+    transition: all .5s;
+  }
+  
+  
+  .border-first-button a:hover {
+    background-color: #4da6e7;
+    color: #fff !important;
+  }
+  

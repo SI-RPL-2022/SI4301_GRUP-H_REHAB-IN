@@ -10,38 +10,38 @@
       <div id="carousel-article">
   
          <div class="hideLeft">
-          <img src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg">
+          <img src="{{asset('assets/style/user/images/article1.png')}}">
         </div>
   
         <div class="prevLeftSecond">
-          <img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg">
+          <img src="{{asset('assets/style/user/images/article2.png')}}">
         </div>
   
         <div class="prev">
-          <img src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg">
+          <img src="{{asset('assets/style/user/images/article3.png')}}">
         </div>
   
         <div class="selected">
-          <img src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg">
+          <img src="{{asset('assets/style/user/images/article1.png')}}">
         </div>
   
         <div class="next">
-          <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
+          <img src="{{asset('assets/style/user/images/article2.png')}}">
         </div>
   
         <div class="nextRightSecond">
-          <img src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg">
+          <img src="{{asset('assets/style/user/images/article3.png')}}">
         </div>
   
         <div class="hideRight">
-          <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
+          <img src="{{asset('assets/style/user/images/article1.png')}}">
         </div>
   
       </div>
   
       <div class="buttons">
-        <button id="prev">Prev</button>
-        <button id="next">Next</button>
+        <button id="prev" style="background-color: #4da6e7;padding: 5px 20px;color: white;border: 1px white solid;border-radius: 10px;box-shadow: none;">Prev</button>
+        <button id="next" style="background-color: #4da6e7;padding: 5px 20px;color: white;border: 1px white solid;border-radius: 10px;box-shadow: none;">Next</button>
       </div>
   
     </main>
