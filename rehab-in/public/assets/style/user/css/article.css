@@ -1,0 +1,85 @@
+html, body, main {
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #carousel-article {
+    position: relative;
+    height: 400px;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+  }
+  #carousel-article div {
+    position: absolute;
+    transition: transform 1s, left 1s, opacity 1s, z-index 0s;
+    opacity: 1;
+  }
+  #carousel-article div img {
+    width: 400px;
+    transition: width 1s;
+  }
+  #carousel-article div.hideLeft {
+    left: 0%;
+    opacity: 0;
+    transform: translateY(50%) translateX(-50%);
+  }
+  #carousel-article div.hideLeft img {
+    width: 200px;
+  }
+  #carousel-article div.hideRight {
+    left: 100%;
+    opacity: 0;
+    transform: translateY(50%) translateX(-50%);
+  }
+  #carousel-article div.hideRight img {
+    width: 200px;
+  }
+  #carousel-article div.prev {
+    z-index: 5;
+    left: 30%;
+    transform: translateY(50px) translateX(-50%);
+  }
+  #carousel-article div.prev img {
+    width: 300px;
+  }
+  #carousel-article div.prevLeftSecond {
+    z-index: 4;
+    left: 15%;
+    transform: translateY(50%) translateX(-50%);
+    opacity: 0.7;
+  }
+  #carousel-article div.prevLeftSecond img {
+    width: 200px;
+  }
+  #carousel-article div.selected {
+    z-index: 10;
+    left: 50%;
+    transform: translateY(0px) translateX(-50%);
+  }
+  #carousel-article div.next {
+    z-index: 5;
+    left: 70%;
+    transform: translateY(50px) translateX(-50%);
+  }
+  #carousel-article div.next img {
+    width: 300px;
+  }
+  #carousel-article div.nextRightSecond {
+    z-index: 4;
+    left: 85%;
+    transform: translateY(50%) translateX(-50%);
+    opacity: 0.7;
+  }
+  #carousel-article div.nextRightSecond img {
+    width: 200px;
+  }
+  
+  .buttons {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+  }

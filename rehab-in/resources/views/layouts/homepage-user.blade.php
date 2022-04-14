@@ -70,9 +70,9 @@
             <strong><p class="mt-4"> Hallo #NamePasien | How are you? </p></strong>
           </div>
         </nav>
-
-        {{-- <h2 class="mb-4">Halo, user! Semangatt 162!</h2> --}}
         @yield('main')
+        {{-- <h2 class="mb-4">Halo, user! Semangatt 162!</h2> --}}
+        
       </div>
 		</div>
 
