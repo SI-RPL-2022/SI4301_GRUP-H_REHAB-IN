@@ -8664,3 +8664,20 @@ Portfolio
   background-color: #4da6e7;
 }
 
+.schedule-card{
+  /* background-color:#4da6e7;  */
+  border-radius:23px;
+}
+
+.schedule-time-frame{
+  background-color: #eee;
+  border-radius: 20px;
+  max-height: 120px;
+  margin-top: 50px;
+}
+
+.schedule-content{
+  font-size: 17px;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+}

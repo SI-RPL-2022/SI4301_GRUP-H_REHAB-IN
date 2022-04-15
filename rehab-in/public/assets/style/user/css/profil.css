@@ -111,6 +111,14 @@ form#contactus #map iframe {
     padding: 80px 60px 80px 30px;
 }
 
+.user-pict-notes {
+    padding: 20px 60px 20px 30px;
+}
+
+.user-pict-schedule {
+    padding: 20px 20px 20px 0px;
+}
+
 .fill-form .info-post {
     margin-bottom: 20px;
 }
