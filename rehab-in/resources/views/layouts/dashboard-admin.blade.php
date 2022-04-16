@@ -116,16 +116,16 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">UI Utama:</h6>
-                        <a class="collapse-item" href="register.html">Konten Tips Kesehatan</a>
+                        <a class="collapse-item" href="{{ route('tipskesadm') }}">Konten Tips Kesehatan</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">UI Pasien:</h6>
                         <a class="collapse-item" href="{{ route('artikeladm') }}">Konten Artikel</a>
-                        <a class="collapse-item" href="blank.html">Jadwal Konsultasi</a>
-                        <a class="collapse-item" href="blank.html">Catatan Kesehatan</a>
-                        <a class="collapse-item" href="blank.html">Layanan Kami</a>
-                        <a class="collapse-item" href="blank.html">Layanan Kami - Reservasi</a>
-                        <a class="collapse-item" href="blank.html">Layanan Kami - Dokter</a>
-                        <a class="collapse-item" href="blank.html">Layanan Kami - Edukasi</a>
+                        <a class="collapse-item" href="{{ route('jadwalkons') }}">Jadwal Konsultasi</a>
+                        <a class="collapse-item" href="{{ route('catkes') }}">Catatan Kesehatan</a>
+                        <a class="collapse-item" href="{{ route('servicers') }}">Layanan Kami - RS</a>
+                        <a class="collapse-item" href="{{ route('servreserv') }}">Layanan Kami - Reservasi</a>
+                        <a class="collapse-item" href="{{ route('listdokter') }}">Layanan Kami - Dokter</a>
+                        <a class="collapse-item" href="{{ route('eduadm') }}">Layanan Kami - Edukasi</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">UI Dokter:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>

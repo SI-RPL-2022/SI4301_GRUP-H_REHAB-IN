@@ -14,6 +14,34 @@ class AdminController extends Controller
         return view('admin.article');
     }
 
+    public function tipskes(){
+        return view('admin.tips');
+    }
+
+    public function jadwalkonsul(){
+        return view('admin.jadwalkonsul');
+    }
+
+    public function notes(){
+        return view('admin.notes');
+    }
+
+    public function service(){
+        return view('admin.services');
+    }
+
+    public function reservasi(){
+        return view('admin.reservasi');
+    }
+
+    public function dokter(){
+        return view('admin.listdokter');
+    }
+
+    public function edukasi(){
+        return view('admin.edukasi');
+    }
+
     public function login(){
         return view('');
     }
