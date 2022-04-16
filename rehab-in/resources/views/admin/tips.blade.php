@@ -37,7 +37,7 @@
                                      Sit Amei Eiusmod TemporLorem Ipsum Dolor Sit Amei Eiusmod Tempor
                                     </td>
                                 <td>2011/04/25</td>
-                                <td>lorem.png</td>
+                                <td><img src="{{ asset('assets/style/images/tip1.png') }}" alt="" style="width:100%; border-radius:10px;" /></td>
                                 <td>
                                     <a href="#" class="btn btn-info btn-icon-split">
                                         <span class="icon text-white-50">
@@ -52,6 +52,7 @@
                                    
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>#2</td>
                                 <td>Lorem Ipsum Dolor Sit Amei Eiusmod Tempor</td>
@@ -61,7 +62,7 @@
                                      Sit Amei Eiusmod TemporLorem Ipsum Dolor Sit Amei Eiusmod Tempor
                                     </td>
                                 <td>2011/04/25</td>
-                                <td>lorem.png</td>
+                                <td><img src="{{ asset('assets/style/images/tip1.png') }}" alt="" style="width:100%; border-radius:10px;" /></td>
                                 <td>
                                     <a href="#" class="btn btn-info btn-icon-split">
                                         <span class="icon text-white-50">
@@ -76,30 +77,7 @@
                                    
                                 </td>
                             </tr>
-                            <tr>
-                                <td>#3</td>
-                                <td>Lorem Ipsum Dolor Sit Amei Eiusmod Tempor</td>
-                                <td>Denis</td>
-                                <td>Lorem Ipsum Dolor Sit Amei Eiusmod Tempor.
-                                    Lorem Ipsum Dolor Sit Amei Eiusmod TemporLorem Ipsum Dolor
-                                     Sit Amei Eiusmod TemporLorem Ipsum Dolor Sit Amei Eiusmod Tempor
-                                    </td>
-                                <td>2011/04/25</td>
-                                <td>lorem.png</td>
-                                <td>
-                                    <a href="#" class="btn btn-info btn-icon-split">
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-pencil-alt"></i>
-                                        </span>
-                                    </a>
-                                    <a href="#" class="btn btn-danger btn-icon-split">
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-trash"></i>
-                                        </span>
-                                    </a>
-                                   
-                                </td>
-                            </tr>
+                          
                             
                  
                            
