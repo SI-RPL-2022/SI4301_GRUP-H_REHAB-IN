@@ -60,4 +60,7 @@ class UserController extends Controller
     public function jadwal(){
         return view('user.jadwal');
     }
+    public function invoicedoc(){
+        return view('user.result');
+    }
 }

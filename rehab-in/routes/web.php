@@ -41,17 +41,20 @@ Route::get('/pasien/profile/edit',[UserController::class,'editprofile'])->name('
 Route::get('/pasien/consult',[UserController::class,'consult'])->name('user-consult'); // Chat manage for user
 Route::get('/pasien/service',[UserController::class,'services'])->name('user-services'); // Chat manage for user
 Route::get('/pasien/service/hospital',[UserController::class,'hospital'])->name('hospital'); // Tampilan hospital untuk pasien
+
 Route::get('/pasien/service/dokter',[UserController::class,'dokter'])->name('dokter'); // List dokter untuk pasien
-Route::get('/pasien/service/dokter/jadwal',[UserController::class,'jadwal'])->name('jadwal'); // List dokter untuk pasien
-Route::get('/pasien/service/edukasi',[UserController::class,'edukasi'])->name('edukasi'); // Edukasi untuk pasien
+Route::get('/pasien/service/dokter/jadwal',[UserController::class,'jadwal'])->name('jadwal'); // Input dokter untuk pasien
+Route::get('/pasien/service/dokter/invoice',[UserController::class,'invoicedoc'])->name('invoice'); // List dokter untuk pasien
+
 Route::get('/pasien/service/reservasi',[UserController::class,'reservasi'])->name('reservasi'); // Template reservasi pasien
 Route::get('/pasien/service/reservasi/ruangan',[UserController::class,'ruangan'])->name('ruangan'); // Template jadwal ruangan pasien
 Route::get('/pasien/service/reservasi/invoice',[UserController::class,'total'])->name('harga'); // Template jadwal ruangan pasien
 
+Route::get('/pasien/service/edukasi',[UserController::class,'edukasi'])->name('edukasi'); // Edukasi untuk pasien
 
 
 // //Admin
-// Route::get('/admin',[AdminController::class, 'index'])->name('landingadmin'); //Landing page for admin
+Route::get('/admin',[AdminController::class, 'index'])->name('landingadmin'); //Landing page for admin
 // Route::get('',[AdminController::class,'login'])->name('login'); //Login for
 // Route::get('',[AdminController::class,'register'])->name('register'); //Register for
 // Route::get('',[AdminController::class,'forgetpw'])->name('forgetpw'); // Forget password for

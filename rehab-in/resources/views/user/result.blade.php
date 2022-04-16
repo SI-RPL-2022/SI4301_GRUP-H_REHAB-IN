@@ -117,12 +117,14 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="#" method="POST" enctype="multipart/form-data">
+                                        {{-- <form action="#" method="POST" enctype="multipart/form-data"> --}}
+                                        <form>
                                             <div class="upload-container">
                                                 <input type="file" id="file_upload" />
                                             </div>
                                             <br>
-                                            <button class="btn btn-primary" onclick="uploadFiles()">Submit</button>
+                                            <a href="{{ route('') }}" class="btn btn-primary">SUBMIT</a>
+                                            {{-- <button class="btn btn-primary" onclick="uploadFiles()">Submit</button> --}}
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                         </form>
                                     </div>

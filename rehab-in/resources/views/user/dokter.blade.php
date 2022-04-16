@@ -47,9 +47,9 @@
                 <div class="card" style="width: 18em;">
                     <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title text-center">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    
+                    <h5 class="card-title text-center">Doctor's name</h5>
+                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fuga rerum assumenda, mollitia dolores perferendis et error! Ducimus, earum necessitatibus.</p>
+
                     <div class="mt-3 mb-3 text-center">
                         <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
                         <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
@@ -65,9 +65,9 @@
                 <div class="card" style="width: 18em;">
                     <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title text-center">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    
+                    <h5 class="card-title text-center">Doctor's name</h5>
+                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fuga rerum assumenda, mollitia dolores perferendis et error! Ducimus, earum necessitatibus.</p>
+
                     <div class="mt-3 mb-3 text-center">
                         <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
                         <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
@@ -83,9 +83,9 @@
                 <div class="card" style="width: 18em;">
                     <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title text-center">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    
+                    <h5 class="card-title text-center">Doctor's name</h5>
+                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fuga rerum assumenda, mollitia dolores perferendis et error! Ducimus, earum necessitatibus.</p>
+
                     <div class="mt-3 mb-3 text-center">
                         <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
                         <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
@@ -101,9 +101,9 @@
                 <div class="card" style="width: 18em;">
                     <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title text-center">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    
+                    <h5 class="card-title text-center">Doctor's name</h5>
+                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fuga rerum assumenda, mollitia dolores perferendis et error! Ducimus, earum necessitatibus.</p>
+
                     <div class="mt-3 mb-3 text-center">
                         <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
                         <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
@@ -119,9 +119,9 @@
                 <div class="card" style="width: 18em;">
                     <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title text-center">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    
+                    <h5 class="card-title text-center">Doctor's name</h5>
+                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fuga rerum assumenda, mollitia dolores perferendis et error! Ducimus, earum necessitatibus.</p>
+
                     <div class="mt-3 mb-3 text-center">
                         <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
                         <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
@@ -137,9 +137,9 @@
                 <div class="card" style="width: 18em;">
                     <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title text-center">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    
+                    <h5 class="card-title text-center">Doctor's name</h5>
+                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fuga rerum assumenda, mollitia dolores perferendis et error! Ducimus, earum necessitatibus.</p>
+
                     <div class="mt-3 mb-3 text-center">
                         <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
                         <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>

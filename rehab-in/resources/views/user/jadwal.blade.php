@@ -2,6 +2,12 @@
 @section('main')
     <div class="container">
         <div class="shadow-sm p-3 mb-5 bg-body rounded">
+            {{-- <a href="{{ route('dokter') }}">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary mb-4">
+                    <i class="fa fa-backward"></i>
+                    <span class="sr-only">Toggle Menu</span>
+                </button>
+            </a> --}}
             <div class="row">
                 <div class="col-3 ms-4">
                     <img src="{{ asset('assets\style\images\user-pict.png') }}" class="rounded" style="width:100%" alt="kamar">
@@ -21,31 +27,39 @@
    </div>
 
     <div class="container">
-       <div class="shadow-sm p-3 mb-5 bg-body rounded">
-           <div class="row">
-               <div class="col text-center">
-                    <i class="fa fa-users fa-5x mt-3 ms-4" style="color:grey" ></i>
-                    <p class="p-1 ms-4">Count<br>
-                    Pasien</p>
-               </div>
-               <div class="col text-center">
-                    <i class="fa fa-history fa-5x mt-3 ms-4" style="color:grey" ></i>
-                    <p class="p-1 ms-4">Count<br>
-                    Years experience</p>
-               </div>
-               <div class="col text-center">
-                    <i class="fa fa-thumbs-up fa-5x mt-3 ms-4" style="color:grey" ></i>
-                    <p class="p-1 ms-4">Count<br>
-                    LIKED</p>
-               </div>
-           </div>
-       </div>
-    </div>
-
-    <div class="container">
-        <div class="shadow-sm p-3 mb-5 bg-body rounded">
-            <form>
-                SOON
+        <div class="shadow-sm p-4 mb-5 bg-body rounded">
+            <form class="ms-4">
+                <h3> Masukan jadwal untuk reservasi</h3>
+                <div class="mb-3 row">
+                    <strong><label class="col-sm-2 col-form-label">Jam Kerja</label></strong>
+                    <div class="col-sm-10 ms-md-2">
+                        Value jam kerja
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <strong><label class="col-sm-2 col-form-label mb-1">Tipe konsultasi</label></strong>
+                    <div class="col-sm-3 ms-md-2">
+                        <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off">
+                        <label class="btn btn-outline-success" for="success-outlined">Google Meet (Online)</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" class="btn-check" name="options-outlined" id="primary-outlined" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="primary-outlined">Datang ke rumah sakit (Offline)</label>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <strong><label class="col-sm-2 col-form-label mb-1">Jenis keluhan</label></strong>
+                    <input type="text" class="form-control ms-3 col-11" placeholder="Jenis keluhan" aria-label="Username">
+                </div>
+                <div class="mb-3 row">
+                    <strong><label class="col-sm-2 col-form-label mb-1">Detail keluhan</label></strong>
+                    <textarea class="form-control ms-3 col-11" placeholder="Leave the detail here"></textarea>
+                </div>
+                <div class="mb-4 row ms-1">
+                    <a href="{{ route('invoice') }}" class="btn btn-primary me-3 col-sm-2">SUBMIT</a>
+                    <a href="{{ route('dokter') }}" class="btn btn-warning col-sm-2">CANCEL</a>
+                    {{-- <button type="button" class="btn btn-primary col-sm-1">SUBMIT</button> --}}
+                </div>
             </form>
         </div>
      </div>

@@ -1,16 +1,6 @@
-html, body, main {
-    width: 100%;
-    height: 50%;
-    margin: 0;
-    padding: 0;
-  }
-  
   #carousel-article {
     position: relative;
     height: 400px;
-    top: 50%;
-    transform: translateY(-50%);
-    overflow: hidden;
   }
   #carousel-article div {
     position: absolute;
@@ -77,13 +67,13 @@ html, body, main {
   #carousel-article div.nextRightSecond img {
     width: 200px;
   }
-  
+
   .buttons {
     position: relative;
     left: 94%;
     transform: translateX(-50%);
     bottom: 10px;
-   
+
   }
   .border-first-button a {
     display: inline-block !important;
@@ -95,7 +85,7 @@ html, body, main {
     letter-spacing: 0.3px !important;
     transition: all .5s;
   }
-  
+
   .border-first-button-join-us a {
     display: inline-block !important;
     padding: 10px 20px !important;
@@ -106,13 +96,13 @@ html, body, main {
     letter-spacing: 0.3px !important;
     transition: all .5s;
   }
-  
+
   .border-first-button-join-us a:hover {
     background-color: #fff;
     color: #4da6e7 !important;
   }
-  
-  
+
+
   .border-first-button-login a {
     display: inline-block !important;
     padding: 5px 20px !important;
@@ -123,10 +113,9 @@ html, body, main {
     letter-spacing: 0.3px !important;
     transition: all .5s;
   }
-  
-  
+
+
   .border-first-button a:hover {
     background-color: #4da6e7;
     color: #fff !important;
   }
-  
