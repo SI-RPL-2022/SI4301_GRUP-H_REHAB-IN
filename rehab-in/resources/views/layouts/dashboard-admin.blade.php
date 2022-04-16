@@ -49,7 +49,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('landingadmin') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -119,7 +119,7 @@
                         <a class="collapse-item" href="register.html">Konten Tips Kesehatan</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">UI Pasien:</h6>
-                        <a class="collapse-item" href="404.html">Konten Artikel</a>
+                        <a class="collapse-item" href="{{ route('artikeladm') }}">Konten Artikel</a>
                         <a class="collapse-item" href="blank.html">Jadwal Konsultasi</a>
                         <a class="collapse-item" href="blank.html">Catatan Kesehatan</a>
                         <a class="collapse-item" href="blank.html">Layanan Kami</a>
