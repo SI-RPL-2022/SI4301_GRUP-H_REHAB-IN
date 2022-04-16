@@ -56,7 +56,7 @@ Route::get('/pasien/service/edukasi',[UserController::class,'edukasi'])->name('e
 
 //Admin
 Route::get('/admin',[AdminController::class, 'index'])->name('landingadmin'); //Landing page for admin
-// Route::get('',[AdminController::class,'login'])->name('login'); //Login for
+Route::get('/admin/artikel',[AdminController::class,'artikel'])->name('artikeladm'); //Login for
 // Route::get('',[AdminController::class,'register'])->name('register'); //Register for
 // Route::get('',[AdminController::class,'forgetpw'])->name('forgetpw'); // Forget password for
 
