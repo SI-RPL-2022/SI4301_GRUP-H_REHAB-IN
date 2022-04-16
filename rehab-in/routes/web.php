@@ -4,6 +4,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -53,7 +54,7 @@ Route::get('/pasien/service/reservasi/invoice',[UserController::class,'total'])-
 Route::get('/pasien/service/edukasi',[UserController::class,'edukasi'])->name('edukasi'); // Edukasi untuk pasien
 
 
-// //Admin
+//Admin
 Route::get('/admin',[AdminController::class, 'index'])->name('landingadmin'); //Landing page for admin
 // Route::get('',[AdminController::class,'login'])->name('login'); //Login for
 // Route::get('',[AdminController::class,'register'])->name('register'); //Register for
