@@ -53,20 +53,12 @@ Route::get('/pasien/service/reservasi/invoice',[UserController::class,'total'])-
 
 Route::get('/pasien/service/edukasi',[UserController::class,'edukasi'])->name('edukasi'); // Edukasi untuk pasien
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4b1b5d95c2c49ebb23ef353e001b315988e49753
 // //Dokter
 // Route::get('/dokter',[DokterController::class, 'index'])->name('landingdokter'); //Landing page for Dokter
 // Route::get('',[DokterController::class,'login'])->name('login'); //Login for
 // Route::get('',[DokterController::class,'register'])->name('register'); //Register for
 // Route::get('',[DokterController::class,'forgetpw'])->name('forgetpw'); // Forget password for
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4b1b5d95c2c49ebb23ef353e001b315988e49753
 //Admin
 Route::get('/admin',[AdminController::class, 'index'])->name('landingadmin'); //Landing page for admin
 
@@ -82,11 +74,7 @@ Route::get('/admin/artikel',[AdminController::class,'artikel'])->name('artikelad
 Route::get('/admin/tips',[AdminController::class,'tipskes'])->name('tipskesadm'); //Register for
 Route::get('/admin/jadwalkons',[AdminController::class,'jadwalkonsul'])->name('jadwalkons'); // Forget password for
 Route::get('/admin/notes',[AdminController::class,'notes'])->name('catkes'); //catkes pasiens
-<<<<<<< HEAD
 Route::get('/admin/service',[AdminController::class,'service'])->name('servicers'); //catkes pasiens
-=======
-Route::get('/admin/service',[AdminController::class,'service'])->name('servicers'); //catkes pasiens 
->>>>>>> 4b1b5d95c2c49ebb23ef353e001b315988e49753
 Route::get('/admin/reservasi',[AdminController::class,'reservasi'])->name('servreserv'); //catkes pasiens
 Route::get('/admin/listdokter',[AdminController::class,'listdokter'])->name('listdokter'); //catkes pasiens
 Route::get('/admin/edukasi',[AdminController::class,'edukasi'])->name('eduadm'); //catkes pasiens
