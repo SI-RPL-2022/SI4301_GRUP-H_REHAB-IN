@@ -35,10 +35,6 @@ class UserController extends Controller
     public function editprofile(){
         return view('user.profile-edit');
     }
-
-    public function consult(){
-        return view('user.consult');
-    }
     public function services(){
         return view('user.service');
     }
@@ -62,5 +58,8 @@ class UserController extends Controller
     }
     public function invoicedoc(){
         return view('user.result');
+    }
+    public function konsultasi(){
+        return view('user.konsultasi');
     }
 }

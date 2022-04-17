@@ -123,7 +123,7 @@
                                                 <input type="file" id="file_upload" />
                                             </div>
                                             <br>
-                                            <a href="{{ route('') }}" class="btn btn-primary">SUBMIT</a>
+                                            <a href="#" class="btn btn-primary">SUBMIT</a>
                                             {{-- <button class="btn btn-primary" onclick="uploadFiles()">Submit</button> --}}
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                         </form>

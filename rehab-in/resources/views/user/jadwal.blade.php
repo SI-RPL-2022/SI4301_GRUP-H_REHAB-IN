@@ -55,6 +55,11 @@
                     <strong><label class="col-sm-2 col-form-label mb-1">Detail keluhan</label></strong>
                     <textarea class="form-control ms-3 col-11" placeholder="Leave the detail here"></textarea>
                 </div>
+                <div class="mb-3 row">
+                    <strong><label class="col-sm-2 col-form-label mb-1">Pilih Waktu</label></strong>
+                    <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="date">
+                </div>
+
                 <div class="mb-4 row ms-1">
                     <a href="{{ route('invoice') }}" class="btn btn-primary me-3 col-sm-2">SUBMIT</a>
                     <a href="{{ route('dokter') }}" class="btn btn-warning col-sm-2">CANCEL</a>

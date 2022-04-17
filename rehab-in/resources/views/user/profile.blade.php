@@ -23,7 +23,7 @@
                                                 <img src="{{ asset('assets/style/images/user-pict.png') }}" alt="" class="rounded-circle-profile">
                                             </div>
                                             <div class="col-lg-10 all-service-get-profile">
-                                                <h6 class="content">Jumlah Konsultasi : <em style="font-weight: bold;">20</em></h6>
+                                                <h6 class="content">Jumlah Konsultasi : <a href="#"><em style="font-weight: bold;">20</em></a></h6>
                                                 <h6 class="content">Jumlah Reservasi : <em style="font-weight: bold;">-</em></h6>
 
                                             </div>
