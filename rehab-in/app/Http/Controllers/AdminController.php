@@ -34,12 +34,24 @@ class AdminController extends Controller
         return view('admin.reservasi');
     }
 
-    public function dokter(){
+    public function listdokter(){
         return view('admin.listdokter');
     }
 
     public function edukasi(){
         return view('admin.edukasi');
+    }
+
+    public function dbpasien(){
+        return view('admin.dbpasien');
+    }
+
+    public function dbdokter(){
+        return view('admin.dbdokter');
+    }
+
+    public function kamar(){
+        return view('admin.kamar');
     }
 
     public function login(){

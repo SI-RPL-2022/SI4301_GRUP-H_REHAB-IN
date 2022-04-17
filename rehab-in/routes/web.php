@@ -64,6 +64,13 @@ Route::get('/pasien/service/edukasi',[UserController::class,'edukasi'])->name('e
 //Admin
 Route::get('/admin',[AdminController::class, 'index'])->name('landingadmin'); //Landing page for admin
 
+// User Management
+Route::get('/admin/dbpasien',[AdminController::class,'dbpasien'])->name('dbpasien'); //Login for
+Route::get('/admin/dbdokter',[AdminController::class,'dbdokter'])->name('dbdokter'); //Login for
+
+// Component Management
+Route::get('/admin/kamar',[AdminController::class,'kamar'])->name('kamar'); //Login for
+
 //Page Management
 Route::get('/admin/artikel',[AdminController::class,'artikel'])->name('artikeladm'); //Login for
 Route::get('/admin/tips',[AdminController::class,'tipskes'])->name('tipskesadm'); //Register for
@@ -71,5 +78,5 @@ Route::get('/admin/jadwalkons',[AdminController::class,'jadwalkonsul'])->name('j
 Route::get('/admin/notes',[AdminController::class,'notes'])->name('catkes'); //catkes pasiens
 Route::get('/admin/service',[AdminController::class,'service'])->name('servicers'); //catkes pasiens 
 Route::get('/admin/reservasi',[AdminController::class,'reservasi'])->name('servreserv'); //catkes pasiens
-Route::get('/admin/listdokter',[AdminController::class,'dokter'])->name('listdokter'); //catkes pasiens
+Route::get('/admin/listdokter',[AdminController::class,'listdokter'])->name('listdokter'); //catkes pasiens
 Route::get('/admin/edukasi',[AdminController::class,'edukasi'])->name('eduadm'); //catkes pasiens

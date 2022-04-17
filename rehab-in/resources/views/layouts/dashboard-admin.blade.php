@@ -111,6 +111,23 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
+                    <span>Manajemen User & Komponen Lainnya</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">User:</h6>
+                        <a class="collapse-item" href="{{ route('dbpasien') }}">Pasien</a>
+                        <a class="collapse-item" href="{{ route('dbdokter') }}">Dokter</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Komponen:</h6>
+                        <a class="collapse-item" href="{{ route('kamar') }}">Kamar</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
                     <span>Manajemen Konten</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
@@ -133,6 +150,7 @@
                     </div>
                 </div>
             </li>
+            
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
