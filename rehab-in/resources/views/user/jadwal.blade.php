@@ -57,7 +57,7 @@
                 </div>
                 <div class="mb-3 row">
                     <strong><label class="col-sm-2 col-form-label mb-1">Pilih Waktu</label></strong>
-                    <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="date">
+                    <input type="date" class="form-control ms-3 col-11" id="exampleFormControlInput1" placeholder="date">
                 </div>
 
                 <div class="mb-4 row ms-1">
