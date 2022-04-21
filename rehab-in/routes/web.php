@@ -54,7 +54,9 @@ Route::get('/pasien/service/reservasi/invoice',[UserController::class,'total'])-
 Route::get('/pasien/service/edukasi',[UserController::class,'edukasi'])->name('edukasi'); // Edukasi untuk pasien
 
 // //Dokter
-// Route::get('/dokter',[DokterController::class, 'index'])->name('landingdokter'); //Landing page for Dokter
+Route::get('/dokter',[DokterController::class, 'index'])->name('landingdokter'); //Landing page for Dokter
+Route::get('/dokter/profile',[DokterController::class, 'profile'])->name('profiledokter'); //Landing page for Dokter
+Route::get('/dokter',[DokterController::class, 'edit'])->name('editprofildokter'); //Landing page for Dokter
 // Route::get('',[DokterController::class,'login'])->name('login'); //Login for
 // Route::get('',[DokterController::class,'register'])->name('register'); //Register for
 // Route::get('',[DokterController::class,'forgetpw'])->name('forgetpw'); // Forget password for
