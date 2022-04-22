@@ -28,7 +28,6 @@
                             <th>Spesialis Keahlian</th>
                             <th>Jadwal Praktek</th>
                             <th>Tentang Dokter</th>
-                            <th>Rating Dokter</th>
                             <th>Kontak Dokter</th> 
                             <th style="width:11%;">Aksi</th>
                         </tr>
@@ -48,7 +47,6 @@
                                 Quae fuga rerum assumenda, mollitia dolores perferendis et error!
                                 Ducimus, earum necessitatibus.
                             </td>
-                            <td><i class="fas fa-star" style="color: orange;"> 5.0</i></td> 
                             <td>?</td>
                             <td>
                                 <a href="#" class="btn btn-info btn-icon-split">
