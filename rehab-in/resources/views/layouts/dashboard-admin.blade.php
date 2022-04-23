@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="_token" content="{{csrf_token()}}" />
 
     <title>Rehab-IN - Dashboard Admin</title>
 
@@ -489,7 +490,8 @@
     <script src="{{ asset('assets/style/admin/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('assets/style/admin/js/demo/chart-pie-demo.js') }}"></script>
     
-
+    <!-- javascript for artikel modal -->
+    @yield('script')
 </body>
 
 </html>

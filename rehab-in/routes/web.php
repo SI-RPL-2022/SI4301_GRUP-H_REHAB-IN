@@ -72,7 +72,9 @@ Route::get('/admin/kamar',[AdminController::class,'kamar'])->name('kamar'); //Lo
 
 //Page Management
 Route::get('/admin/artikel',[AdminController::class,'artikel'])->name('artikeladm'); //Login for
-Route::post('/admin/artikel/add',[AdminController::class,'addArtikel']); //Login for
+Route::get('/admin/artikel/{id}',[AdminController::class,'artikelid'])->name('adminartikelid'); //Login for
+Route::post('/admin/artikel/add',[AdminController::class,'addArtikel']); //add article by admin
+Route::put('/admin/artikel/update/',[AdminController::class,'updateArtikel']); //add article by admin
 
 
 

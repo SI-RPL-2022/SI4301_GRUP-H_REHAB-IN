@@ -14,8 +14,19 @@ class AdminController extends Controller
     public function artikel(){
 
         $artikel = Artikel::all();
-        return view('admin.article');
+        // dd($artikel);
+        return view('admin.article', compact('artikel'));
     }
+
+    public function artikelid($id){
+
+        $artikel = Artikel::find($id);
+        // dd($artikel);
+        return response()->json([
+            'data' => $artikel
+          ]);
+    }
+
 
     public function addArtikel(Request $request){
         
@@ -33,6 +44,24 @@ class AdminController extends Controller
 
         return redirect(route('artikeladm'));
     }
+
+    public function updateArtikel(Request $request){
+        $artikel = Artikel::find($request->id);
+        $artikel->judul_artikel=$request->judul_artikel;
+        $artikel->penulis=$request->penulis;
+        $gambar=$request->image_art;
+        if($gambar != null){
+            $gambar = time().'image'.'.'.$request->image_art->extension();
+            $request->image_art->move(public_path('images'),$gambar);
+            $artikel->image_art=$gambar;
+        }
+        
+        $artikel->konten=$request->konten;
+
+        $artikel->update();
+        return redirect(route('artikeladm'));
+    }
+
 
     public function tipskes(){
         return view('admin.tips');
