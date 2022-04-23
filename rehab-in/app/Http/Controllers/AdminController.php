@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Artikel;
 
 class AdminController extends Controller
 {
@@ -11,7 +12,26 @@ class AdminController extends Controller
     }
     
     public function artikel(){
+
+        $artikel = Artikel::all();
         return view('admin.article');
+    }
+
+    public function addArtikel(Request $request){
+        
+        $gambar = time().'image'.'.'.$request->image_art->extension();
+
+        $request->image_art->move(public_path('images'),$gambar);
+
+        $artikel = new Artikel();
+        $artikel->judul_artikel=$request->judul_artikel;
+        $artikel->penulis=$request->penulis;
+        $artikel->image_art=$gambar;
+        $artikel->konten=$request->konten;
+    
+        $artikel->save();
+
+        return redirect(route('artikeladm'));
     }
 
     public function tipskes(){
