@@ -62,6 +62,14 @@ class AdminController extends Controller
         return redirect(route('artikeladm'));
     }
 
+    public function deleteArtikel($id){
+        $artikel = Artikel::find($id);
+
+        $artikel->delete();
+
+
+        return redirect(route('artikeladm'));
+    }
 
     public function tipskes(){
         return view('admin.tips');

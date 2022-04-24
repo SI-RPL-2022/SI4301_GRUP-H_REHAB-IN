@@ -37,7 +37,7 @@
                                 <td>{{$item->konten}}
                                     </td>
                                 <td>{{$item->created_at}}</td>
-                                <td><img src="{{ asset('assets/style/images/artikel1.png') }}" alt="" style="width:100%;" /></td>
+                                <td><img src="{{asset('images/'.$item->image_art)}}" alt="" style="width:50%; border-radius:20px; margin:0px;" /></td>
                                 <td>
                                     <a  id="editArtikel" href="#" class="btn btn-info btn-icon-split"
                                     data-id="{{ $item->id }}">
@@ -46,7 +46,7 @@
                                         </span>
                                         
                                     </a>
-                                    <a href="#" class="btn btn-danger btn-icon-split">
+                                    <a href="/admin/artikel/delete/{{ $item->id }}" class="btn btn-danger btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-trash"></i>
                                         </span>
@@ -208,13 +208,14 @@ $('body').on('click', '#editArtikel', function (event) {
          $('#modalEditJudul_artikel').val(data.data.judul_artikel);
          $('#modalEditPenulis').val(data.data.penulis);
          $('#modalEditCreated_at').val(data.data.created_at.substring(0, 10));
-        //  $('#modalEditImage_art').val(data.data.image_art);
+         $('#modalEditImage_art').val(data.data.image_art);
          $('#modalEditKonten').val(data.data.konten);
 
 
        
      })
 });
+
 
 }); 
 

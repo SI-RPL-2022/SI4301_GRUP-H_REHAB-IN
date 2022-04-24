@@ -70,15 +70,19 @@ Route::get('/admin/dbdokter',[AdminController::class,'dbdokter'])->name('dbdokte
 // Component Management
 Route::get('/admin/kamar',[AdminController::class,'kamar'])->name('kamar'); //Login for
 
-//Page Management
-Route::get('/admin/artikel',[AdminController::class,'artikel'])->name('artikeladm'); //Login for
+//Page Management - ARTIKEL
+Route::get('/admin/artikel',[AdminController::class,'artikel'])->name('artikeladm'); //view for article at admin area
 Route::get('/admin/artikel/{id}',[AdminController::class,'artikelid'])->name('adminartikelid'); //Login for
 Route::post('/admin/artikel/add',[AdminController::class,'addArtikel']); //add article by admin
 Route::put('/admin/artikel/update/',[AdminController::class,'updateArtikel']); //add article by admin
+Route::get('/admin/artikel/delete/{id}',[AdminController::class,'deleteArtikel']); //add article by admin
 
-
-
+//Page Management - TIPS
 Route::get('/admin/tips',[AdminController::class,'tipskes'])->name('tipskesadm'); //Register for
+
+
+
+
 Route::get('/admin/jadwalkons',[AdminController::class,'jadwalkonsul'])->name('jadwalkons'); // Forget password for
 Route::get('/admin/notes',[AdminController::class,'notes'])->name('catkes'); //catkes pasiens
 Route::get('/admin/service',[AdminController::class,'service'])->name('servicers'); //catkes pasiens
