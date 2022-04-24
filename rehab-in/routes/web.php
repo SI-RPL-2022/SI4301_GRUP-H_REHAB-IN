@@ -78,8 +78,8 @@ Route::put('/admin/artikel/update/',[AdminController::class,'updateArtikel']); /
 Route::get('/admin/artikel/delete/{id}',[AdminController::class,'deleteArtikel']); //add article by admin
 
 //Page Management - TIPS
-Route::get('/admin/tips',[AdminController::class,'tipskes'])->name('tipskesadm'); //Register for
-
+Route::get('/admin/tips',[AdminController::class,'tipskes'])->name('tipskesadm'); //tips view at admin area
+Route::post('/admin/tips/add',[AdminController::class,'addTips']); //add tips by admin
 
 
 

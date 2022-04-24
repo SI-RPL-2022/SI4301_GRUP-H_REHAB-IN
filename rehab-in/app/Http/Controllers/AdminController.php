@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Artikel;
+use App\Models\Tip;
 
 class AdminController extends Controller
 {
@@ -72,7 +73,28 @@ class AdminController extends Controller
     }
 
     public function tipskes(){
+        $tips = Tip::all();
+        // dd($artikel);
         return view('admin.tips');
+        // return view('admin.tips');
+    }
+
+    public function addTips(Request $request){
+
+        $gambar = time().'image'.'.'.$request->image_tips->extension();
+
+        $request->image_tips->move(public_path('images'),$gambar);
+
+        $tips = new Tip();
+        $tips->judul_tips=$request->judul_tips;
+        $tips->penulis=$request->penulis;
+        $tips->image_tips=$gambar;
+        $tips->konten=$request->konten;
+    
+        $tips->save();
+
+        return redirect(route('tipskesadm'));
+        // return view('admin.tips');
     }
 
     public function jadwalkonsul(){

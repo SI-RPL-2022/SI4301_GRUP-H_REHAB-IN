@@ -22,7 +22,7 @@
                                 <th>Penulis</th>
                                 <th>Konten</th>
                                 <th>Tanggal Post</th>
-                                <th>Gambar</th>
+                                <th style="width: 20%;">Gambar</th>
                                 <th style="width:11%;">Aksi</th>
                             </tr>
                         </thead>
@@ -37,7 +37,7 @@
                                 <td>{{$item->konten}}
                                     </td>
                                 <td>{{$item->created_at}}</td>
-                                <td><img src="{{asset('images/'.$item->image_art)}}" alt="" style="width:50%; border-radius:20px; margin:0px;" /></td>
+                                <td><img src="{{asset('images/'.$item->image_art)}}" alt="" style="width:100%; border-radius:20px; margin:0px;" /></td>
                                 <td>
                                     <a  id="editArtikel" href="#" class="btn btn-info btn-icon-split"
                                     data-id="{{ $item->id }}">
