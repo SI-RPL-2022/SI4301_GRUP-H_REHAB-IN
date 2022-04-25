@@ -75,8 +75,18 @@ class AdminController extends Controller
     public function tipskes(){
         $tips = Tip::all();
         // dd($artikel);
-        return view('admin.tips');
+        return view('admin.tips', compact('tips'));
         // return view('admin.tips');
+    }
+
+
+    public function tipsid($id){
+
+        $tips = Tip::find($id);
+        // dd($artikel);
+        return response()->json([
+            'data' => $tips
+          ]);
     }
 
     public function addTips(Request $request){
@@ -96,6 +106,14 @@ class AdminController extends Controller
         return redirect(route('tipskesadm'));
         // return view('admin.tips');
     }
+
+    public function deleteTips($id){
+        $tips = Tip::find($id);
+        $tips->delete();
+        
+        return redirect(route('tipskesadm'));
+    }
+
 
     public function jadwalkonsul(){
         return view('admin.jadwalkonsul');

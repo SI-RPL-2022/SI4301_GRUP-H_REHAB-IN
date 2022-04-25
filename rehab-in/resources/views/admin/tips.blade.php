@@ -11,8 +11,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary" style="padding-bottom:10px;">Data Tips Kesehatan</h6>
-                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i
-                    class="fas fa-download fa-sm text-white-50"></i> Download CSV File</a>
+                
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -32,7 +31,7 @@
                     
                         <tbody>
 
-                            {{-- @foreach ($tips as $item) --}}
+                            @foreach ($tips as $item)
                             <tr>
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->judul_tips}}</td>
@@ -41,12 +40,12 @@
                                 <td>{{$item->created_at}}</td>
                                 <td><img src="{{asset('images/'.$item->image_tips)}}" alt="" style="width:100%; border-radius:10px;" /></td>
                                 <td>
-                                    <a href="#" class="btn btn-info btn-icon-split" data-toggle="modal" data-bs-target="#message">
+                                    <a id="editTips" href="#" class="btn btn-info btn-icon-split" data-id="{{ $item->id }}">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-pencil-alt"></i>
                                         </span>
                                     </a>
-                                    <a href="#" class="btn btn-danger btn-icon-split">
+                                    <a href="/admin/tips/delete/{{ $item->id }}" class="btn btn-danger btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-trash"></i>
                                         </span>
@@ -54,7 +53,7 @@
                                    
                                 </td>
                             </tr>
-                            {{-- @endforeach --}}
+                            @endforeach
 
                         </tbody>
                     </table>
@@ -120,5 +119,97 @@
   </div>
 
 
-    
+ <!-- Modal EDIT -->
+ <div class="modal fade" id="edit-tips" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        {{ Form::open(array('url' => '/admin/tips/update','method' => 'PUT', 'enctype'=> 'multipart/form-data')) }}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col-2">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Konten Tips</h5>
+                    </div>
+                    <div class="col-10" style="padding-left: 66%;">
+                        <input id="simpanModalEdit" type="submit" value="Simpan" class="btn btn-primary"/>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="col-12">
+                        <div class="row">
+                                <div class="col-2">
+
+                                    <label class="label-edit-article">Id</label><br>
+                                    <label class="label-edit-article">Judul Tips</label><br>
+                                    <label class="label-edit-article">Penulis</label><br>
+                                    <label class="label-edit-article">Tanggal Post</label><br>
+                                    <label class="label-edit-article">Gambar</label><br>
+                                    <label class="label-edit-article">Konten</label>
+
+                                </div>
+
+                                <div class="col-10">
+                                    
+                                    <input type="text" name="id" id="modalEditId" class="form-control form-control-user form-edit-article" value="" readonly>
+
+                                    <input type="text" name="judul_artikel" id="modalEditJudul_tips" value="" class="form-control form-control-user form-edit-article">
+
+                                    <input type="text" name="penulis" id="modalEditPenulis" value="" class="form-control form-control-user form-edit-article">
+
+                                    <input type="date" name="created_at" id="modalEditCreated_at" value="" class="form-control form-control-user form-edit-article" readonly>
+                                    
+                                    <input type="file" id="modalEditImage_tips" name="image_tips" style="margin-top:10px;">
+
+                                    <textarea name="konten" id="modalEditKonten" class="form-control form-control-user form-edit-article-konten"></textarea>
+                                
+                                </div>
+                                
+                            </div>
+                    </div>
+        
+                </div>
+
+                
+                
+
+            </div>
+        {{ Form::close() }}
+    </div>
+  </div>
+
+@endsection
+
+
+@section('script')
+<script>
+$(document).ready(function () {
+
+$('body').on('click', '#editTips', function (event) {
+
+  event.preventDefault();
+  
+  var id = $(this).data('id');
+  let url = "{{ route('admintipsid', ':id') }}";
+  url = url.replace(':id', id);
+  $.get(url, function (data) {
+      console.log(data);
+       $('#edit-tips').modal('show');
+       $('#modalEditId').val(data.data.id);
+       $('#modalEditJudul_tips').val(data.data.judul_tips);
+       $('#modalEditPenulis').val(data.data.penulis);
+       $('#modalEditCreated_at').val(data.data.created_at.substring(0, 10));
+       $('#modalEditImage_tips').val(data.data.image_tips);
+       $('#modalEditKonten').val(data.data.konten);
+
+
+     
+   })
+});
+
+
+}); 
+
+
+
+</script>
+
 @endsection

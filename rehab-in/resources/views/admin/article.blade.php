@@ -125,11 +125,6 @@
   </div>
 
 
-
-
-
-
-
  <!-- Modal EDIT -->
  <div class="modal fade" id="edit-article" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

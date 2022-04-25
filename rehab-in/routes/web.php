@@ -72,15 +72,17 @@ Route::get('/admin/kamar',[AdminController::class,'kamar'])->name('kamar'); //Lo
 
 //Page Management - ARTIKEL
 Route::get('/admin/artikel',[AdminController::class,'artikel'])->name('artikeladm'); //view for article at admin area
-Route::get('/admin/artikel/{id}',[AdminController::class,'artikelid'])->name('adminartikelid'); //Login for
+Route::get('/admin/artikel/{id}',[AdminController::class,'artikelid'])->name('adminartikelid'); //pick data by id
 Route::post('/admin/artikel/add',[AdminController::class,'addArtikel']); //add article by admin
-Route::put('/admin/artikel/update/',[AdminController::class,'updateArtikel']); //add article by admin
-Route::get('/admin/artikel/delete/{id}',[AdminController::class,'deleteArtikel']); //add article by admin
+Route::put('/admin/artikel/update/',[AdminController::class,'updateArtikel']); //update article by admin
+Route::get('/admin/artikel/delete/{id}',[AdminController::class,'deleteArtikel']); //del article by admin
 
 //Page Management - TIPS
 Route::get('/admin/tips',[AdminController::class,'tipskes'])->name('tipskesadm'); //tips view at admin area
+Route::get('/admin/tips/{id}',[AdminController::class,'tipsid'])->name('admintipsid'); //Login for
 Route::post('/admin/tips/add',[AdminController::class,'addTips']); //add tips by admin
-
+Route::put('/admin/tips/update/',[AdminController::class,'updateTips']); //update tips by admin
+Route::get('/admin/tips/delete/{id}',[AdminController::class,'deleteTips']); //del tips by admin
 
 
 Route::get('/admin/jadwalkons',[AdminController::class,'jadwalkonsul'])->name('jadwalkons'); // Forget password for
