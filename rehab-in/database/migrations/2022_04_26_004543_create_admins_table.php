@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tips', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->string('judul_tips');
-            $table->string('penulis');
-            $table->string('image_tips')->nullable();
-            $table->text('konten');
+            $table->string('nama_lengkap');
+            $table->string('email');
+            $table->string('username');
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tips');
+        Schema::dropIfExists('admins');
     }
 };

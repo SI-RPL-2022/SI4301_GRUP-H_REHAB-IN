@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Artikel;
 use App\Models\Tip;
+use App\Models\Admin;
 
 class AdminController extends Controller
 {
@@ -107,10 +108,28 @@ class AdminController extends Controller
         // return view('admin.tips');
     }
 
+
+    public function updateTips(Request $request){
+        $tips = Tip::find($request->id);
+        $tips->judul_tips=$request->judul_tips;
+        $tips->penulis=$request->penulis;
+        $gambar=$request->image_tips;
+        if($gambar != null){
+            $gambar = time().'image'.'.'.$request->image_tips->extension();
+            $request->image_tips->move(public_path('images'),$gambar);
+            $tips->image_tips=$gambar;
+        }
+        
+        $tips->konten=$request->konten;
+
+        $tips->update();
+        return redirect(route('tipskesadm'));
+    }
+
     public function deleteTips($id){
         $tips = Tip::find($id);
         $tips->delete();
-        
+
         return redirect(route('tipskesadm'));
     }
 
@@ -147,12 +166,32 @@ class AdminController extends Controller
         return view('admin.dbdokter');
     }
 
+    public function dbadmin(){
+        return view('admin.dbadmin');
+    }
+
+
+    public function addadmin(Request $request){
+
+        $admin = new Admin();
+        $admin->nama_lengkap=$request->nama_lengkap;
+        $admin->email=$request->email;
+        $admin->username=$request->username;
+        $admin->password=$request->password;
+    
+        $admin->save();
+
+        return redirect(route('dbadmin'));
+        // return view('admin.tips');
+    }
+
+
     public function kamar(){
         return view('admin.kamar');
     }
 
-    public function login(){
-        return view('');
+    public function loginadm(){
+        return view('admin.login');
     }
     public function register(){
         return view('');

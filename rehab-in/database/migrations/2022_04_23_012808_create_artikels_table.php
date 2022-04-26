@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('judul_artikel');
             $table->string('penulis');
             $table->string('image_art')->nullable();
-            $table->string('konten');
+            $table->text('konten');
             $table->timestamps();
         });
     }

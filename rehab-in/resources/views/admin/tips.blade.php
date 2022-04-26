@@ -151,7 +151,7 @@
                                     
                                     <input type="text" name="id" id="modalEditId" class="form-control form-control-user form-edit-article" value="" readonly>
 
-                                    <input type="text" name="judul_artikel" id="modalEditJudul_tips" value="" class="form-control form-control-user form-edit-article">
+                                    <input type="text" name="judul_tips" id="modalEditJudul_tips" value="" class="form-control form-control-user form-edit-article">
 
                                     <input type="text" name="penulis" id="modalEditPenulis" value="" class="form-control form-control-user form-edit-article">
 
