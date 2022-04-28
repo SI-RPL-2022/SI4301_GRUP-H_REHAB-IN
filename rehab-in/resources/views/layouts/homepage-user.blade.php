@@ -35,7 +35,7 @@
                             {{-- fa fa-cogs --}}
                         </li>
                         <li>
-                            <a href="{{ route('user-healthnotes') }}"><span class="fa fa-sticky-note"></span>Catatan Kesehatan</a>
+                            <a href="{{ route('history') }}"><span class="fa fa-sticky-note"></span>Riwayat Pembayaran</a>
                         </li>
 
                     </ul>

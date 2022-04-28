@@ -42,7 +42,7 @@ Route::get('/pasien/notes',[UserController::class,'notes'])->name('user-healthno
 Route::get('/pasien/profile/edit',[UserController::class,'editprofile'])->name('user-profile-edit'); // Profile manage for user
 Route::get('/pasien/service',[UserController::class,'services'])->name('user-services'); // Chat manage for user
 Route::get('/pasien/service/hospital',[UserController::class,'hospital'])->name('hospital'); // Tampilan hospital untuk pasien
-
+Route::get('/pasien/history/',[UserController::class,'history'])->name('history'); // Tampilan untuk history payment
 Route::get('/pasien/service/dokter',[UserController::class,'dokter'])->name('dokter'); // List dokter untuk pasien
 Route::get('/pasien/service/dokter/jadwal',[UserController::class,'jadwal'])->name('jadwal'); // Input dokter untuk pasien
 Route::get('/pasien/service/dokter/invoice',[UserController::class,'invoicedoc'])->name('invoice'); // invoice untuk pasien

@@ -62,4 +62,7 @@ class UserController extends Controller
     public function konsultasi(){
         return view('user.konsultasi');
     }
+    public function history(){
+        return view('user.historypayment');
+    }
 }

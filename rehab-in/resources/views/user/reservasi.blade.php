@@ -24,14 +24,6 @@
                     </a>
                 </div>
             </div>
-            <div class="col">
-                <div class="rounded text-center me-2 bg-primary text-white">
-                    <a href="">
-                        <i class="fa fa-book fa-5x  mt-3" style="color:white" ></i>
-                        <p class="p-1 text-white">Edukasi</p>
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
     <div class="container">
