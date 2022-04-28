@@ -9,8 +9,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>Rehab - IN Administrator Side</title>
 
+     <!-- Favicon -->
+     <link rel="shortcut icon" href="{{asset('assets/style/images/favicon-log.png')}}" type="image/x-icon" />
+     <link rel="apple-touch-icon" href="{{asset('assets/style/images/favicon-log.png')}}">
+ 
     <!-- Custom fonts for this template-->
     
     <link href="{{ asset('assets/style/admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">

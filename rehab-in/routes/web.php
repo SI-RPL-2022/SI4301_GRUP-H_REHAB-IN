@@ -69,7 +69,7 @@ Route::get('/pasien/service/edukasi',[UserController::class,'edukasi'])->name('e
 
 
 
-//Admin
+//ADMIN
 Route::get('/admin',[AdminController::class, 'index'])->name('landingadmin'); //Landing page for admin
 Route::get('/admin/login',[AdminController::class, 'loginadm'])->name('loginadm'); //Landing page for admin
 
@@ -79,7 +79,10 @@ Route::get('/admin/dbdokter',[AdminController::class,'dbdokter'])->name('dbdokte
 
 
 Route::get('/admin/dbadmin',[AdminController::class,'dbadmin'])->name('dbadmin'); //Login for
+Route::get('/admin/dbadmin/{id}',[AdminController::class,'dbadminid'])->name('dbadminid'); //Login for
 Route::post('/admin/dbadmin/add',[AdminController::class,'addadmin'])->name('addadmin'); //Login for
+Route::put('/admin/dbadmin/update/',[AdminController::class,'updateDadmin']); //update article by admin
+Route::get('/admin/dbadmin/delete/{id}',[AdminController::class,'delDadmin']); //update article by admin
 
 // Component Management
 Route::get('/admin/kamar',[AdminController::class,'kamar'])->name('kamar'); //Login for
