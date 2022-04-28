@@ -182,6 +182,7 @@ $(document).ready(function () {
 $('body').on('click', '#editDadmin', function (event) {
 
   event.preventDefault();
+
   
   var id = $(this).data('id');
   let url = "{{ route('dbadminid', ':id') }}";
