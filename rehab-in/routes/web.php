@@ -81,8 +81,12 @@ Route::get('/admin/dbdokter',[AdminController::class,'dbdokter'])->name('dbdokte
 Route::get('/admin/dbadmin',[AdminController::class,'dbadmin'])->name('dbadmin'); //Login for
 Route::post('/admin/dbadmin/add',[AdminController::class,'addadmin'])->name('addadmin'); //Login for
 
-// Component Management
-Route::get('/admin/kamar',[AdminController::class,'kamar'])->name('kamar'); //Login for
+// Page Management - KAMAR
+Route::get('/admin/kamar',[AdminController::class,'kamar'])->name('kamaradm'); //tampilan kamar
+Route::get('/admin/kamar/{id}',[AdminController::class,'kamarid'])->name('adminkamarid'); //comot id
+Route::post('/admin/kamar/add',[AdminController::class,'addKamar']); //tambah kamar (admin)
+Route::put('/admin/kamar/update/',[AdminController::class,'updateKamar']); //update kamar (admin)
+Route::get('/admin/kamar/delete/{id}',[AdminController::class,'deleteKamar']); //delete kamar (admin)
 
 //Page Management - ARTIKEL
 Route::get('/admin/artikel',[AdminController::class,'artikel'])->name('artikeladm'); //view for article at admin area

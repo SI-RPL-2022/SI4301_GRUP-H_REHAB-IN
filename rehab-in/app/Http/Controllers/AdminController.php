@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Artikel;
 use App\Models\Tip;
 use App\Models\Admin;
+use App\Models\Kamar;
 
 class AdminController extends Controller
 {
@@ -185,9 +186,65 @@ class AdminController extends Controller
         // return view('admin.tips');
     }
 
-
     public function kamar(){
+        $kamar = Kamar::all();
         return view('admin.kamar');
+    }
+
+    public function kamarid($id){
+
+        $kamar = Kamar::find($id);
+        return response()->json([
+            'data' => $kamar
+          ]);
+    }
+
+    public function addKamar(Request $request){
+        
+        $gambar = time().'image'.'.'.$request->pic->extension();
+
+        $request->pic->move(public_path('images'),$gambar);
+
+        $kamar = new Kamar();
+        $kamar->code=$request->code;
+        $kamar->name=$request->name;
+        $kamar->no_kamar=$request->no_kamar;
+        $kamar->kelas=$request->kelas;
+        $kamar->facility=$request->facility;
+        $kamar->price=$request->price;
+        $kamar->pic=$gambar;
+    
+        $kamar->save();
+
+        return redirect(route('kamaradm'));
+    }
+
+    public function updateKamar(Request $request){
+        $kamar = Kamar::find($request->id);
+        $kamar->code=$request->code;
+        $kamar->name=$request->name;
+        $kamar->no_kamar=$request->no_kamar;
+        $kamar->kelas=$request->kelas;
+        $kamar->facility=$request->facility;
+        $kamar->price=$request->price;
+        $gambar=$request->pic;
+        if($gambar != null){
+            $gambar = time().'image'.'.'.$request->pic->extension();
+            $request->pic->move(public_path('images'),$gambar);
+            $kamar->pic=$gambar;
+        }
+
+        $kamar->update();
+        return redirect(route('kamaradm'));
+    }
+
+    public function deleteKamar($id){
+        $kamar = Kamar::find($id);
+
+        $kamar->delete();
+
+
+        return redirect(route('kamaradm'));
     }
 
     public function loginadm(){
