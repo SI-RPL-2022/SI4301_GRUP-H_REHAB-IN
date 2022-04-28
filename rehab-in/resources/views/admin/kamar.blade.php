@@ -28,7 +28,7 @@
                             <th>Kelas</th>
                             <th>Fasilitas</th>
                             <th>Harga</th>
-                            <th>Rating</th> 
+                            
                             <th style="width:11%;">Aksi</th>
                         </tr>
                     </thead>
@@ -43,7 +43,7 @@
                             <td>Ekonomi</td>
                             <td>Sofa, AC, Kasur, Meja, Lemari, dll</td>
                             <td>Rp.150.000,00 / 12 Jam</td>
-                            <td><i class="fas fa-star" style="color: orange;"> 5.0</i></td>
+                            
                             <td>
                                 <a href="#" class="btn btn-info btn-icon-split">
                                     <span class="icon text-white-50">

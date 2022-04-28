@@ -5,8 +5,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\DokterController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +35,7 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 // //pasien
 Route::get('/pasien',[UserController::class,'index'])->name('landinguser'); //Londing page user after login
 Route::get('/login',[UserController::class,'login'])->name('login'); //Login for user
+Route::post('/login',[UserController::class,'authenticate'])->name('authenticate'); //Login process for all user
 Route::get('/register',[UserController::class,'register'])->name('register'); //Register for user
 Route::get('/forgetpw',[UserController::class,'forgetpw'])->name('forgetpw'); // Forget password for user
 Route::get('/pasien/history',[UserController::class,'riwayat'])->name('user-history'); //
@@ -53,30 +56,50 @@ Route::get('/pasien/service/reservasi/invoice',[UserController::class,'total'])-
 
 Route::get('/pasien/service/edukasi',[UserController::class,'edukasi'])->name('edukasi'); // Edukasi untuk pasien
 
-// //Dokter
-Route::get('/dokter',[DokterController::class, 'index'])->name('landingdokter'); //Landing page for Dokter
-Route::get('/dokter/profile',[DokterController::class, 'profile'])->name('profiledokter'); //Landing page for Dokter
-Route::get('/dokter',[DokterController::class, 'edit'])->name('editprofildokter'); //Landing page for Dokter
+//Dokter
 // Route::get('',[DokterController::class,'login'])->name('login'); //Login for
 // Route::get('',[DokterController::class,'register'])->name('register'); //Register for
 // Route::get('',[DokterController::class,'forgetpw'])->name('forgetpw'); // Forget password for
+Route::get('/dokter',[DokterController::class, 'index'])->name('landingdokter'); //Landing page for Dokter
+Route::get('/dokter/profile',[DokterController::class, 'profile'])->name('profiledokter'); //Profile dokter
+Route::get('/dokter/profile/edit',[DokterController::class, 'edit'])->name('editprofiledokter'); //Edit Profile dokter
 
 //Admin
 Route::get('/admin',[AdminController::class, 'index'])->name('landingadmin'); //Landing page for admin
+Route::get('/admin/login',[AdminController::class, 'loginadm'])->name('loginadm'); //Landing page for admin
 
 // User Management
 Route::get('/admin/dbpasien',[AdminController::class,'dbpasien'])->name('dbpasien'); //Login for
 Route::get('/admin/dbdokter',[AdminController::class,'dbdokter'])->name('dbdokter'); //Login for
+Route::POST('/admin/dbdokter/add',[AdminController::class,'adddokter'])->name('adddokter'); //Register for Dokter From Admin Page
+
+
+Route::get('/admin/dbadmin',[AdminController::class,'dbadmin'])->name('dbadmin'); //Login for
+Route::post('/admin/dbadmin/add',[AdminController::class,'addadmin'])->name('addadmin'); //Login for
 
 // Component Management
 Route::get('/admin/kamar',[AdminController::class,'kamar'])->name('kamar'); //Login for
 
-//Page Management
-Route::get('/admin/artikel',[AdminController::class,'artikel'])->name('artikeladm'); //Login for
-Route::get('/admin/tips',[AdminController::class,'tipskes'])->name('tipskesadm'); //Register for
+//Page Management - ARTIKEL
+Route::get('/admin/artikel',[AdminController::class,'artikel'])->name('artikeladm'); //view for article at admin area
+Route::get('/admin/artikel/{id}',[AdminController::class,'artikelid'])->name('adminartikelid'); //pick data by id
+Route::post('/admin/artikel/add',[AdminController::class,'addArtikel']); //add article by admin
+Route::put('/admin/artikel/update/',[AdminController::class,'updateArtikel']); //update article by admin
+Route::get('/admin/artikel/delete/{id}',[AdminController::class,'deleteArtikel']); //del article by admin
+
+//Page Management - TIPS
+Route::get('/admin/tips',[AdminController::class,'tipskes'])->name('tipskesadm'); //tips view at admin area
+Route::get('/admin/tips/{id}',[AdminController::class,'tipsid'])->name('admintipsid'); //Login for
+Route::post('/admin/tips/add',[AdminController::class,'addTips']); //add tips by admin
+Route::put('/admin/tips/update/',[AdminController::class,'updateTips']); //update tips by admin
+Route::get('/admin/tips/delete/{id}',[AdminController::class,'deleteTips']); //del tips by admin
+
+
 Route::get('/admin/jadwalkons',[AdminController::class,'jadwalkonsul'])->name('jadwalkons'); // Forget password for
 Route::get('/admin/notes',[AdminController::class,'notes'])->name('catkes'); //catkes pasiens
-Route::get('/admin/service',[AdminController::class,'service'])->name('servicers'); //catkes pasiens
+// Route::get('/admin/service',[AdminController::class,'service'])->name('servicers'); //catkes pasiens
 Route::get('/admin/reservasi',[AdminController::class,'reservasi'])->name('servreserv'); //catkes pasiens
 Route::get('/admin/listdokter',[AdminController::class,'listdokter'])->name('listdokter'); //catkes pasiens
-Route::get('/admin/edukasi',[AdminController::class,'edukasi'])->name('eduadm'); //catkes pasiens
+// Route::get('/admin/edukasi',[AdminController::class,'edukasi'])->name('eduadm'); //catkes pasiens
+
+

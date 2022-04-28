@@ -4,7 +4,7 @@
 {{-- TITLE --}}
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Table Dokter</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add-dokter"><i
         class="fas fa-plus fa-sm text-white-50"></i> Tambahkan dokter</a>
 </div>
 {{-- TITLE --}}
@@ -28,7 +28,6 @@
                             <th>Spesialis Keahlian</th>
                             <th>Jadwal Praktek</th>
                             <th>Tentang Dokter</th>
-                            <th>Rating Dokter</th>
                             <th>Kontak Dokter</th> 
                             <th style="width:11%;">Aksi</th>
                         </tr>
@@ -48,7 +47,6 @@
                                 Quae fuga rerum assumenda, mollitia dolores perferendis et error!
                                 Ducimus, earum necessitatibus.
                             </td>
-                            <td><i class="fas fa-star" style="color: orange;"> 5.0</i></td> 
                             <td>?</td>
                             <td>
                                 <a href="#" class="btn btn-info btn-icon-split">
@@ -100,5 +98,62 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal ADD Dokter -->
+ <div class="modal fade" id="add-dokter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="/admin/dbdokter/add" method="post" enctype="multipart/form-data">
+            @csrf
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-2">
+                    <h5 class="modal-title" id="exampleModalLabel">Tambahkan Dokter</h5>
+                </div>
+                <div class="col-10" style="padding-left: 66%;">
+                    <input type="submit" value="Tambah" class="btn btn-primary"/>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Batal</button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="col-12">
+                    
+                    <div class="row">
+                            <div class="col-2">
+                                <label class="label-edit-article">Nama Lengkap</label><br>
+                                <label class="label-edit-article">Email</label><br>
+                                {{-- <label class="label-edit-article">Tanggal Post</label><br> --}}
+                                <label class="label-edit-article">Username</label><br>
+                                <label class="label-edit-article">Password</label>
+
+                            </div>
+
+                            <div class="col-10">
+                                
+                                {{-- <input type="text" name="id_article" id="id_article" class="form-control form-control-user form-edit-article" value="#1" readonly> --}}
+
+                                <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control form-control-user form-edit-article">
+
+                                <input type="email" name="email" id="email" class="form-control form-control-user form-edit-article">
+
+                                {{-- <input type="date" name="tanggal_post" id="tanggal_post" value="" class="form-control form-control-user form-edit-article"> --}}
+                                
+                                <input type="text" name="username" id="username" class="form-control form-control-user form-edit-article">
+                                <input type="text" name="is_dokter" id="is_dokter" value="1" class="form-control form-control-user form-edit-article" hidden>
+
+                                <input type="password" name="password" id="password" class="form-control form-control-user form-edit-article">
+                            </div>    
+                        </div>
+                    
+                </div>
+    
+            </div>
+
+            
+            
+
+        </div>
+    </form>
+    </div>
+  </div>
 
 @endsection

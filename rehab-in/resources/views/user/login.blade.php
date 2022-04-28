@@ -4,7 +4,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <form id="contact" action="" method="post">
+          <form id="contact" action="/login" method="post">
+            @csrf
             <div class="row">
               <div class="col-lg-6">
                   <div class="img-register">
@@ -22,7 +23,7 @@
                         <input type="email" name="email" id="email" placeholder="Email" autocomplete="on" required>
                       </fieldset>
                       <fieldset>
-                        <input type="subject" name="subject" id="subject" placeholder="Password" autocomplete="on">
+                        <input type="password" name="password" id="password" placeholder="Password" autocomplete="on">
                       </fieldset>
                     </div>
 

@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class UserController extends Controller
 {
+    use AuthenticatesUsers;
+
     public function index(){
         return view('user.home');
     }
@@ -62,4 +66,29 @@ class UserController extends Controller
     public function konsultasi(){
         return view('user.konsultasi');
     }
+
+    public function authenticate(Request $request)
+    {   
+        $input = $request->all();
+   
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+   
+        if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
+        {
+            if (auth()->user()->is_dokter == 1) {
+                return redirect()->route('/dokter');
+            }else{
+                return redirect()->route('/pasien');
+            }
+        }else{
+            // return redirect()->route('login')
+            //     ->with('error','Email-Address And Password Are Wrong.');
+            dd('error');
+        }
+        
+    }
+
 }

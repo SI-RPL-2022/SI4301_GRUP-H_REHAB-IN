@@ -1,4 +1,4 @@
-@extends('layouts.homepage-user')
+@extends('layouts.homepage-dokter')
 
 @section('main')
 

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\controllers\controller;
 use Illuminate\Http\Request;
 
 class DokterController extends Controller
