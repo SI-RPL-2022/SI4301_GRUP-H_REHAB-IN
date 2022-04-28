@@ -17,7 +17,7 @@
 
               <div class="col-lg-12">
                 <div class="border-first-button-join-us scroll-to-section">
-                  <a href="{{ route('register') }}">Bergabung Sekarang</a>
+                  <a href="{{ route('register') }}" target="_blank">Bergabung Sekarang</a>
                 </div>
               </div>
             </div>
