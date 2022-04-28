@@ -46,6 +46,7 @@
                                         </span>
                                         
                                     </a>
+
                                     <a href="/admin/artikel/delete/{{ $item->id }}" class="btn btn-danger btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-trash"></i>

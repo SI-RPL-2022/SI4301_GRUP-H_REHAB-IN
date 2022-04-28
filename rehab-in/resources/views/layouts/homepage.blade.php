@@ -51,8 +51,8 @@
                 href="{{ route('about') }}">Contact Us</a></li>
 
 
-              <li class="scroll-to-section"><div class="border-first-button-login"><a href="{{ route('login') }}">Login</a></div></li>
-              <li class="scroll-to-section"><div class="border-first-button"><a href="{{ route('register') }}">Sign-Up</a></div></li>
+              <li class="scroll-to-section"><div class="border-first-button-login"><a href="{{ route('login') }}" target="_blank">Login</a></div></li>
+              <li class="scroll-to-section"><div class="border-first-button"><a href="{{ route('register') }}" target="_blank">Sign-Up</a></div></li>
             </ul>
             <a class='menu-trigger'>
                 <span>Menu</span>

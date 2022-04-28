@@ -168,9 +168,19 @@ class AdminController extends Controller
     }
 
     public function dbadmin(){
-        return view('admin.dbadmin');
+        $admin = Admin::all();
+        return view('admin.dbadmin', compact('admin'));
+
     }
 
+    public function dbadminid($id){
+
+        $admin = Admin::find($id);
+        // dd($artikel);
+        return response()->json([
+            'data' => $admin
+          ]);
+    }
 
     public function addadmin(Request $request){
 
@@ -186,6 +196,28 @@ class AdminController extends Controller
         // return view('admin.tips');
     }
 
+<<<<<<< .merge_file_a04912
+=======
+
+    public function updateDadmin(Request $request){
+        $admin = Admin::find($request->id);
+        $admin->nama_lengkap=$request->nama_lengkap;
+        $admin->email=$request->email;
+        $admin->username=$request->username;
+        $admin->password=$request->password;
+
+        $admin->update();
+        return redirect(route('dbadmin'));
+    }
+
+    public function delDadmin($id){
+        $admin = Admin::find($id);
+        $admin->delete();
+        return redirect(route('dbadmin'));
+    }
+
+
+>>>>>>> .merge_file_a19268
     public function kamar(){
         $kamar = Kamar::all();
         return view('admin.kamar');
@@ -257,3 +289,4 @@ class AdminController extends Controller
         return view('');
     }
 }
+
