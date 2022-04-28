@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('tips', function (Blueprint $table) {
             $table->id();
-            $table->string('judul_tips');
+            $table->string('judul');
             $table->string('penulis');
-            $table->string('image_tips')->nullable();
-            $table->text('konten');
+            $table->binary('pic');
+            $table->text('desc');
             $table->timestamps();
         });
     }

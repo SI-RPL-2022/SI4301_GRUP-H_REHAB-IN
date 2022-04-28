@@ -13,22 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orderkonsuls', function (Blueprint $table) {
+        Schema::create('listdokter', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
-            $table->string('detailkeluhan');
-            $table->unsignedBigInteger('patient');
-            $table->foreign('patient')->references('id')->on('users');
-            $table->string('patient_name');
-            $table->foreign('patient_name')->references('name')->on('users');
             $table->unsignedBigInteger('doctor');
             $table->foreign('doctor')->references('id')->on('dokterprofiles');
             $table->string('doctor_name');
             $table->foreign('doctor_name')->references('name')->on('dokterprofiles');
-            $table->boolean('pembayaran');
+            $table->binary('doctor_pic');
+            $table->foreign('doctor_pic')->references('pic')->on('dokterprofiles');
+            $table->binary('doctor_desc');
+            $table->foreign('doctor_desc')->references('desc')->on('dokterprofiles');
             $table->timestamps();
-            $table->rememberToken();
-
         });
     }
 
@@ -39,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orderkonsuls');
+        Schema::dropIfExists('listdokter');
     }
 };

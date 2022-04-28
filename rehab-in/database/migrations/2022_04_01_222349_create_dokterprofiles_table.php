@@ -15,7 +15,16 @@ return new class extends Migration
     {
         Schema::create('dokterprofiles', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('code');
+            $table->string('email');
+            $table->string('password');
+            $table->binary('pic');
+            $table->string('name');
+            $table->string('age');
+            $table->string('spesialis');
+            $table->string('jadwal_day');
+            $table->string('jadwal_time');
+            $table->text('desc');
         });
     }
 

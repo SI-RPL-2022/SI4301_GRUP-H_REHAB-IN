@@ -13,22 +13,22 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orderkonsuls', function (Blueprint $table) {
+        Schema::create('revkamar', function (Blueprint $table) {
             $table->id();
+            $table->string('kamar_id');
+            $table->foreign('kamar_id')->references('id')->on('kamars');
+            $table->binary('pic');
+            $table->foreign('pic')->references('pic')->on('kamars');
             $table->string('type');
-            $table->string('detailkeluhan');
+            $table->foreign('type')->references('type')->on('kamars');
             $table->unsignedBigInteger('patient');
             $table->foreign('patient')->references('id')->on('users');
             $table->string('patient_name');
             $table->foreign('patient_name')->references('name')->on('users');
-            $table->unsignedBigInteger('doctor');
-            $table->foreign('doctor')->references('id')->on('dokterprofiles');
-            $table->string('doctor_name');
-            $table->foreign('doctor_name')->references('name')->on('dokterprofiles');
-            $table->boolean('pembayaran');
-            $table->timestamps();
-            $table->rememberToken();
+            $table->date('checkin');
+            $table->pembayaran('boolean');
 
+            $table->timestamps();
         });
     }
 
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orderkonsuls');
+        Schema::dropIfExists('revkamar');
     }
 };
