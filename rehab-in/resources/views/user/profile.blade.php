@@ -17,7 +17,7 @@
                             <div class="info-post">
                                 <div class="icon">
                                     <div class="col-lg-12">
-                                        <h3 class="user-profile-name">Denis Gresan</h3>
+                                        <h3 class="user-profile-name">{{ $Data->name }}</h3>
                                         <div class="row">
                                             <div class="col-lg-2">
                                                 <img src="{{ asset('assets/style/images/user-pict.png') }}" alt="" class="rounded-circle-profile">
@@ -37,29 +37,24 @@
                     <div class="col-lg-12 user-profile-content">
                         <div class="user-profile-contentslist">
                             <label class="user-profile-label">Nama Lengkap</label>
-                            <p class="user-profile-label-p">Denis Gresan Yubelas</p>
+                            <p class="user-profile-label-p">{{ $Data->name }}</p>
                         </div>
                         <div class="user-profile-contentslist">
                             <label class="user-profile-label">Alamat Lengkap</label>
-                            <p class="user-profile-label-p">Jl. Telekomunikasi No.40, Kecamatan Bojongsoang, Bandung, Jawa Barat</p>
+                            <p class="user-profile-label-p">{{ $Data->address }}</p>
                         </div>
                         <div class="user-profile-contentslist">
-                            <label class="user-profile-label">Tempat Tanggal Lahir</label>
-                            <p class="user-profile-label-p">Nganjuk, 18 Agustus 2000</p>
-                        </div>
-                        <div class="user-profile-contentslist">
-                            <label class="user-profile-label">Usia</label>
-                            <p class="user-profile-label-p">21</p>
+                            <label class="user-profile-label">Tanggal Lahir</label>
+                            <p class="user-profile-label-p">{{ $Data->tanggallahir }}</p>
                         </div>
                         <div class="user-profile-contentslist">
                             <label class="user-profile-label">Nomor Hp</label>
-                            <p class="user-profile-label-p">081234567890</p>
+                            <p class="user-profile-label-p">{{ $Data->nohp }}</p>
                         </div>
                     </div>
-                    <div class="col-lg-4" style="margin-left: 50px" href="{{ route('user-profile-edit') }}">
-                      <fieldset>
-                        <button type="submit" id="form-submit" class="main-button">Edit Profil</button>
-                      </fieldset>
+                    <div class="row">
+                      <a href="#" type="button" class="col btn btn-outline-primary" style="margin-left: 63px">Edit Profil</a>
+                      <a href="{{ route('logout') }}" type="button" class="col btn btn-outline-danger">Logout</a>
                     </div>
                   </div>
                 </div>

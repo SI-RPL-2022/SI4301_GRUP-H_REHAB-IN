@@ -81,7 +81,7 @@
                             <a class="collapse-item" href="{{ route('dbadmin') }}">Administrator</a>
                             <div class="collapse-divider"></div>
                             <h6 class="collapse-header">Komponen:</h6>
-                            <a class="collapse-item" href="{{ route('kamar') }}">Kamar</a>
+                            <a class="collapse-item" href="{{ route('kamaradm') }}">Kamar</a>
                         </div>
                     </div>
                 </li>

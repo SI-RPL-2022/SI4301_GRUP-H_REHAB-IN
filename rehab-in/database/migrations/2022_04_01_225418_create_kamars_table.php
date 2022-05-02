@@ -14,14 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('kamars', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->bigIncrements('id',255)->unsigned();
             $table->string('no_kamar');
             $table->string('kelas');
             $table->string('facility');
             $table->string('code');
             $table->binary('pic');
-            $table->intdiv('price');
+            $table->integer('price');
+            $table->binary('gambar');
             $table->timestamps();
         });
     }

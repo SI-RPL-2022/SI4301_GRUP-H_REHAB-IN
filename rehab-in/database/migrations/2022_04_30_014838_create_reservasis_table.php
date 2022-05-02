@@ -13,22 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orderkonsuls', function (Blueprint $table) {
-            $table->id();
+        Schema::create('reservasis', function (Blueprint $table) {
+            $table->bigIncrements('id',255)->unsigned();
             $table->string('type');
             $table->string('detailkeluhan');
-            $table->unsignedBigInteger('patient');
+            $table->foreignId('patient')->unsigned();
             $table->foreign('patient')->references('id')->on('users');
-            $table->string('patient_name');
-            $table->foreign('patient_name')->references('name')->on('users');
-            $table->unsignedBigInteger('doctor');
-            $table->foreign('doctor')->references('id')->on('dokterprofiles');
-            $table->string('doctor_name');
-            $table->foreign('doctor_name')->references('name')->on('dokterprofiles');
+            $table->foreignId('doctor')->unsigned();
+            $table->foreign('doctor')->references('id')->on('dokter');
             $table->boolean('pembayaran');
             $table->timestamps();
-            $table->rememberToken();
-
         });
     }
 
@@ -39,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orderkonsuls');
+        Schema::dropIfExists('reservasis');
     }
 };

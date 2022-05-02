@@ -17,17 +17,11 @@
                             <div class="info-post">
                                 <div class="icon">
                                     <div class="col-lg-12">
-                                        <h3 class="user-profile-name">Denis Gresan</h3>
+                                        <h3 class="user-profile-name">{{ $data->name }}</h3>
                                         <div class="row">
-                                            <div class="col-lg-2">
-                                                <img src="{{ asset('assets/style/images/user-pict.png') }}" alt="" class="rounded-circle-profile">
-                                            </div>
-                                            <div class="col-lg-10 all-service-get-profile">
-                                                <h6 class="content">Jumlah Konsultasi : <em style="font-weight: bold;">20</em></h6>
-                                                <h6 class="content">Jumlah Reservasi : <em style="font-weight: bold;">-</em></h6>
-
-                                            </div>
-                                         </div>
+                                          <div class="col-lg-2">
+                                            <img src="{{ asset('assets/style/images/user-pict.png') }}" alt="" class="rounded-circle-profile">
+                                          </div>
                                     </div>
                                 </div>
                             </div>

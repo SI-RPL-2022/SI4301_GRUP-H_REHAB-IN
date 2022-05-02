@@ -50,9 +50,21 @@
               <li class="scroll-to-section"><a class="{{ request()->is('about') ? 'active nav-link' : 'nav-link' }}"
                 href="{{ route('about') }}">Contact Us</a></li>
 
-
-              <li class="scroll-to-section"><div class="border-first-button-login"><a href="{{ route('login') }}" target="_blank">Login</a></div></li>
-              <li class="scroll-to-section"><div class="border-first-button"><a href="{{ route('register') }}" target="_blank">Sign-Up</a></div></li>
+              @auth
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ auth()->user()->name }}
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/pasien">Dashboard</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a href="{{ route('logout') }}" type="submit" class="dropdown-item"><i class="fa fa-sign-out"></i> Logout</a></li>
+                  </ul>
+                </li>
+              @else
+                <li class="scroll-to-section"><div class="border-first-button-login"><a href="{{ route('login') }}" >Login</a></div></li>
+                <li class="scroll-to-section"><div class="border-first-button"><a href="{{ route('register') }}" >Sign-Up</a></div></li>
+              @endauth
             </ul>
             <a class='menu-trigger'>
                 <span>Menu</span>

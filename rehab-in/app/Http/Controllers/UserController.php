@@ -4,18 +4,62 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function index(){
-        return view('user.home');
-    }
     public function login(){
         return view('user.login');
     }
+
+    public function loginpasien(Request $request){
+        $credentials = $request->validate([
+            'email' => 'required|email:dns',
+            'password' => 'required|min:6'
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/pasien');
+        }
+ 
+        return back()->with('loginError','Login failed!');
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect ('/');
+    }
+
     public function register(){
         return view('user.register');
     }
+
+    public function registerpasien(Request $request){
+        
+        if($request->password == $request->confpw){
+            $validated = $request->validate([
+                'name' => 'required|max:255',
+                'email' => 'required|email:dns|unique:users',
+                'password' => 'required|min:6|max:255',
+                'nohp' => 'required|min:10|max:13',
+                'address' => 'required|min:10',
+                'tanggallahir' => 'required'
+            ]);
+
+            $validated['password'] = Hash::make($validated['password']);
+            User::create($validated);
+            return redirect('/login')->with('success', 'Registrasi Berhasil, plase login!');
+        }else{
+            return redirect('/register')->with('Failure','Password Tidak Sama');
+        }
+        
+    }
+
     public function forgetpw(){
         return view('user.forgetpw');
     }
@@ -28,12 +72,15 @@ class UserController extends Controller
         return view('user.notes');
     }
 
-    public function profile(){
-        return view('user.profile');
+    public function profile(Request $request){
+        $id = $request->id;
+        $Data = User::where('id',$id)->first();
+        return view('user.profile',compact('Data'));
     }
 
-    public function editprofile(){
-        return view('user.profile-edit');
+    public function editprofile($user){
+        $data = User::find($user);
+        return view('user.profile-edit')->with('data',$data);
     }
     public function services(){
         return view('user.service');

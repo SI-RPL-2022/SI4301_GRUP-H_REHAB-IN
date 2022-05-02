@@ -196,8 +196,6 @@ class AdminController extends Controller
         // return view('admin.tips');
     }
 
-<<<<<<< .merge_file_a04912
-=======
 
     public function updateDadmin(Request $request){
         $admin = Admin::find($request->id);
@@ -217,7 +215,6 @@ class AdminController extends Controller
     }
 
 
->>>>>>> .merge_file_a19268
     public function kamar(){
         $kamar = Kamar::all();
         return view('admin.kamar');

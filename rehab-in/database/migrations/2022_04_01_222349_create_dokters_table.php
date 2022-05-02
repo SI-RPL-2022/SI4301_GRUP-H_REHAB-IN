@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dokterprofiles', function (Blueprint $table) {
-            $table->id();
+        Schema::create('dokters', function (Blueprint $table) {
+            $table->bigIncrements('id',255)->unsigned();
             $table->string('code');
             $table->string('email');
             $table->string('password');

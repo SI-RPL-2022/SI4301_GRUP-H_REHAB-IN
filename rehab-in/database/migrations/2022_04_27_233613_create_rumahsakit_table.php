@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('rumahsakit', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id',255)->unsigned();
             $table->string('name');
             $table->text('desc');
             $table->binary('logo');

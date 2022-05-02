@@ -66,7 +66,7 @@
                                         </div> --}}
                                         
                                         <hr>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                        <a href="{{ route('landingadmin') }}" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </a>
                                     </form>

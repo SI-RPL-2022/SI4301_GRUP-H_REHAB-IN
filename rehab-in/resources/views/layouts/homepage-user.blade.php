@@ -58,7 +58,14 @@
                                 <i class="fa fa-bars"></i>
                                 <span class="sr-only">Side Menu</span>
                             </button>
-                            <strong><p class="mt-4"> Hallo <a href="{{ route('user-profile') }}">#NamePasien</a> | How are you? </p></strong>
+                            <strong><p class="mt-4 d-flex justify-content-center"> 
+                                Hallo 
+                                <form action="{{ route('user-profile') }}" method="POST" class="d-inline">
+                                    @csrf
+                                    <input type="text" name="id" id="id" class="form-control" value="{{ auth()->user()->id }}" hidden>
+                                    <button type="submit" class="btn btn-outline-primary">{{ auth()->user()->name }}</button>
+                                </form></p>
+                                {{-- <a href="{{ route('user-profile') }}">{{ auth()->user()->name }}</a> | How are you? </p></strong> --}}
                         </div>
                     </nav>
                     @yield('main')
