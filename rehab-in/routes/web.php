@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-
 | Web Routes
 |--------------------------------------------------------------------------
 |
@@ -33,29 +32,33 @@ Route::get('/tips', [HomeController::class, 'tips'])->name('tips');
 Route::get('/service', [ServiceController::class, 'index'])->name('service');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
-// //pasien
-Route::get('/pasien',function(){
-        return view('user.home');
-})->name('landinguser')->middleware('auth');; //Londing page user after login
 
 //Login for user
-Route::get('/login',[UserController::class,'login'])->name('login')->middleware('guest'); 
+Route::get('/login',[UserController::class,'login'])->name('login')->middleware('guest');
 Route::post('/login',[UserController::class,'loginpasien'])->name('masuk');
 
 //Logout for User
 Route::get('/logout',[UserController::class,'logout'])->name('logout');
 
 //Register for user
-Route::get('/register',[UserController::class,'register'])->name('register')->middleware('guest'); 
+Route::get('/register',[UserController::class,'register'])->name('register')->middleware('guest');
 Route::post('/register',[UserController::class,'registerpasien'])->name('registpasien');
 
+// Forget password
 Route::get('/forgetpw',[UserController::class,'forgetpw'])->name('forgetpw')->middleware('guest'); // Forget password for user
+
+// Dashboard Pasien
+Route::get('/pasien',function(){
+    return view('user.home');
+})->name('landinguser')->middleware('auth'); //Londing page user after login
+
+// Profile Pasien
+Route::get('/pasien/profile/',[UserController::class,'profile'])->name('user-profile')->middleware('auth');; // Profile manage for user
+Route::get('/pasien/profile/edit/',[UserController::class,'show'])->name('editprofile')->middleware('auth');; // Profile manage for user
+Route::post('/pasien/profile',[UserController::class,'updateprofile'])->name('updateprofileuser')->middleware('auth'); //FORM POST UPDATE FOR USER
+
 Route::get('/pasien/history',[UserController::class,'riwayat'])->name('user-history')->middleware('auth'); //
-Route::post('/pasien/profile',[UserController::class,'profile'])->name('user-profile')->middleware('auth');; // Profile manage for user
-Route::get('/pasien/notes',[UserController::class,'notes'])->name('user-healthnotes')->middleware('auth');; // Profile manage for user
-Route::get('/pasien/profile/{user}/edit',[UserController::class,'editprofile'], function(User $user){
-        return $user->id;
-})->name('user-profile-edit')->middleware('auth');; // Profile manage for user
+Route::get('/pasien/notes',[UserController::class,'notes'])->name('user-healthnotes')->middleware('auth');; // Notes for user
 Route::get('/pasien/service',[UserController::class,'services'])->name('user-services')->middleware('auth');; // Chat manage for user
 Route::get('/pasien/service/hospital',[UserController::class,'hospital'])->name('hospital')->middleware('auth');; // Tampilan hospital untuk pasien
 Route::get('/pasien/history/',[UserController::class,'history'])->name('history')->middleware('auth');; // Tampilan untuk history payment

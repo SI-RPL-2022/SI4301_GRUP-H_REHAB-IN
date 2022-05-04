@@ -24,7 +24,6 @@ class UserController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/pasien');
         }
- 
         return back()->with('loginError','Login failed!');
     }
 
@@ -40,7 +39,7 @@ class UserController extends Controller
     }
 
     public function registerpasien(Request $request){
-        
+
         if($request->password == $request->confpw){
             $validated = $request->validate([
                 'name' => 'required|max:255',
@@ -57,7 +56,7 @@ class UserController extends Controller
         }else{
             return redirect('/register')->with('Failure','Password Tidak Sama');
         }
-        
+
     }
 
     public function forgetpw(){
@@ -72,16 +71,45 @@ class UserController extends Controller
         return view('user.notes');
     }
 
-    public function profile(Request $request){
-        $id = $request->id;
-        $Data = User::where('id',$id)->first();
-        return view('user.profile',compact('Data'));
+    public function profile(){
+        $user = Auth::User();
+        return view('user.profile',compact('user'));
     }
 
-    public function editprofile($user){
-        $data = User::find($user);
-        return view('user.profile-edit')->with('data',$data);
+    public function show(){
+        $user = Auth::User();
+        return view('user.profile-edit', compact('user'));
     }
+
+    public function updateprofile(Request $request){
+        //validate form
+        $this->validate($request, [
+            'pic'     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name' => 'max:255',
+            'nohp' => 'min:10|max:13',
+            'address' => 'min:10',
+        ]);
+
+        //upload image
+
+        $Name = $request->pic->getClientOriginalName() . '-' . time()
+        . '.' . $request->pic->extension();
+        $request->pic->move(public_path('userProfile'),$Name);
+
+        $id = $request->id;
+        //create post
+        User::find($id)->update([
+            'pic'     => $Name,
+            'name'     => $request->name,
+            'nohp'     => $request->nohp,
+            'address'     => $request->address,
+            'tanggallahir'   => $request->tanggallahir
+        ]);
+
+        //redirect to index
+        return redirect()->route('user-profile')->with(['success' => 'Data Berhasil Disimpan!']);
+    }
+
     public function services(){
         return view('user.service');
     }

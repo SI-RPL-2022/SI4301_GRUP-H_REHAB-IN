@@ -7,72 +7,106 @@
       <div class="row">
 
         <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <form id="contact" action="" method="post">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="user-pict">
-                  <div class="row">
+            <form id="contact" action="{{ route('updateprofileuser') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="row">
                     <div class="col-lg-12">
-                        <h4 class="user-profile-header">Profile pasien</h4>
-                            <div class="info-post">
-                                <div class="icon">
-                                    <div class="col-lg-12">
-                                        <h3 class="user-profile-name">{{ $data->name }}</h3>
-                                        <div class="row">
-                                          <div class="col-lg-2">
-                                            <img src="{{ asset('assets/style/images/user-pict.png') }}" alt="" class="rounded-circle-profile">
-                                          </div>
+                        <div class="user-pict">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h4 class="user-profile-header">Profile pasien</h4>
+                                    <div class="info-post">
+                                        <div class="icon">
+                                            <div class="col-lg-12">
+                                                <h3 class="user-profile-name">{{ $user->name }}</h3>
+                                                <div class="row">
+                                                <div class="col-lg-2">
+                                                    @if( $user->pic === null)
+                                                        <img src="{{ asset('assets/style/images/user-pict.png') }}" alt="" class="rounded-circle-profile">
+                                                    @else
+                                                        <img src="{{ asset('userProfile/'.$user->pic) }}" alt="" class="rounded-circle-profile">
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+
+
+                            <div class="col-lg-12 user-profile-content">
+                                <div class="fill-form">
+                                    <input type="number" name="id" id="id" value="{{ $user->id }}" hidden>
+                                    <div classs="user-profile-contentslist">
+                                        <h4 class="text-center">Ubah profile dengan benar</h4>
+                                    </div>
+                                    <div class="user-profile-contentslist">
+                                        <label class="user-profile-label">Nama Lengkap</label>
+                                        <fieldset>
+                                            <input type="name" name="name" id="name" placeholder="Nama Lengkap" class="@error('name') is-invalid @enderror" >
+                                            @error('name')
+                                                <div class="alert alert-danger mt-2">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </fieldset>
+                                    </div>
+                                    <div class="user-profile-contentslist">
+                                        <label class="user-profile-label">Alamat Lengkap</label>
+                                        <fieldset>
+                                            <input type="text" name="address" id="address" placeholder="Alamat Lengkap" class="@error('address') is-invalid @enderror">
+                                            @error('address')
+                                                <div class="alert alert-danger mt-2">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </fieldset>
+                                    </div>
+                                    <div class="user-profile-contentslist">
+                                        <label class="user-profile-label">Tempat Tanggal Lahir</label>
+                                        <fieldset>
+                                            <input type="date" name="tanggallahir" id="tanggallahir" placeholder="Tempat Tanggal Lahir" class="@error('tanggallahir') is-invalid @enderror">
+                                            @error('date')
+                                                <div class="alert alert-danger mt-2">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </fieldset>
+                                    </div>
+                                    <div class="user-profile-contentslist">
+                                        <label class="user-profile-label">Nomor Hp</label>
+                                        <fieldset>
+                                            <input type="number" name="nohp" id="nohp" placeholder="Nomor Hp" class="@error('nohp') is-invalid @enderror">
+                                            @error('nohp')
+                                                <div class="alert alert-danger mt-2">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </fieldset>
+                                    </div>
+                                    <div class="user-profile-contentslist">
+                                        <label class="user-profile-label">Upload foto profile</label>
+                                        <fieldset>
+                                            <input type="file" name="pic" class="@error('pic') is-invalid @enderror">
+                                            @error('pic')
+                                                <div class="alert alert-danger mt-2">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </fieldset>
                                     </div>
                                 </div>
                             </div>
-                    </div>
 
-
-                    <div class="col-lg-12 user-profile-content">
-                        <div class="fill-form">
-                            <div class="user-profile-contentslist">
-                                <label class="user-profile-label">Nama Lengkap</label>
-                                <fieldset>
-                                    <input type="name" name="name" id="name" placeholder="Nama Lengkap" autocomplete="on" required>
-                                </fieldset>
-                            </div>
-                            <div class="user-profile-contentslist">
-                                <label class="user-profile-label">Alamat Lengkap</label>
-                                <fieldset>
-                                    <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Nomor Hp" required="">
-                                  </fieldset>
-                            </div>
-                            <div class="user-profile-contentslist">
-                                <label class="user-profile-label">Tempat Tanggal Lahir</label>
-                                <fieldset>
-                                    <input type="subject" name="subject" id="subject" placeholder="Tempat Tanggal Lahir" autocomplete="on">
-                                  </fieldset>
-                            </div>
-                            <div class="user-profile-contentslist">
-                                <label class="user-profile-label">Usia</label>
-                                <fieldset>
-                                    <input type="subject" name="subject" id="subject" placeholder="Usia" autocomplete="on">
-                                  </fieldset>
-                            </div>
-                            <div class="user-profile-contentslist">
-                                <label class="user-profile-label">Nomor Hp</label>
-                                <fieldset>
-                                    <input type="subject" name="subject" id="subject" placeholder="Nomor Hp" autocomplete="on">
-                                  </fieldset>
+                            <div class="col-lg-4" style="margin-left: 50px">
+                            <fieldset>
+                                <button type="submit" id="form-submit" class="main-button">Update Profil</button>
+                            </fieldset>
                             </div>
                         </div>
+                        </div>
                     </div>
-                  
-                    <div class="col-lg-4" style="margin-left: 50px" href="{{ route('user-profile-edit') }}"> 
-                      <fieldset>
-                        <button type="submit" id="form-submit" class="main-button">Update Profil</button>
-                      </fieldset>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-          </form>
+            </form>
         </div>
       </div>
     </div>

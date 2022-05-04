@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('tanggallahir');
             $table->string('address');
-            $table->bigInteger('nohp'); 
-            $table->binary('pic')->nullable();
+            $table->bigInteger('nohp');
+            $table->string('pic',1000)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
