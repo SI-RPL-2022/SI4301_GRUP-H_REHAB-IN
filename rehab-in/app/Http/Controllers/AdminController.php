@@ -93,15 +93,15 @@ class AdminController extends Controller
 
     public function addTips(Request $request){
 
-        $gambar = time().'image'.'.'.$request->image_tips->extension();
+        $gambar = time().'image'.'.'.$request->pic->extension();
 
-        $request->image_tips->move(public_path('images'),$gambar);
+        $request->pic->move(public_path('images'),$gambar);
 
         $tips = new Tip();
-        $tips->judul_tips=$request->judul_tips;
+        $tips->judul=$request->judul;
         $tips->penulis=$request->penulis;
-        $tips->image_tips=$gambar;
-        $tips->konten=$request->konten;
+        $tips->pic=$gambar;
+        $tips->desc=$request->desc;
     
         $tips->save();
 
@@ -112,16 +112,16 @@ class AdminController extends Controller
 
     public function updateTips(Request $request){
         $tips = Tip::find($request->id);
-        $tips->judul_tips=$request->judul_tips;
+        $tips->judul=$request->judul;
         $tips->penulis=$request->penulis;
-        $gambar=$request->image_tips;
+        $gambar=$request->pic;
         if($gambar != null){
-            $gambar = time().'image'.'.'.$request->image_tips->extension();
-            $request->image_tips->move(public_path('images'),$gambar);
-            $tips->image_tips=$gambar;
+            $gambar = time().'image'.'.'.$request->pic->extension();
+            $request->pic->move(public_path('images'),$gambar);
+            $tips->pic=$gambar;
         }
         
-        $tips->konten=$request->konten;
+        $tips->desc=$request->desc;
 
         $tips->update();
         return redirect(route('tipskesadm'));

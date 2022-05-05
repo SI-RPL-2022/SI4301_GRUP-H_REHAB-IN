@@ -34,11 +34,11 @@
                             @foreach ($tips as $item)
                             <tr>
                                 <td>{{$item->id}}</td>
-                                <td>{{$item->judul_tips}}</td>
+                                <td>{{$item->judul}}</td>
                                 <td>{{$item->penulis}}</td>
-                                <td>{{$item->konten}}</td>
+                                <td>{{$item->desc}}</td>
                                 <td>{{$item->created_at}}</td>
-                                <td><img src="{{asset('images/'.$item->image_tips)}}" alt="" style="width:100%; border-radius:10px;" /></td>
+                                <td><img src="{{asset('images/'.$item->pic)}}" alt="" style="width:100%; border-radius:10px;" /></td>
                                 <td>
                                     <a id="editTips" href="#" class="btn btn-info btn-icon-split" data-id="{{ $item->id }}">
                                         <span class="icon text-white-50">
@@ -93,15 +93,15 @@
                                 
                                 {{-- <input type="text" name="id_article" id="id_article" class="form-control form-control-user form-edit-article" value="#1" readonly> --}}
 
-                                <input type="text" name="judul_tips" id="judul_tips" class="form-control form-control-user form-edit-article">
+                                <input type="text" name="judul" id="judul" class="form-control form-control-user form-edit-article">
 
                                 <input type="text" name="penulis" id="penulis" class="form-control form-control-user form-edit-article">
 
                                 {{-- <input type="date" name="tanggal_post" id="tanggal_post" value="" class="form-control form-control-user form-edit-article"> --}}
                                 
-                                <input type="file" id="image_tips" name="image_tips" style="margin-top:10px;">
+                                <input type="file" id="pic" name="pic" style="margin-top:10px;">
 
-                                <textarea name="konten" id="konten" class="form-control form-control-user form-edit-article-konten"></textarea>
+                                <textarea name="desc" id="desc" class="form-control form-control-user form-edit-article-konten"></textarea>
                             
                             </div>    
                         </div>
@@ -151,15 +151,15 @@
                                     
                                     <input type="text" name="id" id="modalEditId" class="form-control form-control-user form-edit-article" value="" readonly>
 
-                                    <input type="text" name="judul_tips" id="modalEditJudul_tips" value="" class="form-control form-control-user form-edit-article">
+                                    <input type="text" name="judul" id="modalEditJudul_tips" value="" class="form-control form-control-user form-edit-article">
 
                                     <input type="text" name="penulis" id="modalEditPenulis" value="" class="form-control form-control-user form-edit-article">
 
                                     <input type="date" name="created_at" id="modalEditCreated_at" value="" class="form-control form-control-user form-edit-article" readonly>
                                     
-                                    <input type="file" id="modalEditImage_tips" name="image_tips" style="margin-top:10px;">
+                                    <input type="file" id="modalEditImage_tips" name="pic" style="margin-top:10px;">
 
-                                    <textarea name="konten" id="modalEditKonten" class="form-control form-control-user form-edit-article-konten"></textarea>
+                                    <textarea name="desc" id="modalEditKonten" class="form-control form-control-user form-edit-article-konten"></textarea>
                                 
                                 </div>
                                 
@@ -194,11 +194,11 @@ $('body').on('click', '#editTips', function (event) {
       console.log(data);
        $('#edit-tips').modal('show');
        $('#modalEditId').val(data.data.id);
-       $('#modalEditJudul_tips').val(data.data.judul_tips);
+       $('#modalEditJudul_tips').val(data.data.judul);
        $('#modalEditPenulis').val(data.data.penulis);
        $('#modalEditCreated_at').val(data.data.created_at.substring(0, 10));
-       $('#modalEditImage_tips').val(data.data.image_tips);
-       $('#modalEditKonten').val(data.data.konten);
+       $('#modalEditImage_tips').val(data.data.pic);
+       $('#modalEditKonten').val(data.data.desc);
 
 
      
