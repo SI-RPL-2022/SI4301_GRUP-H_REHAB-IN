@@ -7,6 +7,10 @@ use App\Models\Artikel;
 use App\Models\Tip;
 use App\Models\Admin;
 use App\Models\Kamar;
+use App\Models\Notesehat;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 
 class AdminController extends Controller
 {
@@ -140,8 +144,22 @@ class AdminController extends Controller
     }
 
     public function notes(){
-        return view('admin.notes');
+
+        $notesehat = Notesehat::all();
+        // dd($artikel);
+        return view('admin.notes', compact('notesehat'));
+
     }
+
+    public function notesid($id){
+
+        $notesehat = Notesehat::find($id);
+        // dd($artikel);
+        return response()->json([
+            'data' => $notesehat
+          ]);
+    }
+
 
     public function service(){
         return view('admin.services');
@@ -217,7 +235,10 @@ class AdminController extends Controller
 
     public function kamar(){
         $kamar = Kamar::all();
-        return view('admin.kamar');
+        // dd($artikel);
+        return view('admin.kamar', compact('kamar'));
+
+        
     }
 
     public function kamarid($id){
@@ -279,6 +300,25 @@ class AdminController extends Controller
     public function loginadm(){
         return view('admin.login');
     }
+
+    public function authadm(Request $request){
+        // dd($request);
+        $cred = $request->validate([
+            'email' => 'required|email:dns',
+            'password' => 'required|min:6',
+            'role' => '1'
+        ]);
+
+        // dd("after validate");
+        if (Auth::attempt($cred)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/admin');
+        }
+        return back()->with('loginError','Login failed!');
+
+    }
+
+
     public function register(){
         return view('');
     }

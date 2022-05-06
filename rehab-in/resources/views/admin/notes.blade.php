@@ -19,10 +19,11 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
+
                         <tr>
                             <th>Id</th>
-                            <th>Nama Dokter</th> {{-- take from table dokter with ID Dokter --}}
-                            <th>Nama Pasien</th> {{-- take from table pasien with ID Pasien --}}
+                            <th>Nama Pasien</th> {{-- take from table dokter with ID Dokter --}}
+                            <th>Nama Dokter</th> {{-- take from table pasien with ID Pasien --}}
                             <th>Waktu Tidur</th> 
                             <th>Kualitas Tidur</th>
                             <th>Olahraga</th>
@@ -32,14 +33,16 @@
                     </thead>
                 
                     <tbody>
+
+                        @foreach ($notesehat as $item)
                         <tr>
-                            <td>#1</td>
-                            <td>dr. Farhan</td>
-                            <td>Denis</td>
-                            <td>8 Jam</td>
-                            <td>Normal</td>
-                            <td>Medium</td>
-                            <td>Perlu peningkatan</td>
+                            <td>{{$item->id}}</td>
+                            <td>{{$item->patient}}</td>
+                            <td>{{$item->doctor}}</td>
+                            <td>{{$item->waktu}}</td>
+                            <td>{{$item->kualitas}}</td>
+                            <td>{{$item->olahraga}}</td>
+                            <td>{{$item->mood}}</td>
                             <td>
                                 <a href="#" class="btn btn-info btn-icon-split">
                                     <span class="icon text-white-50">
@@ -54,51 +57,8 @@
                             
                             </td>
                         </tr>
-                        <tr>
-                            <td>#2</td>
-                            <td>dr. Farhan</td>
-                            <td>Denis</td>
-                            <td>8 Jam</td>
-                            <td>Normal</td>
-                            <td>Medium</td>
-                            <td>Perlu peningkatan</td>
-                            <td>
-                                <a href="#" class="btn btn-info btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </span>
-                                </a>
-                                <a href="#" class="btn btn-danger btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-trash"></i>
-                                    </span>
-                                </a>
-                            
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>#3</td>
-                            <td>dr. Farhan</td>
-                            <td>Denis</td>
-                            <td>8 Jam</td>
-                            <td>Normal</td>
-                            <td>Medium</td>
-                            <td>Perlu peningkatan</td>
-                            <td>
-                                <a href="#" class="btn btn-info btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </span>
-                                </a>
-                                <a href="#" class="btn btn-danger btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-trash"></i>
-                                    </span>
-                                </a>
-                            
-                            </td>
-                        </tr>
-                        
+
+                        @endforeach
                         
                     </tbody>
                 </table>

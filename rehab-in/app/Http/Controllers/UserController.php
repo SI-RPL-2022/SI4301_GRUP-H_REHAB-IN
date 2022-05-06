@@ -17,7 +17,8 @@ class UserController extends Controller
     public function loginpasien(Request $request){
         $credentials = $request->validate([
             'email' => 'required|email:dns',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
+            'role' => '0'
         ]);
 
         if (Auth::attempt($credentials)) {
@@ -131,6 +132,7 @@ class UserController extends Controller
     public function jadwal(){
         return view('user.jadwal');
     }
+    
     public function invoicedoc(){
         return view('user.result');
     }
