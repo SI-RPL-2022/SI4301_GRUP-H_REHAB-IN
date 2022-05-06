@@ -11,7 +11,6 @@ use App\Models\Notesehat;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-
 class AdminController extends Controller
 {
     public function index(){
