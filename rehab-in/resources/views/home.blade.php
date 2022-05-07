@@ -49,24 +49,27 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="loop owl-carousel">
+          @foreach ($tips as $item)
           <div class="item">
             <a href="{{ route('tips') }}">
               <div class="portfolio-item">
               <div class="thumb">
-                <img src="{{ asset('assets/style/images/tip1.png') }}" alt="">
+                <img src="{{asset('images/'.$item->pic)}}" alt="" style="min-height: 248px;"/>
               </div>
               <div class="down-content">
-                <h4 style="font-size: 15px">Tips Pola Tidur Paling OKE</h4>
+                <h4 style="font-size: 15px">{{$item->judul}}</h4>
                 {{-- <span>Marketing</span> --}}
               </div>
             </div>
             </a>
           </div>
+          @endforeach
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <div id="portfolio" class="our-tips section">
   <div class="container">
     <div class="row">
@@ -79,26 +82,29 @@
       </div>
     </div>
   </div>
-  
+  <div class="container-fluid wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
     <div class="row">
       <div class="col-lg-12">
         <div class="loop owl-carousel">
+          @foreach ($artikel as $item)
           <div class="item">
-            <a href="#">
+            <a href="{{ route('tips') }}">
               <div class="portfolio-item">
               <div class="thumb">
-                <img src="{{ asset('assets/style/images/artikel1.png') }}" alt="">
+                <img src="{{asset('images/'.$item->image_art)}}" alt="" style="min-height: 248px;"/>
               </div>
               <div class="down-content">
-                <h4 style="font-size: 15px">Cek Fakta: Jahe Mampu Atasi Nyeri Asam Lambung</h4>
+                <h4 style="font-size: 15px">{{$item->judul_artikel}}</h4>
                 {{-- <span>Marketing</span> --}}
               </div>
             </div>
             </a>
           </div>
+          @endforeach
         </div>
       </div>
     </div>
+  </div>
 
 </div>
 

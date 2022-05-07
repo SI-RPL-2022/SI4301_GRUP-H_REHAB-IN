@@ -24,6 +24,9 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/style/admin/css/sb-admin-2.css') }}" rel="stylesheet">
+
+    {{-- Bootsrap CDN --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body class="bg-gradient-primary">
@@ -47,15 +50,23 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back Admin!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user"  action="{{ route('authadm') }}" method="post" enctype="multipart/form-data">
+                                        @csrf
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Username">
+                                            <input type="text" class="form-control form-control-user @error('email')is-invalid @enderror"
+                                                id="exampleInputEmail" name="email" aria-describedby="emailHelp"
+                                                placeholder="email" autofocus required/>
+
+                                                @error('email')
+
+                                                <div class="invalid-feedback">
+                                                    Please provide a valid city.
+                                                  </div>
+                                                @enderror
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="exampleInputPassword" name="password" placeholder="Password" required>
                                         </div>
                                         {{-- <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -66,9 +77,9 @@
                                         </div> --}}
                                         
                                         <hr>
-                                        <a href="{{ route('landingadmin') }}" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
+                                        <input class="btn btn-primary btn-user btn-block" value="Login" type="submit">
+                                            
+                                        
                                     </form>
                                     
                                     {{-- <div class="text-center">

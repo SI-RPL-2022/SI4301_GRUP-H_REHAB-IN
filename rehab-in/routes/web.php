@@ -28,7 +28,11 @@ use Illuminate\Support\Facades\Route;
 
 // LANDING PAGE
 Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/{id}', [HomeController::class, 'artikelid'])->name('artikel_guest');
+
 Route::get('/tips', [HomeController::class, 'tips'])->name('tips');
+Route::get('/tips/{id}', [HomeController::class, 'tipsid'])->name('tips_guest');
+
 Route::get('/service', [ServiceController::class, 'index'])->name('service');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
@@ -89,8 +93,11 @@ Route::get('/pasien/service/reservasi/invoice',[UserController::class,'total'])-
 
 
 //ADMIN
+// Route::group(['middleware' => ['role:admin']], function () {});
 Route::get('/admin',[AdminController::class, 'index'])->name('landingadmin'); //Landing page for admin
-Route::get('/admin/login',[AdminController::class, 'loginadm'])->name('loginadm'); //Landing page for admin
+Route::get('/admin/login',[AdminController::class, 'loginadm'])->name('loginadm')->middleware('guest'); //Login page for admin
+Route::post('/admin/login',[AdminController::class, 'authadm'])->name('authadm'); //Login page for admin
+
 
 // User Management
 Route::get('/admin/dbpasien',[AdminController::class,'dbpasien'])->name('dbpasien'); //Login for
@@ -126,8 +133,13 @@ Route::get('/admin/tips/delete/{id}',[AdminController::class,'deleteTips']); //d
 
 
 Route::get('/admin/jadwalkons',[AdminController::class,'jadwalkonsul'])->name('jadwalkons'); // Forget password for
+
+
+//Page Management - CATATAN KESEHATAN
 Route::get('/admin/notes',[AdminController::class,'notes'])->name('catkes'); //catkes pasiens
-// Route::get('/admin/service',[AdminController::class,'service'])->name('servicers'); //catkes pasiens
+Route::get('/admin/notes/{id}',[AdminController::class,'notesid'])->name('adminotesid'); //Login for
+
+
 Route::get('/admin/reservasi',[AdminController::class,'reservasi'])->name('servreserv'); //catkes pasiens
 Route::get('/admin/listdokter',[AdminController::class,'listdokter'])->name('listdokter'); //catkes pasiens
 // Route::get('/admin/edukasi',[AdminController::class,'edukasi'])->name('eduadm'); //catkes pasiens

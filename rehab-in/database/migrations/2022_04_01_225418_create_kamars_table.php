@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('kamars', function (Blueprint $table) {
             $table->bigIncrements('id',255)->unsigned();
             $table->string('no_kamar');
+            $table->string('nama_kamar');
             $table->string('kelas');
             $table->string('facility');
             $table->string('code');
