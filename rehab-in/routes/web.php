@@ -91,53 +91,59 @@ Route::get('/pasien/service/reservasi/invoice',[UserController::class,'total'])-
 
 
 //ADMIN
-// Route::group(['middleware' => ['role:admin']], function () {});
-Route::get('/admin',[AdminController::class, 'index'])->name('landingadmin'); //Landing page for admin
-Route::get('/admin/login',[AdminController::class, 'loginadm'])->name('loginadm')->middleware('guest'); //Login page for admin
+Route::get('/admin/login',[AdminController::class, 'loginadm'])->name('loginadm'); //Login page for admin
 Route::post('/admin/login',[AdminController::class, 'authadm'])->name('authadm'); //Login page for admin
 
+//Logout for 
+Route::get('/logoutadm',[AdminController::class,'logoutadm'])->name('logoutadm');
+
+
+Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin']], function(){
+
+Route::get('/',[AdminController::class, 'index'])->name('landingadmin'); //Landing page for admin
 
 // User Management
-Route::get('/admin/dbpasien',[AdminController::class,'dbpasien'])->name('dbpasien'); //Login for
-Route::get('/admin/dbdokter',[AdminController::class,'dbdokter'])->name('dbdokter'); //Login for
+Route::get('dbpasien',[AdminController::class,'dbpasien'])->name('dbpasien'); //Login for
+Route::get('dbdokter',[AdminController::class,'dbdokter'])->name('dbdokter'); //Login for
 
 
-Route::get('/admin/dbadmin',[AdminController::class,'dbadmin'])->name('dbadmin'); //Login for
-Route::get('/admin/dbadmin/{id}',[AdminController::class,'dbadminid'])->name('dbadminid'); //Login for
-Route::post('/admin/dbadmin/add',[AdminController::class,'addadmin'])->name('addadmin'); //Login for
-Route::put('/admin/dbadmin/update/',[AdminController::class,'updateDadmin']); //update article by admin
-Route::get('/admin/dbadmin/delete/{id}',[AdminController::class,'delDadmin']); //update article by admin
+Route::get('dbadmin',[AdminController::class,'dbadmin'])->name('dbadmin'); //Login for
+Route::get('dbadmin/{id}',[AdminController::class,'dbadminid'])->name('dbadminid'); //Login for
+Route::post('dbadmin/add',[AdminController::class,'addadmin'])->name('addadmin'); //Login for
+Route::put('dbadmin/update/',[AdminController::class,'updateDadmin']); //update article by admin
+Route::get('dbadmin/delete/{id}',[AdminController::class,'delDadmin']); //update article by admin
 
 // Page Management - KAMAR
-Route::get('/admin/kamar',[AdminController::class,'kamar'])->name('kamaradm'); //tampilan kamar
-Route::get('/admin/kamar/{id}',[AdminController::class,'kamarid'])->name('adminkamarid'); //comot id
-Route::post('/admin/kamar/add',[AdminController::class,'addKamar']); //tambah kamar (admin)
-Route::put('/admin/kamar/update/',[AdminController::class,'updateKamar']); //update kamar (admin)
-Route::get('/admin/kamar/delete/{id}',[AdminController::class,'deleteKamar']); //delete kamar (admin)
+Route::get('kamar',[AdminController::class,'kamar'])->name('kamaradm'); //tampilan kamar
+Route::get('kamar/{id}',[AdminController::class,'kamarid'])->name('adminkamarid'); //comot id
+Route::post('kamar/add',[AdminController::class,'addKamar']); //tambah kamar (admin)
+Route::put('kamar/update/',[AdminController::class,'updateKamar']); //update kamar (admin)
+Route::get('kamar/delete/{id}',[AdminController::class,'deleteKamar']); //delete kamar (admin)
 
 //Page Management - ARTIKEL
-Route::get('/admin/artikel',[AdminController::class,'artikel'])->name('artikeladm'); //view for article at admin area
-Route::get('/admin/artikel/{id}',[AdminController::class,'artikelid'])->name('adminartikelid'); //pick data by id
-Route::post('/admin/artikel/add',[AdminController::class,'addArtikel']); //add article by admin
-Route::put('/admin/artikel/update/',[AdminController::class,'updateArtikel']); //update article by admin
-Route::get('/admin/artikel/delete/{id}',[AdminController::class,'deleteArtikel']); //del article by admin
+Route::get('artikel',[AdminController::class,'artikel'])->name('artikeladm'); //view for article at admin area
+Route::get('artikel/{id}',[AdminController::class,'artikelid'])->name('adminartikelid'); //pick data by id
+Route::post('artikel/add',[AdminController::class,'addArtikel']); //add article by admin
+Route::put('artikel/update/',[AdminController::class,'updateArtikel']); //update article by admin
+Route::get('artikel/delete/{id}',[AdminController::class,'deleteArtikel']); //del article by admin
 
 //Page Management - TIPS
-Route::get('/admin/tips',[AdminController::class,'tipskes'])->name('tipskesadm'); //tips view at admin area
-Route::get('/admin/tips/{id}',[AdminController::class,'tipsid'])->name('admintipsid'); //Login for
-Route::post('/admin/tips/add',[AdminController::class,'addTips']); //add tips by admin
-Route::put('/admin/tips/update/',[AdminController::class,'updateTips']); //update tips by admin
-Route::get('/admin/tips/delete/{id}',[AdminController::class,'deleteTips']); //del tips by admin
+Route::get('tips',[AdminController::class,'tipskes'])->name('tipskesadm'); //tips view at admin area
+Route::get('tips/{id}',[AdminController::class,'tipsid'])->name('admintipsid'); //Login for
+Route::post('tips/add',[AdminController::class,'addTips']); //add tips by admin
+Route::put('tips/update/',[AdminController::class,'updateTips']); //update tips by admin
+Route::get('tips/delete/{id}',[AdminController::class,'deleteTips']); //del tips by admin
 
 
-Route::get('/admin/jadwalkons',[AdminController::class,'jadwalkonsul'])->name('jadwalkons'); // Forget password for
+Route::get('jadwalkons',[AdminController::class,'jadwalkonsul'])->name('jadwalkons'); // Forget password for
 
 
 //Page Management - CATATAN KESEHATAN
-Route::get('/admin/notes',[AdminController::class,'notes'])->name('catkes'); //catkes pasiens
-Route::get('/admin/notes/{id}',[AdminController::class,'notesid'])->name('adminotesid'); //Login for
+Route::get('notes',[AdminController::class,'notes'])->name('catkes'); //catkes pasiens
+Route::get('notes/{id}',[AdminController::class,'notesid'])->name('adminotesid'); //Login for
 
 
-Route::get('/admin/reservasi',[AdminController::class,'reservasi'])->name('servreserv'); //catkes pasiens
-Route::get('/admin/listdokter',[AdminController::class,'listdokter'])->name('listdokter'); //catkes pasiens
+Route::get('reservasi',[AdminController::class,'reservasi'])->name('servreserv'); //catkes pasiens
+Route::get('listdokter',[AdminController::class,'listdokter'])->name('listdokter'); //catkes pasiens
 // Route::get('/admin/edukasi',[AdminController::class,'edukasi'])->name('eduadm'); //catkes pasiens
+});

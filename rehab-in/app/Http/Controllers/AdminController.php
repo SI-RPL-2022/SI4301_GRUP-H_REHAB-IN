@@ -300,6 +300,12 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
+    public function logoutadm(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect ('/admin/login');
+    }
     public function authadm(Request $request){
         // dd($request);
         $cred = $request->validate([
