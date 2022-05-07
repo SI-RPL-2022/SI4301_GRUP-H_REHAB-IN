@@ -15,16 +15,10 @@ return new class extends Migration
     {
         Schema::create('revkamar', function (Blueprint $table) {
             $table->bigIncrements('id',255)->unsigned();
-            $table->string('kamar_id');
+            $table->foreignId('kamar_id');
             $table->foreign('kamar_id')->references('id')->on('kamars');
-            $table->binary('pic');
-            $table->foreign('pic')->references('pic')->on('kamars');
-            $table->string('type');
-            $table->foreign('type')->references('type')->on('kamars');
             $table->foreignId('patient');
             $table->foreign('patient')->references('id')->on('users');
-            $table->string('patient_name');
-            $table->foreign('patient_name')->references('name')->on('users');
             $table->date('checkin');
             $table->timestamps();
         });

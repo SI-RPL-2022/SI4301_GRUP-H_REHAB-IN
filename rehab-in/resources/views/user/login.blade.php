@@ -19,18 +19,18 @@
                         <div class="regist-caption">
                           <h4 style="font-weight: bold;">LOGIN</h4>
                         </div>
-                    @if (session('success'))
-                      <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{ (session('success')) }}
-                        <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
-                      </div>
-                    @endif
-                    @if (session('loginError'))
-                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        {{ (session('loginError')) }}
-                        <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
-                      </div>
-                    @endif
+                        @if (session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ (session('success')) }}
+                            <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
+                        </div>
+                        @endif
+                        @if (session('loginError'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ (session('loginError')) }}
+                            <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
+                        </div>
+                        @endif
                       <input type="email" name="email" class="@error('email') is-invalid @enderror" id="email" placeholder="Email" autocomplete="on" required>
                       @error('email')
                         <div class="invalid-feedback">
@@ -44,11 +44,14 @@
                         </div>
                       @enderror
                     </div>
+                    <a href="{{ route('ForgetPasswordGet') }}" class="mt-3">FORGET PASSWORD</a>
 
-                    <div class="col-lg-6">
-                      <fieldset>
-                        <button type="submit" id="form-submit" class="main-button ">LOGIN</button>
-                      </fieldset>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <button type="submit" id="form-submit" class="main-button ">LOGIN</button>
+                        </div>
+                        <div class="col-md-3 mt-4">
+                            <a href="{{ route('register') }}" class="btn btn-outline-warning mt-2">REGISTER</a>
                     </div>
                   </div>
                 </div>
