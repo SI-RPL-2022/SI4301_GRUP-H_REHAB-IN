@@ -114,23 +114,41 @@
                                    <div class="checkboxkamars">
                                        <div class="col-12 row">
                                            <div class="row">
-                                               <div class="col-2">
-
+                                               <div class="col-lg-4 mb-4">
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="1 Bed Pasien" /> 1 Bed Pasien
                                                </div>
-                                               <div class="col-2">
 
+                                               <div class="col-lg-4 mb-4">
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="1 Kamar Keluarga" /> 1 Kamar Keluarga
                                                 </div>
 
-                                                <div class="col-2">
-
+                                                <div class="col-lg-4 mb-4">
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="Kamar Mandi Dalam" /> Kamar Mandi Dalam
                                                 </div>
-                                                <div class="col-2">
- 
-                                                 </div>
+
+                                                <div class="col-lg-4 mb-4">
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="Ruang Makan Keluarga" /> Ruang Makan Keluarga
+                                                </div>
+
+                                                <div class="col-lg-4 mb-4">
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="Parcel Buah" /> Parcel Buah
+                                               </div>
+
+                                               <div class="col-lg-4 mb-4">
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="Kitchen Set" /> Kitchen Set
+                                                </div>
+
+                                                <div class="col-lg-4 mb-4">
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="Microwave" /> Microwave
+                                                </div>
+
+                                                <div class="col-lg-4 mb-4">
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="Lemari Es" /> TV
+                                                </div>
  
                                            </div>
                                         </div>
-                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="Pemrograman" /> Sofa
+                                    
                                         
                                     </div>
                                     

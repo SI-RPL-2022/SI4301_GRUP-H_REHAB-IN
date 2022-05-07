@@ -204,8 +204,8 @@ $('body').on('click', '#editArtikel', function (event) {
          $('#modalEditJudul_artikel').val(data.data.judul_artikel);
          $('#modalEditPenulis').val(data.data.penulis);
          $('#modalEditCreated_at').val(data.data.created_at.substring(0, 10));
-         $('#modalEditImage_art').val(data.data.image_art);
-         $('#modalEditKonten').val(data.data.konten);
+        //  $('#modalEditImage_art').val(data.data.image_art);
+         $('#modalEditKonten').text(data.data.konten);
 
 
        
