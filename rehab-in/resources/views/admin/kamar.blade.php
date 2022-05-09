@@ -47,7 +47,7 @@
                             <td>Rp {{$item->price}}/ 12 Jam</td>
                             
                             <td>
-                                <a href="#" class="btn btn-info btn-icon-split">
+                                <a id="editKamar" href="#" class="btn btn-info btn-icon-split" data-id="{{ $item->id }}">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-pencil-alt"></i>
                                     </span>
@@ -72,7 +72,7 @@
      <!-- Modal ADD -->
      <div class="modal fade" id="add-kamar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <form action="admin/kamar/add" method="post" enctype="multipart/form-data">
+            <form action="/admin/kamar/add" method="post" enctype="multipart/form-data">
                 @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -90,7 +90,9 @@
                         <div class="row">
                                 <div class="col-2">
                                     <label class="label-edit-article">Foto Kamar</label><br>
+                                    <label class="label-edit-article">Kode Kamar</label><br>
                                     <label class="label-edit-article">Nama Kamar</label><br>
+                                    <label class="label-edit-article">Nomor Kamar</label><br>
                                     {{-- <label class="label-edit-article">Tanggal Post</label><br> --}}
                                     <label class="label-edit-article">Kelas</label><br>
                                     <label class="label-edit-article">Fasilitas</label><br>
@@ -106,6 +108,10 @@
 
                                     <input type="text" name="nama_kamar" id="nama_kamar" class="form-control form-control-user form-edit-article">
     
+                                    <input type="text" name="code" id="code" class="form-control form-control-user form-edit-article">
+    
+                                    <input type="number" name="no_kamar" id="no_kamar" class="form-control form-control-user form-edit-article">
+    
                                     <input type="text" name="kelas" id="kelas" class="form-control form-control-user form-edit-article">
     
                                     {{-- <input type="date" name="tanggal_post" id="tanggal_post" value="" class="form-control form-control-user form-edit-article"> --}}
@@ -115,7 +121,7 @@
                                        <div class="col-12 row">
                                            <div class="row">
                                                <div class="col-lg-4 mb-4">
-                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="1 Bed Pasien" /> 1 Bed Pasien
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="1 Bed Pasien" />
                                                </div>
 
                                                <div class="col-lg-4 mb-4">
@@ -200,8 +206,186 @@
         </form>
         </div>
       </div>
+
+
+
+      <!-- Modal EDIT -->
+ <div class="modal fade" id="edit-kamar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        {{ Form::open(array('url' => '/admin/artikel/update','method' => 'PUT', 'enctype'=> 'multipart/form-data')) }}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col-2">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Artikel</h5>
+                    </div>
+                    <div class="col-10" style="padding-left: 66%;">
+                        <input id="simpanModalEdit" type="submit" value="Simpan" class="btn btn-primary"/>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-2">
+                                <label class="label-edit-article">Foto Kamar</label><br>
+                                <label class="label-edit-article">Kode Kamar</label><br>
+                                <label class="label-edit-article">Nama Kamar</label><br>
+                                <label class="label-edit-article">Nomor Kamar</label><br>
+                                {{-- <label class="label-edit-article">Tanggal Post</label><br> --}}
+                                <label class="label-edit-article">Kelas</label><br>
+                                <label class="label-edit-article">Fasilitas</label><br>
+                                <label class="label-edit-article" style="margin-top: 230px;">Harga</label>
+
+                            </div>
+
+
+                            <div class="col-10">
+                                    
+                                {{-- <input type="text" name="id_article" id="id_article" class="form-control form-control-user form-edit-article" value="#1" readonly> --}}
+
+                                <input type="file" id="pic" name="pic" style="margin-top:10px;">
+
+                                <input type="text" name="nama_kamar" id="modalEditNamaKamar" class="form-control form-control-user form-edit-article">
+
+                                <input type="text" name="code" id="modalEditCode" class="form-control form-control-user form-edit-article">
+
+                                <input type="number" name="no_kamar" id="modalEditNoKamar" class="form-control form-control-user form-edit-article">
+
+                                <input type="text" name="kelas" id="modalEditKelas" class="form-control form-control-user form-edit-article">
+
+                                {{-- <input type="date" name="tanggal_post" id="tanggal_post" value="" class="form-control form-control-user form-edit-article"> --}}
+                                
+                                {{-- <input type="text" name="facility" id="facility" class="form-control form-control-user form-edit-article"> --}}
+                               <div class="checkboxkamars">
+                                   <div class="col-12 row">
+                                       <div class="row">
+                                           <div class="col-lg-4 mb-4">
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="1 Bed Pasien"  /> 1 Bed Pasien
+                                                {{-- {{ in_array('1 Bed Pasien', $facility) ? 'checked' : '' }} --}}
+                                           </div>
+
+                                           <div class="col-lg-4 mb-4">
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="1 Kamar Keluarga" /> 1 Kamar Keluarga
+                                            </div>
+
+                                            <div class="col-lg-4 mb-4">
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility"  value="Kamar Mandi Dalam" /> Kamar Mandi Dalam
+                                            </div>
+
+                                            <div class="col-lg-4 mb-4">
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Ruang Makan Keluarga" /> Ruang Makan Keluarga
+                                            </div>
+
+                                            <div class="col-lg-4 mb-4">
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Parcel Buah" /> Parcel Buah
+                                           </div>
+
+                                           <div class="col-lg-4 mb-4">
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Kitchen Set" /> Kitchen Set
+                                            </div>
+
+                                            <div class="col-lg-4 mb-4">
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Microwave" /> Microwave
+                                            </div>
+
+                                            <div class="col-lg-4 mb-4">
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Meja Kerja" /> Meja Kerja
+                                            </div>
+
+                                            <div class="col-lg-4 mb-4">
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Lemari Es" /> Lemari Es
+                                            </div>
+
+                                            <div class="col-lg-4 mb-4">
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Hitter Air" /> Hitter Air
+                                           </div>
+
+                                           <div class="col-lg-4 mb-4">
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="2 TV LCD" /> 2 TV LCD
+                                            </div>
+
+                                            <div class="col-lg-4 mb-4">
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Naskas" /> Naskas
+                                            </div>
+
+                                            <div class="col-lg-4 mb-4">
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Sofa" /> Sofa
+                                            </div>
+
+                                            <div class="col-lg-4 mb-4">
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Parcel Buah" /> Wifi
+                                           </div>
+
+                                           <div class="col-lg-4 mb-4">
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="AC" /> AC
+                                            </div>
+
+                                       </div>
+                                    </div>
+                                
+                                    
+                                </div>
+                                
+                                {{-- <input type="number" name="price" id="price" class="form-control form-control-user form-edit-article" > --}}
+
+                                <div class="input-group flex-nowrap" style="margin-bottom:20px;">
+                                    <span class="input-group-text" id="addon-wrapping">Rp</span>
+                                    <input type="number" class="form-control" aria-label="price" name="price" id="modalEditHarga" aria-describedby="addon-wrapping" >
+                                </div>
+                            </div> 
+                            </div>
+                    </div>
+        
+                </div>
+
+                
+                
+
+            </div>
+        {{ Form::close() }}
+    </div>
+  </div>
     
 
 
 
 @endsection
+
+@section('script')
+<script>
+$(document).ready(function () {
+
+$('body').on('click', '#editKamar', function (event) {
+
+  event.preventDefault();
+  
+  var id = $(this).data('id');
+  let url = "{{ route('adminkamarid', ':id') }}";
+  url = url.replace(':id', id);
+  $.get(url, function (data) {
+      console.log(data);
+       $('#edit-kamar').modal('show');
+       $('#modalEditId').val(data.data.id);
+       $('#modalEditCode').val(data.data.code);
+       $('#modalEditNamaKamar').val(data.data.nama_kamar);
+       $('#modalEditNoKamar').val(data.data.no_kamar);
+       $('#modalEditKelas').val(data.data.kelas);
+       $('#modalEditFacility').val(data.data.facility);
+    //    $('#modalEditCreated_at').val(data.data.created_at.substring(0, 10));
+      //  $('#modalEditImage_art').val(data.data.image_art);
+       $('#modalEditHarga').val(data.data.price);
+
+
+     
+   })
+});
+
+
+}); 
+
+
+
+</script>
+
+@endsection
+

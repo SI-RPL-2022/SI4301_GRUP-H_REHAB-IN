@@ -93,10 +93,11 @@ Route::get('/pasien/service/reservasi/invoice',[UserController::class,'total'])-
 
 
 //ADMIN
+//LOGIN FOR ADMIN 
 Route::get('/admin/login',[AdminController::class, 'loginadm'])->name('loginadm'); //Login page for admin
 Route::post('/admin/login',[AdminController::class, 'authadm'])->name('authadm'); //Login page for admin
 
-//Logout for 
+//LOGOUT FOR ADMIN
 Route::get('/logoutadm',[AdminController::class,'logoutadm'])->name('logoutadm');
 
 Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin']], function(){

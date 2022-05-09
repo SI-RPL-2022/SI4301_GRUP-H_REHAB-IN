@@ -244,25 +244,28 @@ class AdminController extends Controller
 
         $kamar = Kamar::find($id);
         return response()->json([
-            'data' => $kamar
+            'data' => $kamar,
+            // dd($kamar)
+            // 'facility' => explode(',', $kamar->facility)
           ]);
     }
 
     public function addKamar(Request $request){
-        
         $gambar = time().'image'.'.'.$request->pic->extension();
 
         $request->pic->move(public_path('images'),$gambar);
 
         $kamar = new Kamar();
-        $kamar->code=$request->code;
-        $kamar->name=$request->name;
+        
         $kamar->no_kamar=$request->no_kamar;
+        $kamar->nama_kamar=$request->nama_kamar;
         $kamar->kelas=$request->kelas;
-        $kamar->facility=$request->facility;
-        $kamar->price=$request->price;
+        $kamar->facility= implode(',', $request->facility);
+        
+        $kamar->code=$request->code;
         $kamar->pic=$gambar;
-    
+        $kamar->price=$request->price;
+
         $kamar->save();
 
         return redirect(route('kamaradm'));
