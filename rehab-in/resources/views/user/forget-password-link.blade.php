@@ -5,8 +5,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <form id="contact" action="{{ route('ForgetPasswordPost') }}" method="post">
-            @csrf
+          <form id="contact" action="{{ route('ResetPasswordPost') }}" method="post">
             <div class="row">
               <div class="col-lg-6">
                   <div class="img-forgetpw">
@@ -18,22 +17,23 @@
                   <div class="row">
                     <div class="col-lg-12">
                         <div class="regist-caption">
-                            <h4 style="font-weight: bold;">Lupa Password</h4>
+                            <h4 style="font-weight: bold;">Reset Password</h4>
                         <p >
-                            Silahkan masukan email anda. Anda akan mendapatkan link untuk merubah password anda.
+                            Silahkan mengganti password anda dan ingat baik baik password yang telah diganti.
                         </p>
                     </div>
-                        @if (Session::has('message'))
-                            <div class="alert alert-success" role="alert">
-                                {{ Session::get('message') }}
-                            </div>
-                        @endif
-                      <fieldset>
-                        <input type="name" name="name" id="name" placeholder="Email" autocomplete="on" required>
-                        @if ($errors->has('email'))
-                            <span class="text-danger">{{ $errors->first('email') }}</span>
-                        @endif
-                      </fieldset>
+                        <fieldset>
+                            <input type="text" name="token" id="token" placeholder="Masukan email kembali" value="{{ $token->token }}" autocomplete="on" disabled required>
+                        </fieldset>
+                        <fieldset>
+                            <input type="email" name="email" id="email" placeholder="Masukan email kembali" autocomplete="on" required>
+                        </fieldset>
+                        <fieldset>
+                            <input type="password" name="password" id="password" placeholder="Masukan password baru" autocomplete="on" required>
+                        </fieldset>
+                        <fieldset>
+                            <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirmation Passowrd" autocomplete="on" required>
+                        </fieldset>
 
                     </div>
 

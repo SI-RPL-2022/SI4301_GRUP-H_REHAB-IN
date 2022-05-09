@@ -40,6 +40,14 @@
 
                     <div class="col-lg-12 user-profile-content">
                         <div class="user-profile-contentslist">
+                            @if (session('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ (session('success')) }}
+                                    <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="user-profile-contentslist">
                             <label class="user-profile-label">Nama Lengkap</label>
                             <p class="user-profile-label-p">{{ $user->name }}</p>
                         </div>

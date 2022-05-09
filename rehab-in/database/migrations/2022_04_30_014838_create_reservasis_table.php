@@ -20,8 +20,8 @@ return new class extends Migration
             $table->foreignId('patient')->unsigned();
             $table->foreign('patient')->references('id')->on('users');
             $table->foreignId('doctor')->unsigned();
-            $table->foreign('doctor')->references('id')->on('dokter');
-            $table->boolean('pembayaran');
+            $table->foreign('doctor')->references('id')->on('dokters');
+            $table->string('pembayaran',255);
             $table->timestamps();
         });
     }
