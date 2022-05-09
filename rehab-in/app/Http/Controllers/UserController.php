@@ -76,10 +76,12 @@ class UserController extends Controller
     }
 
     public function ForgetPasswordStore(Request $request) {
+        //Valid the value of form email
         $request->validate([
             'email' => 'required|email|exists:users',
         ]);
 
+        $email = $request->email;
         $token = Str::random(64);
         DB::table('password_resets')->insert([
             'email' => $request->email,
@@ -87,7 +89,7 @@ class UserController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        Mail::send('user.forget-password-email', ['token' => $token], function($message) use($request){
+        Mail::send('user.forget-password-email', ['email'=> $email, 'token' => $token], function($message) use($request){
             $message->to($request->email);
             $message->from(env('MAIL_FROM_ADDRESS'), env('APP_NAME'));
             $message->subject('Reset Password');
@@ -96,30 +98,37 @@ class UserController extends Controller
         return back()->with('message', 'We have emailed your password reset link!');
     }
 
-    public function ResetPassword($token) {
-        $token = DB::table('passowrd_resets')->where('token',$token)->first();
-        return view('user.forget-password-link', ['token' => $token]);
+    public function ResetPassword($token,$email) {
+        $email = DB::table('password_resets')->where('email',$email)->first();
+        $token = DB::table('password_resets')->where('token',$token)->first();
+        return view('user.forget-password-link', ['email' => $email,'token' => $token]);
     }
 
     public function ResetPasswordStore(Request $request) {
-        $request->validate([
-            'email' => 'required|email|exists:users',
-            'password' => 'required|string|min:8|confirmed',
-            'password_confirmation' => 'required'
-        ]);
+        if($request->password == $request->password_confirmation){
+            $validated = $request->validate([
+                'password' => 'required|min:6|confirmed',
+                'password_confirmation' => 'required'
+            ]);
+            
+            $password = $request->password;
 
-        $update = DB::table('password_resets')->where(['email' => $request->email, 'token' => $request->token])->first();
-
-        if(!$update){
-            return back()->withInput()->with('error', 'Invalid token!');
+            $Data = DB::table('password_resets')->where('token',$request->token)->first();
+            if(!$Data){
+                return redirect()->route('login')->with('error', 'Invalid token!');
+            }else {
+                $user = User::where('email',$Data->email)->first();
+                if (!$user) return redirect()->back()->withErrors(['email' => 'Email not found']);
+                $user->password = Hash::make($password);
+                $user->save();
+                DB::table('password_resets')->where('email', $user->email)
+                ->delete();
+                return redirect()->route('login')->with('message', 'Your password has been successfully changed!');
+            }
+        }else{
+            return back()->with('Failure','Password Tidak Sama!');
         }
-
-        $user = User::where('email', $request->email)->update(['password' => Hash::make($request->password)]);
-
-        // Delete password_resets record
-        DB::table('password_resets')->where(['email'=> $request->email])->delete();
-
-        return redirect('/login')->with('message', 'Your password has been successfully changed!');
+        // return redirect()->route('login')->with('message', 'Your password has been successfully changed!');
     }
 
     public function riwayat(){

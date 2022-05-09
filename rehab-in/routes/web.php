@@ -51,8 +51,8 @@ Route::post('/register',[UserController::class,'registerpasien'])->middleware('g
 // Forget password
 Route::get('forget', [UserController::class, 'ForgetPassword'])->middleware('guest')->name('ForgetPasswordGet');
 Route::post('forget-password', [UserController::class, 'ForgetPasswordStore'])->middleware('guest')->name('ForgetPasswordPost');
-Route::get('reset-password/{token}', [UserController::class, 'ResetPassword'])->middleware('guest')->name('ResetPasswordGet');
-Route::post('reset-password', [UserController::class, 'ResetPasswordStore'])->middleware('guest')->name('ResetPasswordPost');
+Route::get('reset-password/{token}/{email}', [UserController::class, 'ResetPassword'])->middleware('guest')->name('ResetPasswordGet');
+Route::post('/reset-password', [UserController::class, 'ResetPasswordStore'])->middleware('guest')->name('ResetPasswordPost');
 // Dashboard Pasien
 Route::get('/pasien',function(){
     return view('user.home');

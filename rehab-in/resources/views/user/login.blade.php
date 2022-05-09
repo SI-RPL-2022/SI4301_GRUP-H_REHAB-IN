@@ -21,16 +21,28 @@
                         </div>
                         @if (session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{ (session('success')) }}
-                            <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
+                          {{ (session('success')) }}
+                          <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
+                        </div>
+                        @endif
+                        @if (session('message'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          {{ (session('message')) }}
+                          <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
                         </div>
                         @endif
                         @if (session('loginError'))
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {{ (session('loginError')) }}
-                            <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
+                          {{ (session('loginError')) }}
+                          <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
                         </div>
                         @endif
+                        @if (session('error'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                          {{ (session('error')) }}
+                          <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
+                        </div>
+                      @endif
                       <input type="email" name="email" class="@error('email') is-invalid @enderror" id="email" placeholder="Email" autocomplete="on" required>
                       @error('email')
                         <div class="invalid-feedback">
