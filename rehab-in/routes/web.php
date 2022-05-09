@@ -99,7 +99,6 @@ Route::post('/admin/login',[AdminController::class, 'authadm'])->name('authadm')
 //Logout for 
 Route::get('/logoutadm',[AdminController::class,'logoutadm'])->name('logoutadm');
 
-
 Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin']], function(){
 
 Route::get('/',[AdminController::class, 'index'])->name('landingadmin'); //Landing page for admin

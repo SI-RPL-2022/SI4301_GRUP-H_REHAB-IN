@@ -72,7 +72,7 @@
      <!-- Modal ADD -->
      <div class="modal fade" id="add-kamar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <form action="'admin/kamar/add" method="post" enctype="multipart/form-data">
+            <form action="admin/kamar/add" method="post" enctype="multipart/form-data">
                 @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -94,7 +94,7 @@
                                     {{-- <label class="label-edit-article">Tanggal Post</label><br> --}}
                                     <label class="label-edit-article">Kelas</label><br>
                                     <label class="label-edit-article">Fasilitas</label><br>
-                                    <label class="label-edit-article">Harga</label>
+                                    <label class="label-edit-article" style="margin-top: 230px;">Harga</label>
     
                                 </div>
     
@@ -143,18 +143,49 @@
                                                 </div>
 
                                                 <div class="col-lg-4 mb-4">
-                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="Lemari Es" /> TV
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="Meja Kerja" /> Meja Kerja
+                                                </div>
+
+                                                <div class="col-lg-4 mb-4">
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="Lemari Es" /> Lemari Es
                                                 </div>
  
+                                                <div class="col-lg-4 mb-4">
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="Hitter Air" /> Hitter Air
+                                               </div>
+
+                                               <div class="col-lg-4 mb-4">
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="2 TV LCD" /> 2 TV LCD
+                                                </div>
+
+                                                <div class="col-lg-4 mb-4">
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="Naskas" /> Naskas
+                                                </div>
+
+                                                <div class="col-lg-4 mb-4">
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="Sofa" /> Sofa
+                                                </div>
+
+                                                <div class="col-lg-4 mb-4">
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="Parcel Buah" /> Wifi
+                                               </div>
+
+                                               <div class="col-lg-4 mb-4">
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="AC" /> AC
+                                                </div>
+
                                            </div>
                                         </div>
                                     
                                         
                                     </div>
                                     
-                                    <input type="number" name="price" id="price" class="form-control form-control-user form-edit-article" >
+                                    {{-- <input type="number" name="price" id="price" class="form-control form-control-user form-edit-article" > --}}
 
-                                   
+                                    <div class="input-group flex-nowrap" style="margin-bottom:20px;">
+                                        <span class="input-group-text" id="addon-wrapping">Rp</span>
+                                        <input type="number" class="form-control" aria-label="price" name="price" id="price" aria-describedby="addon-wrapping" >
+                                    </div>
                                 </div>    
                             </div>
                         

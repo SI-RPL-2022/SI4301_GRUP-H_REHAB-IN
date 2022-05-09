@@ -55,12 +55,12 @@
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user @error('email')is-invalid @enderror"
                                                 id="exampleInputEmail" name="email" aria-describedby="emailHelp"
-                                                placeholder="email" autofocus required/>
+                                                placeholder="Email" autofocus required/>
 
                                                 @error('email')
 
                                                 <div class="invalid-feedback">
-                                                    Please provide a valid city.
+                                                    Email anda tidak valid.
                                                   </div>
                                                 @enderror
                                         </div>
