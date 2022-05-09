@@ -25,11 +25,12 @@
                     </div>
                         @if (Session::has('message'))
                             <div class="alert alert-success" role="alert">
-                                {{ Session::get('message') }}
+                              {{ Session::get('message') }}
+                              <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
                             </div>
                         @endif
                       <fieldset>
-                        <input type="name" name="name" id="name" placeholder="Email" autocomplete="on" required>
+                        <input type="email" name="email" id="email" placeholder="Email" autocomplete="on" required>
                         @if ($errors->has('email'))
                             <span class="text-danger">{{ $errors->first('email') }}</span>
                         @endif
