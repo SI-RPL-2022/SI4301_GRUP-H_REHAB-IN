@@ -260,10 +260,7 @@
                                    <div class="col-12 row">
                                        <div class="row">
                                        
-                                        
-                                       {{-- itu knp.. mau buat form edit buat checkbox, tapi ga ke checklist gitu:( --}}
-                                       {{-- {{ in_array('1 Bed Pasien', $facility[]) ? 'checked' : '' }} --}}
-                                       
+                                      
                                            <div class="col-lg-4 mb-4">
                                                 <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="chc1" value="1 Bed Pasien"  /> 1 Bed Pasien
                                                 
