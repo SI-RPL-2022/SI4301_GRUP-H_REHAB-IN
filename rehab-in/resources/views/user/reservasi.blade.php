@@ -33,78 +33,33 @@
                 <span class="sr-only">Toggle Menu</span>
             </button>
         </a><span class="p-2 text-black" style="font-size:30px">Kamar yang tersedia</span>
-        <div class="row">
-            <div class="shadow-sm p-3 mb-5 bg-body rounded">
-                <div class="row">
-                    <div class="col ms-4">
-                        <img src="{{ asset('assets/style/images/kls-vip.png') }}" class="rounded" style="width:45%" alt="kamar">
-                    </div>
-                    <div class="col">
-                        <div class="row">
-                            <p>Kamar 501</p>
-                            <div class="col">
-                                Kelas
-                            </div>
-                            <div class="col">
-                                Tempat
+        @foreach($kamar as $kamar)
+            <div class="row">
+                <div class="shadow-sm p-3 mb-5 bg-body rounded">
+                    <div class="row">
+                        <div class="col ms-4">
+                            {{-- <img src="{{ asset('assets/style/images/kls-vip.png') }}" class="rounded" style="width:45%" alt="kamar"> --}}
+                            <img src="{{ asset('images/'.$kamar->pic) }}" class="rounded" style="width:45%" alt="kamar">
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <p>{{ $kamar->no_kamar }}</p>
+                                <div class="col">
+                                    {{ $kamar->nama_kamar }}
+                                </div>
+                                <div class="col">
+                                    {{ $kamar->kelas }}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col text-center">
-                        <br>
-                        <a href="{{ route('ruangan') }}" class="btn btn-primary mb-2">Pilih Kamar</a>
-                        {{-- <button type="button" class="btn btn-primary ">Pilih Kamar</button> --}}
+                        <div class="col text-center">
+                            <br>
+                            <a href="{{ route('ruangan',['id'=>$kamar->id]) }}" class="btn btn-primary mb-2">Pilih Kamar</a>
+                            {{-- <button type="button" class="btn btn-primary ">Pilih Kamar</button> --}}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="shadow-sm p-3 mb-5 bg-body rounded">
-                <div class="row">
-                    <div class="col ms-4">
-                        <img src="{{ asset('assets/style/images/kls-vip.png') }}" class="rounded" style="width:45%" alt="kamar">
-                    </div>
-                    <div class="col">
-                        <div class="row">
-                            <p>Kamar 501</p>
-                            <div class="col">
-                                Kelas
-                            </div>
-                            <div class="col">
-                                Tempat
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col text-center">
-                        <br>
-                        <button type="button" class="btn btn-primary ">Pilih Kamar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="shadow-sm p-3 mb-5 bg-body rounded">
-                <div class="row">
-                    <div class="col ms-4">
-                        <img src="{{ asset('assets/style/images/kls-vip.png') }}" class="rounded" style="width:45%" alt="kamar">
-                    </div>
-                    <div class="col">
-                        <div class="row">
-                            <p>Kamar 501</p>
-                            <div class="col">
-                                Kelas
-                            </div>
-                            <div class="col">
-                                Tempat
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col text-center">
-                        <br>
-                        <button type="button" class="btn btn-primary ">Pilih Kamar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 @endsection

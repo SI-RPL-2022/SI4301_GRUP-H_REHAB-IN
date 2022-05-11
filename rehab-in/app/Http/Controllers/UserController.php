@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\models\User;
+use App\models\Kamar;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -65,12 +66,7 @@ class UserController extends Controller
 
     }
 
-    // public function forgetpw(){
-    //     return view('user.forgetpw');
-    // }
-
     // Forget Password For USER
-
     public function ForgetPassword() {
         return view('user.forgetpw');
     }
@@ -180,11 +176,14 @@ class UserController extends Controller
     public function services(){
         return view('user.service');
     }
-    public function reservasi(){
-        return view('user.reservasi');
+    public function kamar(){
+        $kamar = Kamar::all();
+        return view('user.reservasi',compact('kamar'));
     }
-    public function ruangan(){
-        return view('user.ruangan');
+    public function ruangan($id){
+        $kamar = Kamar::find($id);
+        $user = Auth::User();
+        return view('user.ruangan',['kamar'=>$kamar,'user'=>$user]);
     }
     public function dokter(){
         return view('user.dokter');

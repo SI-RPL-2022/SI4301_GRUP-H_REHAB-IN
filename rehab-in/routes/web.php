@@ -73,9 +73,9 @@ Route::get('/pasien/service/dokter/jadwal',[UserController::class,'jadwal'])->na
 Route::get('/pasien/service/dokter/invoice',[UserController::class,'invoicedoc'])->name('invoice')->middleware('auth');; // invoice untuk pasien
 Route::get('/pasien/service/dokter/konsultasi',[UserController::class,'konsultasi'])->name('konsultasi')->middleware('auth');; // invoice untuk pasien
 
-Route::get('/pasien/service/reservasi',[UserController::class,'reservasi'])->name('reservasi')->middleware('auth');; // Template reservasi pasien
-Route::get('/pasien/service/reservasi/ruangan',[UserController::class,'ruangan'])->name('ruangan')->middleware('auth');; // Template jadwal ruangan pasien
-Route::get('/pasien/service/reservasi/invoice',[UserController::class,'total'])->name('harga')->middleware('auth');; // Template jadwal ruangan pasien
+Route::get('/pasien/service/kamar',[UserController::class,'kamar'])->name('reservasi')->middleware('auth');; // Template reservasi pasien
+Route::get('/pasien/service/kamar/detail/{id}',[UserController::class,'ruangan'])->name('ruangan')->middleware('auth');; // Template jadwal ruangan pasien
+Route::get('/pasien/service/kamar/invoice',[UserController::class,'total'])->name('harga')->middleware('auth');; // Template jadwal ruangan pasien
 
 // //Dokter
 // Route::get('/dokter',[DokterController::class, 'index'])->name('landingdokter'); //Landing page for Dokter
