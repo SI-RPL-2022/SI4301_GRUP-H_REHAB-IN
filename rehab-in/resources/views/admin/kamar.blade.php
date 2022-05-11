@@ -21,9 +21,9 @@
                     <thead>
                         <tr>
                             <th>Id</th> 
-                            <th>Kode Kamar</th>
+                            <th>Nama Kamar</th>
                             <th>Foto Kamar</th>
-                            <th>Nama</th>
+                            <th>Kode</th>
                             <th>Nomor</th>
                             <th>Kelas</th>
                             <th>Fasilitas</th>
@@ -52,7 +52,7 @@
                                         <i class="fas fa-pencil-alt"></i>
                                     </span>
                                 </a>
-                                <a href="#" class="btn btn-danger btn-icon-split">
+                                <a href="/admin/kamar/delete/{{ $item->id }}" class="btn btn-danger btn-icon-split">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-trash"></i>
                                     </span>
@@ -212,11 +212,11 @@
       <!-- Modal EDIT -->
  <div class="modal fade" id="edit-kamar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        {{ Form::open(array('url' => '/admin/artikel/update','method' => 'PUT', 'enctype'=> 'multipart/form-data')) }}
+        {{ Form::open(array('url' => '/admin/kamar/update','method' => 'PUT', 'enctype'=> 'multipart/form-data')) }}
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="col-2">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Artikel</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Data Kamar</h5>
                     </div>
                     <div class="col-10" style="padding-left: 66%;">
                         <input id="simpanModalEdit" type="submit" value="Simpan" class="btn btn-primary"/>
@@ -241,7 +241,7 @@
 
                             <div class="col-10">
                          
-                                {{-- <input type="text" name="id_article" id="id_article" class="form-control form-control-user form-edit-article" value="#1" readonly> --}}
+                                <input type="text" name="id" id="modalEditId" class="form-control form-control-user form-edit-article" value="" hidden>
 
                                 <input type="file" id="pic" name="pic" style="margin-top:10px;">
 
