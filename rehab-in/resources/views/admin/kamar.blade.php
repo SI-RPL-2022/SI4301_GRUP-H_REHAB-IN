@@ -21,9 +21,9 @@
                     <thead>
                         <tr>
                             <th>Id</th> 
-                            <th>Kode Kamar</th>
+                            <th>Nama Kamar</th>
                             <th>Foto Kamar</th>
-                            <th>Nama</th>
+                            <th>Kode</th>
                             <th>Nomor</th>
                             <th>Kelas</th>
                             <th>Fasilitas</th>
@@ -39,7 +39,7 @@
                         <tr>
                             <td>{{$item->id}}</td>
                             <td>{{$item->code}}</td>
-                            <td><img src="{{ asset('assets/style/images/kamar1.png') }}" alt="" style="width: 100%;"/></td>
+                            <td><img src="{{asset('images/'.$item->pic)}}" alt="" style="width: 100%;"/></td>
                             <td>{{$item->nama_kamar}}</td>
                             <td>{{$item->no_kamar}}</td>
                             <td>{{$item->kelas}}</td>
@@ -52,12 +52,12 @@
                                         <i class="fas fa-pencil-alt"></i>
                                     </span>
                                 </a>
-                                <a href="#" class="btn btn-danger btn-icon-split">
+                                <a href="/admin/kamar/delete/{{ $item->id }}" class="btn btn-danger btn-icon-split">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-trash"></i>
                                     </span>
                                 </a>
-                            
+                           
                             </td>
                         </tr>
                         
@@ -212,11 +212,11 @@
       <!-- Modal EDIT -->
  <div class="modal fade" id="edit-kamar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        {{ Form::open(array('url' => '/admin/artikel/update','method' => 'PUT', 'enctype'=> 'multipart/form-data')) }}
+        {{ Form::open(array('url' => '/admin/kamar/update','method' => 'PUT', 'enctype'=> 'multipart/form-data')) }}
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="col-2">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Artikel</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Data Kamar</h5>
                     </div>
                     <div class="col-10" style="padding-left: 66%;">
                         <input id="simpanModalEdit" type="submit" value="Simpan" class="btn btn-primary"/>
@@ -240,8 +240,8 @@
 
 
                             <div class="col-10">
-                                    
-                                {{-- <input type="text" name="id_article" id="id_article" class="form-control form-control-user form-edit-article" value="#1" readonly> --}}
+                         
+                                <input type="text" name="id" id="modalEditId" class="form-control form-control-user form-edit-article" value="" hidden>
 
                                 <input type="file" id="pic" name="pic" style="margin-top:10px;">
 
@@ -259,67 +259,69 @@
                                <div class="checkboxkamars">
                                    <div class="col-12 row">
                                        <div class="row">
+                                       
+                                      
                                            <div class="col-lg-4 mb-4">
-                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="1 Bed Pasien"  /> 1 Bed Pasien
-                                                {{-- {{ in_array('1 Bed Pasien', $facility) ? 'checked' : '' }} --}}
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="chc1" value="1 Bed Pasien"  /> 1 Bed Pasien
+                                                
                                            </div>
 
                                            <div class="col-lg-4 mb-4">
-                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="1 Kamar Keluarga" /> 1 Kamar Keluarga
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="chc2" value="1 Kamar Keluarga" /> 1 Kamar Keluarga
                                             </div>
 
                                             <div class="col-lg-4 mb-4">
-                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility"  value="Kamar Mandi Dalam" /> Kamar Mandi Dalam
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="chc3"  value="Kamar Mandi Dalam" /> Kamar Mandi Dalam
                                             </div>
 
                                             <div class="col-lg-4 mb-4">
-                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Ruang Makan Keluarga" /> Ruang Makan Keluarga
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="chc4" value="Ruang Makan Keluarga" /> Ruang Makan Keluarga
                                             </div>
 
                                             <div class="col-lg-4 mb-4">
-                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Parcel Buah" /> Parcel Buah
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="chc5" value="Parcel Buah" /> Parcel Buah
                                            </div>
 
                                            <div class="col-lg-4 mb-4">
-                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Kitchen Set" /> Kitchen Set
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="chc6" value="Kitchen Set" /> Kitchen Set
                                             </div>
 
                                             <div class="col-lg-4 mb-4">
-                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Microwave" /> Microwave
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="chc7" value="Microwave" /> Microwave
                                             </div>
 
                                             <div class="col-lg-4 mb-4">
-                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Meja Kerja" /> Meja Kerja
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="chc8" value="Meja Kerja" /> Meja Kerja
                                             </div>
 
                                             <div class="col-lg-4 mb-4">
-                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Lemari Es" /> Lemari Es
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="chc9" value="Lemari Es" /> Lemari Es
                                             </div>
 
                                             <div class="col-lg-4 mb-4">
-                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Hitter Air" /> Hitter Air
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="chc10" value="Hitter Air" /> Hitter Air
                                            </div>
 
                                            <div class="col-lg-4 mb-4">
-                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="2 TV LCD" /> 2 TV LCD
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="chc11" value="2 TV LCD" /> 2 TV LCD
                                             </div>
 
                                             <div class="col-lg-4 mb-4">
-                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Naskas" /> Naskas
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="chc12" value="Naskas" /> Naskas
                                             </div>
 
                                             <div class="col-lg-4 mb-4">
-                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Sofa" /> Sofa
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="chc13" value="Sofa" /> Sofa
                                             </div>
 
                                             <div class="col-lg-4 mb-4">
-                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="Parcel Buah" /> Wifi
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="chc14" value="Wifi" /> Wifi
                                            </div>
 
                                            <div class="col-lg-4 mb-4">
-                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="modalEditFacility" value="AC" /> AC
+                                                <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" id="chc15" value="AC" /> AC
                                             </div>
-
+                                           
                                        </div>
                                     </div>
                                 
@@ -371,6 +373,43 @@ $('body').on('click', '#editKamar', function (event) {
        $('#modalEditNoKamar').val(data.data.no_kamar);
        $('#modalEditKelas').val(data.data.kelas);
        $('#modalEditFacility').val(data.data.facility);
+       let facility = data.data.facility.split(",")
+       console.log(facility);
+       facility.forEach(element => {
+           
+           if(element == '1 Bed Pasien'){
+            $( "#chc1" ).prop( "checked", true );
+           } else if(element == '1 Kamar Keluarga'){
+            $( "#chc2" ).prop( "checked", true );
+           } else if(element == 'Kamar Mandi Dalam'){
+            $( "#chc3" ).prop( "checked", true );
+           } else if(element == 'Ruang Makan Keluarga'){
+            $( "#chc4" ).prop( "checked", true );
+           } else if(element == 'Parcel Buah'){
+            $( "#chc5" ).prop( "checked", true );
+           } else if(element == 'Kitchen Set'){
+            $( "#chc6" ).prop( "checked", true );
+           } else if(element == 'Microwave'){
+            $( "#chc7" ).prop( "checked", true );
+           }  else if(element == 'Meja Kerja'){
+            $( "#chc8" ).prop( "checked", true );
+           } else if(element == 'Lemari Es'){
+            $( "#chc9" ).prop( "checked", true );
+           } else if(element == 'Hitter Air'){
+            $( "#chc10" ).prop( "checked", true );
+           } else if(element == '2 TV LCD'){
+            $( "#chc11" ).prop( "checked", true );
+           } else if(element == 'Naskas'){
+            $( "#chc12" ).prop( "checked", true );
+           } else if(element == 'Sofa'){
+            $( "#chc13" ).prop( "checked", true );
+           } else if(element == 'Wifi'){ 
+            $( "#chc14" ).prop( "checked", true );
+           } else if(element == 'AC'){
+            $( "#chc15" ).prop( "checked", true );
+           }
+       });
+       
     //    $('#modalEditCreated_at').val(data.data.created_at.substring(0, 10));
       //  $('#modalEditImage_art').val(data.data.image_art);
        $('#modalEditHarga').val(data.data.price);

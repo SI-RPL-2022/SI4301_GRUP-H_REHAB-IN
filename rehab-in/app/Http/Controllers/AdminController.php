@@ -244,9 +244,9 @@ class AdminController extends Controller
 
         $kamar = Kamar::find($id);
         return response()->json([
-            'data' => $kamar,
-            // dd($kamar)
-            // 'facility' => explode(',', $kamar->facility)
+            'data' => $kamar
+          
+            
           ]);
     }
 
@@ -272,12 +272,14 @@ class AdminController extends Controller
     }
 
     public function updateKamar(Request $request){
+
         $kamar = Kamar::find($request->id);
-        $kamar->code=$request->code;
-        $kamar->name=$request->name;
         $kamar->no_kamar=$request->no_kamar;
+        $kamar->nama_kamar=$request->nama_kamar;
         $kamar->kelas=$request->kelas;
-        $kamar->facility=$request->facility;
+        $kamar->facility= implode(',', $request->facility);
+        
+        $kamar->code=$request->code;
         $kamar->price=$request->price;
         $gambar=$request->pic;
         if($gambar != null){
