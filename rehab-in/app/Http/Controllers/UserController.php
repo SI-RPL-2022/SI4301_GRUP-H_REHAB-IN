@@ -66,6 +66,29 @@ class UserController extends Controller
 
     }
 
+    //tambah dokter
+    public function adddokter(Request $request){
+
+        $user = new User();
+        $user->name=$request->nama_lengkap;
+        $user->email=$request->email;
+        $user->nohp=$request->nohp;
+        $user->address=$request->address;
+        $user->tanggallahir=$request->tanggallahir;
+        $user->password=$request->password;
+        $user->role=$request->role;
+    
+        $user->save();
+
+        return redirect(route('dbdokter'));
+        // return view('admin.tips');
+    }
+
+    public function dbdokter(){
+        $user = User::all();
+        return view('admin.dbdokter', compact('user'));
+    }
+
     // Forget Password For USER
     public function ForgetPassword() {
         return view('user.forgetpw');

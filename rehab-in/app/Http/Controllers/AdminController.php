@@ -181,7 +181,8 @@ class AdminController extends Controller
     }
 
     public function dbdokter(){
-        return view('admin.dbdokter');
+        $admin = User::all();
+        return view('admin.dbdokter', compact('user'));
     }
 
     public function dbadmin(){
@@ -212,7 +213,6 @@ class AdminController extends Controller
         return redirect(route('dbadmin'));
         // return view('admin.tips');
     }
-
 
     public function updateDadmin(Request $request){
         $admin = Admin::find($request->id);

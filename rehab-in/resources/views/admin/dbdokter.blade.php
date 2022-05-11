@@ -4,7 +4,7 @@
 {{-- TITLE --}}
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Table Dokter</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add-dokter"><i
         class="fas fa-plus fa-sm text-white-50"></i> Tambahkan dokter</a>
 </div>
 {{-- TITLE --}}
@@ -34,27 +34,20 @@
                     </thead>
                 
                     <tbody>
-                        <tr>
-                            <td>#1</td>
-                            <td>DOK1</td>
-                            <td><img src="{{ asset('assets/style/images/user-pict.png') }}" alt="" style="width: 100%;"/></td>
-                            <td>dr. Farhan</td>
-                            <td>50 th</td>
-                            <td>Spesialis Gigi</td>
-                            <td>Senin - jumat (08.00 - 16.00 WIB)</td>
+                    @foreach ($user as $item)
+                    <tr>
+                            <th>{{$item->id}}</th>
+                            <th>{{$item->name}}</th>
+                            <th>{{$item->email}}</th>
+                            <th>{{$item->nohp}}</th>
+                            <th>{{$item->address}}</th>
                             <td>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                                Quae fuga rerum assumenda, mollitia dolores perferendis et error!
-                                Ducimus, earum necessitatibus.
-                            </td>
-                            <td>?</td>
-                            <td>
-                                <a href="#" class="btn btn-info btn-icon-split">
+                                <a id="editDadmin" href="#" class="btn btn-info btn-icon-split" data-id="{{ $item->id }}">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-pencil-alt"></i>
                                     </span>
                                 </a>
-                                <a href="#" class="btn btn-danger btn-icon-split">
+                                <a href="/admin/dbadmin/delete/{{ $item->id }}" class="btn btn-danger btn-icon-split">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-trash"></i>
                                     </span>
@@ -62,41 +55,70 @@
                             
                             </td>
                         </tr>
-                        <tr>
-                            <td>#2</td>
-                            <td>DOK2</td>
-                            <td><img src="{{ asset('assets/style/images/dok2.png') }}" alt="" style="width: 100%;"/></td>
-                            <td>dr. Alex</td>
-                            <td>20 th</td>
-                            <td>Spesialis Jantung</td>
-                            <td>Senin - jumat (16.00 - 21.00 WIB)</td>
-                            <td>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                                Quae fuga rerum assumenda, mollitia dolores perferendis et error!
-                                Ducimus, earum necessitatibus.
-                            </td>
-                            <td><i class="fas fa-star" style="color: orange;"> 5.0</i></td>
-                            <td>?</td>
-                            <td>
-                                <a href="#" class="btn btn-info btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </span>
-                                </a>
-                                <a href="#" class="btn btn-danger btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-trash"></i>
-                                    </span>
-                                </a>
-                            
-                            </td>
-                        </tr>
-                      
-                        
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+
+    <!-- Modal ADD DOKTER-->
+ <div class="modal fade" id="add-dokter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="/admin/dbdokter/add" method="post" enctype="multipart/form-data">
+            @csrf
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-2">
+                    <h5 class="modal-title" id="exampleModalLabel">Tambahkan Dokter</h5>
+                </div>
+                <div class="col-10" style="padding-left: 66%;">
+                    <input type="submit" value="Tambah" class="btn btn-primary"/>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Batal</button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="col-12">
+                    
+                    <div class="row">
+                            <div class="col-2">
+                                <label class="label-edit-article">Nama Lengkap</label><br>
+                                <label class="label-edit-article">Email</label><br>
+                                <label class="label-edit-article">Nomor HP</label><br>
+                                <label class="label-edit-article">Tanggal Lahir</label><br>
+                                <label class="label-edit-article">Alamat</label><br>
+                                <label class="label-edit-article">Password</label>
+
+                            </div>
+
+                            <div class="col-10">
+                                
+                                <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control form-control-user form-edit-article">
+
+                                <input type="text" name="email" id="email" class="form-control form-control-user form-edit-article">
+                                
+                                <input type="text" name="nohp" id="nohp" class="form-control form-control-user form-edit-article">
+
+                                <input type="date" name="tanggallahir" id="tanggallahir" class="form-control form-control-user form-edit-article">
+                                
+                                <input type="text" name="address" id="address" class="form-control form-control-user form-edit-article">
+                                
+                                <input type="text" name="role" id="role" value="2" class="form-control form-control-user form-edit-article" hidden>
+
+                                <input type="password" name="password" id="password" class="form-control form-control-user form-edit-article">
+                            </div>    
+                        </div>
+                    
+                </div>
+    
+            </div>
+
+            
+            
+
+        </div>
+    </form>
+    </div>
+  </div>
 
 @endsection

@@ -106,7 +106,8 @@ Route::get('/',[AdminController::class, 'index'])->name('landingadmin'); //Landi
 
 // User Management
 Route::get('dbpasien',[AdminController::class,'dbpasien'])->name('dbpasien'); //Login for
-Route::get('dbdokter',[AdminController::class,'dbdokter'])->name('dbdokter'); //Login for
+Route::get('dbdokter',[UserController::class,'dbdokter'])->name('dbdokter'); //Login for
+Route::post('dbdokter/add',[UserController::class,'adddokter'])->name('adddokter'); //Regist for dokter
 
 
 Route::get('dbadmin',[AdminController::class,'dbadmin'])->name('dbadmin'); //Login for
