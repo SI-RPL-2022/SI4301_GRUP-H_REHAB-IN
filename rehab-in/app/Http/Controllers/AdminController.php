@@ -244,10 +244,8 @@ class AdminController extends Controller
 
         $kamar = Kamar::find($id);
         return response()->json([
-            'data' => $kamar,
-            // 'facility' => explode(',', 'data'->facility) ini buat apa:. itu yg checkbox :( kyknya ini gk run. 
-            // coba kmu mw balikan datnya mgna? HA??
-            
+            'data' => $kamar
+          
             
           ]);
     }
