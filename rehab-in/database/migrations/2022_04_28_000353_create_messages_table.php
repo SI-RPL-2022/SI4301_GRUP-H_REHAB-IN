@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('revkamar', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id',255)->unsigned();
-            $table->foreignId('kamar_id');
-            $table->foreign('kamar_id')->references('id')->on('kamars');
-            $table->foreignId('patient');
-            $table->foreign('patient')->references('id')->on('users');
-            $table->date('checkin');
-            $table->timestamps();
+            $table->string('name');
+            $table->string('email');
+            $table->string('subject');
+            $table->text('message');
         });
     }
 
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('revkamar');
+        Schema::dropIfExists('message');
     }
 };
