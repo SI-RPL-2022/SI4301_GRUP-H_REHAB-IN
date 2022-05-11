@@ -21,15 +21,11 @@
                     <thead>
                         <tr>
                             <th>Id</th> 
-                            <th>Kode Dokters</th>
-                            <th>Foto Dokter</th>
-                            <th>Nama Dokter</th>
-                            <th>Usia Dokter</th>
-                            <th>Spesialis Keahlian</th>
-                            <th>Jadwal Praktek</th>
-                            <th>Tentang Dokter</th>
-                            <th>Kontak Dokter</th> 
-                            <th style="width:11%;">Aksi</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Nomor Handphone</th>
+                            <th>Alamat</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                 
