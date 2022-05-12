@@ -51,7 +51,7 @@
         <div class="loop owl-carousel">
           @foreach ($tips as $item)
           <div class="item">
-            <a href="{{ route('tips') }}">
+            <a href="/tips/{{$item->id}}">
               <div class="portfolio-item">
               <div class="thumb">
                 <img src="{{asset('images/'.$item->pic)}}" alt="" style="min-height: 248px;"/>
@@ -88,7 +88,7 @@
         <div class="loop owl-carousel">
           @foreach ($artikel as $item)
           <div class="item">
-            <a href="{{ route('tips') }}">
+            <a href="/article/{{$item->id}}">
               <div class="portfolio-item">
               <div class="thumb">
                 <img src="{{asset('images/'.$item->image_art)}}" alt="" style="min-height: 248px;"/>

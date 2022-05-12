@@ -39,7 +39,7 @@
                         <tr>
                             <td>{{$item->id}}</td>
                             <td>{{$item->code}}</td>
-                            <td><img src="{{asset('images/'.$item->pic)}}" alt="" style="width: 100%;"/></td>
+                            <td><img src="{{asset('images/'.$item->pic)}}" alt="" style="width: 80%;"/></td>
                             <td>{{$item->nama_kamar}}</td>
                             <td>{{$item->no_kamar}}</td>
                             <td>{{$item->kelas}}</td>
@@ -121,7 +121,7 @@
                                        <div class="col-12 row">
                                            <div class="row">
                                                <div class="col-lg-4 mb-4">
-                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="1 Bed Pasien" />
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="1 Bed Pasien" /> 1 Bed Pasien
                                                </div>
 
                                                <div class="col-lg-4 mb-4">
@@ -173,7 +173,7 @@
                                                 </div>
 
                                                 <div class="col-lg-4 mb-4">
-                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="Parcel Buah" /> Wifi
+                                                    <input class="form-check-input" type="checkbox" name="facility[]" alt="checkbox" value="Wifi" /> Wifi
                                                </div>
 
                                                <div class="col-lg-4 mb-4">
