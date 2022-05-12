@@ -34,7 +34,7 @@ Route::get('/tips', [HomeController::class, 'tips'])->name('tips');
 Route::get('/tips/{id}', [HomeController::class, 'tipsid'])->name('tips_guest');
 
 Route::get('/article', [HomeController::class, 'articles'])->name('articles');
-Route::get('/article/{id}', [HomeController::class, 'articleid'])->name('articles_kfp'); //need login before
+Route::get('/article/{id}', [HomeController::class, 'articleid'])->name('articles_kfp')->middleware('auth'); //need login before
 
 Route::get('/service', [ServiceController::class, 'index'])->name('service');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
