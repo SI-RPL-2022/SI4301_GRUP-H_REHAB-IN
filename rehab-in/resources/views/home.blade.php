@@ -12,7 +12,7 @@
               <div class="col-lg-12">
                 <h6>Rehabilitasi di Rehab-IN yuk!</h6>
                 <h2>Rehab-IN mempermudah anda untuk mendapatkan layanan rehabililtasi</h2>
-                <p>This template is brought to you by TemplateMo website. Feel free to use this for a commercial purpose. You are not allowed to redistribute the template ZIP file on any other template website. Thank you.</p>
+                <p style="color: black;">Dapatkan pelayanan rehabilitasi, konsultasi, serta reservasi tercepat melalui Rehab-IN. Jangan sampai ketinggalan juga untuk artikel dan tips kesehatan ter-update setiap harinya.</p>
               </div>
 
               <div class="col-lg-12">
