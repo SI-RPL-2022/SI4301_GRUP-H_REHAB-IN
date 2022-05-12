@@ -197,8 +197,8 @@ $('body').on('click', '#editTips', function (event) {
        $('#modalEditJudul_tips').val(data.data.judul);
        $('#modalEditPenulis').val(data.data.penulis);
        $('#modalEditCreated_at').val(data.data.created_at.substring(0, 10));
-       $('#modalEditImage_tips').val(data.data.pic);
-       $('#modalEditKonten').val(data.data.desc);
+    //    $('#modalEditImage_tips').val(data.data.pic);
+       $('#modalEditKonten').text(data.data.desc);
 
 
      

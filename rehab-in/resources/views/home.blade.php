@@ -12,7 +12,7 @@
               <div class="col-lg-12">
                 <h6>Rehabilitasi di Rehab-IN yuk!</h6>
                 <h2>Rehab-IN mempermudah anda untuk mendapatkan layanan rehabililtasi</h2>
-                <p>This template is brought to you by TemplateMo website. Feel free to use this for a commercial purpose. You are not allowed to redistribute the template ZIP file on any other template website. Thank you.</p>
+                <p style="color: black;">Dapatkan pelayanan rehabilitasi, konsultasi, serta reservasi tercepat melalui Rehab-IN. Jangan sampai ketinggalan juga untuk artikel dan tips kesehatan ter-update setiap harinya.</p>
               </div>
 
               <div class="col-lg-12">
@@ -51,7 +51,7 @@
         <div class="loop owl-carousel">
           @foreach ($tips as $item)
           <div class="item">
-            <a href="{{ route('tips') }}">
+            <a href="/tips/{{$item->id}}">
               <div class="portfolio-item">
               <div class="thumb">
                 <img src="{{asset('images/'.$item->pic)}}" alt="" style="min-height: 248px;"/>
@@ -88,7 +88,7 @@
         <div class="loop owl-carousel">
           @foreach ($artikel as $item)
           <div class="item">
-            <a href="{{ route('tips') }}">
+            <a href="/article/{{$item->id}}">
               <div class="portfolio-item">
               <div class="thumb">
                 <img src="{{asset('images/'.$item->image_art)}}" alt="" style="min-height: 248px;"/>

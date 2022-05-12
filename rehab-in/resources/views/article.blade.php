@@ -8,7 +8,7 @@
       <div class="col-lg-6 show-up wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
           <div class="blog-post-tips">
             <div class="thumb">
-              <a href="#"><img src="{{asset('images/'.$tips->pic)}}" alt=""></a>
+              <a href="#"><img src="{{asset('images/'.$article->image_art)}}" alt=""></a>
             </div>
           </div>
         </div>
@@ -19,12 +19,12 @@
                 <div class="post-item">
                   <div class="right-content">
                       <div class="right-content-top">
-                        <span class="category">{{$tips->penulis}}</span>
-                        <span class="date">{{$tips->created_at}}</span>
+                        <span class="category">{{$article->penulis}}</span>
+                        <span class="date">{{$article->created_at}}</span>
                     </div>
-                    <a href="#"><h4>{{$tips->judul}}</h4></a>
+                    <a href="#"><h4>{{$article->judul_artikel}}</h4></a>
                     <p style="color: #000; text-align:justify;">
-                      {{$tips->desc}}
+                      {{$article->konten}}
                     </p>
                    
                   </div>

@@ -14,21 +14,27 @@ class HomeController extends Controller
         $artikel = Artikel::all();
         $tips = Tip::all();
         // dd($artikel);
-        return view('home', compact('artikel'), compact('tips'));
-
-        
+        return view('home', compact('artikel'), compact('tips'));        
     }
 
+    public function tips()
+    {
+        return view('tips');
+    }
 
-    // public function tips()
-    // {
-    //     return view('tips');
-    // }
+    public function tipsid($id){
+        $tips = Tip::find($id);
+        return view('tips',['tips'=>$tips]);
+    }
 
-    // public function tips(){
-      
-        
-    // }
+    public function articles()
+    {
+        return view('article');
+    }
 
+    public function articleid($id){
+        $artikel = Artikel::find($id);
+        return view('article',['article'=>$artikel]);
+    }
 
 }
