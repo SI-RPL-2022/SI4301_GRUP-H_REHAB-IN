@@ -13,7 +13,7 @@
                     <img src="{{ asset('assets\style\images\user-pict.png') }}" class="rounded" style="width:100%" alt="kamar">
                 </div>
                 <div class="col mt-5 pt-5">
-                    <p style="font-size: 20px">Name DOCTOR</p>
+                    <p style="font-size: 20px">{{ $doc->name }}</p>
                     <p>Spesialis asam uram | Bandung, Jawa Barat</p>
                 </div>
             </div>

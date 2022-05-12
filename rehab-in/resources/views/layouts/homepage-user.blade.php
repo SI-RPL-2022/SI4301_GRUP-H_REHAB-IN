@@ -37,6 +37,9 @@
                         <li>
                             <a href="{{ route('history') }}"><span class="fa fa-sticky-note"></span>Riwayat Pembayaran</a>
                         </li>
+                        <li>
+                            <a href="{{ route('logout') }}"><span class="fa fa-sign-out"></span>Keluar akun</a>
+                        </li>
 
                     </ul>
 
@@ -58,15 +61,12 @@
                                 <i class="fa fa-bars"></i>
                                 <span class="sr-only">Side Menu</span>
                             </button>
-                            <strong><p class="mt-4">
-                                Hallo <a href="{{ route('user-profile') }}">{{ auth()->user()->name }}</a> | How are you? </p></strong>
-                                {{-- <form action="{{ route('user-profile') }}" method="POST" class="d-inline">
-                                    @csrf
-                                    <input type="text" name="id" id="id" class="form-control" value="{{ auth()->user()->id }}" hidden>
-                                    <button type="submit" class="btn btn-outline-primary border-0">{{ auth()->user()->name }}</button>
-                                </form>
-
-                                </p> --}}
+                            <strong>
+                                <p class="mt-4">
+                                    Hallo 
+                                    <a href="{{ route('user-profile') }}">{{ auth()->user()->name }}</a> | How are you? 
+                                </p>
+                            </strong>
 
                         </div>
                     </nav>

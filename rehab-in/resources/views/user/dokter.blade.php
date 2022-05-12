@@ -35,114 +35,37 @@
         </a>
         <span class="p-2 text-black" style="font-size:30px">Dokter Kami</span>
         <div class="row clearfix">
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-3">
-                <div class="card" style="width: 18em;">
-                    <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title text-center">Doctor's name</h5>
-                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fuga rerum assumenda, mollitia dolores perferendis et error! Ducimus, earum necessitatibus.</p>
+            @if($jumlahdokter > 0)
+                @foreach($dokter as $doc)
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-3">
+                        <div class="card" style="width: 18em;">
+                            @if( $doc->pic === null)
+                                <img src="{{ asset('assets/style/images/user-pict.png') }}" class="card-img-top" width="50" alt="{{ $doc->name }}">
+                            @else
+                                <img src="{{ asset('userProfile/'.$doc->pic) }}" class="card-img-top" width="50" alt="{{ $doc->name }}">
+                            @endif
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{ $doc->name }}</h5>
+                                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fuga rerum assumenda, mollitia dolores perferendis et error! Ducimus, earum necessitatibus.</p>
 
-                    <div class="mt-3 mb-3 text-center">
-                        <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-instagram fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-linkedin fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-google fa-2x me-2"></i></a>
+                                <div class="mt-3 mb-3 text-center">
+                                    <span class="text-black bold">{{ $doc->nohp }}</span>
+                                    {{-- <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
+                                    <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
+                                    <a href="#"><i class="fa fa-instagram fa-2x me-2"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin fa-2x me-2"></i></a>
+                                    <a href="#"><i class="fa fa-google fa-2x me-2"></i></a> --}}
+                                </div>
+                                <a href="{{ route('jadwal',['id'=>$doc->id]) }}" class="btn btn-primary d-flex justify-content-center">Atur jadwal</a>
+                            </div>
+                        </div>
                     </div>
-                    <a href="{{ route('jadwal') }}" class="btn btn-primary d-flex justify-content-center">Atur jadwal</a>
-                    </div>
+                @endforeach
+            @else
+                <div class="container">
+                    <h2 class="text-center">Maaf kamar belum tersedia</h2>
                 </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-3">
-                <div class="card" style="width: 18em;">
-                    <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title text-center">Doctor's name</h5>
-                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fuga rerum assumenda, mollitia dolores perferendis et error! Ducimus, earum necessitatibus.</p>
-
-                    <div class="mt-3 mb-3 text-center">
-                        <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-instagram fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-linkedin fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-google fa-2x me-2"></i></a>
-                    </div>
-                    <a href="#" class="btn btn-primary d-flex justify-content-center">Atur jadwal</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-3">
-                <div class="card" style="width: 18em;">
-                    <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title text-center">Doctor's name</h5>
-                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fuga rerum assumenda, mollitia dolores perferendis et error! Ducimus, earum necessitatibus.</p>
-
-                    <div class="mt-3 mb-3 text-center">
-                        <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-instagram fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-linkedin fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-google fa-2x me-2"></i></a>
-                    </div>
-                    <a href="#" class="btn btn-primary d-flex justify-content-center">Atur jadwal</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-3">
-                <div class="card" style="width: 18em;">
-                    <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title text-center">Doctor's name</h5>
-                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fuga rerum assumenda, mollitia dolores perferendis et error! Ducimus, earum necessitatibus.</p>
-
-                    <div class="mt-3 mb-3 text-center">
-                        <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-instagram fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-linkedin fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-google fa-2x me-2"></i></a>
-                    </div>
-                    <a href="#" class="btn btn-primary d-flex justify-content-center">Atur jadwal</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-3">
-                <div class="card" style="width: 18em;">
-                    <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title text-center">Doctor's name</h5>
-                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fuga rerum assumenda, mollitia dolores perferendis et error! Ducimus, earum necessitatibus.</p>
-
-                    <div class="mt-3 mb-3 text-center">
-                        <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-instagram fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-linkedin fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-google fa-2x me-2"></i></a>
-                    </div>
-                    <a href="#" class="btn btn-primary d-flex justify-content-center">Atur jadwal</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-3">
-                <div class="card" style="width: 18em;">
-                    <img src="{{ asset('assets\style\images\user-pict.png') }}" class="card-img-top" width="50" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title text-center">Doctor's name</h5>
-                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fuga rerum assumenda, mollitia dolores perferendis et error! Ducimus, earum necessitatibus.</p>
-
-                    <div class="mt-3 mb-3 text-center">
-                        <a href="#"><i class="fa fa-facebook fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-dribbble fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-instagram fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-linkedin fa-2x me-2"></i></a>
-                        <a href="#"><i class="fa fa-google fa-2x me-2"></i></a>
-                    </div>
-                    <a href="#" class="btn btn-primary d-flex justify-content-center">Atur jadwal</a>
-                    </div>
-                </div>
-            </div>
+            @endif
         </div>
     </div>
 @endsection

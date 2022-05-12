@@ -201,7 +201,8 @@ class UserController extends Controller
     }
     public function kamar(){
         $kamar = Kamar::all();
-        return view('user.reservasi',compact('kamar'));
+        $jumlah = DB::table('kamars')->count();
+        return view('user.reservasi',compact('kamar','jumlah'));
     }
     public function ruangan($id){
         $kamar = Kamar::find($id);
@@ -209,16 +210,17 @@ class UserController extends Controller
         return view('user.ruangan',['kamar'=>$kamar,'user'=>$user]);
     }
     public function dokter(){
-        return view('user.dokter');
+        // $dokter = DB::table('users')->where('role','2')
+        $dokter = User::where('role',2)->get();
+        $jumlahdokter = User::where('role',2)->count();
+        return view('user.dokter', compact('dokter','jumlahdokter'));
     }
-    public function edukasi(){
-        return view('user.service');
+    public function jadwal($id){
+        $doc = User::find($id);
+        return view('user.jadwal',['doc'=>$doc]);
     }
     public function total(){
         return view('user.result');
-    }
-    public function jadwal(){
-        return view('user.jadwal');
     }
     public function invoicedoc(){
         return view('user.result');

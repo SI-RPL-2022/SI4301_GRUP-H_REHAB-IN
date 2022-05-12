@@ -69,7 +69,7 @@ Route::get('/pasien/service',[UserController::class,'services'])->name('user-ser
 Route::get('/pasien/service/hospital',[UserController::class,'hospital'])->name('hospital')->middleware('auth');; // Tampilan hospital untuk pasien
 Route::get('/pasien/history/',[UserController::class,'history'])->name('history')->middleware('auth');; // Tampilan untuk history payment
 Route::get('/pasien/service/dokter',[UserController::class,'dokter'])->name('dokter')->middleware('auth');; // List dokter untuk pasien
-Route::get('/pasien/service/dokter/jadwal',[UserController::class,'jadwal'])->name('jadwal')->middleware('auth');; // Input dokter untuk pasien
+Route::get('/pasien/service/dokter/jadwal/{id}',[UserController::class,'jadwal'])->name('jadwal')->middleware('auth');; // Input dokter untuk pasien
 Route::get('/pasien/service/dokter/invoice',[UserController::class,'invoicedoc'])->name('invoice')->middleware('auth');; // invoice untuk pasien
 Route::get('/pasien/service/dokter/konsultasi',[UserController::class,'konsultasi'])->name('konsultasi')->middleware('auth');; // invoice untuk pasien
 
