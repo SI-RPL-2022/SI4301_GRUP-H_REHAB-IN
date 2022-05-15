@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Artikel;
 use App\Models\Tip;
 use App\Models\Admin;
+use App\Models\User;
 use App\Models\Kamar;
 use App\Models\Notesehat;
 use Illuminate\Support\Facades\Auth;
@@ -180,13 +181,38 @@ class AdminController extends Controller
         return view('admin.dbpasien');
     }
 
+    public function regpasien(){
+        return view('admin.regpasfromadm');
+    }
+
+    public function registpasien(Request $request){
+
+        if($request->password == $request->confpw){
+            $validated = $request->validate([
+                'name' => 'required|max:255',
+                'email' => 'required|email:dns|unique:users',
+                'password' => 'required|min:6|max:255',
+                'nohp' => 'required|min:10|max:13',
+                'address' => 'required|min:10',
+                'tanggallahir' => 'required'
+            ]);
+
+            $validated['password'] = Hash::make($validated['password']);
+            User::create($validated);
+            return redirect('/admin/dbpasien')->with('success', 'Registrasi Berhasil');
+        }else{
+            return redirect('/regpasien')->with('Failure','Password Tidak Sama');
+        }
+
+    }
+
     public function dbdokter(){
-        $admin = User::all();
+        $dokter = User::where('role',2)->get();
         return view('admin.dbdokter', compact('user'));
     }
 
     public function dbadmin(){
-        $admin = Admin::all();
+        $admin = User::where('role',1)->get();
         return view('admin.dbadmin', compact('admin'));
 
     }
@@ -316,21 +342,48 @@ class AdminController extends Controller
         $cred = $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required|min:6',
-            'role' => '1'
+            'role' => 'required'
         ]);
 
         // dd("after validate");
         if (Auth::attempt($cred)) {
+            if(Auth::user()->role == 1){
             $request->session()->regenerate();
             return redirect()->intended('/admin');
+            } else{
+                return back()->with('loginError','Login failed!');        
+            }
+
         }
         return back()->with('loginError','Login failed!');
 
     }
 
+    public function registeradm(){
+        return view('admin.register');
+    }
 
-    public function register(){
-        return view('');
+    public function regisadmin(Request $request){
+
+        if($request->password == $request->confpw){
+            // dd($request);
+            $validated = $request->validate([
+                'name' => 'required|max:255',
+                'email' => 'required|email:dns|unique:users',
+                'password' => 'required|min:6|max:255',
+                'nohp' => 'required|min:10|max:13',
+                'address' => 'required|min:10',
+                'tanggallahir' => 'required',
+                'role' => 'required'
+            ]);
+
+            $validated['password'] = Hash::make($validated['password']);
+            User::create($validated);
+            return redirect('/admin/login')->with('success', 'Registrasi Berhasil, plase login!');
+        }else{
+            return redirect('/register/admin')->with('Failure','Password Tidak Sama');
+        }
+
     }
     public function forgetpw(){
         return view('');

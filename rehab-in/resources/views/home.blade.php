@@ -48,6 +48,33 @@
   <div class="container-fluid wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
     <div class="row">
       <div class="col-lg-12">
+
+        @if (count($tips) < 1)
+
+        <div id="contact content" class="container-fluid">
+          <div class="row">
+              <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
+                  <form id="contact" action="" method="post">
+                      <div class="user-pict-notes" style="padding: 30px 2px 20px 520px;">
+                          <div class="row">
+                              <div class="col-lg-12">
+                                  <h6 class="user-profile-header" style="text-align: left;">Tips kesehatan belum tersedia</h6>
+                                      <div class="info-post row" style="padding-top: 0px;padding-bottom: 0px">
+
+                                        
+                                        <img src="{{asset('assets/style/images/stars.png')}}" alt="" style="width:35%; text-elign:center;" />
+
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+
+        @else
+
         <div class="loop owl-carousel">
           @foreach ($tips as $item)
           <div class="item">
@@ -65,6 +92,7 @@
           </div>
           @endforeach
         </div>
+        @endif
       </div>
     </div>
   </div>
@@ -85,7 +113,35 @@
   <div class="container-fluid wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
     <div class="row">
       <div class="col-lg-12">
+        @if (count($artikel) < 1)
+
+        <div id="contact content" class="container-fluid">
+          <div class="row">
+              <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
+                  <form id="contact" action="" method="post">
+                      <div class="user-pict-notes" style="padding: 30px 2px 20px 520px;">
+                          <div class="row">
+                              <div class="col-lg-12">
+                                  <h6 class="user-profile-header" style="text-align: left; margin-left:35px;">Artikel belum tersedia</h6>
+                                      <div class="info-post row" style="padding-top: 0px;padding-bottom: 0px">
+
+                                        
+                                        <img src="{{asset('assets/style/images/hartakarun.png')}}" alt="" style="width:35%; text-elign:center;" />
+
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+
+        @else
         <div class="loop owl-carousel">
+         
+
+
           @foreach ($artikel as $item)
           <div class="item">
             <a href="/article/{{$item->id}}">
@@ -101,7 +157,10 @@
             </a>
           </div>
           @endforeach
+
+          
         </div>
+        @endif
       </div>
     </div>
   </div>

@@ -81,6 +81,10 @@
                                             
                                         
                                     </form>
+
+                                    <div class="text-center" style="margin-top: 10px;">
+                                        <a class="small" href="{{ route('registeradm') }}">Buat akun baru!</a>
+                                    </div>
                                     
                                     {{-- <div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>

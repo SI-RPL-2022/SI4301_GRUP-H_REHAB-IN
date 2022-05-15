@@ -184,6 +184,8 @@
   </div>
 
 
+
+
   @endsection
 
   @section('script')
@@ -211,6 +213,8 @@ $('body').on('click', '#editArtikel', function (event) {
        
      })
 });
+
+
 
 
 }); 
