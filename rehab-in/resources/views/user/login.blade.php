@@ -45,16 +45,17 @@
                       @endif
                       <input type="email" name="email" class="@error('email') is-invalid @enderror" id="email" placeholder="Email" autocomplete="on" required>
                       @error('email')
-                        <div class="invalid-feedback">
-                          {{ $message }}
-                        </div>
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
                       @enderror
                       <input type="password" name="password" class="@error('password')is-invalid @enderror" id="password" placeholder="Password" required>
                       @error('password')
-                        <div class="invalid-feedback">
-                          {{ $message }}
-                        </div>
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
                       @enderror
+                      <input type="number" name="role" id="role" class="form-control form-control-user" value=0 style="display: none;">
                     </div>
                     <a href="{{ route('ForgetPasswordGet') }}" class="mt-3">FORGET PASSWORD</a>
 

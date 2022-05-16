@@ -49,6 +49,7 @@
                         @enderror
                         <input type="password" name="confpw" id="confpw " class="@error('confpw') is-invalid @enderror" placeholder="Konfirmasi Password" required>
                         <input type="number" name="nohp" id="nohp" class="@error('nohp') is-invalid @enderror" placeholder="Nomor Hp" required value="{{ old('nohp') }}">
+                        <input type="number" name="role" id="role" class="form-control form-control-user" value=0 style="display: none;">
                         @error('nohp')
                             <div class="invalid-feedback">
                             {{ $message }}

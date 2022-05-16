@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('tanggallahir');
             $table->string('address');
             $table->bigInteger('nohp');
-            $table->bigInteger('role')->default(0);
+            $table->bigInteger('role');
             $table->string('pic',1000)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

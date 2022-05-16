@@ -4,7 +4,7 @@
 {{-- TITLE --}}
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Table Administrator</h1>
-    <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add-admin"><i
+    <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="{{ route('regadm')}}"><i
         class="fas fa-plus fa-sm text-white-50"></i> Tambahkan Admin</a>
 </div>
 {{-- TITLE --}}
@@ -23,8 +23,6 @@
                             <th>Id</th>
                             <th>Nama Lengkap</th>
                             <th>Email</th>
-                            <th>Username</th>
-                            <th>Password</th>
                             <th style="width:11%;">Aksi</th>
                         </tr>
                     </thead>
@@ -33,10 +31,8 @@
                         @foreach ($admin as $item)
                         <tr>
                             <th>{{$item->id}}</th>
-                            <th>{{$item->nama_lengkap}}</th>
+                            <th>{{$item->name}}</th>
                             <th>{{$item->email}}</th>
-                            <th>{{$item->username}}</th>
-                            <th>{{$item->password}}</th>
                             <td>
                                 <a id="editDadmin" href="#" class="btn btn-info btn-icon-split" data-id="{{ $item->id }}">
                                     <span class="icon text-white-50">

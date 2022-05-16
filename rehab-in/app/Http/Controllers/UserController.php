@@ -24,12 +24,18 @@ class UserController extends Controller
         $credentials = $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required|min:6',
-            'role' => '0'
+            'role' => 'required'
         ]);
+        // dd($credentials['role']);
 
         if (Auth::attempt($credentials)) {
+            if(Auth::user()->role == 0){
             $request->session()->regenerate();
             return redirect()->intended('/pasien');
+            } else {
+        return back()->with('loginError','Login failed!');
+
+            }
         }
         return back()->with('loginError','Login failed!');
     }
@@ -48,13 +54,15 @@ class UserController extends Controller
     public function registerpasien(Request $request){
 
         if($request->password == $request->confpw){
+            // dd($request);
             $validated = $request->validate([
                 'name' => 'required|max:255',
                 'email' => 'required|email:dns|unique:users',
                 'password' => 'required|min:6|max:255',
                 'nohp' => 'required|min:10|max:13',
                 'address' => 'required|min:10',
-                'tanggallahir' => 'required'
+                'tanggallahir' => 'required',
+                'role' => 'required'
             ]);
 
             $validated['password'] = Hash::make($validated['password']);
