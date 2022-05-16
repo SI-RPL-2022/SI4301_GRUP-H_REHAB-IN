@@ -2,12 +2,12 @@
 @section('main')
     <div class="container">
         <div class="shadow-sm p-3 mb-5 bg-body rounded">
-            {{-- <a href="{{ route('dokter') }}">
+            <a href="{{ route('dokter') }}">
                 <button type="button" id="sidebarCollapse" class="btn btn-primary mb-4">
                     <i class="fa fa-backward"></i>
                     <span class="sr-only">Toggle Menu</span>
                 </button>
-            </a> --}}
+            </a>
             <div class="row">
                 <div class="col-3 ms-4">
                     <img src="{{ asset('assets\style\images\user-pict.png') }}" class="rounded" style="width:100%" alt="kamar">
@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="mb-4 row ms-1">
-                    <a href="{{ route('invoice') }}" class="btn btn-primary me-3 col-sm-2">SUBMIT</a>
+                    <a href="{{ route('invoice',['id'=>$doc->id]) }}" class="btn btn-primary me-3 col-sm-2">SUBMIT</a>
                     <a href="{{ route('dokter') }}" class="btn btn-warning col-sm-2">CANCEL</a>
                     {{-- <button type="button" class="btn btn-primary col-sm-1">SUBMIT</button> --}}
                 </div>

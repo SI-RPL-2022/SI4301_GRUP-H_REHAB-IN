@@ -219,11 +219,12 @@ class UserController extends Controller
         $doc = User::find($id);
         return view('user.jadwal',['doc'=>$doc]);
     }
-    public function total(){
-        return view('user.result');
+    public function invoice(Request $request){
+        
+        return redirect()->route('login')->with('message', 'Your password has been successfully changed!');
     }
     public function invoicedoc(){
-        return view('user.result');
+        return view('user.invoicedoc');
     }
     public function konsultasi(){
         return view('user.konsultasi');
