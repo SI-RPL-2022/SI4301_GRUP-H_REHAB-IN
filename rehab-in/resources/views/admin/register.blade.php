@@ -66,6 +66,12 @@
                                                 {{ $message }}
                                                 </div>
                                             @enderror
+                                            <input style="margin-bottom: 10px;" type="text" name="username" id="username" class="form-control form-control-user @error('username') is-invalid @enderror" placeholder="Username" autocomplete="on" required value="{{ old('username') }}">
+                                            @error('username')
+                                                <div class="invalid-feedback">
+                                                {{ $message }}
+                                                </div>
+                                            @enderror
                                             <input style="margin-bottom: 10px;" type="email" name="email" id="email" class="form-control form-control-user @error('email') is-invalid @enderror" pattern="[^ @]*@[^ @]*" placeholder="Email" required value="{{ old('email') }}">
                                             @error('email')
                                                 <div class="invalid-feedback">

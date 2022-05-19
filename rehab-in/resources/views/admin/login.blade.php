@@ -53,14 +53,14 @@
                                     <form class="user"  action="{{ route('authadm') }}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user @error('email')is-invalid @enderror"
-                                                id="exampleInputEmail" name="email" aria-describedby="emailHelp"
-                                                placeholder="Email" autofocus required/>
+                                            <input type="text" class="form-control form-control-user @error('username')is-invalid @enderror"
+                                                id="exampleInputEmail" name="username" aria-describedby="emailHelp"
+                                                placeholder="Username" autofocus required/>
 
-                                                @error('email')
+                                                @error('Username')
 
                                                 <div class="invalid-feedback">
-                                                    Email anda tidak valid.
+                                                    Username anda tidak valid.
                                                   </div>
                                                 @enderror
                                         </div>
@@ -68,6 +68,7 @@
                                             <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" name="password" placeholder="Password" required>
                                         </div>
+                                        <input type="number" name="role" id="role" class="form-control form-control-user" value=1 hidden>
                                         {{-- <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">

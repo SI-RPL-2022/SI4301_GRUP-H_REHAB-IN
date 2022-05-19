@@ -204,10 +204,29 @@ class AdminController extends Controller
             return redirect('/regpasien')->with('Failure','Password Tidak Sama');
         }
 
+    }    
+    
+    //tambah dokter
+    public function adddokter(Request $request){
+        $password = $request->password;
+        $user = new User();
+        $user->name=$request->nama_lengkap;
+        $user->email=$request->email;
+        $user->username=$request->username;
+        $user->nohp=$request->nohp;
+        $user->address=$request->address;
+        $user->tanggallahir=$request->tanggallahir;
+        $user->password=Hash::make($password);
+        $user->role=$request->role;
+    
+        $user->save();
+
+        return redirect(route('dbdokter'));
+        // return view('admin.tips');
     }
 
     public function dbdokter(){
-        $dokter = User::where('role',2)->get();
+        $user = User::where('role',2)->get();
         return view('admin.dbdokter', compact('user'));
     }
 
@@ -287,7 +306,7 @@ class AdminController extends Controller
         $kamar->nama_kamar=$request->nama_kamar;
         $kamar->kelas=$request->kelas;
         $kamar->facility= implode(',', $request->facility);
-        
+        $kamar->status = $request->status;
         $kamar->code=$request->code;
         $kamar->pic=$gambar;
         $kamar->price=$request->price;
@@ -305,6 +324,7 @@ class AdminController extends Controller
         $kamar->kelas=$request->kelas;
         $kamar->facility= implode(',', $request->facility);
         
+        $kamar->status = $request->status;
         $kamar->code=$request->code;
         $kamar->price=$request->price;
         $gambar=$request->pic;
@@ -340,7 +360,7 @@ class AdminController extends Controller
     public function authadm(Request $request){
         // dd($request);
         $cred = $request->validate([
-            'email' => 'required|email:dns',
+            'username' => 'required|exists:users',
             'password' => 'required|min:6',
             'role' => 'required'
         ]);
@@ -369,7 +389,8 @@ class AdminController extends Controller
             // dd($request);
             $validated = $request->validate([
                 'name' => 'required|max:255',
-                'email' => 'required|email:dns|unique:users',
+                'username' => 'required|min:6|unique:users',
+                'email' => 'required|email:dns',
                 'password' => 'required|min:6|max:255',
                 'nohp' => 'required|min:10|max:13',
                 'address' => 'required|min:10',

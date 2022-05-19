@@ -15,16 +15,13 @@ return new class extends Migration
     {
         Schema::create('dokters', function (Blueprint $table) {
             $table->bigIncrements('id',255)->unsigned();
-            $table->string('code');
-            $table->string('email');
-            $table->string('password');
-            $table->binary('pic');
-            $table->string('name');
-            $table->string('age');
+            $table->foreignId('id_dokter');
+            $table->foreign('id_dokter')->references('id')->on('users');
+            $table->string('pic');
+            $table->string('deskripsi');
             $table->string('spesialis');
             $table->string('jadwal_day');
             $table->string('jadwal_time');
-            $table->text('desc');
         });
     }
 

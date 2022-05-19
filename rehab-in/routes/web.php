@@ -56,56 +56,34 @@ Route::get('forget', [UserController::class, 'ForgetPassword'])->middleware('gue
 Route::post('forget-password', [UserController::class, 'ForgetPasswordStore'])->middleware('guest')->name('ForgetPasswordPost');
 Route::get('reset-password/{token}/{email}', [UserController::class, 'ResetPassword'])->middleware('guest')->name('ResetPasswordGet');
 Route::post('/reset-password', [UserController::class, 'ResetPasswordStore'])->middleware('guest')->name('ResetPasswordPost');
-// Dashboard Pasien
-<<<<<<< HEAD
-Route::get('/pasien',function(){
-    return view('user.home');
-})->name('landinguser')->middleware('auth'); //Londing page user after login
 
-// Profile Pasien
-Route::get('/pasien/profile/',[UserController::class,'profile'])->name('user-profile')->middleware('auth');; // Profile manage for user
-Route::get('/pasien/profile/edit/',[UserController::class,'show'])->name('editprofile')->middleware('auth');; // Profile manage for user
-Route::post('/pasien/profile',[UserController::class,'updateprofile'])->name('updateprofileuser')->middleware('auth'); //FORM POST UPDATE FOR USER
-
-Route::get('/pasien/notes',[UserController::class,'notes'])->name('user-healthnotes')->middleware('auth');; // Notes for user
-Route::get('/pasien/service',[UserController::class,'services'])->name('user-services')->middleware('auth');; // Chat manage for user
-Route::get('/pasien/service/hospital',[UserController::class,'hospital'])->name('hospital')->middleware('auth');; // Tampilan hospital untuk pasien
-Route::get('/pasien/history/',[UserController::class,'history'])->name('history')->middleware('auth');; // Tampilan untuk history payment
-Route::get('/pasien/service/dokter',[UserController::class,'dokter'])->name('dokter')->middleware('auth');; // List dokter untuk pasien
-Route::get('/pasien/service/dokter/jadwal/{id}',[UserController::class,'jadwal'])->name('jadwal')->middleware('auth');; // Input dokter untuk pasien
-Route::get('/pasien/service/dokter/invoice/{id}',[UserController::class,'invoicedoc'])->name('invoice')->middleware('auth');; // invoice untuk pasien
-Route::get('/pasien/service/dokter/konsultasi',[UserController::class,'konsultasi'])->name('konsultasi')->middleware('auth');; // invoice untuk pasien
-
-Route::get('/pasien/service/kamar',[UserController::class,'kamar'])->name('reservasi')->middleware('auth');; // Template reservasi pasien
-Route::get('/pasien/service/kamar/detail/{id}',[UserController::class,'ruangan'])->name('ruangan')->middleware('auth');; // Template jadwal ruangan pasien
-Route::get('/pasien/service/kamar/invoice/{id}',[UserController::class,'total'])->name('harga')->middleware('auth');; // Template jadwal ruangan pasien
-=======
->>>>>>> c88b5a0818b5db3a93dced731024397ebfcd3595
 
 Route::group(['middleware'=>['isPasien']], function(){
+    // Dashboard Pasien
     Route::get('/pasien',function(){
         return view('user.home');
     })->name('landinguser')->middleware('auth'); //Londing page user after login
     
     // Profile Pasien
     
-    Route::get('/pasien/profile/',[UserController::class,'profile'])->name('user-profile')->middleware('auth');; // Profile manage for user
-    Route::get('/pasien/profile/edit/',[UserController::class,'show'])->name('editprofile')->middleware('auth');; // Profile manage for user
+    Route::get('/pasien/profile/',[UserController::class,'profile'])->name('user-profile')->middleware('auth'); // Profile manage for user
+    Route::get('/pasien/profile/edit/',[UserController::class,'show'])->name('editprofile')->middleware('auth'); // Profile manage for user
     Route::post('/pasien/profile',[UserController::class,'updateprofile'])->name('updateprofileuser')->middleware('auth'); //FORM POST UPDATE FOR USER
     
     Route::get('/pasien/history',[UserController::class,'riwayat'])->name('user-history')->middleware('auth'); //
-    Route::get('/pasien/notes',[UserController::class,'notes'])->name('user-healthnotes')->middleware('auth');; // Notes for user
-    Route::get('/pasien/service',[UserController::class,'services'])->name('user-services')->middleware('auth');; // Chat manage for user
-    Route::get('/pasien/service/hospital',[UserController::class,'hospital'])->name('hospital')->middleware('auth');; // Tampilan hospital untuk pasien
-    Route::get('/pasien/history/',[UserController::class,'history'])->name('history')->middleware('auth');; // Tampilan untuk history payment
-    Route::get('/pasien/service/dokter',[UserController::class,'dokter'])->name('dokter')->middleware('auth');; // List dokter untuk pasien
-    Route::get('/pasien/service/dokter/jadwal/{id}',[UserController::class,'jadwal'])->name('jadwal')->middleware('auth');; // Input dokter untuk pasien
-    Route::get('/pasien/service/dokter/invoice',[UserController::class,'invoicedoc'])->name('invoice')->middleware('auth');; // invoice untuk pasien
-    Route::get('/pasien/service/dokter/konsultasi',[UserController::class,'konsultasi'])->name('konsultasi')->middleware('auth');; // invoice untuk pasien
+    Route::get('/pasien/notes',[UserController::class,'notes'])->name('user-healthnotes')->middleware('auth'); // Notes for user
+    Route::get('/pasien/service',[UserController::class,'services'])->name('user-services')->middleware('auth'); // Chat manage for user
+    Route::get('/pasien/service/hospital',[UserController::class,'hospital'])->name('hospital')->middleware('auth'); // Tampilan hospital untuk pasien
+    Route::get('/pasien/history/',[UserController::class,'history'])->name('history')->middleware('auth'); // Tampilan untuk history payment
+    Route::get('/pasien/service/dokter',[UserController::class,'dokter'])->name('dokter')->middleware('auth'); // List dokter untuk pasien
+    Route::get('/pasien/service/dokter/jadwal/{id}',[UserController::class,'jadwal'])->name('jadwal')->middleware('auth'); // Input dokter untuk pasien
+    Route::get('/pasien/service/dokter/invoice',[UserController::class,'invoicedoc'])->name('invoice')->middleware('auth'); // invoice untuk pasien
+    Route::get('/pasien/service/dokter/konsultasi',[UserController::class,'konsultasi'])->name('konsultasi')->middleware('auth'); // invoice untuk pasien
     
-    Route::get('/pasien/service/kamar',[UserController::class,'kamar'])->name('reservasi')->middleware('auth');; // Template reservasi pasien
-    Route::get('/pasien/service/kamar/detail/{id}',[UserController::class,'ruangan'])->name('ruangan')->middleware('auth');; // Template jadwal ruangan pasien
-    Route::get('/pasien/service/kamar/invoice',[UserController::class,'total'])->name('harga')->middleware('auth');; // Template jadwal ruangan pasien
+    Route::get('/pasien/service/kamar',[UserController::class,'kamar'])->name('reservasi')->middleware('auth'); // Template reservasi pasien
+    Route::get('/pasien/service/kamar/detail/{id}',[UserController::class,'ruangan'])->name('ruangan')->middleware('auth'); // Template jadwal ruangan pasien
+    Route::post('/pasien/service/kamar/invoice',[UserController::class,'invoice'])->name('inv')->middleware('auth');
+    Route::get('/pasien/service/kamar/invoice',[UserController::class,'total'])->name('harga')->middleware('auth'); // Template jadwal ruangan pasien
     
     Route::get('/article/{id}', [HomeController::class, 'articleid'])->name('articles_kfp')->middleware('auth'); //need login before
 });
@@ -145,8 +123,8 @@ Route::get('dbpasien',[AdminController::class,'dbpasien'])->name('dbpasien'); //
 Route::get('/regis/pasien',[AdminController::class,'regpasien'])->name('regpasfromadm');
 Route::post('/regis/pasien',[AdminController::class,'registpasien'])->name('regispasfromadm');
 
-Route::get('dbdokter',[UserController::class,'dbdokter'])->name('dbdokter'); //Login for
-Route::post('dbdokter/add',[UserController::class,'adddokter'])->name('adddokter'); //Regist for dokter
+Route::get('dbdokter',[AdminController::class,'dbdokter'])->name('dbdokter'); //Login for
+Route::post('dbdokter/add',[AdminController::class,'adddokter'])->name('adddokter'); //Regist for dokter
 
 
 Route::get('dbadmin',[AdminController::class,'dbadmin'])->name('dbadmin'); //Login for

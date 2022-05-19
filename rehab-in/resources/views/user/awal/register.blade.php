@@ -35,6 +35,12 @@
                             {{ $message }}
                             </div>
                         @enderror
+                        <input type="text" name="username" id="username" class="@error('username') is-invalid @enderror" placeholder="Username" required value="{{ old('username') }}">
+                        @error('username')
+                            <div class="invalid-feedback">
+                            {{ $message }}
+                            </div>
+                        @enderror
                         <input type="email" name="email" id="email" class="@error('email') is-invalid @enderror" pattern="[^ @]*@[^ @]*" placeholder="Email" required value="{{ old('email') }}">
                         @error('email')
                             <div class="invalid-feedback">

@@ -17,19 +17,19 @@ use Illuminate\Support\Str;
 class UserController extends Controller
 {
     public function login(){
-        return view('user.login');
+        return view('user.awal.login');
     }
 
     public function loginpasien(Request $request){
         $credentials = $request->validate([
-            'email' => 'required|email:dns',
+            'username' => 'required|exists:users',
             'password' => 'required|min:6',
             'role' => 'required'
         ]);
         // dd($credentials['role']);
 
         if (Auth::attempt($credentials)) {
-            if(Auth::user()->role == 0){
+            if(Auth::user()->role == 0){ 
             $request->session()->regenerate();
             return redirect()->intended('/pasien');
             } else {
@@ -48,7 +48,7 @@ class UserController extends Controller
     }
 
     public function register(){
-        return view('user.register');
+        return view('user.awal.register');
     }
 
     public function registerpasien(Request $request){
@@ -57,7 +57,8 @@ class UserController extends Controller
             // dd($request);
             $validated = $request->validate([
                 'name' => 'required|max:255',
-                'email' => 'required|email:dns|unique:users',
+                'username' => 'required|min:5|unique:users',
+                'email' => 'required|email:dns',
                 'password' => 'required|min:6|max:255',
                 'nohp' => 'required|min:10|max:13',
                 'address' => 'required|min:10',
@@ -74,38 +75,15 @@ class UserController extends Controller
 
     }
 
-    //tambah dokter
-    public function adddokter(Request $request){
-
-        $user = new User();
-        $user->name=$request->nama_lengkap;
-        $user->email=$request->email;
-        $user->nohp=$request->nohp;
-        $user->address=$request->address;
-        $user->tanggallahir=$request->tanggallahir;
-        $user->password=$request->password;
-        $user->role=$request->role;
-    
-        $user->save();
-
-        return redirect(route('dbdokter'));
-        // return view('admin.tips');
-    }
-
-    public function dbdokter(){
-        $user = User::all();
-        return view('admin.dbdokter', compact('user'));
-    }
-
     // Forget Password For USER
     public function ForgetPassword() {
-        return view('user.forgetpw');
+        return view('user.awal.forgetpw');
     }
 
     public function ForgetPasswordStore(Request $request) {
         //Valid the value of form email
         $request->validate([
-            'email' => 'required|email|exists:users',
+            'email' => 'required|email:dns|exists:users',
         ]);
 
         $email = $request->email;
@@ -116,7 +94,7 @@ class UserController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        Mail::send('user.forget-password-email', ['email'=> $email, 'token' => $token], function($message) use($request){
+        Mail::send('user.awal.forget-password-email', ['email'=> $email, 'token' => $token], function($message) use($request){
             $message->to($request->email);
             $message->from(env('MAIL_FROM_ADDRESS'), env('APP_NAME'));
             $message->subject('Reset Password');
@@ -128,7 +106,7 @@ class UserController extends Controller
     public function ResetPassword($token,$email) {
         $email = DB::table('password_resets')->where('email',$email)->first();
         $token = DB::table('password_resets')->where('token',$token)->first();
-        return view('user.forget-password-link', ['email' => $email,'token' => $token]);
+        return view('user.awal.forget-password-link', ['email' => $email,'token' => $token]);
     }
 
     public function ResetPasswordStore(Request $request) {
@@ -209,14 +187,24 @@ class UserController extends Controller
     }
     public function kamar(){
         $kamar = Kamar::all();
-        $jumlah = DB::table('kamars')->count();
-        return view('user.reservasi',compact('kamar','jumlah'));
+        $check = DB::table('kamars')->where('status','Tersedia')->count();
+        return view('user.reservasi',compact('kamar','check'));
     }
     public function ruangan($id){
         $kamar = Kamar::find($id);
         $user = Auth::User();
         return view('user.ruangan',['kamar'=>$kamar,'user'=>$user]);
     }
+
+    public function pesan(Request $request){
+        $kamar = new Kamar();
+        $$request->id_kamar;
+        $request->id_user;
+        $request->jenis;
+        $request->date;
+        $request->price;
+    }
+
     public function dokter(){
         // $dokter = DB::table('users')->where('role','2')
         $dokter = User::where('role',2)->get();

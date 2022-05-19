@@ -61,7 +61,7 @@
     <!-- Modal ADD DOKTER-->
  <div class="modal fade" id="add-dokter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="/admin/dbdokter/add" method="post" enctype="multipart/form-data">
+        <form action="{{ route('adddokter') }}" method="post" enctype="multipart/form-data">
             @csrf
         <div class="modal-content">
             <div class="modal-header">
@@ -79,11 +79,12 @@
                     <div class="row">
                             <div class="col-2">
                                 <label class="label-edit-article">Nama Lengkap</label><br>
+                                <label class="label-edit-article">Username</label><br>
                                 <label class="label-edit-article">Email</label><br>
+                                <label class="label-edit-article">Password</label><br>
                                 <label class="label-edit-article">Nomor HP</label><br>
                                 <label class="label-edit-article">Tanggal Lahir</label><br>
-                                <label class="label-edit-article">Alamat</label><br>
-                                <label class="label-edit-article">Password</label>
+                                <label class="label-edit-article">Alamat</label>
 
                             </div>
 
@@ -91,7 +92,11 @@
                                 
                                 <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control form-control-user form-edit-article">
 
+                                <input type="text" name="username" id="username" class="form-control form-control-user form-edit-article">
+
                                 <input type="text" name="email" id="email" class="form-control form-control-user form-edit-article">
+
+                                <input type="password" name="password" id="password" class="form-control form-control-user form-edit-article">
                                 
                                 <input type="text" name="nohp" id="nohp" class="form-control form-control-user form-edit-article">
 
@@ -100,8 +105,6 @@
                                 <input type="text" name="address" id="address" class="form-control form-control-user form-edit-article">
                                 
                                 <input type="text" name="role" id="role" value="2" class="form-control form-control-user form-edit-article" hidden>
-
-                                <input type="password" name="password" id="password" class="form-control form-control-user form-edit-article">
                             </div>    
                         </div>
                     

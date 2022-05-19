@@ -9,4 +9,7 @@ class Kamar extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    public function RevKamar(){
+        return $this->hasMany(RevKamar::class);
+    }
 }

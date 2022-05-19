@@ -63,7 +63,7 @@
                 @endforeach
             @else
                 <div class="container">
-                    <h2 class="text-center">Maaf kamar belum tersedia</h2>
+                    <h2 class="text-center">Maaf dokter belum tersedia</h2>
                 </div>
             @endif
         </div>

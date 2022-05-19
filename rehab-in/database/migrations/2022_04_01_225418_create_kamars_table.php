@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('kelas');
             $table->string('facility');
             $table->string('code');
+            $table->string('status');
             $table->string('pic')->nullable();
-            $table->integer('price');
+            $table->bigInteger('price');
             $table->timestamps();
         });
     }

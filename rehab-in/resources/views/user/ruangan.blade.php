@@ -21,34 +21,19 @@
                         <p>{{ $kamar->facility }}</p>
                     </div>
                     <div class="col">
-                        <form action="" method="post">
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Nama Pasien</label>
-                                <input type="name" class="form-control" id="exampleFormControlInput1" value="{{ $user->name }}"disabled>
-                            </div>
-                            <div class="mb-3" hidden>
-                                <label for="exampleFormControlInput1" class="form-label">Nomor kamar</label>
-                                <input type="name" class="form-control" id="exampleFormControlInput1" value="{{ $kamar->no_kamar }}"disabled>
-                            </div>
-                            <div class="mb-3" hidden>
-                                <label for="exampleFormControlInput1" class="form-label">Nama kamar</label>
-                                <input type="name" class="form-control" id="exampleFormControlInput1" value="{{ $kamar->nama_kamar }}"disabled>
-                            </div>
-                            <div class="mb-3" hidden>
-                                <label for="exampleFormControlInput1" class="form-label">Kelas</label>
-                                <input type="name" class="form-control" id="exampleFormControlInput1" value="{{ $kamar->kelas }}"disabled>
-                            </div>
-                            <div class="mb-3" hidden>
-                                <label for="exampleFormControlInput1" class="form-label">Fasilitas</label>
-                                <input type="name" class="form-control" id="exampleFormControlInput1" value="{{ $kamar->facility }}"disabled>
-                            </div>
+                        <form action="{{ route('inv') }}" method="post">
+                            @csrf
+                            <input type="id_kamar" name="id_kamar" class="form-control" value="{{ $kamar->id }}" hidden>
+                            <input type="id_user" name="id_user" class="form-control" value="{{ $user->id }}" hidden>
+                            <input type="jenis" name="jenis" class="form-control" value="Reservasi Layanan Kamar" hidden>
+                           
                             <div class="mb-3" disabled>
                                 <label for="exampleFormControlInput1" class="form-label">Harga</label>
-                                <input type="number" class="form-control" id="exampleFormControlInput1" value="{{ $kamar->price }}" placeholder="123456789" disabled>
+                                <input type="number" name="price" class="form-control" id="exampleFormControlInput1" value="{{ $kamar->price }}" disabled>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Jadwal</label>
-                                <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="date">
+                                <input type="date" name="date" class="form-control" id="exampleFormControlInput1" placeholder="date">
                             </div>
                             <a href="{{ route('harga') }}" class="btn btn-primary mb-2">CONFIRM</a>
                             {{-- <button type="submit" class="btn btn-primary mb-2">CONFIRM</button> --}}

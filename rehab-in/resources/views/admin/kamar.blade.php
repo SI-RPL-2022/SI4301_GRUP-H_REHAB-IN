@@ -95,6 +95,7 @@
                                     <label class="label-edit-article">Nomor Kamar</label><br>
                                     {{-- <label class="label-edit-article">Tanggal Post</label><br> --}}
                                     <label class="label-edit-article">Kelas</label><br>
+                                    <label class="label-edit-article">Status</label><br>
                                     <label class="label-edit-article">Fasilitas</label><br>
                                     <label class="label-edit-article" style="margin-top: 230px;">Harga</label>
     
@@ -114,10 +115,20 @@
     
                                     <input type="text" name="kelas" id="kelas" class="form-control form-control-user form-edit-article">
     
+                                    <div class="row mt-2">
+                                        <div class="col-sm-3 ms-md-2">
+                                            <input type="radio" class="btn-check" name="status" id="success-outlined" autocomplete="off" value="Tersedia">
+                                            <label class="btn btn-outline-success tex" for="success-outlined">Tersedia</label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="radio" class="btn-check" name="status" id="danger-outlined" autocomplete="off" value="Kosong">
+                                            <label class="btn btn-outline-danger" for="danger-outlined">Kosong</label>
+                                        </div>
+                                    </div>
                                     {{-- <input type="date" name="tanggal_post" id="tanggal_post" value="" class="form-control form-control-user form-edit-article"> --}}
                                     
                                     {{-- <input type="text" name="facility" id="facility" class="form-control form-control-user form-edit-article"> --}}
-                                   <div class="checkboxkamars">
+                                    <div class="checkboxkamars">
                                        <div class="col-12 row">
                                            <div class="row">
                                                <div class="col-lg-4 mb-4">
@@ -233,6 +244,7 @@
                                 <label class="label-edit-article">Nomor Kamar</label><br>
                                 {{-- <label class="label-edit-article">Tanggal Post</label><br> --}}
                                 <label class="label-edit-article">Kelas</label><br>
+                                <label class="label-edit-article">Status</label><br>
                                 <label class="label-edit-article">Fasilitas</label><br>
                                 <label class="label-edit-article" style="margin-top: 230px;">Harga</label>
 
@@ -255,8 +267,18 @@
 
                                 {{-- <input type="date" name="tanggal_post" id="tanggal_post" value="" class="form-control form-control-user form-edit-article"> --}}
                                 
-                                {{-- <input type="text" name="facility" id="facility" class="form-control form-control-user form-edit-article"> --}}
-                               <div class="checkboxkamars">
+                                
+                                <div class="row mt-2">
+                                    <div class="col-sm-3 ms-md-2">
+                                        <input type="radio" class="btn-check" name="status" id="success-outlined" autocomplete="off" value="Tersedia">
+                                        <label class="btn btn-outline-success tex" for="success-outlined">Tersedia</label>
+                                    </div>
+                                    <div class="col">
+                                        <input type="radio" class="btn-check" name="status" id="danger-outlined" autocomplete="off" value="Kosong">
+                                        <label class="btn btn-outline-danger" for="danger-outlined">Kosong</label>
+                                    </div>
+                                </div>
+                                <div class="checkboxkamars">
                                    <div class="col-12 row">
                                        <div class="row">
                                        

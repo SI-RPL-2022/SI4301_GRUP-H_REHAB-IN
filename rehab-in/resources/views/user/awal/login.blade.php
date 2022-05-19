@@ -43,8 +43,8 @@
                           <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
                         </div>
                       @endif
-                      <input type="email" name="email" class="@error('email') is-invalid @enderror" id="email" placeholder="Email" autocomplete="on" required>
-                      @error('email')
+                      <input type="text" name="username" class="@error('username') is-invalid @enderror" id="username" placeholder="Username" autocomplete="on" required>
+                      @error('username')
                       <div class="invalid-feedback">
                         {{ $message }}
                       </div>
@@ -55,7 +55,7 @@
                         {{ $message }}
                       </div>
                       @enderror
-                      <input type="number" name="role" id="role" class="form-control form-control-user" value=0 style="display: none;">
+                      <input type="number" name="role" id="role" class="form-control form-control-user" value=0 hidden>
                     </div>
                     <a href="{{ route('ForgetPasswordGet') }}" class="mt-3">FORGET PASSWORD</a>
 

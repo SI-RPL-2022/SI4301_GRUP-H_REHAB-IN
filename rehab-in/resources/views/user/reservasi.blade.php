@@ -33,7 +33,7 @@
                 <span class="sr-only">Toggle Menu</span>
             </button>
         </a><span class="p-2 text-black" style="font-size:30px">Kamar yang tersedia</span>
-        @if($jumlah > 0)
+        @if($check > 0)
             @foreach($kamar as $kamar)
                 <div class="row">
                     <div class="shadow-sm p-3 mb-5 bg-body rounded">

@@ -30,7 +30,7 @@
                             </div>
                         @endif
                       <fieldset>
-                        <input type="email" name="email" id="email" placeholder="Email" autocomplete="on" required>
+                        <input type="text" name="email" id="email" placeholder="Email" autocomplete="on" required>
                         @if ($errors->has('email'))
                             <span class="text-danger">{{ $errors->first('email') }}</span>
                         @endif
