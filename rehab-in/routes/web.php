@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DokterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\AboutController;
@@ -87,9 +88,12 @@ Route::group(['middleware'=>['isPasien']], function(){
     
     Route::get('/article/{id}', [HomeController::class, 'articleid'])->name('articles_kfp')->middleware('auth'); //need login before
 });
-// //Dokter
-// Route::get('/dokter',[DokterController::class, 'index'])->name('landingdokter'); //Landing page for Dokter
-// Route::get('',[DokterController::class,'login'])->name('login'); //Login for
+
+
+// DOKTER 
+Route::get('/dokter',[DokterController::class, 'index'])->name('landingdokter'); //Landing page for Dokter
+Route::get('/login-dokter',[DokterController::class,'login'])->name('logindokter'); //Login for
+Route::post('/dokter/login',[DokterController::class, 'authdok'])->name('authdok');
 // Route::get('',[DokterController::class,'register'])->name('register'); //Register for
 // Route::get('',[DokterController::class,'forgetpw'])->name('forgetpw'); // Forget password for
 
@@ -124,8 +128,8 @@ Route::get('/regis/pasien',[AdminController::class,'regpasien'])->name('regpasfr
 Route::post('/regis/pasien',[AdminController::class,'registpasien'])->name('regispasfromadm');
 
 Route::get('dbdokter',[AdminController::class,'dbdokter'])->name('dbdokter'); //Login for
-Route::post('dbdokter/add',[AdminController::class,'adddokter'])->name('adddokter'); //Regist for dokter
-
+Route::get('/regis/dokter',[AdminController::class,'registdokter'])->name('regdokfromadm');
+Route::post('/regis/dokter',[AdminController::class,'adddokter'])->name('regisdokfromadm');
 
 Route::get('dbadmin',[AdminController::class,'dbadmin'])->name('dbadmin'); //Login for
 // Route::get('/register/admin',[AdminController::class,'registeradm'])->name('regadm');

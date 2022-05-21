@@ -62,7 +62,18 @@
                   </ul>
                 </li>
               @else
-                <li class="scroll-to-section"><div class="border-first-button-login"><a href="{{ route('login') }}" >Login</a></div></li>
+                {{-- <li class="scroll-to-section"><div class="border-first-button-login"><a href="{{ route('login') }}" >Login</a></div></li> --}}
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Login
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{{ route('login') }}">Sebagai pasien</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{{ route('logindokter') }}">Sebagai dokter</a></li>
+                  </ul>
+                </li>
+                
                 <li class="scroll-to-section"><div class="border-first-button"><a href="{{ route('register') }}" >Sign-Up</a></div></li>
               @endauth
             </ul>

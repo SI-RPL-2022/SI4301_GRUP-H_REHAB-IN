@@ -4,7 +4,7 @@
 {{-- TITLE --}}
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Table Dokter</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add-dokter"><i
+    <a href="{{ route('regdokfromadm') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
         class="fas fa-plus fa-sm text-white-50"></i> Tambahkan dokter</a>
 </div>
 {{-- TITLE --}}
@@ -61,7 +61,7 @@
     <!-- Modal ADD DOKTER-->
  <div class="modal fade" id="add-dokter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="{{ route('adddokter') }}" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data">
             @csrf
         <div class="modal-content">
             <div class="modal-header">

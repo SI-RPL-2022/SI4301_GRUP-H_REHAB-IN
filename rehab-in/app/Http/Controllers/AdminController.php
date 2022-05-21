@@ -206,11 +206,16 @@ class AdminController extends Controller
 
     }    
     
+
+    public function registdokter(){
+        return view('admin.dokter');
+    }
+
     //tambah dokter
     public function adddokter(Request $request){
         $password = $request->password;
         $user = new User();
-        $user->name=$request->nama_lengkap;
+        $user->name=$request->name;
         $user->email=$request->email;
         $user->username=$request->username;
         $user->nohp=$request->nohp;
