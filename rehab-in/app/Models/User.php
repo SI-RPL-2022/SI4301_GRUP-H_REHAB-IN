@@ -24,8 +24,8 @@ class User extends Authenticatable
     // ];
     protected $guarded = ['id'];
     
-    public function RevKamar(){
-        return $this->hasMany(RevKamar::class);
+    public function OrderK(){
+        return $this->hasMany(OrderK::class);
     }
     /**
      * The attributes that should be hidden for serialization.

@@ -75,7 +75,6 @@ Route::group(['middleware'=>['isPasien']], function(){
     Route::get('/pasien/notes',[UserController::class,'notes'])->name('user-healthnotes')->middleware('auth'); // Notes for user
     Route::get('/pasien/service',[UserController::class,'services'])->name('user-services')->middleware('auth'); // Chat manage for user
     Route::get('/pasien/service/hospital',[UserController::class,'hospital'])->name('hospital')->middleware('auth'); // Tampilan hospital untuk pasien
-    Route::get('/pasien/history/',[UserController::class,'history'])->name('history')->middleware('auth'); // Tampilan untuk history payment
     Route::get('/pasien/service/dokter',[UserController::class,'dokter'])->name('dokter')->middleware('auth'); // List dokter untuk pasien
     Route::get('/pasien/service/dokter/jadwal/{id}',[UserController::class,'jadwal'])->name('jadwal')->middleware('auth'); // Input dokter untuk pasien
     Route::get('/pasien/service/dokter/invoice',[UserController::class,'invoicedoc'])->name('invoice')->middleware('auth'); // invoice untuk pasien
@@ -83,9 +82,11 @@ Route::group(['middleware'=>['isPasien']], function(){
     
     Route::get('/pasien/service/kamar',[UserController::class,'kamar'])->name('reservasi')->middleware('auth'); // Template reservasi pasien
     Route::get('/pasien/service/kamar/detail/{id}',[UserController::class,'ruangan'])->name('ruangan')->middleware('auth'); // Template jadwal ruangan pasien
-    Route::post('/pasien/service/kamar/invoice',[UserController::class,'invoice'])->name('inv')->middleware('auth');
-    Route::get('/pasien/service/kamar/invoice',[UserController::class,'total'])->name('harga')->middleware('auth'); // Template jadwal ruangan pasien
+    Route::get('/pasien/history/',[UserController::class,'history'])->name('history')->middleware('auth'); // Tampilan untuk history payment
+    Route::post('/pasien/history',[UserController::class,'pesan'])->name('inv')->middleware('auth');
     
+    Route::get('/pasien/history/invoice/',[UserController::class,'invoice'])->name('harga')->middleware('auth'); // Template jadwal ruangan pasien
+
     Route::get('/article/{id}', [HomeController::class, 'articleid'])->name('articles_kfp')->middleware('auth'); //need login before
 });
 

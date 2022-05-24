@@ -38,16 +38,16 @@
                 <div class="row">
                     <div class="shadow-sm p-3 mb-5 bg-body rounded">
                         <div class="row">
-                            <div class="col ms-4">
+                            <div class="col ms-4" >
                                 <img src="{{ asset('images/'.$kamar->pic) }}" class="rounded" style="width:45%" alt="kamar">
                             </div>
                             <div class="col">
                                 <div class="row">
-                                    <p>{{ $kamar->no_kamar }}</p>
-                                    <div class="col">
-                                        {{ $kamar->nama_kamar }}
+                                    <p style="font-size:30px; color:rgb(51, 51, 51); font-weight:bold;">{{ $kamar->nama_kamar }}</p>
+                                    <div class="col" style="color:rgb(51, 51, 51); font-weight:bold;">
+                                        {{ $kamar->no_kamar }}
                                     </div>
-                                    <div class="col">
+                                    <div class="col" style="color:rgb(51, 51, 51); font-weight:bold;">
                                         {{ $kamar->kelas }}
                                     </div>
                                 </div>

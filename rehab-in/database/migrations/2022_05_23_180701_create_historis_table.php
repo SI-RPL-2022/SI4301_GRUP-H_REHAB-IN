@@ -15,20 +15,12 @@ return new class extends Migration
     {
         Schema::create('historis', function (Blueprint $table) {
             $table->bigIncrements('id',255)->unsigned();
-            $table->bigInteger('noInv');
             $table->string('jenis_layanan');
             $table->string('bukti_pembayaran');
-            $table->string('deskripsi');
-            $table->bigInteger('price');
-            $table->string('waktu')->nullable();
-            $table->string('tanggal')->nullable();
-            $table->string('tipe')->nullable();
-            $table->foreignId('patient')->unsigned();
-            $table->foreign('patient')->references('id')->on('users');
-            $table->foreignId('id_kamar')->unsigned()->nullable();
-            $table->foreign('id_kamar')->references('id')->on('kamars');
-            $table->foreignId('id_dokter')->unsigned()->nullable();
-            $table->foreign('id_dokter')->references('id')->on('dokters');
+            $table->foreignId('id_order_kamar')->unsigned()->nullable();
+            $table->foreign('id_order_kamar')->references('id')->on('order_k_s');
+            $table->foreignId('id_order_dokter')->unsigned();
+            $table->foreign('id_order_dokter')->references('id')->on('order_d_s');
             $table->timestamps();
         });
     }

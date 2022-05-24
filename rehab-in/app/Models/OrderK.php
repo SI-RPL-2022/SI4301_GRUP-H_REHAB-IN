@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RevKamar extends Model
+class OrderK extends Model
 {
     use HasFactory;
-    protected $guarded = ['id'];
-
-    public function user(){
+    public function User(){
         return $this->belongsTo(User::class);
     }    
     
-    public function kamar(){
+    public function Kamar(){
         return $this->belongsTo(Kamar::class);
     }
 }

@@ -17,26 +17,27 @@
                     </div>
                     <div class="col-sm-2">
                         <p style="font-size: 20px">{{ $kamar->nama_kamar }}</p>
-                        <span>{{ $kamar->kelas }}</span>
-                        <p>{{ $kamar->facility }}</p>
+                        <span>{{ $kamar->kelas }}</span><br>
+                        <span>{{ $kamar->facility }}</span>
                     </div>
                     <div class="col">
-                        <form action="{{ route('inv') }}" method="post">
+                        <form action="{{ route('inv') }}" method="POST">
                             @csrf
-                            <input type="id_kamar" name="id_kamar" class="form-control" value="{{ $kamar->id }}" hidden>
-                            <input type="id_user" name="id_user" class="form-control" value="{{ $user->id }}" hidden>
-                            <input type="jenis" name="jenis" class="form-control" value="Reservasi Layanan Kamar" hidden>
+                            <input type="text" name="id_kamar" class="form-control" value="{{ $kamar->id }}" hidden>
+                            <input type="text" name="id_user" class="form-control" value="{{ $user->id }}" hidden>
+                            <input type="text" name="jenis" class="form-control" value="Reservasi Layanan Kamar" hidden>
+                            <input type="text" name="status" class="form-control" value="Belum membayar" hidden>
                            
                             <div class="mb-3" disabled>
-                                <label for="exampleFormControlInput1" class="form-label">Harga</label>
-                                <input type="number" name="price" class="form-control" id="exampleFormControlInput1" value="{{ $kamar->price }}" disabled>
+                                <label for="harga" class="form-label">Harga</label>
+                                <input class="form-control" id="harga" value="{{ $kamar->price }}" disabled>
                             </div>
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Jadwal</label>
-                                <input type="date" name="date" class="form-control" id="exampleFormControlInput1" placeholder="date">
+                                <label for="jadwal" class="form-label">Jadwal</label>
+                                <input type="datetime-local" name="date" class="form-control" id="jadwal" placeholder="date" required>
                             </div>
-                            <a href="{{ route('harga') }}" class="btn btn-primary mb-2">CONFIRM</a>
-                            {{-- <button type="submit" class="btn btn-primary mb-2">CONFIRM</button> --}}
+                            {{-- <a href="{{ route('harga') }}" class="btn btn-primary mb-2">CONFIRM</a> --}}
+                            <button type="submit" class="btn btn-primary mb-2">CONFIRM</button>
                             <a href="{{ route('reservasi') }}" class="btn btn-warning mb-2">CANCEL</a>
                         </form>
                     </div>

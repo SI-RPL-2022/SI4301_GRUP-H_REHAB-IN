@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\models\User;
 use App\models\Kamar;
+use App\models\OrderK;
+use App\models\histori;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -68,7 +70,7 @@ class UserController extends Controller
 
             $validated['password'] = Hash::make($validated['password']);
             User::create($validated);
-            return redirect('/login')->with('success', 'Registrasi Berhasil, plase login!');
+            return redirect('/login')->with('success', 'Registrasi Berhasil, please login!');
         }else{
             return redirect('/register')->with('Failure','Password Tidak Sama');
         }
@@ -190,21 +192,6 @@ class UserController extends Controller
         $check = DB::table('kamars')->where('status','Tersedia')->count();
         return view('user.reservasi',compact('kamar','check'));
     }
-    public function ruangan($id){
-        $kamar = Kamar::find($id);
-        $user = Auth::User();
-        return view('user.ruangan',['kamar'=>$kamar,'user'=>$user]);
-    }
-
-    public function pesan(Request $request){
-        $kamar = new Kamar();
-        $$request->id_kamar;
-        $request->id_user;
-        $request->jenis;
-        $request->date;
-        $request->price;
-    }
-
     public function dokter(){
         // $dokter = DB::table('users')->where('role','2')
         $dokter = User::where('role',2)->get();
@@ -215,9 +202,29 @@ class UserController extends Controller
         $doc = User::find($id);
         return view('user.jadwal',['doc'=>$doc]);
     }
-    public function invoice(Request $request){
-        
-        return redirect()->route('login')->with('message', 'Your password has been successfully changed!');
+    public function ruangan($id){
+        $kamar = Kamar::find($id);
+        $user = Auth::User();
+        return view('user.ruangan',['kamar'=>$kamar,'user'=>$user]);
+    }
+
+    public function pesan(Request $request){
+        $inv  = random_int(1000,9999);
+        $order = random_int(10000,99999);
+        $kamar = new OrderK();
+        $kamar->id = $order;
+        $kamar->noInv = $inv;
+        $kamar->jenis  = $request->jenis;
+        $kamar->waktu = $request->date;
+        $kamar->status = $request->status;
+        $kamar->patient = $request->id_user;
+        $kamar->id_kamar = $request->id_kamar;
+        $kamar->save();
+        return redirect('/pasien/history')->with('Done', 'Your order waiting for payment');
+    }
+    public function invoice($id){
+        $order = OrderK::find($id);
+        return view('user.invoice', compact('order'));
     }
     public function invoicedoc(){
         return view('user.invoicedoc');
@@ -226,6 +233,9 @@ class UserController extends Controller
         return view('user.konsultasi');
     }
     public function history(){
-        return view('user.historypayment');
+        $kamar = OrderK::where('status','Belum membayar')->get();
+        $checkkamar = OrderK::where('status','Belum membayar')->count();
+        $histori = histori::all();
+        return view('user.historypayment', compact('kamar','checkkamar','histori'));
     }
 }
