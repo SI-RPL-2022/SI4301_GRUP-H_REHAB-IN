@@ -92,9 +92,12 @@ Route::group(['middleware'=>['isPasien']], function(){
 
 
 // DOKTER 
-Route::get('/dokter',[DokterController::class, 'index'])->name('landingdokter'); //Landing page for Dokter
 Route::get('/login-dokter',[DokterController::class,'login'])->name('logindokter'); //Login for
 Route::post('/dokter/login',[DokterController::class, 'authdok'])->name('authdok');
+
+Route::group(['prefix'=>'dokter', 'middleware'=>['isDokter']], function(){
+    Route::get('/',[DokterController::class, 'index'])->name('landingdokter'); //Landing page for Dokter
+});
 // Route::get('',[DokterController::class,'register'])->name('register'); //Register for
 // Route::get('',[DokterController::class,'forgetpw'])->name('forgetpw'); // Forget password for
 
