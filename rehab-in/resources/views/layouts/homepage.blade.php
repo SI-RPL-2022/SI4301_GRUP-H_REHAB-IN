@@ -61,6 +61,7 @@
                     <li><a href="{{ route('logout') }}" type="submit" class="dropdown-item"><i class="fa fa-sign-out"></i> Logout</a></li>
                   </ul>
                 </li>
+                
               @else
                 {{-- <li class="scroll-to-section"><div class="border-first-button-login"><a href="{{ route('login') }}" >Login</a></div></li> --}}
                 <li class="nav-item dropdown">
