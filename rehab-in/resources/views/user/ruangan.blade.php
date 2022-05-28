@@ -30,7 +30,7 @@
                            
                             <div class="mb-3" disabled>
                                 <label for="harga" class="form-label">Harga</label>
-                                <input class="form-control" id="harga" value="{{ $kamar->price }}" disabled>
+                                <input class="form-control" id="harga" value="{{ number_format($kamar->price, 0, ",", ".") }}" disabled>
                             </div>
                             <div class="mb-3">
                                 <label for="jadwal" class="form-label">Jadwal</label>

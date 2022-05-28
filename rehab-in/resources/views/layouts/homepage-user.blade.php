@@ -32,15 +32,16 @@
                         </li>
                         <li>
                             <a href="{{ route('user-services') }}"><span class="fa fa-users"></span>Layanan Kami</a>
-                            {{-- fa fa-cogs --}}
                         </li>
                         <li>
-                            <a href="{{ route('history') }}"><span class="fa fa-sticky-note"></span>Riwayat Pembayaran</a>
+                            <a href="{{ route('order') }}"><span class="fa fa-shopping-basket"></span>Check order</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('history') }}"><span class="fa fa-history"></span>Riwayat Pembayaran</a>
                         </li>
                         <li>
                             <a href="{{ route('logout') }}"><span class="fa fa-sign-out"></span>Keluar akun</a>
                         </li>
-
                     </ul>
 
                     <div class="footer">

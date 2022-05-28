@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Kamar extends Model
 {
     use HasFactory;
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'status',
+    ];
     
     public function OrderK(){
         return $this->hasMany(OrderK::class);

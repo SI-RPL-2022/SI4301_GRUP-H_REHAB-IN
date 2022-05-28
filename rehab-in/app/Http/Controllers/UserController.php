@@ -217,15 +217,12 @@ class UserController extends Controller
         $kamar->jenis  = $request->jenis;
         $kamar->waktu = $request->date;
         $kamar->status = $request->status;
-        $kamar->patient = $request->id_user;
-        $kamar->id_kamar = $request->id_kamar;
+        $kamar->patient_id = $request->id_user;
+        $kamar->kamar_id = $request->id_kamar;
         $kamar->save();
-        return redirect('/pasien/history')->with('Done', 'Your order waiting for payment');
+        return redirect('/pasien/order')->with('Done', 'Your order waiting for payment');
     }
-    public function invoice($id){
-        $order = OrderK::find($id);
-        return view('user.invoice', compact('order'));
-    }
+
     public function invoicedoc(){
         return view('user.invoicedoc');
     }
@@ -233,9 +230,46 @@ class UserController extends Controller
         return view('user.konsultasi');
     }
     public function history(){
-        $kamar = OrderK::where('status','Belum membayar')->get();
+        $jeniskamar = histori::where('jenis_layanan','Reservasi Layanan Kamar')->get();
+        $jeniskonsultasi = histori::where('jenis_layanan','Reservasi Konsultasi')->get();
+        return view('user.historypayment', compact('jeniskamar','jeniskonsultasi'));
+    }
+
+    public function order(){
         $checkkamar = OrderK::where('status','Belum membayar')->count();
-        $histori = histori::all();
-        return view('user.historypayment', compact('kamar','checkkamar','histori'));
+        $order = OrderK::where('status','Belum membayar')->get();
+        return view('user.order',compact('order','checkkamar'));
+    }
+    public function invoicek($id){
+        $i = 0;
+        $order = OrderK::find($id);
+        return view('user.invoice', compact('order','i'));
+    }
+    public function bukti_pembayaran(Request $request){
+        $this->validate($request, [
+            'pic' => 'image|mimes:jpeg,png,jpg|max:5000'
+        ]);
+
+        $Name = $request->pic->getClientOriginalName() . '-' . time()
+        . '.' . $request->pic->extension();
+        $request->pic->move(public_path('images/bukti'),$Name);
+        
+        $idkamar = $request->kamar_id;
+        Kamar::find($idkamar)->update([
+            'status' => $request->updatestatus
+        ]);
+
+        $idorder = $request->order_id;
+        OrderK::find($idorder)->update([
+            'status' =>$request->status
+        ]);
+
+        $histori = new histori();
+        $histori->noinv = $request->inv;
+        $histori->orderid_kamar = $idorder;
+        $histori->jenis_layanan = $request->jenis_layanan;
+        $histori->bukti_pembayaran = $Name;
+        $histori->save();
+        return redirect()->route('history')->with('Done','Upload bukti pembayaran berhasil.');
     }
 }

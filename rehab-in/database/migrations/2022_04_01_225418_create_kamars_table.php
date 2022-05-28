@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('kamars', function (Blueprint $table) {
             $table->bigIncrements('id',255)->unsigned();
-            $table->integer('no_kamar');
-            $table->string('nama_kamar');
-            $table->string('kelas');
-            $table->string('facility');
-            $table->string('code');
-            $table->string('status');
+            $table->integer('no_kamar')->nullable();
+            $table->string('nama_kamar')->nullable();
+            $table->string('kelas')->nullable();
+            $table->string('facility')->nullable();
+            $table->string('code')->nullable();
+            $table->string('status')->nullable();
             $table->string('pic')->nullable();
-            $table->bigInteger('price');
+            $table->bigInteger('price')->nullable();
             $table->timestamps();
         });
     }

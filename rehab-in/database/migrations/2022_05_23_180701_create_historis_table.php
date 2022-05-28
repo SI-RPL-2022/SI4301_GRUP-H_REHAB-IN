@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('historis', function (Blueprint $table) {
             $table->bigIncrements('id',255)->unsigned();
+            $table->string('noinv');
             $table->string('jenis_layanan');
             $table->string('bukti_pembayaran');
-            $table->foreignId('id_order_kamar')->unsigned()->nullable();
-            $table->foreign('id_order_kamar')->references('id')->on('order_k_s');
-            $table->foreignId('id_order_dokter')->unsigned();
-            $table->foreign('id_order_dokter')->references('id')->on('order_d_s');
+            $table->foreignId('orderid_kamar')->unsigned()->nullable();
+            $table->foreign('orderid_kamar')->references('id')->on('order_k_s');
+            $table->foreignId('orderid_dokter')->unsigned()->nullable();
+            $table->foreign('orderid_dokter')->references('id')->on('order_d_s');
             $table->timestamps();
         });
     }

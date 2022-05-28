@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('order_k_s', function (Blueprint $table) {
             $table->bigInteger('id',255)->unsigned();
-            $table->bigInteger('noInv');
-            $table->string('waktu');
-            $table->string('jenis');
-            $table->string('status');
-            $table->foreignId('patient')->unsigned();
-            $table->foreign('patient')->references('id')->on('users');
-            $table->foreignId('id_kamar')->unsigned();
-            $table->foreign('id_kamar')->references('id')->on('kamars');
+            $table->bigInteger('noInv')->nullable();
+            $table->string('waktu')->nullable();
+            $table->string('jenis')->nullable();
+            $table->string('status')->nullable();
+            $table->foreignId('patient_id')->unsigned()->nullable();
+            $table->foreign('patient_id')->references('id')->on('users');
+            $table->foreignId('kamar_id')->unsigned()->nullable();
+            $table->foreign('kamar_id')->references('id')->on('kamars');
             $table->timestamps();
         });
     }
