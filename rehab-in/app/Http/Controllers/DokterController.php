@@ -38,8 +38,33 @@ class DokterController extends Controller
     }
 
     public function register(){
-        return view('');
+        return view('dokter.regisdok');
     }
+
+    public function registerdokter(Request $request){
+
+        if($request->password == $request->confpw){
+            // dd($request);
+            $validated = $request->validate([
+                'name' => 'required|max:255',
+                'username' => 'required|min:6|unique:users',
+                'email' => 'required|email:dns',
+                'password' => 'required|min:6|max:255',
+                'nohp' => 'required|min:10|max:13',
+                'address' => 'required|min:10',
+                'tanggallahir' => 'required',
+                'role' => 'required'
+            ]);
+
+            $validated['password'] = Hash::make($validated['password']);
+            User::create($validated);
+            return redirect('/login-dokter')->with('success', 'Registrasi Berhasil, plase login!');
+        }else{
+            return redirect('/regisdok')->with('Failure','Password Tidak Sama');
+        }
+
+    }
+
     public function forgetpw(){
         return view('');
     }

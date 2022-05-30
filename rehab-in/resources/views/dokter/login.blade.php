@@ -64,7 +64,7 @@
                           <button type="submit" id="form-submit" class="main-button ">LOGIN</button>
                         </div>
                         <div class="col-md-3 mt-3">
-                          <a href="{{ route('register') }}" class="btn btn-outline-primary mt-3">REGISTER</a>
+                          <a href="{{ route('regisdok') }}" class="btn btn-outline-primary mt-3">REGISTER</a>
                         </div>
                     </div>
                   </div>
