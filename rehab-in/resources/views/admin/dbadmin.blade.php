@@ -28,7 +28,7 @@
                     </thead>
             
                     <tbody>
-                        @foreach ($admin as $item)
+                        @foreach ($user as $item)
                         <tr>
                             <th>{{$item->id}}</th>
                             <th>{{$item->name}}</th>
