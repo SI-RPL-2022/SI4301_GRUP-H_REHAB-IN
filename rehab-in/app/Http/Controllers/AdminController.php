@@ -178,7 +178,8 @@ class AdminController extends Controller
     }
 
     public function dbpasien(){
-        return view('admin.dbpasien');
+        $user = User::where('role',0)->get();
+        return view('admin.dbpasien', compact('user'));
     }
 
     public function regpasien(){
@@ -188,20 +189,23 @@ class AdminController extends Controller
     public function registpasien(Request $request){
 
         if($request->password == $request->confpw){
+            // dd($request);
             $validated = $request->validate([
                 'name' => 'required|max:255',
-                'email' => 'required|email:dns|unique:users',
+                'username' => 'required|min:5|unique:users',
+                'email' => 'required|email:dns',
                 'password' => 'required|min:6|max:255',
                 'nohp' => 'required|min:10|max:13',
                 'address' => 'required|min:10',
-                'tanggallahir' => 'required'
+                'tanggallahir' => 'required',
+                'role' => 'required'
             ]);
 
             $validated['password'] = Hash::make($validated['password']);
             User::create($validated);
-            return redirect('/admin/dbpasien')->with('success', 'Registrasi Berhasil');
+            return redirect('/admin/dbpasien')->with('success', 'Registrasi Berhasil, please login!');
         }else{
-            return redirect('/regpasien')->with('Failure','Password Tidak Sama');
+            return redirect('/regis/pasien')->with('Failure','Password Tidak Sama');
         }
 
     }    

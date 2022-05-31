@@ -20,36 +20,35 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Id</th> 
-                            <th>Kode Pasien</th>
-                            <th>Foto Pasien</th>
+                            <th>Id</th>
                             <th>Nama Pasien</th>
-                            <th>Usia Pasien</th>
-                            <th>Alamat</th>
+                            <th>Foto Pasien</th>
+                            <th>Username</th>
+                            <th>Tanggal Lahir</th>
                             <th>No. Hp</th>
                             <th>Email</th>
-                            <th>Password</th>
-                            <th>Kondisi</th> 
+                            {{-- <th>Password</th>
+                            <th>Kondisi</th>  --}}
                             <th style="width:11%;">Aksi</th>
                         </tr>
                     </thead>
                 
                     <tbody>
+                        @foreach ($user as $item)
                         <tr>
-                            <td>#1</td>
-                            <td>PS01</td>
+                            <td>{{$item->id}}</td>
+                            <td>{{$item->name}}</td>
                             <td><img src="{{ asset('assets/style/images/user-pict.png') }}" alt="" style="width: 100%;"/></td>
-                            <td>Rey</td>
-                            <td>15 th</td>
-                            <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </td>
-                            <td>0987654</td>
-                            <td>rey@mail.com</td>
-                            <td>rey1234*</td>
-                            <td>
+                            <td>{{$item->username}}</td>
+                            <td>{{$item->tanggallahir}}</td>
+                            {{-- <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </td> --}}
+                            <td>{{$item->nohp}}</td>
+                            <td>{{$item->email}}</td>
+                            {{-- <td>
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
                                 Quae fuga rerum assumenda, mollitia dolores perferendis et error!
                                 Ducimus, earum necessitatibus.
-                            </td>
+                            </td> --}}
                             <td>
                                 <a href="#" class="btn btn-info btn-icon-split">
                                     <span class="icon text-white-50">
@@ -65,7 +64,7 @@
                             </td>
                         </tr>
                       
-                      
+                      @endforeach
                         
                     </tbody>
                 </table>
