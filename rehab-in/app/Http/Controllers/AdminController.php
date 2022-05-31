@@ -241,7 +241,7 @@ class AdminController extends Controller
 
     public function dbadmin(){
         $admin = User::where('role',1)->get();
-        return view('admin.dbadmin', compact('user'));
+        return view('admin.dbadmin', compact('admin'));
 
     }
 
