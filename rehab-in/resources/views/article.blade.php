@@ -1,7 +1,7 @@
 @extends('layouts.homepage')
 
 @section('main')
-<div id="blog" class="blog">
+  <div id="blog" class="blog">
     <div class="container">
       <div class="row">
       

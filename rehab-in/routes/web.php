@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
 
 use App\models\User;
+use App\models\Artikel;
 
 use Illuminate\Support\Facades\Route;
 
@@ -62,7 +63,9 @@ Route::post('/reset-password', [UserController::class, 'ResetPasswordStore'])->m
 Route::group(['middleware'=>['isPasien']], function(){
     // Dashboard Pasien
     Route::get('/pasien',function(){
-        return view('user.home');
+        $artikel = Artikel::all();
+        $countartikel = Artikel::all()->count();
+        return view('user.home',compact('artikel','countartikel'));
     })->name('landinguser')->middleware('auth'); //Londing page user after login
     
     // Profile Pasien
@@ -90,6 +93,8 @@ Route::group(['middleware'=>['isPasien']], function(){
     Route::get('/pasien/{id}/order/',[UserController::class,'invoicek'])->name('harga')->middleware('auth'); // Template jadwal ruangan pasien
     Route::post('/pasien/order/',[UserController::class,'bukti_pembayaran'])->name('input')->middleware('auth'); // Template jadwal ruangan pasien
 
+    
+    Route::get('/pasien/artikel/{id}',[UserController::class,'artikel'])->name('artikel')->middleware('auth'); // Artikel in pasien
     Route::get('/article/{id}', [HomeController::class, 'articleid'])->name('articles_kfp')->middleware('auth'); //need login before
 });
 

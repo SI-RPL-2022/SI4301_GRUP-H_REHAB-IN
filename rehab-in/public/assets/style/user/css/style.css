@@ -6902,7 +6902,7 @@ a.close.disabled {
     margin-left: 3px;
     text-indent: -999px;
     cursor: pointer;
-    background-color: #fff;
+    background-color: #000;
     background-clip: padding-box;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
@@ -11310,4 +11310,161 @@ Portfolio
     font-size: 17px;
     font-weight: 400;
     font-family: "Poppins", sans-serif;
+}
+/*
+---------------------------------------------
+Blog
+---------------------------------------------
+*/
+
+.blog:before {
+    content: "";
+    /* background-image: url(../images/blog-left-dec.jpg); */
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    height: 1020px;
+    z-index: 0;
+}
+
+.blog {
+    position: relative;
+    /* padding-top: 130px; */
+}
+
+.blog .section-heading {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.blog .section-heading .line-dec {
+    margin: 0 auto;
+}
+
+.blog-post {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.show-up {
+    position: relative;
+    z-index: 222;
+}
+
+.blog-post .thumb img {
+    border-top-right-radius: 23px;
+    border-top-left-radius: 23px;
+}
+
+.blog-post-tips .thumb img {
+    border-radius: 23px;
+}
+
+.blog-post .down-content {
+    border-bottom-right-radius: 23px;
+    border-bottom-left-radius: 23px;
+    background-color: #fff;
+    padding: 30px;
+}
+
+.blog-post .down-content span.category {
+    font-size: 15px;
+    color: #fff;
+    padding: 8px 12px;
+    background-color: #4da6e7;
+    border-radius: 18px;
+    display: inline-block;
+}
+
+.blog-post .down-content span.date {
+    font-size: 15px;
+    color: #afafaf;
+    text-align: right;
+    float: right;
+    margin-top: 4px;
+}
+
+.blog-post .down-content h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 30px;
+}
+
+.blog-post .down-content p {
+    margin-bottom: 30px;
+}
+
+.blog-post .down-content span.author {
+    font-size: 15px;
+    color: #2a2a2a;
+}
+
+.blog-post .down-content span.author img {
+    max-width: 56px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.blog-post .down-content .border-first-button {
+    display: inline-block;
+    float: right;
+}
+
+.blog-posts {
+    margin-left: 30px;
+}
+
+.post-item {
+    margin-bottom: 62px;
+}
+
+.last-post-item {
+    margin-bottom: 0px;
+}
+
+.post-item .thumb {
+    display: inline-block;
+    float: left;
+    margin-right: 30px;
+}
+
+.post-item .thumb img {
+    border-radius: 23px;
+    display: inline-block;
+}
+
+.post-item .right-content {
+    padding-top: 20px;
+}
+
+.post-item .right-content span.category {
+    font-size: 15px;
+    color: #fff;
+    padding: 8px 12px;
+    background-color: #4da6e7;
+    border-radius: 18px;
+    display: inline-block;
+}
+
+.post-item .right-content span.date {
+    font-size: 15px;
+    color: #afafaf;
+    text-align: right;
+    float: right;
+    margin-top: 4px;
+}
+
+.post-item .right-content h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 30px;
 }

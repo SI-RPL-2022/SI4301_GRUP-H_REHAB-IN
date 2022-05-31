@@ -8,6 +8,7 @@ use App\models\User;
 use App\models\Kamar;
 use App\models\OrderK;
 use App\models\histori;
+use App\models\Artikel;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -231,8 +232,10 @@ class UserController extends Controller
     }
     public function history(){
         $jeniskamar = histori::where('jenis_layanan','Reservasi Layanan Kamar')->get();
+        $countkamar = histori::where('jenis_layanan','Reservasi Layanan Kamar')->count();
         $jeniskonsultasi = histori::where('jenis_layanan','Reservasi Konsultasi')->get();
-        return view('user.historypayment', compact('jeniskamar','jeniskonsultasi'));
+        $countkonsultasi = histori::where('jenis_layanan','Reservasi Konsultasi')->count();
+        return view('user.historypayment', compact('jeniskamar','jeniskonsultasi','countkamar','countkonsultasi'));
     }
 
     public function order(){
@@ -271,5 +274,9 @@ class UserController extends Controller
         $histori->bukti_pembayaran = $Name;
         $histori->save();
         return redirect()->route('history')->with('Done','Upload bukti pembayaran berhasil.');
+    }
+    public function artikel($id){
+        $article = Artikel::find($id);
+        return view('user.content.artikel',compact('article'));
     }
 }
