@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <a href="{{ route('editprofile') }}" type="button" class="col btn btn-outline-primary" style="margin-left: 63px">Edit Profil</a>
+                        <a href="{{ route('editprofile',['id' => $user->id]) }}" type="button" class="col btn btn-outline-primary" style="margin-left: 63px">Edit Profil</a>
                         <a href="{{ route('logout') }}" type="button" class="col btn btn-outline-danger">Logout</a>
                     </div>
                   </div>

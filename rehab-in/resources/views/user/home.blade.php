@@ -1,7 +1,13 @@
 @extends('layouts.homepage-user')
 
 @section('main')
-
+    
+    @if (session('success'))
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            {{ (session('success')) }}
+            <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
+        </div>
+    @endif
     @if($countartikel>0)
         <div id="contact" class="contact-us section p-3 d-flex justify-content-center">
             {{-- NEWS --}}

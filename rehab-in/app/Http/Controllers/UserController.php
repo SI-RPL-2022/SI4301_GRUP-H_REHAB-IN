@@ -153,8 +153,8 @@ class UserController extends Controller
         return view('user.profile',compact('user','countreservasi'));
     }
 
-    public function show(){
-        $user = Auth::User();
+    public function show($id){
+        $user = User::find($id);
         return view('user.profile-edit', compact('user'));
     }
 
@@ -183,7 +183,7 @@ class UserController extends Controller
         ]);
 
         //redirect to index
-        return redirect()->route('user-profile')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('landinguser')->with(['success' => 'Profile Berhasil terganti!']);
     }
 
     public function services(){
