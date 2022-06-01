@@ -28,7 +28,7 @@
                                                 </div>
                                             <div class="col-lg-10 all-service-get-profile">
                                                 <h6 class="content">Jumlah Konsultasi : <a href="#"><em style="font-weight: bold;">20</em></a></h6>
-                                                <h6 class="content">Jumlah Reservasi : <a href="#"><em style="font-weight: bold;">-</em></a></h6>
+                                                <h6 class="content">Jumlah Reservasi : <span class="text-black" style="font-weight: bold;">{{ $countreservasi->count() }}</span></h6>
                                                 <h6 class="content">Catatan Kesehatan : <a href="{{ route('user-healthnotes') }}"><em style="font-weight: bold;">-</em></a></h6>
                                             </div>
                                          </div>

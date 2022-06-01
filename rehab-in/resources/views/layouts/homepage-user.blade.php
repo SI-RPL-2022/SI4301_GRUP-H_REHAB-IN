@@ -65,7 +65,7 @@
                             <strong>
                                 <p class="mt-4">
                                     Hallo 
-                                    <a href="{{ route('user-profile') }}">{{ auth()->user()->name }}</a> | How are you? 
+                                    <a href="{{ route('user-profile',['id'=>auth()->user()->id]) }}">{{ auth()->user()->name }}</a> | How are you? 
                                 </p>
                             </strong>
 

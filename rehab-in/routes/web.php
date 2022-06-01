@@ -70,7 +70,7 @@ Route::group(['middleware'=>['isPasien']], function(){
     
     // Profile Pasien
     
-    Route::get('/pasien/profile/',[UserController::class,'profile'])->name('user-profile')->middleware('auth'); // Profile manage for user
+    Route::get('/pasien/profile/{id}',[UserController::class,'profile'])->name('user-profile')->middleware('auth'); // Profile manage for user
     Route::get('/pasien/profile/edit/',[UserController::class,'show'])->name('editprofile')->middleware('auth'); // Profile manage for user
     Route::post('/pasien/profile',[UserController::class,'updateprofile'])->name('updateprofileuser')->middleware('auth'); //FORM POST UPDATE FOR USER
     

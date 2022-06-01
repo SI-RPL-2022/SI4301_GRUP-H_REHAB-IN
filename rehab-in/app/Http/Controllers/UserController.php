@@ -147,9 +147,10 @@ class UserController extends Controller
         return view('user.notes');
     }
 
-    public function profile(){
+    public function profile($id){
+        $countreservasi = OrderK::where('patient_id',$id)->get();
         $user = Auth::User();
-        return view('user.profile',compact('user'));
+        return view('user.profile',compact('user','countreservasi'));
     }
 
     public function show(){
