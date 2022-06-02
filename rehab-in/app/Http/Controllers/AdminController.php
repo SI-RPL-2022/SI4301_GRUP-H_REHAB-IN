@@ -419,6 +419,38 @@ class AdminController extends Controller
         }
 
     }
+
+    public function regisadmfromadm(){
+        return view('admin.regadmin');
+    }
+
+    public function registeradmfromadm(Request $request){
+
+        if($request->password == $request->confpw){
+            // dd($request);
+            $validated = $request->validate([
+                'name' => 'required|max:255',
+                'username' => 'required|min:6|unique:users',
+                'email' => 'required|email:dns',
+                'password' => 'required|min:6|max:255',
+                'nohp' => 'required|min:10|max:13',
+                'address' => 'required|min:10',
+                'tanggallahir' => 'required',
+                'role' => 'required'
+            ]);
+
+            $validated['password'] = Hash::make($validated['password']);
+            User::create($validated);
+            return redirect('/admin/dbadmin')->with('success', 'Registrasi Berhasil, plase login!');
+        }else{
+            return redirect('/regis/admin')->with('Failure','Password Tidak Sama');
+        }
+
+    }
+
+
+   
+
     public function forgetpw(){
         return view('');
     }

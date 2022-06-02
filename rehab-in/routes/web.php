@@ -149,8 +149,8 @@ Route::get('/regis/dokter',[AdminController::class,'registdokter'])->name('regdo
 Route::post('/regis/dokter',[AdminController::class,'adddokter'])->name('regisdokfromadm');
 
 Route::get('dbadmin',[AdminController::class,'dbadmin'])->name('dbadmin'); //Login for
-// Route::get('/register/admin',[AdminController::class,'registeradm'])->name('regadm');
-// Route::post('/register/admin',[AdminController::class,'regisadmin'])->name('regsadm');
+Route::get('/regis/admin',[AdminController::class,'regisadmfromadm'])->name('regadm');
+Route::post('/regis/admin',[AdminController::class,'registeradmfromadm'])->name('regsadm');
 
 
 Route::get('dbadmin/{id}',[AdminController::class,'dbadminid'])->name('dbadminid'); //Login for
