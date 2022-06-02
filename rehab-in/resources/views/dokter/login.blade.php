@@ -57,15 +57,15 @@
                       @enderror
                       <input type="number" name="role" id="role" class="form-control form-control-user" value=2 hidden>
                     </div>
-                    <a href="{{ route('ForgetPasswordGet') }}" class="mt-3">FORGET PASSWORD</a>
+                    {{-- <a href="{{ route('ForgetPasswordGet') }}" class="mt-3">FORGET PASSWORD</a> --}}
 
                     <div class="row">
                         <div class="col-md-3">
                           <button type="submit" id="form-submit" class="main-button ">LOGIN</button>
                         </div>
-                        <div class="col-md-3 mt-3">
+                        {{-- <div class="col-md-3 mt-3">
                           <a href="{{ route('regisdok') }}" class="btn btn-outline-primary mt-3">REGISTER</a>
-                        </div>
+                        </div> --}}
                     </div>
                   </div>
                 </div>
