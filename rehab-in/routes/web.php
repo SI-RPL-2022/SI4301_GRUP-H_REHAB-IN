@@ -182,6 +182,11 @@ Route::get('tips/delete/{id}',[AdminController::class,'deleteTips']); //del tips
 //Page Management - JADWAL KONSUL
 Route::get('jadwalkons',[AdminController::class,'jadwalkonsul'])->name('jadwalkons'); // Forget password for
 
+//Page Management - KONTAK KAMI
+Route::get('contactusadm',[AdminController::class,'contactusadm'])->name('contactusadm'); // Forget password for
+
+//Page Management - KONTAK KAMI
+Route::get('riwayatadm',[AdminController::class,'riwayatadm'])->name('riwayatadm'); // Forget password for
 
 //Page Management - CATATAN KESEHATAN
 Route::get('notes',[AdminController::class,'notes'])->name('catkes'); //catkes pasiens

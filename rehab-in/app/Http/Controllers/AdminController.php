@@ -161,8 +161,8 @@ class AdminController extends Controller
     }
 
 
-    public function service(){
-        return view('admin.services');
+    public function riwayatadm(){
+        return view('admin.riwayatadm');
     }
 
     public function reservasi(){
@@ -175,6 +175,10 @@ class AdminController extends Controller
 
     public function edukasi(){
         return view('admin.edukasi');
+    }
+
+    public function contactusadm(){
+        return view('admin.contactusadm');
     }
 
     public function dbpasien(){

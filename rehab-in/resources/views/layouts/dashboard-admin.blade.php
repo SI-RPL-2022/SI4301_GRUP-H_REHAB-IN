@@ -82,6 +82,9 @@
                             <div class="collapse-divider"></div>
                             <h6 class="collapse-header">Komponen:</h6>
                             <a class="collapse-item" href="{{ route('kamaradm') }}">Kamar</a>
+                            <a class="collapse-item" href="{{ route('contactusadm') }}">Kontak Kami</a>
+                            <a class="collapse-item" href="{{ route('riwayatadm') }}">Riwayat Pelayanan</a>
+                            
                         </div>
                     </div>
                 </li>
@@ -96,7 +99,7 @@
                             <h6 class="collapse-header">UI Utama:</h6>
                             <a class="collapse-item" href="{{ route('tipskesadm') }}">Konten Tips Kesehatan</a>
                             <div class="collapse-divider"></div>
-                            <h6 class="collapse-header">UI Pasien:</h6>
+                            <h6 class="collapse-header">UI User:</h6>
                             <a class="collapse-item" href="{{ route('artikeladm') }}">Konten Artikel</a>
                             <a class="collapse-item" href="{{ route('jadwalkons') }}">Jadwal Konsultasi</a>
                             <a class="collapse-item" href="{{ route('catkes') }}">Catatan Kesehatan</a>
