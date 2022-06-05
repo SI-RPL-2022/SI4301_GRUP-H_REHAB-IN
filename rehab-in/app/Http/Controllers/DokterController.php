@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Dokter;
 
 class DokterController extends Controller
 {
@@ -67,5 +69,51 @@ class DokterController extends Controller
 
     public function forgetpw(){
         return view('');
+    }
+    
+    public function profile($id){
+        $user=User::find($id);
+        $dokter=Dokter::where('id_dokter',$user->id)->first();
+        return view('dokter.profile', compact('user','dokter'));
+    }
+    
+    public function editprofile($id){
+        $user=User::find($id);
+        $dokter=Dokter::where('id_dokter',$user->id)->first();
+        return view('dokter.edit', compact('user','dokter'));
+    }
+    public function updateprofile(Request $request){
+        //validate form
+        $this->validate($request, [
+            'pic'     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name' => 'max:255',
+            'tanggallahir' => 'required'
+        ]);
+
+        //upload image
+        $Name = $request->pic->getClientOriginalName() . '-' . time()
+        . '.' . $request->pic->extension();
+        $request->pic->move(public_path('dokterProfile'),$Name);
+
+        $id = $request->id;
+        
+        //create post
+        User::find($id)->update([
+            'pic'     => $Name,
+            'name'     => $request->name,
+            'nohp'     => $request->nohp,
+            'address'     => $request->address,
+            'tanggallahir'   => $request->tanggallahir
+        ]);
+
+        Dokter::where('id_dokter',$id)->update([
+            'spesialis' => $request->spesialis,
+            'deskripsi' => $request->deskripsi,
+            'jadwal_time' => $request->jadwal_time
+        ]);
+
+        $user=User::find($id);
+        $dokter=Dokter::where('id_dokter',$user->id)->first();
+        return view('dokter.profile', compact('user','dokter'));
     }
 }

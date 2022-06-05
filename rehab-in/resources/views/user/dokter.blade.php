@@ -1,4 +1,4 @@
-@extends('layouts.homepage-user')
+@extends('layouts.homepage-dokter')
 @section('main')
     <div class="container mb-3">
         <div class="row">

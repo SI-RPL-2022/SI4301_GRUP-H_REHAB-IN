@@ -1,51 +1,91 @@
 @extends('layouts.homepage-user')
 
 @section('main')
-    <div class="container-fluid w-75 shadow p-3 mb-5" style="border-radius: 55px; background-color: #FFFFFF">
-        <h4 class="user-profile-header me-3">Profile Dokter</h4>        
-        <div class="container-fluid mx-auto shadow p-3 mb-5" style="background-color: #E7E7E7; border-radius: 50px;">
+<div id="contact" class="contact-us section">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <form id="contact" action="" method="post">
             <div class="row">
-                <div class="col-3 text-center my-auto d-block">
-                    <img src="{{ asset('assets/style/images/user-pict.png') }}" class="w-50" alt="">
-                </div>
-                <div class="col-7 my-auto d-block">
-                    <p style="color: black; font-weight: 500; font-size: 60px;">Dr. Denis Gresan</p>
-                    <p style="color: black; font-weight: 400; font-size: 20px;">Spesialis asam urat </p>
-                </div>
-                <div class="col-2 my-auto d-block">
-                    <div class="row">
-                        <div class="col mt-2">
-                            <img src="{{ asset('assets/style/images/rate.png') }}" alt="" class="w-75">
+              <div class="col-lg-12">
+                <div class="user-pict">
+                  <div class="row">
+                    <div class="col-lg-12">
+                        <h4 class="user-profile-header">Profile Dokter</h4>
+                            <div class="info-post">
+                                <div class="icon">
+                                    <div class="col-lg-12">
+                                        <h3 class="user-profile-name">{{ $user->name }}</h3>
+                                        <div class="row">
+                                            <div class="col-lg-2">
+                                                @if( $user->pic === null)
+                                                    <img src="{{ asset('assets/style/images/user-pict.png') }}" alt="" class="rounded-circle-profile">
+                                                @else
+                                                    <img src="{{ asset('dokterProfile/'.$user->pic) }}" alt="" class="rounded-circle-profile">
+                                                @endif
+                                                </div>
+                                            <div class="col-lg-10 all-service-get-profile">
+                                                <h6 class="content">Jumlah Konsultasi : <a href="#"><em style="font-weight: bold;">20</em></a></h6>
+                                                {{-- <h6 class="content">Jumlah Reservasi : <span class="text-black" style="font-weight: bold;">{{ $countreservasi->count() }}</span></h6> --}}
+                                                <h6 class="content">Catatan Kesehatan : <a href="{{ route('user-healthnotes') }}"><em style="font-weight: bold;">-</em></a></h6>
+                                            </div>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+
+                    <div class="col-lg-12 user-profile-content">
+                        <div class="user-profile-contentslist">
+                            @if (session('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ (session('success')) }}
+                                    <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
+                                </div>
+                            @endif
                         </div>
-                        <div class="col me-2">
-                            <p style="color: black; font-weight: 500; font-size: 35px;">5.0</p>
+                        <div class="user-profile-contentslist">
+                            <label class="user-profile-label">Nama Lengkap</label>
+                            <p class="user-profile-label-p">{{ $user->name }}</p>
+                        </div>
+                        <div class="user-profile-contentslist">
+                            <label class="user-profile-label">Alamat Lengkap</label>
+                            <p class="user-profile-label-p">{{ $user->address }}</p>
+                        </div>
+                        <div class="user-profile-contentslist">
+                            <label class="user-profile-label">Tanggal Lahir</label>
+                            <p class="user-profile-label-p">{{ $user->tanggallahir }}</p>
+                        </div>
+                        <div class="user-profile-contentslist">
+                            <label class="user-profile-label">Nomor Hp</label>
+                            <p class="user-profile-label-p">{{ $user->nohp }}</p>
+                        </div>
+                        <div class="user-profile-contentslist">
+                            <label class="user-profile-label">Spesialis</label>
+                            <p class="user-profile-label-p">{{ $dokter->spesialis }}</p>
+                        </div>
+                        <div class="user-profile-contentslist">
+                            <label class="user-profile-label">Tentang Dokter</label>
+                            <p class="user-profile-label-p">{{ $dokter->deskripsi }}</p>
+                        </div>
+                        <div class="user-profile-contentslist">
+                            <label class="user-profile-label">Jam Kerja</label>
+                            <p class="user-profile-label-p">{{ $dokter->jadwal_time }}</p>
                         </div>
                     </div>
+                    <div class="row mt-5">
+                        <a href="{{ route('edit.profile.dokter',['id' => $user->id]) }}" type="button" class="col btn btn-outline-primary me-3" style="margin-left: 63px">Edit Profil</a>
+                        <a href="{{ route('logout') }}" type="button" class="col btn btn-outline-danger ms-3">Logout</a>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-            <div class="row mx-5 mt-3">
-                <p style="color: black; font-weight: 700; font-size: 25px;">Tentang</p>
-                <p style="color: black; font-weight: 400; font-size: 20px;">Dr. Denis Gresan merupakan lulusan S3 Jurusan Kedokteran dari ITB. Menjadi tulang belakang dari beberapa perkembangan medis pada abad ke 20. Dr. Denis Gresan berpengalaman selama 8 tahun menjadi dokter dan telah menangani lebih dari 10.000 pasien.</p>
-            </div>
+          </form>
         </div>
-        <div class="container-fluid">
-            <div class="row mx-5">
-                <p style="color: black; font-weight: 700; font-size: 20px;">Username</p>
-                <p style="color: black; font-weight: 500; font-size: 20px; margin-top: 5px">denistaubatgresan</p>
-                <p style="color: black; font-weight: 700; font-size: 20px; margin-top: 25px">Alamat</p>
-                <p style="color: black; font-weight: 500; font-size: 20px; margin-top: 5px">Jl. Telekomunikasi No.40, Kecamatan Bojongsoang, Bandung, Jawa Barat</p>
-                <p style="color: black; font-weight: 700; font-size: 20px; margin-top: 25px">Tempat Tanggal Lahir</p>
-                <p style="color: black; font-weight: 500; font-size: 20px; margin-top: 5px">Jakarta, 12 Juni 1986</p>
-                <p style="color: black; font-weight: 700; font-size: 20px; margin-top: 25px">Usia</p>
-                <p style="color: black; font-weight: 500; font-size: 20px; margin-top: 5px">36</p>
-                <p style="color: black; font-weight: 700; font-size: 20px; margin-top: 25px">Nomor Telepon</p>
-                <p style="color: black; font-weight: 500; font-size: 20px; margin-top: 5px">081234567890</p>
-            </div>
-        </div>
-        <div class="row" style="margin-bottom: 50px; margin-top: 35px">
-            <div class="col-3" style="margin-left: 70px">
-                <a type="button" class="btn btn-primary btn-lg" href="{{ route('editprofiledokter') }}">edit profile</a>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 @endsection

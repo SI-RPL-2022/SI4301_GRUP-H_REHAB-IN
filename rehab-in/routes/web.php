@@ -7,7 +7,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
-
+use App\Http\Middleware\isDokterMiddleware;
 use App\models\User;
 use App\models\Artikel;
 
@@ -103,6 +103,8 @@ Route::group(['middleware'=>['isPasien']], function(){
 Route::get('/login-dokter',[DokterController::class,'login'])->name('logindokter'); //Login for
 Route::post('/login-dokter',[DokterController::class, 'authdok'])->name('authdok');
 
+
+
 //REGISTER FOR DOKTER
 Route::get('/regisdok',[DokterController::class,'register'])->middleware('guest')->name('regisdok');
 Route::post('/regisdok',[DokterController::class,'registerdokter'])->middleware('guest')->name('registerdok');
@@ -110,6 +112,10 @@ Route::post('/regisdok',[DokterController::class,'registerdokter'])->middleware(
 
 Route::group(['prefix'=>'dokter', 'middleware'=>['isDokter']], function(){
     Route::get('/',[DokterController::class, 'index'])->name('landingdokter'); //Landing page for Dokter
+    Route::get('/profile/{id}',[DokterController::class, 'profile'])->name('dokter.profile');
+    Route::get('/profile/edit/{id}',[DokterController::class, 'editprofile'])->name('edit.profile.dokter');
+    Route::post('/profile',[DokterController::class,'updateprofile'])->name('update.profile.dokter'); //FORM POST UPDATE FOR DOKTER
+
 });
 // Route::get('',[DokterController::class,'register'])->name('register'); //Register for
 // Route::get('',[DokterController::class,'forgetpw'])->name('forgetpw'); // Forget password for
