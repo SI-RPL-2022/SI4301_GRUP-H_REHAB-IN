@@ -35,7 +35,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 Dokter Saat Ini</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">300 Dokter</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$countdokter}} Dokter</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-user-md fa-2x text-gray-300"></i>
@@ -55,7 +55,7 @@
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50 Pesanan</div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$countreservasi}} Pesanan</div>
                                 </div>
                                 {{-- <div class="col">
                                     <div class="progress progress-sm mr-2">
@@ -82,7 +82,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                 Total Pasien</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">255 Pasien</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"> Pasien</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-comments fa-2x text-gray-300"></i>

@@ -11,11 +11,17 @@ use App\Models\Kamar;
 use App\Models\Notesehat;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
     public function index(){
-        return view('admin.home');
+        $countdokter = DB::table('users')->where('role',2)->count();
+        $total_pasien = DB::table('users')->where('role',0)->count();
+        $countreservasi = DB::table('reservasis')->count();
+        return view('admin.home', compact('countdokter'), compact('countreservasi'), compact('total_pasien'));
+        
+
     }
     
     public function artikel(){
