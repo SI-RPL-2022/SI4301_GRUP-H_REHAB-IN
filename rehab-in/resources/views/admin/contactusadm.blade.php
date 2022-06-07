@@ -30,19 +30,15 @@
                     </thead>
                 
                     <tbody>
+                        @foreach ($kontak as $item)
                         <tr>
-                            <th>1</th>
-                            <th>Denis</th> {{-- take from table pasien with ID Pasien --}}
-                            <th>denis@mail</th>
-                            <th>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</th>
+                            <th>{{$item->id}}</th>
+                            <th>{{$item->guest_name}}</th> {{-- take from table pasien with ID Pasien --}}
+                            <th>{{$item->email}}</th>
+                            <th>{{$item->messages}}</th>
                          
                             <td>
-                                {{-- <a href="#" class="btn btn-info btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </span>
-                                </a> --}}
-                                <a href="#" class="btn btn-danger btn-icon-split">
+                                <a href="contactusadm/delete/{{ $item->id }}" class="btn btn-danger btn-icon-split">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-trash"></i>
                                     </span>
@@ -50,10 +46,8 @@
                             
                             </td>
                         </tr>
-                 
-                        
-                       
-                        
+                        @endforeach
+ 
                     </tbody>
                 </table>
             </div>

@@ -8,6 +8,7 @@ use App\Models\Tip;
 use App\Models\Admin;
 use App\Models\User;
 use App\Models\Kamar;
+use App\Models\Kontak;
 use App\Models\Notesehat;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -19,7 +20,7 @@ class AdminController extends Controller
         $countdokter = DB::table('users')->where('role',2)->count();
         $total_pasien = DB::table('users')->where('role',0)->count();
         $countreservasi = DB::table('reservasis')->count();
-        return view('admin.home', compact('countdokter'), compact('countreservasi'), compact('total_pasien'));
+        return view('admin.home', compact('countdokter', 'total_pasien', 'countreservasi'));
         
 
     }
@@ -184,8 +185,19 @@ class AdminController extends Controller
     }
 
     public function contactusadm(){
-        return view('admin.contactusadm');
+        
+        $kontak = Kontak::all();
+        return view('admin.contactusadm', compact('kontak'));
+
     }
+
+    public function deleteMsg($id){
+        $kontak = Kontak::find($id);
+        $kontak->delete();
+        return redirect(route('contactusadm'));
+    }
+
+
 
     public function dbpasien(){
         $user = User::where('role',0)->get();

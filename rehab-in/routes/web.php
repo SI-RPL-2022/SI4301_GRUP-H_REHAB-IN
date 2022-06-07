@@ -191,6 +191,7 @@ Route::get('jadwalkons',[AdminController::class,'jadwalkonsul'])->name('jadwalko
 
 //Page Management - KONTAK KAMI
 Route::get('contactusadm',[AdminController::class,'contactusadm'])->name('contactusadm'); // Forget password for
+Route::get('contactusadm/delete/{id}',[AdminController::class,'deleteMsg']);
 
 //Page Management - KONTAK KAMI
 Route::get('riwayatadm',[AdminController::class,'riwayatadm'])->name('riwayatadm'); // Forget password for
