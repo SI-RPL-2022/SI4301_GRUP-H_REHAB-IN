@@ -193,8 +193,14 @@ Route::get('jadwalkons',[AdminController::class,'jadwalkonsul'])->name('jadwalko
 Route::get('contactusadm',[AdminController::class,'contactusadm'])->name('contactusadm'); // Forget password for
 Route::get('contactusadm/delete/{id}',[AdminController::class,'deleteMsg']);
 
-//Page Management - KONTAK KAMI
+//Page Management - RIWAYAT PELAYANAN
 Route::get('riwayatadm',[AdminController::class,'riwayatadm'])->name('riwayatadm'); // Forget password for
+Route::get('riwayatadm/delete/{id}',[AdminController::class,'deleteriwayat']);
+
+//Page Management - ORDER
+Route::get('order',[AdminController::class,'order'])->name('orderadm'); // Forget password for
+Route::get('riwayatadm/delete/{id}',[AdminController::class,'deleteriwayat']);
+
 
 //Page Management - CATATAN KESEHATAN
 Route::get('notes',[AdminController::class,'notes'])->name('catkes'); //catkes pasiens

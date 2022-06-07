@@ -36,7 +36,7 @@
                       <div class="info-post">
                         <div class="icon">
                           <img src="{{ asset('assets/style/images/email-icon.png') }}" alt="">
-                          <a href="#">rehabin@email.com</a>
+                          <a href="mailto:rehabin.wow@gmail.com">rehabin@email.com</a>
                         </div>
                       </div>
                     </div>

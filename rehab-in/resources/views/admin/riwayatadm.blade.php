@@ -20,30 +20,37 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
+                        
                         <tr>
                             <th>Id</th>
-                            <th>Nama Pasien</th> {{-- take from table pasien with ID Pasien --}}
+                            <th>Nomor Tagihan</th> {{-- take from table pasien with ID Pasien --}}
                             <th>Jenis Layanan</th>
-                            <th>Pembayaran</th>
+                            <th>Bukti Pembayaran</th>
+                            <th>Keterangan Pembayaran</th>
                             <th style="width:11%;">Aksi</th>
                         </tr>
                     </thead>
                 
                     <tbody>
+                        @foreach ($riwayat as $item)
                         <tr>
-                            <th>1</th>
-                            <th>Farhan</th> {{-- take from table pasien with ID Pasien --}}
-                            <th>Reservasi Kamar</th>
-                            <th><a href="#" class="btn btn-success btn-icon-split">
-                                <span class="text">Lunas</span>
-                            </a></th>
+                            <th>{{$item->id}}</th>
+                            <th>{{$item->noinv}}</th> 
+                            <th>{{$item->jenis_layanan}}</th>
+                            <th>{{$item->bukti_pembayaran}}</th>
+                            <th>@if ($item->bukti_pembayaran>0)
+                                <a class="btn btn-success btn-icon-split">
+                                    <span class="text">Lunas</span>
+                                </a>
+                                @else
+                                <a class="btn btn-danger btn-icon-split">
+                                    <span class="text">Belum Lunas</span>
+                                </a>
+                            @endif
+                                
+                            </th>
                             <td>
-                                {{-- <a href="#" class="btn btn-info btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </span>
-                                </a> --}}
-                                <a href="#" class="btn btn-danger btn-icon-split">
+                                <a href="riwayatadm/delete/{{ $item->id }}" class="btn btn-danger btn-icon-split">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-trash"></i>
                                     </span>
@@ -51,7 +58,7 @@
                             
                             </td>
                         </tr>
-                 
+                        @endforeach
                         
                        
                         

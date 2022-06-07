@@ -84,6 +84,7 @@
                             <a class="collapse-item" href="{{ route('kamaradm') }}">Kamar</a>
                             <a class="collapse-item" href="{{ route('contactusadm') }}">Kontak Kami</a>
                             <a class="collapse-item" href="{{ route('riwayatadm') }}">Riwayat Pelayanan</a>
+                            <a class="collapse-item" href="{{ route('orderadm') }}">Orderan Saat Ini</a>
                             
                         </div>
                     </div>

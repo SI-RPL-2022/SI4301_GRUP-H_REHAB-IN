@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Kamar;
 use App\Models\Kontak;
 use App\Models\Notesehat;
+use App\Models\histori;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,8 @@ class AdminController extends Controller
         $countdokter = DB::table('users')->where('role',2)->count();
         $total_pasien = DB::table('users')->where('role',0)->count();
         $countreservasi = DB::table('reservasis')->count();
-        return view('admin.home', compact('countdokter', 'total_pasien', 'countreservasi'));
+        $order = DB::table('order_k_s','order_d_s')->count();
+        return view('admin.home', compact('countdokter', 'total_pasien', 'countreservasi','order'));
         
 
     }
@@ -56,7 +58,7 @@ class AdminController extends Controller
     
         $artikel->save();
 
-        return redirect(route('artikeladm'));
+        return redirect()->route('artikeladm')->with('success','Artikel Berhasil Ditambahkan');
     }
 
     public function updateArtikel(Request $request){
@@ -169,7 +171,20 @@ class AdminController extends Controller
 
 
     public function riwayatadm(){
-        return view('admin.riwayatadm');
+        $riwayat = histori::all();
+        return view('admin.riwayatadm', compact('riwayat'));
+        
+    }
+
+    public function deleteriwayat($id){
+        $histori = histori::find($id);
+        $histori->delete();
+        return redirect(route('riwayatadm'));
+    }
+
+    public function order(){
+        return view('admin.order');
+        
     }
 
     public function reservasi(){
