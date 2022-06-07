@@ -40,6 +40,7 @@ Route::get('/article', [HomeController::class, 'articles'])->name('articles');
 
 Route::get('/service', [ServiceController::class, 'index'])->name('service');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::post('/about/add',[AboutController::class,'addmessage']); //tambah kamar (admin)
 
 
 //Login for user

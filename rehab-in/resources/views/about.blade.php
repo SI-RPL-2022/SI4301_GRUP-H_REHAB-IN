@@ -12,7 +12,8 @@
           </div>
         </div>
         <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <form id="contactus" action="" method="post">
+          <form id="contactus" action="/about/add" method="post">
+            @csrf
             <div class="row">
               <div class="col-lg-12">
                 <div class="contact-dec">
@@ -49,25 +50,26 @@
                     </div>
                     <div class="col-lg-6">
                       <fieldset>
-                        <input type="name" name="name" id="name" placeholder="Nama Anda" autocomplete="on" required>
+                        <input type="text" name="guest_name" id="guest_name" placeholder="Nama Anda" autocomplete="on" required>
                       </fieldset>
                       <fieldset>
-                        <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Email Anda" required="">
+                        <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Email Anda">
                       </fieldset>
                       <fieldset>
-                        <input type="subject" name="subject" id="subject" placeholder="Subject" autocomplete="on">
+                        <input type="text" name="subject" id="subject" placeholder="Subject" autocomplete="on">
                       </fieldset>
                     </div>
                     <div class="col-lg-6">
                       <fieldset>
-                        <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required=""></textarea>
+                        <textarea name="messages" type="text" class="form-control" id="messages" placeholder="Message" required=""></textarea>
                       </fieldset>
                     </div>
                     <div class="col-lg-12">
                       <fieldset>
-                        <button type="submit" id="form-submit" class="main-button ">Kirim</button>
+                        <button type="submit" id="form-submit" class="main-button">Kirim</button>
                       </fieldset>
                     </div>
+                    
                   </div>
                 </div>
               </div>
