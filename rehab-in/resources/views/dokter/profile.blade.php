@@ -1,4 +1,5 @@
-@extends('layouts.homepage-user')
+@extends('layouts.homepage-dokter')
+
 
 @section('main')
 <div id="contact" class="contact-us section">
@@ -48,6 +49,7 @@
                         </div>
                         <div class="user-profile-contentslist">
                             <label class="user-profile-label">Nama Lengkap</label>
+                            dd($user);
                             <p class="user-profile-label-p">{{ $user->name }}</p>
                         </div>
                         <div class="user-profile-contentslist">
@@ -56,24 +58,44 @@
                         </div>
                         <div class="user-profile-contentslist">
                             <label class="user-profile-label">Tanggal Lahir</label>
-                            <p class="user-profile-label-p">{{ $user->tanggallahir }}</p>
+                            <p class="use/r-profile-label-p">{{ $user->tanggallahir }}</p>
                         </div>
                         <div class="user-profile-contentslist">
                             <label class="user-profile-label">Nomor Hp</label>
                             <p class="user-profile-label-p">{{ $user->nohp }}</p>
                         </div>
-                        <div class="user-profile-contentslist">
+                        {{-- <div class="user-profile-contentslist">
                             <label class="user-profile-label">Spesialis</label>
-                            <p class="user-profile-label-p">{{ $dokter->spesialis }}</p>
-                        </div>
-                        <div class="user-profile-contentslist">
+                            <p class="user-profile-label-p">
+                            @if ($dokter->spesialis==null)
+                                knkbkdfk
+                            @else
+                            {{$dokter->spesialis}}
+                            @endif                                
+                            </p>
+                        </div> --}}
+                        {{-- <div class="user-profile-contentslist">
                             <label class="user-profile-label">Tentang Dokter</label>
-                            <p class="user-profile-label-p">{{ $dokter->deskripsi }}</p>
+                            <p class="user-profile-label-p">
+                            @if ($dokter->deskripsi>1)
+                                {{ $dokter->deskripsi }}
+                            @else
+                            -
+                                
+                            @endif      
+                                </p>
                         </div>
                         <div class="user-profile-contentslist">
                             <label class="user-profile-label">Jam Kerja</label>
-                            <p class="user-profile-label-p">{{ $dokter->jadwal_time }}</p>
-                        </div>
+                            <p class="user-profile-label-p">
+                            @if ($dokter->jadwal_time>1)
+                            {{ $dokter->jadwal_time }}
+                            @else
+                            -
+                                
+                            @endif      
+                                </p>
+                        </div> --}}
                     </div>
                     <div class="row mt-5">
                         <a href="{{ route('edit.profile.dokter',['id' => $user->id]) }}" type="button" class="col btn btn-outline-primary me-3" style="margin-left: 63px">Edit Profil</a>

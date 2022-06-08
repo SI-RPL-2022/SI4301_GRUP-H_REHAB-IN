@@ -44,7 +44,7 @@
                    {{-- <img src="{{asset('assets/style/images/logo-v6.png')}}"/> --}}
                 </div>
                 {{-- <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div> --}}
-                <img src="{{asset('assets/style/images/logo-v6.png')}}"/>
+                <img src="{{ asset('assets/style/images/favicon-log-v2.png') }}" />
             </a>
 
             <!-- Divider -->

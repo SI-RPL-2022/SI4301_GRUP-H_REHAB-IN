@@ -17,11 +17,11 @@ return new class extends Migration
             $table->bigIncrements('id',255)->unsigned();
             $table->foreignId('id_dokter');
             $table->foreign('id_dokter')->references('id')->on('users');
-            $table->string('pic');
-            $table->string('deskripsi');
-            $table->string('spesialis');
-            $table->string('jadwal_day');
-            $table->string('jadwal_time');
+            $table->string('pic')->nullable();
+            $table->string('deskripsi')->nullable();
+            $table->string('spesialis')->nullable();
+            $table->string('jadwal_day')->nullable();
+            $table->string('jadwal_time')->nullable();
         });
     }
 

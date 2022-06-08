@@ -117,6 +117,8 @@ Route::group(['prefix'=>'dokter', 'middleware'=>['isDokter']], function(){
     Route::get('/profile/edit/{id}',[DokterController::class, 'editprofile'])->name('edit.profile.dokter');
     Route::post('/profile',[DokterController::class,'updateprofile'])->name('update.profile.dokter'); //FORM POST UPDATE FOR DOKTER
 
+    Route::get('/jadwal',[DokterController::class,'jadwal'])->name('jadwaldokter');
+    
 });
 // Route::get('',[DokterController::class,'register'])->name('register'); //Register for
 // Route::get('',[DokterController::class,'forgetpw'])->name('forgetpw'); // Forget password for

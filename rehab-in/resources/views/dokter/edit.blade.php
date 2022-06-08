@@ -86,7 +86,7 @@
                                     <div class="user-profile-contentslist">
                                         <label class="user-profile-label">Spesialis</label>
                                         <fieldset>
-                                            <input type="text" name="spesialis" id="spesialis" placeholder="Spesialis" class="@error('spesialis') is-invalid @enderror" value="{{ $dokter->spesialis }}">
+                                            <input type="text" name="spesialis" id="spesialis" placeholder="Spesialis" class="@error('spesialis') is-invalid @enderror">
                                             @error('spesialis')
                                                 <div class="alert alert-danger mt-2">
                                                     {{ $message }}
@@ -97,7 +97,7 @@
                                     <div class="user-profile-contentslist">
                                         <label class="user-profile-label">Deskripsi</label>
                                         <fieldset>
-                                            <input type="text" name="deskripsi" id="deskripsi" placeholder="Deskripsi Dokter" class="@error('deskripsi') is-invalid @enderror" value="{{ $dokter->deskripsi }}">
+                                            <input type="text" name="deskripsi" id="deskripsi" placeholder="Deskripsi Dokter" class="@error('deskripsi') is-invalid @enderror">
                                             @error('deskripsi')
                                                 <div class="alert alert-danger mt-2">
                                                     {{ $message }}
@@ -108,7 +108,7 @@
                                     <div class="user-profile-contentslist">
                                         <label class="user-profile-label">Waktu Praktek</label>
                                         <fieldset>
-                                            <input type="text" name="jadwal_time" id="jadwal_time" placeholder="Waktu Praktek" class="@error('jadwal_time') is-invalid @enderror" value="{{ $dokter->jadwal_time }}">
+                                            <input type="text" name="jadwal_time" id="jadwal_time" placeholder="Waktu Praktek" class="@error('jadwal_time') is-invalid @enderror">
                                             @error('jadwal_time')
                                                 <div class="alert alert-danger mt-2">
                                                     {{ $message }}

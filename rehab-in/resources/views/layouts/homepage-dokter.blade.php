@@ -34,6 +34,9 @@
                             <a href="{{ route('user-services') }}"><span class="fa fa-users"></span>Layanan Kami</a>
                         </li>
                         <li>
+                            <a href="{{ route('jadwaldokter') }}"><span class="fa fa-calendar"></span>Input Jadwal</a>
+                        </li>
+                        <li>
                             <a href="{{ route('order') }}"><span class="fa fa-shopping-basket"></span>Check order</a>
                         </li>
                         <li>
