@@ -14,6 +14,10 @@ class DokterController extends Controller
     public function index(){
         return view('dokter.home');
     }
+
+    public function jadwal(){
+        return view('dokter.jadwal');
+    }
     public function login(){
         return view('dokter.login');
     }
@@ -72,9 +76,12 @@ class DokterController extends Controller
     }
     
     public function profile($id){
-        $user=User::find($id);
+        $user=User::where('role',2)->find($id);
         $dokter=Dokter::where('id_dokter',$user->id)->first();
+        // dd($user->id);
         return view('dokter.profile', compact('user','dokter'));
+
+        
     }
     
     public function editprofile($id){
@@ -90,30 +97,57 @@ class DokterController extends Controller
             'tanggallahir' => 'required'
         ]);
 
+        $id = $request->id;
+
         //upload image
+        if($request->pic!=null){
         $Name = $request->pic->getClientOriginalName() . '-' . time()
         . '.' . $request->pic->extension();
         $request->pic->move(public_path('dokterProfile'),$Name);
-
-        $id = $request->id;
-        
-        //create post
-        User::find($id)->update([
+          //create post with pict
+          User::find($id)->update([
             'pic'     => $Name,
             'name'     => $request->name,
             'nohp'     => $request->nohp,
             'address'     => $request->address,
             'tanggallahir'   => $request->tanggallahir
         ]);
+        } else {
 
+            //create post with pict
+            User::find($id)->update([
+                'name'     => $request->name,
+                'nohp'     => $request->nohp,
+                'address'     => $request->address,
+                'tanggallahir'   => $request->tanggallahir
+            ]);
+        }
+
+        // $isDOkter = 
+        if(Dokter::where('id_dokter',$id)->first() == null){
+            // data dokter belum ada jadi di insert
+            $dokter = new Dokter();
+            $dokter->id_dokter= $id;
+            $dokter->spesialis=$request->spesialis;
+            $dokter->deskripsi=$request->deskripsi;
+            $dokter->jadwal_time=$request->jadwal_time;
+           
+            $dokter->save();
+        } else {
+        // data dokter ada jadi di update
         Dokter::where('id_dokter',$id)->update([
             'spesialis' => $request->spesialis,
             'deskripsi' => $request->deskripsi,
             'jadwal_time' => $request->jadwal_time
         ]);
 
+        }
+        
+
         $user=User::find($id);
         $dokter=Dokter::where('id_dokter',$user->id)->first();
         return view('dokter.profile', compact('user','dokter'));
     }
+
+    
 }

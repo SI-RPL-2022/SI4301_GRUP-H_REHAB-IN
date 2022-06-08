@@ -22,6 +22,7 @@
                         <tr>
                             <th>Id</th> 
                             <th>Nama</th>
+                            <th>Username</th>
                             <th>Email</th>
                             <th>Nomor Handphone</th>
                             <th>Alamat</th>
@@ -34,6 +35,7 @@
                     <tr>
                             <th>{{$item->id}}</th>
                             <th>{{$item->name}}</th>
+                            <th>{{$item->username}}</th>
                             <th>{{$item->email}}</th>
                             <th>{{$item->nohp}}</th>
                             <th>{{$item->address}}</th>
