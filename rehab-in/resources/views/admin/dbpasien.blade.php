@@ -32,13 +32,18 @@
                             <th style="width:11%;">Aksi</th>
                         </tr>
                     </thead>
-                
                     <tbody>
                         @foreach ($user as $item)
                         <tr>
                             <td>{{$item->id}}</td>
                             <td>{{$item->name}}</td>
-                            <td><img src="{{ asset('assets/style/images/user-pict.png') }}" alt="" style="width: 100%;"/></td>
+                            <td>
+                                @if ($item->pic>0)
+                                    <img src="{{asset('images/'.$item->pic)}}" alt="" style="width: 70%;"/>
+                                @else
+                                    <img src="{{ asset('assets/style/images/user-pict.png') }}" alt="" style="width: 70%;"/>
+                                @endif
+                            </td>
                             <td>{{$item->username}}</td>
                             <td>{{$item->tanggallahir}}</td>
                             {{-- <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </td> --}}
@@ -50,16 +55,16 @@
                                 Ducimus, earum necessitatibus.
                             </td> --}}
                             <td>
-                                <a href="#" class="btn btn-info btn-icon-split">
+                                <a href="dbpasien/updatepasien/{{$item->id}}" class="btn btn-info btn-icon-split">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-pencil-alt"></i>
                                     </span>
                                 </a>
-                                <a href="#" class="btn btn-danger btn-icon-split">
+                                {{-- <a href="#" class="btn btn-danger btn-icon-split">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-trash"></i>
                                     </span>
-                                </a>
+                                </a> --}}
                             
                             </td>
                         </tr>

@@ -146,24 +146,25 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin']], function(){
 
 Route::get('/',[AdminController::class, 'index'])->name('landingadmin'); //Landing page for admin
 
-// User Management
+// USER MANAGEMENT
 Route::get('dbpasien',[AdminController::class,'dbpasien'])->name('dbpasien'); //Login for
 Route::get('/regis/pasien',[AdminController::class,'regpasien'])->name('regpasfromadm');
 Route::post('/regis/pasien',[AdminController::class,'registpasien'])->name('regispasfromadm');
+Route::get('dbpasien/updatepasien/{id}',[AdminController::class,'editpasien'])->name('editpasien');
+Route::put('dbpasien/updatepasien/',[AdminController::class,'updatepasien'])->name('updatepasien');
 
 Route::get('dbdokter',[AdminController::class,'dbdokter'])->name('dbdokter'); //Login for
 Route::get('/regis/dokter',[AdminController::class,'registdokter'])->name('regdokfromadm');
 Route::post('/regis/dokter',[AdminController::class,'adddokter'])->name('regisdokfromadm');
+Route::get('dbdokter/updatedokter/{id}',[AdminController::class,'editdokter'])->name('editdokter');
+Route::put('dbdokter/updatedokter/',[AdminController::class,'updatedokter'])->name('updatedokter');
 
 Route::get('dbadmin',[AdminController::class,'dbadmin'])->name('dbadmin'); //Login for
 Route::get('/regis/admin',[AdminController::class,'regisadmfromadm'])->name('regadm');
 Route::post('/regis/admin',[AdminController::class,'registeradmfromadm'])->name('regsadm');
-
-
-Route::get('dbadmin/{id}',[AdminController::class,'dbadminid'])->name('dbadminid'); //Login for
-Route::post('dbadmin/add',[AdminController::class,'addadmin'])->name('addadmin'); //Login for
-Route::put('dbadmin/update/',[AdminController::class,'updateDadmin']); //update article by admin
-Route::get('dbadmin/delete/{id}',[AdminController::class,'delDadmin']); //update article by admin
+Route::get('dbadmin/updateadmin/{id}',[AdminController::class,'editadmin'])->name('editadmin');
+Route::put('dbadmin/updateadmin/',[AdminController::class,'updateadmin'])->name('updateadmin');
+Route::get('dbadmin/delete/{id}',[AdminController::class,'deladmin'])->name('deladmin');
 
 // Page Management - KAMAR
 Route::get('kamar',[AdminController::class,'kamar'])->name('kamaradm'); //tampilan kamar

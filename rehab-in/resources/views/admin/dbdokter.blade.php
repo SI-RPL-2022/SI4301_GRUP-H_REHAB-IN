@@ -38,7 +38,7 @@
                             <th>{{$item->nohp}}</th>
                             <th>{{$item->address}}</th>
                             <td>
-                                <a id="editDadmin" href="#" class="btn btn-info btn-icon-split" data-id="{{ $item->id }}">
+                                <a href="dbdokter/updatedokter/{{$item->id}}" class="btn btn-info btn-icon-split" data-id="{{ $item->id }}">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-pencil-alt"></i>
                                     </span>
@@ -57,67 +57,5 @@
             </div>
         </div>
     </div>
-
-    <!-- Modal ADD DOKTER-->
- <div class="modal fade" id="add-dokter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <form action="" method="post" enctype="multipart/form-data">
-            @csrf
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="col-2">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambahkan Dokter</h5>
-                </div>
-                <div class="col-10" style="padding-left: 66%;">
-                    <input type="submit" value="Tambah" class="btn btn-primary"/>
-                    <button type="button" class="btn btn-warning" data-dismiss="modal">Batal</button>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="col-12">
-                    
-                    <div class="row">
-                            <div class="col-2">
-                                <label class="label-edit-article">Nama Lengkap</label><br>
-                                <label class="label-edit-article">Username</label><br>
-                                <label class="label-edit-article">Email</label><br>
-                                <label class="label-edit-article">Password</label><br>
-                                <label class="label-edit-article">Nomor HP</label><br>
-                                <label class="label-edit-article">Tanggal Lahir</label><br>
-                                <label class="label-edit-article">Alamat</label>
-
-                            </div>
-
-                            <div class="col-10">
-                                
-                                <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control form-control-user form-edit-article">
-
-                                <input type="text" name="username" id="username" class="form-control form-control-user form-edit-article">
-
-                                <input type="text" name="email" id="email" class="form-control form-control-user form-edit-article">
-
-                                <input type="password" name="password" id="password" class="form-control form-control-user form-edit-article">
-                                
-                                <input type="text" name="nohp" id="nohp" class="form-control form-control-user form-edit-article">
-
-                                <input type="date" name="tanggallahir" id="tanggallahir" class="form-control form-control-user form-edit-article">
-                                
-                                <input type="text" name="address" id="address" class="form-control form-control-user form-edit-article">
-                                
-                                <input type="text" name="role" id="role" value="2" class="form-control form-control-user form-edit-article" hidden>
-                            </div>    
-                        </div>
-                    
-                </div>
-    
-            </div>
-
-            
-            
-
-        </div>
-    </form>
-    </div>
-  </div>
 
 @endsection

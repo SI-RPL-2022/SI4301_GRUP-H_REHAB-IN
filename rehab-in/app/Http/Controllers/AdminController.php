@@ -219,6 +219,28 @@ class AdminController extends Controller
         return view('admin.dbpasien', compact('user'));
     }
 
+    public function editpasien($id)
+    {
+        $pasien = User::where('role',0)->find($id);
+        return view('admin.editpasien',['data'=>$pasien]);
+    }
+
+    public function updatepasien(Request $request){
+        $password = $request->password;
+        $pasien = User::where('role',0)->find($request->id);
+        $pasien->name=$request->name;
+        $pasien->email=$request->email;
+        $pasien->username=$request->username;
+        $pasien->nohp=$request->nohp;
+        $pasien->address=$request->address;
+        $pasien->tanggallahir=$request->tanggallahir;
+        $pasien->password=Hash::make($password);
+        $pasien->role=$request->role;
+
+        $pasien->update();
+        return redirect(route('dbpasien'));
+    }
+
     public function regpasien(){
         return view('admin.regpasfromadm');
     }
@@ -276,19 +298,61 @@ class AdminController extends Controller
         return view('admin.dbdokter', compact('user'));
     }
 
+    public function editdokter($id)
+    {
+        $dokter = User::where('role',2)->find($id);
+        return view('admin.editdokter',['data'=>$dokter]);
+    }
+
+    public function updatedokter(Request $request){
+        $password = $request->password;
+        $dokter = User::where('role',2)->find($request->id);
+        $dokter->name=$request->name;
+        $dokter->email=$request->email;
+        $dokter->username=$request->username;
+        $dokter->nohp=$request->nohp;
+        $dokter->address=$request->address;
+        $dokter->tanggallahir=$request->tanggallahir;
+        $dokter->password=Hash::make($password);
+        $dokter->role=$request->role;
+
+        $dokter->update();
+        return redirect(route('dbdokter'));
+    }
+
+
     public function dbadmin(){
         $admin = User::where('role',1)->get();
         return view('admin.dbadmin', compact('admin'));
 
     }
 
-    public function dbadminid($id){
+    public function editadmin($id)
+    {
+        $admin = User::where('role',1)->find($id);
+        return view('admin.editadmin',['data'=>$admin]);
+    }
 
-        $admin = Admin::find($id);
-        // dd($artikel);
-        return response()->json([
-            'data' => $admin
-          ]);
+    public function updateadmin(Request $request){
+        $password = $request->password;
+        $dokter = User::where('role',1)->find($request->id);
+        $dokter->name=$request->name;
+        $dokter->email=$request->email;
+        $dokter->username=$request->username;
+        $dokter->nohp=$request->nohp;
+        $dokter->address=$request->address;
+        $dokter->tanggallahir=$request->tanggallahir;
+        $dokter->password=Hash::make($password);
+        $dokter->role=$request->role;
+
+        $dokter->update();
+        return redirect(route('dbadmin'));
+    }
+
+    public function deladmin($id){
+        $admin = User::where('role',1)->find($id);
+        $admin->delete();
+        return redirect(route('dbadmin'));
     }
 
     public function addadmin(Request $request){
@@ -304,24 +368,6 @@ class AdminController extends Controller
         return redirect(route('dbadmin'));
         // return view('admin.tips');
     }
-
-    public function updateDadmin(Request $request){
-        $admin = Admin::find($request->id);
-        $admin->nama_lengkap=$request->nama_lengkap;
-        $admin->email=$request->email;
-        $admin->username=$request->username;
-        $admin->password=$request->password;
-
-        $admin->update();
-        return redirect(route('dbadmin'));
-    }
-
-    public function delDadmin($id){
-        $admin = Admin::find($id);
-        $admin->delete();
-        return redirect(route('dbadmin'));
-    }
-
 
     public function kamar(){
         $kamar = Kamar::all();

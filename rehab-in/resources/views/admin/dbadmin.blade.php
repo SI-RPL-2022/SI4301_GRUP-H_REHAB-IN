@@ -34,7 +34,7 @@
                             <th>{{$item->name}}</th>
                             <th>{{$item->email}}</th>
                             <td>
-                                <a id="editDadmin" href="#" class="btn btn-info btn-icon-split" data-id="{{ $item->id }}">
+                                <a href="dbadmin/updateadmin/{{$item->id}}" class="btn btn-info btn-icon-split" data-id="{{ $item->id }}">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-pencil-alt"></i>
                                     </span>
@@ -168,40 +168,5 @@
     </div>
   </div>
 
-
-@endsection
-
-@section('script')
-<script>
-$(document).ready(function () {
-
-$('body').on('click', '#editDadmin', function (event) {
-
-  event.preventDefault();
-
-  
-  var id = $(this).data('id');
-  let url = "{{ route('dbadminid', ':id') }}";
-  url = url.replace(':id', id);
-  $.get(url, function (data) {
-      console.log(data);
-       $('#edit-dbadmin').modal('show');
-       $('#modalEditId').val(data.data.id);
-       $('#modalEditNama_lengkap').val(data.data.nama_lengkap);
-       $('#modalEditEmail').val(data.data.email);
-       $('#modalEditUsername').val(data.data.username);
-       $('#modalEditPassowrd').val(data.data.password);
-
-
-     
-   })
-});
-
-
-}); 
-
-
-
-</script>
 
 @endsection
