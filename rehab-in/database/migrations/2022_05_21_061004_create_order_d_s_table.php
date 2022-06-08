@@ -14,11 +14,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('order_d_s', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('patient')->unsigned();
-            $table->foreign('patient')->references('id')->on('users');
-            $table->foreignId('id_dokter')->unsigned();
-            $table->foreign('id_dokter')->references('id')->on('dokters');
+            $table->bigInteger('id',255)->unsigned();
+            $table->bigInteger('noInv')->nullable();
+            $table->string('jenis')->nullable();
+            $table->string('keluhan')->nullable();
+            $table->string('detailkel')->nullable();
+            $table->string('waktu')->nullable();
+            $table->string('jenislayanan')->nullable();
+            $table->string('status')->nullable();
+            $table->foreignId('patientid')->unsigned()->nullable();
+            $table->foreign('patientid')->references('id')->on('users');
+            $table->foreignId('dokterid')->unsigned()->nullable();
+            $table->foreign('dokterid')->references('id')->on('dokters');
             $table->timestamps();
         });
     }

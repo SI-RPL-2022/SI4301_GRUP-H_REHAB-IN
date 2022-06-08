@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\models\User;
 use App\models\Kamar;
 use App\models\OrderK;
+use App\models\OrderD;
 use App\models\histori;
 use App\models\Artikel;
 use Illuminate\Support\Facades\Hash;
@@ -189,21 +190,46 @@ class UserController extends Controller
     public function services(){
         return view('user.service');
     }
-    public function kamar(){
-        $kamar = Kamar::all();
-        $check = DB::table('kamars')->where('status','Tersedia')->count();
-        return view('user.reservasi',compact('kamar','check'));
-    }
     public function dokter(){
         // $dokter = DB::table('users')->where('role','2')
         $dokter = User::where('role',2)->get();
         $jumlahdokter = User::where('role',2)->count();
         return view('user.dokter', compact('dokter','jumlahdokter'));
     }
+    
+    public function orderd(Request $request){
+        $inv  = random_int(1000,9999);
+        $order = random_int(10000,99999);
+        $orderd = new OrderD();
+        $orderd->id = $order;
+        $orderd->noInv = $inv;
+        $orderd->jenis = $request->jenis;
+        $orderd->keluhan = $request->keluhan;
+        $orderd->detailkel = $request->detailkel;
+        $orderd->waktu = $request->waktu;
+        $orderd->jenislayanan = $request->layanan;
+        $orderd->status = $request->status;
+        $orderd->patientid = $request->userid;
+        // $orderd->dokterid = $request->dokterid;
+        $orderd->save();
+        return redirect('/pasien/order')->with('Done', 'Your order waiting for payment');
+    }
+    
+    public function invoicedoc($id){
+        $inv = OrderD::find($id);
+        return view('user.invoicedoc',compact('inv'));
+    }
     public function jadwal($id){
         $doc = User::find($id);
-        return view('user.jadwal',['doc'=>$doc]);
+        return view('user.jadwal',compact('doc'));
     }
+    
+    public function kamar(){
+        $kamar = Kamar::all();
+        $check = DB::table('kamars')->where('status','Tersedia')->count();
+        return view('user.reservasi',compact('kamar','check'));
+    }
+
     public function ruangan($id){
         $kamar = Kamar::find($id);
         $user = Auth::User();
@@ -224,10 +250,6 @@ class UserController extends Controller
         $kamar->save();
         return redirect('/pasien/order')->with('Done', 'Your order waiting for payment');
     }
-
-    public function invoicedoc(){
-        return view('user.invoicedoc');
-    }
     public function konsultasi(){
         return view('user.konsultasi');
     }
@@ -236,19 +258,22 @@ class UserController extends Controller
         $countkamar = histori::where('jenis_layanan','Reservasi Layanan Kamar')->count();
         $jeniskonsultasi = histori::where('jenis_layanan','Reservasi Konsultasi')->get();
         $countkonsultasi = histori::where('jenis_layanan','Reservasi Konsultasi')->count();
-        return view('user.historypayment', compact('jeniskamar','jeniskonsultasi','countkamar','countkonsultasi'));
+        return view('user.riwayatpayment', compact('jeniskamar','jeniskonsultasi','countkamar','countkonsultasi'));
     }
 
     public function order(){
         $checkkamar = OrderK::where('status','Belum membayar')->count();
+        $checkdokter = OrderD::where('status','Belum membayar')->count();
+        $orderd = OrderD::where('status','Belum membayar')->get();
         $order = OrderK::where('status','Belum membayar')->get();
-        return view('user.order',compact('order','checkkamar'));
+        return view('user.order',compact('order','checkkamar','checkdokter','orderd'));
     }
     public function invoicek($id){
         $i = 0;
         $order = OrderK::find($id);
         return view('user.invoice', compact('order','i'));
     }
+
     public function bukti_pembayaran(Request $request){
         $this->validate($request, [
             'pic' => 'image|mimes:jpeg,png,jpg|max:5000'

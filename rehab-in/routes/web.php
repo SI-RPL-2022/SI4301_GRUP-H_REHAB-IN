@@ -75,23 +75,26 @@ Route::group(['middleware'=>['isPasien']], function(){
     Route::get('/pasien/profile/{id}/edit/',[UserController::class,'show'])->name('editprofile')->middleware('auth'); // Profile manage for user
     Route::post('/pasien/profile',[UserController::class,'updateprofile'])->name('updateprofileuser')->middleware('auth'); //FORM POST UPDATE FOR USER
     
-    Route::get('/pasien/history',[UserController::class,'riwayat'])->name('user-history')->middleware('auth'); //
     Route::get('/pasien/notes',[UserController::class,'notes'])->name('user-healthnotes')->middleware('auth'); // Notes for user
     Route::get('/pasien/service',[UserController::class,'services'])->name('user-services')->middleware('auth'); // Chat manage for user
     Route::get('/pasien/service/hospital',[UserController::class,'hospital'])->name('hospital')->middleware('auth'); // Tampilan hospital untuk pasien
-    Route::get('/pasien/service/dokter',[UserController::class,'dokter'])->name('dokter')->middleware('auth'); // List dokter untuk pasien
-    Route::get('/pasien/service/dokter/jadwal/{id}',[UserController::class,'jadwal'])->name('jadwal')->middleware('auth'); // Input dokter untuk pasien
-    Route::get('/pasien/service/dokter/invoice',[UserController::class,'invoicedoc'])->name('invoice')->middleware('auth'); // invoice untuk pasien
-    Route::get('/pasien/service/dokter/konsultasi',[UserController::class,'konsultasi'])->name('konsultasi')->middleware('auth'); // invoice untuk pasien
     Route::get('/pasien/service/kamar',[UserController::class,'kamar'])->name('reservasi')->middleware('auth'); // Template reservasi pasien
     Route::get('/pasien/service/kamar/detail/{id}',[UserController::class,'ruangan'])->name('ruangan')->middleware('auth'); // Template jadwal ruangan pasien
     
-    
+    //History
     Route::get('/pasien/history/',[UserController::class,'history'])->name('history')->middleware('auth'); // Tampilan untuk history payment
-    Route::post('/pasien/history',[UserController::class,'pesan'])->name('inv')->middleware('auth');
+    Route::post('/pasien/order',[UserController::class,'pesan'])->name('inv')->middleware('auth');
 
+    //Route for Order Dokter
+    Route::get('/pasien/service/dokter',[UserController::class,'dokter'])->name('dokter')->middleware('auth'); // List dokter untuk pasien
+    Route::get('/pasien/service/dokter/jadwal/{id}',[UserController::class,'jadwal'])->name('jadwal')->middleware('auth'); // Input dokter untuk pasien
+    Route::post('/pasien/order',[UserController::class,'orderd'])->name('orderd')->middleware('auth'); // Post request
+    Route::get('/pasien/{id}/orderd/',[UserController::class,'invoicedoc'])->name('invdk')->middleware('auth'); // invoice untuk pasien
+    Route::get('/pasien/service/dokter/konsultasi',[UserController::class,'konsultasi'])->name('konsultasi')->middleware('auth'); // invoice untuk pasien
+
+    //Route for Order Kamar
     Route::get('/pasien/order/',[UserController::class,'order'])->name('order')->middleware('auth');
-    Route::get('/pasien/{id}/order/',[UserController::class,'invoicek'])->name('harga')->middleware('auth'); // Template jadwal ruangan pasien
+    Route::get('/pasien/{id}/orderk/',[UserController::class,'invoicek'])->name('harga')->middleware('auth'); // Template jadwal ruangan pasien
     Route::post('/pasien/order/',[UserController::class,'bukti_pembayaran'])->name('input')->middleware('auth'); // Template jadwal ruangan pasien
 
     

@@ -46,7 +46,7 @@
                             @endif
                             <div class="card-body">
                                 <h5 class="card-title text-center">{{ $doc->name }}</h5>
-                                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fuga rerum assumenda, mollitia dolores perferendis et error! Ducimus, earum necessitatibus.</p>
+                                <p class="card-text text-center w-bold">{{ $doc->address }}</p>
 
                                 <div class="mt-3 mb-3 text-center">
                                     <span class="text-black bold">{{ $doc->nohp }}</span>

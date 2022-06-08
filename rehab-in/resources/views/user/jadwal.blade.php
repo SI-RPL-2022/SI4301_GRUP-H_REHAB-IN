@@ -14,7 +14,7 @@
                 </div>
                 <div class="col mt-5 pt-5">
                     <p style="font-size: 20px">{{ $doc->name }}</p>
-                    <p>Spesialis asam uram | Bandung, Jawa Barat</p>
+                    <p>Spesialis asam uram | {{ $doc->address }}</p>
                 </div>
             </div>
 
@@ -28,7 +28,12 @@
 
     <div class="container">
         <div class="shadow-sm p-4 mb-5 bg-body rounded">
-            <form class="ms-4">
+            <form action="{{ route('orderd') }}" method="POST" class="ms-4">
+                @csrf
+                <input type="text" name="dokterid" value="{{ $doc->id }}" hidden>
+                <input type="text" name="userid" value="{{ auth()->user()->id }}" hidden>
+                <input type="text" name="layanan" class="form-control" value="Reservasi Layanan Kamar" hidden>
+                <input type="text" name="status" class="form-control" value="Belum membayar" hidden>
                 <h3> Masukan jadwal untuk reservasi</h3>
                 <div class="mb-3 row">
                     <strong><label class="col-sm-2 col-form-label">Jam Kerja</label></strong>
@@ -39,31 +44,31 @@
                 <div class="mb-3 row">
                     <strong><label class="col-sm-2 col-form-label mb-1">Tipe konsultasi</label></strong>
                     <div class="col-sm-3 ms-md-2">
-                        <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off">
+                        <input type="radio" name="jenis" class="btn-check" name="options-outlined" id="success-outlined" value="online" autocomplete="off" required>
                         <label class="btn btn-outline-success" for="success-outlined">Google Meet (Online)</label>
                     </div>
                     <div class="col">
-                        <input type="radio" class="btn-check" name="options-outlined" id="primary-outlined" autocomplete="off">
+                        <input type="radio" name="jenis" class="btn-check" name="options-outlined" id="primary-outlined" value="offline" autocomplete="off" required>
                         <label class="btn btn-outline-primary" for="primary-outlined">Datang ke rumah sakit (Offline)</label>
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <strong><label class="col-sm-2 col-form-label mb-1">Jenis keluhan</label></strong>
-                    <input type="text" class="form-control ms-3 col-11" placeholder="Jenis keluhan" aria-label="Username">
+                    <input type="text" name="keluhan" class="form-control ms-3 col-11" placeholder="Jenis keluhan" aria-label="Keluhan" required>
                 </div>
                 <div class="mb-3 row">
                     <strong><label class="col-sm-2 col-form-label mb-1">Detail keluhan</label></strong>
-                    <textarea class="form-control ms-3 col-11" placeholder="Leave the detail here"></textarea>
+                    <textarea name="detailkel" class="form-control ms-3 col-11" placeholder="Leave the detail here" required></textarea>
                 </div>
                 <div class="mb-3 row">
                     <strong><label class="col-sm-2 col-form-label mb-1">Pilih Waktu</label></strong>
-                    <input type="date" class="form-control ms-3 col-11" id="exampleFormControlInput1" placeholder="date">
+                    <input type="datetime-local" name="waktu" class="form-control ms-3 col-11" id="exampleFormControlInput1" placeholder="date" required>
                 </div>
 
                 <div class="mb-4 row ms-1">
-                    <a href="{{ route('invoice',['id'=>$doc->id]) }}" class="btn btn-primary me-3 col-sm-2">SUBMIT</a>
+                    <button type="submit" class="btn btn-primary me-3 col-sm-2">SUBMIT</button>
+                    {{-- <a href="{{ route('invoice',['id'=>$doc->id]) }}" class="btn btn-primary me-3 col-sm-2">SUBMIT</a> --}}
                     <a href="{{ route('dokter') }}" class="btn btn-warning col-sm-2">CANCEL</a>
-                    {{-- <button type="button" class="btn btn-primary col-sm-1">SUBMIT</button> --}}
                 </div>
             </form>
         </div>

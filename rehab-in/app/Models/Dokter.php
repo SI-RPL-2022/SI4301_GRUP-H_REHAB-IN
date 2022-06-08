@@ -10,5 +10,7 @@ class Dokter extends Model
     use HasFactory;
 
     protected $guarded =['id'];
-    public $timestamps = false;
+    public function OrderD(){
+        return $this->hasMany(OrderD::class);
+    }
 }

@@ -12,7 +12,7 @@
                             </div>
                             <div class="col-md-8 col-sm-8">
                                 <h4>Invoice # <br>
-                                    <strong>2015-04-5654667546</strong>
+                                    <strong>{{ $inv->noInv }}</strong>
                                 </h4>
                             </div>
                         </div>
@@ -27,9 +27,9 @@
                                 </address>
                             </div>
                             <div class="col-md-6 col-sm-6 text-right">
-                                <p><strong>Order Date: </strong> Jun 15, 2016</p>
-                                <p class="m-t-10"><strong>Order Status: </strong> <span class="badge bg-warning">Pending</span></p>
-                                <p class="m-t-10"><strong>Order ID: </strong> #123456</p>
+                                <p><strong>Order Date: </strong> {{ $inv->created_at }}</p>
+                                <p class="m-t-10"><strong>Order Status: </strong> <span class="badge bg-warning">{{ $inv->status }}</span></p>
+                                <p class="m-t-10"><strong>Order ID: </strong> #{{ $inv->id }}</p>
                             </div>
                         </div>
                         <div class="mt-40"></div>
@@ -39,8 +39,8 @@
                                     <table id="mainTable" class="table table-striped" style="cursor: pointer;">
                                         <thead>
                                             <tr><th>#</th>
-                                            <th>Item</th>
-                                            <th>Description</th>
+                                            <th>Jenis Konsultasi</th>
+                                            <th>Nama Dokter</th>
                                             <th>Quantity</th>
                                             <th>Unit Cost</th>
                                             <th>Total</th>
@@ -48,55 +48,19 @@
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>LCD</td>
-                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td>{{ $inv->jenis }}</td>
+                                                <td>-</td>
                                                 <td>1</td>
                                                 <td>$380</td>
                                                 <td>$380</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Mobile</td>
-                                                <td>Lorem ipsum dolor sit amet.</td>
-                                                <td>5</td>
-                                                <td>$50</td>
-                                                <td>$250</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>LED</td>
-                                                <td>Lorem ipsum dolor sit amet.</td>
-                                                <td>2</td>
-                                                <td>$500</td>
-                                                <td>$1000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>LCD</td>
-                                                <td>Lorem ipsum dolor sit amet.</td>
-                                                <td>3</td>
-                                                <td>$300</td>
-                                                <td>$900</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Mobile</td>
-                                                <td>Lorem ipsum dolor sit amet.</td>
-                                                <td>5</td>
-                                                <td>$80</td>
-                                                <td>$400</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                        <hr>
                         <div class="row" style="border-radius: 0px;">
                             <div class="col-md-12 text-right">
-                                <p class="text-right"><b>Sub-total:</b> 2930.00</p>
-                                <p class="text-right">Discout: 12.9%</p>
-                                <p class="text-right">VAT: 12.9%</p>
                                 <hr>
                                 <h3 class="text-right">IDR 123.456.789</h3>
                             </div>
