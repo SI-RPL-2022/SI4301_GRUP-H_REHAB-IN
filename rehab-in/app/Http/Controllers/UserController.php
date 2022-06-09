@@ -150,8 +150,9 @@ class UserController extends Controller
 
     public function profile($id){
         $countreservasi = OrderK::where('patient_id',$id)->get();
+        $countconsult = OrderD::where('patientid',$id)->get();
         $user = Auth::User();
-        return view('user.profile',compact('user','countreservasi'));
+        return view('user.profile',compact('user','countreservasi','countconsult'));
     }
 
     public function show($id){
@@ -219,6 +220,35 @@ class UserController extends Controller
         $inv = OrderD::find($id);
         return view('user.invoicedoc',compact('inv'));
     }
+
+    public function pembayaran(Request $request){
+        $this->validate($request, [
+            'pic' => 'image|mimes:jpeg,png,jpg|max:5000'
+        ]);
+
+        $Name = $request->pic->getClientOriginalName() . '-' . time()
+        . '.' . $request->pic->extension();
+        $request->pic->move(public_path('images/bukti'),$Name);
+        
+        // $idkamar = $request->kamar_id;
+        // Kamar::find($idkamar)->update([
+        //     'status' => $request->updatestatus
+        // ]);
+
+        $idorder = $request->orderid;
+        OrderD::find($idorder)->update([
+            'status' =>$request->status
+        ]);
+
+        $histori = new histori();
+        $histori->noinv = $request->noinv;
+        $histori->orderdokter_id = $idorder;
+        $histori->jenis_layanan = $request->layanan;
+        $histori->bukti_pembayaran = $Name;
+        $histori->save();
+        return redirect()->route('history')->with('Done','Upload bukti pembayaran berhasil.');
+    }
+
     public function jadwal($id){
         $doc = User::find($id);
         return view('user.jadwal',compact('doc'));
@@ -258,7 +288,7 @@ class UserController extends Controller
         $countkamar = histori::where('jenis_layanan','Reservasi Layanan Kamar')->count();
         $jeniskonsultasi = histori::where('jenis_layanan','Reservasi Konsultasi')->get();
         $countkonsultasi = histori::where('jenis_layanan','Reservasi Konsultasi')->count();
-        return view('user.riwayatpayment', compact('jeniskamar','jeniskonsultasi','countkamar','countkonsultasi'));
+        return view('user.historypayment', compact('jeniskamar','jeniskonsultasi','countkamar','countkonsultasi'));
     }
 
     public function order(){
@@ -295,7 +325,7 @@ class UserController extends Controller
 
         $histori = new histori();
         $histori->noinv = $request->inv;
-        $histori->orderid_kamar = $idorder;
+        $histori->orderkamar_id = $idorder;
         $histori->jenis_layanan = $request->jenis_layanan;
         $histori->bukti_pembayaran = $Name;
         $histori->save();

@@ -11,11 +11,11 @@ class OrderD extends Model
     protected $fillable = [
         'status',
     ];
-    public function User(){
+    public function user(){
         return $this->belongsTo(User::class);
     }    
     
-    public function Dokter(){
+    public function dokter(){
         return $this->belongsTo(Dokter::class);
     }
 

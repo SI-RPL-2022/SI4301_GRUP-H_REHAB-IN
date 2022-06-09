@@ -26,8 +26,8 @@
                                                     <img src="{{ asset('userProfile/'.$user->pic) }}" alt="" class="rounded-circle-profile">
                                                 @endif
                                                 </div>
-                                            <div class="col-lg-10 all-service-get-profile">
-                                                <h6 class="content">Jumlah Konsultasi : <a href="#"><em style="font-weight: bold;">20</em></a></h6>
+                                            <div class="col-lg-10 all-service-get-profile mt-3">
+                                                <h6 class="content">Jumlah Konsultasi : <span class="text-black" style="font-weight: bold;">{{ $countconsult->count() }}</span></h6>
                                                 <h6 class="content">Jumlah Reservasi : <span class="text-black" style="font-weight: bold;">{{ $countreservasi->count() }}</span></h6>
                                                 <h6 class="content">Catatan Kesehatan : <a href="{{ route('user-healthnotes') }}"><em style="font-weight: bold;">-</em></a></h6>
                                             </div>

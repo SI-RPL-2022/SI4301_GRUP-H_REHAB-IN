@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('noinv');
             $table->string('jenis_layanan');
             $table->string('bukti_pembayaran');
-            $table->foreignId('orderid_kamar')->unsigned()->nullable();
-            $table->foreign('orderid_kamar')->references('id')->on('order_k_s');
-            $table->foreignId('orderid_dokter')->unsigned()->nullable();
-            $table->foreign('orderid_dokter')->references('id')->on('order_d_s');
+            $table->foreignId('orderkamar_id')->nullable();
+            $table->foreign('orderkamar_id')->references('id')->on('order_k_s');
+            $table->foreignId('orderdokter_id')->nullable();
+            $table->foreign('orderdokter_id')->references('id')->on('order_d_s');
             $table->timestamps();
         });
     }

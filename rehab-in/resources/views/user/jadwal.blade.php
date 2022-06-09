@@ -32,7 +32,7 @@
                 @csrf
                 <input type="text" name="dokterid" value="{{ $doc->id }}" hidden>
                 <input type="text" name="userid" value="{{ auth()->user()->id }}" hidden>
-                <input type="text" name="layanan" class="form-control" value="Reservasi Layanan Kamar" hidden>
+                <input type="text" name="layanan" class="form-control" value="Reservasi Konsultasi" hidden>
                 <input type="text" name="status" class="form-control" value="Belum membayar" hidden>
                 <h3> Masukan jadwal untuk reservasi</h3>
                 <div class="mb-3 row">
