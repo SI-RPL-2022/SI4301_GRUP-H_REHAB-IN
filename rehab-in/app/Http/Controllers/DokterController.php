@@ -7,12 +7,22 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\OrderD;
 use App\Models\Dokter;
 
 class DokterController extends Controller
 {
     public function index(){
         return view('dokter.home');
+    }
+
+  
+
+    public function orderkons(){
+        $checkdokter = OrderD::where('status','Belum membayar')->count();
+        $orderd = OrderD::where('status','Belum membayar')->get();
+        // dd($orderd);
+        return view('dokter.orderkons',compact('checkdokter','orderd'));
     }
 
     public function jadwal(){

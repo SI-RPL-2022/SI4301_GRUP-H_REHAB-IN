@@ -11,6 +11,8 @@ use App\Models\Kamar;
 use App\Models\Kontak;
 use App\Models\Notesehat;
 use App\Models\histori;
+use App\Models\OrderK;
+use App\Models\OrderD;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -147,6 +149,8 @@ class AdminController extends Controller
         return redirect(route('tipskesadm'));
     }
 
+    
+
 
     public function jadwalkonsul(){
         return view('admin.jadwalkonsul');
@@ -183,8 +187,8 @@ class AdminController extends Controller
     }
 
     public function order(){
-        return view('admin.order');
-        
+        $order = OrderD::all();
+        return view('admin.order',compact('order'));
     }
 
     public function reservasi(){
@@ -526,9 +530,6 @@ class AdminController extends Controller
         }
 
     }
-
-
-   
 
     public function forgetpw(){
         return view('');

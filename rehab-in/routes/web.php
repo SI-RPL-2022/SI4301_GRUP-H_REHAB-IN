@@ -31,7 +31,13 @@ use Illuminate\Support\Facades\Route;
 // LANDING PAGE
 // Route::get('/{id}', [HomeController::class, 'artikelid'])->name('artikel_guest');
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
+Route::get('/testemail', function(){
+    $details = [
+        'title' => 'Konfirmasi Pembayaran',
+        'body' => 'bayar'
+    ];
+    \Mail::to('wahdanurul.nw@gmail.com')->send(new \App\Mail\MyTestMail($details));
+});
 
 Route::get('/tips', [HomeController::class, 'tips'])->name('tips');
 Route::get('/tips/{id}', [HomeController::class, 'tipsid'])->name('tips_guest');
@@ -124,6 +130,7 @@ Route::group(['prefix'=>'dokter', 'middleware'=>['isDokter']], function(){
 
     Route::get('/jadwal',[DokterController::class,'jadwal'])->name('jadwaldokter');
     
+    Route::get('/orderkons',[DokterController::class,'orderkons'])->name('orderkons');
 });
 // Route::get('',[DokterController::class,'register'])->name('register'); //Register for
 // Route::get('',[DokterController::class,'forgetpw'])->name('forgetpw'); // Forget password for
