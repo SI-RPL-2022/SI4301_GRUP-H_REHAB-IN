@@ -21,7 +21,8 @@
                                 <th>Nama Layanan</th> 
                                 <th>Price</th> 
                                 <th style="width:11%;">Status Pembayaran</th>
-                                <th style="width:11%;">Aksi</th>
+                                <th>Tempat</th> 
+                                <th style="width:30%;">Aksi</th>
 
                             </tr>
                         </thead>
@@ -38,6 +39,36 @@
                                         {{$item->status}}
                                     </td>
                                     <td>
+                                        @if ($item->jenis=="online")
+                                            <a class="btn btn-success btn-icon-split">
+                                                <span class="icon text-white-50"> {{ $item->jenis }}</span> 
+                                            </a>
+                                        @else
+                                            <a class="btn btn-info btn-icon-split">
+                                                <span class="icon text-white-50"> {{ $item->jenis }}</span> 
+                                            </a>
+                                            
+                                        @endif
+                                       
+                                       
+                                    </td>
+                                    <td>
+                                        @if ($item->status=="Belum membayar")
+                                            <a href="{{ route('invkons')}}" class="btn btn-warning btn-icon-split">
+                                                <span class="icon text-white-50"> Kirim Pesan Tagihan
+                                                    <i class="fas fa-envelope"></i>
+                                                </span>
+                                                
+                                            </a>
+                                        @else
+                                            <a href="#" class="btn btn-info btn-icon-split">
+                                                <span class="icon text-white-50"> Kirim Link
+                                                    <i class="fas fa-envelope"></i>
+                                                </span>
+                                                
+                                            </a>
+                                            
+                                        @endif
                                         
                                     </td>
                                 </tr>
@@ -48,4 +79,6 @@
             </div>
         </div>
 
+
+        
 @endsection

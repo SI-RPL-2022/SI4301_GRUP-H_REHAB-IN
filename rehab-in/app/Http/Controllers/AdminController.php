@@ -22,9 +22,9 @@ class AdminController extends Controller
     public function index(){
         $countdokter = DB::table('users')->where('role',2)->count();
         $total_pasien = DB::table('users')->where('role',0)->count();
-        $countreservasi = DB::table('reservasis')->count();
-        $order = DB::table('order_k_s','order_d_s')->count();
-        return view('admin.home', compact('countdokter', 'total_pasien', 'countreservasi','order'));
+        $orderd = DB::table('order_d_s')->where('status',"Belum membayar")->count();
+        $orderk = DB::table('order_k_s')->where('status',"Belum membayar")->count();
+        return view('admin.home', compact('countdokter', 'total_pasien','orderd','orderk'));
         
 
     }

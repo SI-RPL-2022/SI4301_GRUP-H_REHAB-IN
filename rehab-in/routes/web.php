@@ -31,14 +31,6 @@ use Illuminate\Support\Facades\Route;
 // LANDING PAGE
 // Route::get('/{id}', [HomeController::class, 'artikelid'])->name('artikel_guest');
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/testemail', function(){
-    $details = [
-        'title' => 'Konfirmasi Pembayaran',
-        'body' => 'bayar'
-    ];
-    \Mail::to('wahdanurul.nw@gmail.com')->send(new \App\Mail\MyTestMail($details));
-});
-
 Route::get('/tips', [HomeController::class, 'tips'])->name('tips');
 Route::get('/tips/{id}', [HomeController::class, 'tipsid'])->name('tips_guest');
 
@@ -214,6 +206,13 @@ Route::get('riwayatadm/delete/{id}',[AdminController::class,'deleteriwayat']);
 
 //Page Management - ORDER
 Route::get('order',[AdminController::class,'order'])->name('orderadm'); // Forget password for
+Route::get('/testemail', function(){
+    $details = [
+        'title' => 'Konfirmasi Pembayaran'
+    ];
+    \Mail::to('wahdanurul.nw@gmail.com')->send(new \App\Mail\MyTestMail($details));
+})->name('invkons');
+
 Route::get('riwayatadm/delete/{id}',[AdminController::class,'deleteriwayat']);
 
 
