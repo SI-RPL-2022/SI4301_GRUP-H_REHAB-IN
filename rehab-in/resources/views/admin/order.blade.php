@@ -61,7 +61,7 @@
                                                 
                                             </a>
                                         @else
-                                            <a href="#" class="btn btn-info btn-icon-split">
+                                            <a href="{{ route('linkkons') }}" class="btn btn-info btn-icon-split">
                                                 <span class="icon text-white-50"> Kirim Link
                                                     <i class="fas fa-envelope"></i>
                                                 </span>

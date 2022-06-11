@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class MyTestMail extends Mailable
+class LinkMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -29,7 +29,7 @@ class MyTestMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Yuk! Lakukan Pembayaran Sekarang')
-                    ->view('invmail');
+        return $this->subject('Selamat mengikuti layanan konsultasi kami')
+                    ->view('linkmail');
     }
 }

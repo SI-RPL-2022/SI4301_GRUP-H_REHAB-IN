@@ -206,12 +206,19 @@ Route::get('riwayatadm/delete/{id}',[AdminController::class,'deleteriwayat']);
 
 //Page Management - ORDER
 Route::get('order',[AdminController::class,'order'])->name('orderadm'); // Forget password for
-Route::get('/testemail', function(){
+Route::get('/invmail', function(){
     $details = [
         'title' => 'Konfirmasi Pembayaran'
     ];
     \Mail::to('wahdanurul.nw@gmail.com')->send(new \App\Mail\MyTestMail($details));
 })->name('invkons');
+Route::get('/linkmail', function(){
+    $details = [
+        'title' => 'Terima kasih telah melakukan pembayaran!'
+    ];
+    \Mail::to('wahdanurul.nw@gmail.com')->send(new \App\Mail\LinkMail($details));
+})->name('linkkons');
+
 
 Route::get('riwayatadm/delete/{id}',[AdminController::class,'deleteriwayat']);
 
