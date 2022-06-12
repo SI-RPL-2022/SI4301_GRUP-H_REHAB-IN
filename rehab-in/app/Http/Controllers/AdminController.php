@@ -12,6 +12,7 @@ use App\Models\Kontak;
 use App\Models\Notesehat;
 use App\Models\histori;
 use App\Models\OrderK;
+use App\Models\Dokter;
 use App\Models\OrderD;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -187,8 +188,11 @@ class AdminController extends Controller
     }
 
     public function order(){
+        
         $order = OrderD::all();
-        return view('admin.order',compact('order'));
+        $dokter = Dokter::all();
+      
+        return view('admin.order',compact('order','dokter'));
     }
 
     public function reservasi(){

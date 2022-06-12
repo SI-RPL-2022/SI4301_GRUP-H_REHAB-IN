@@ -8,7 +8,7 @@
     <h3>Dear, Rehab-iners!</h3>
     <p>Terima kasih telah melakukan order untuk konsultasi bersama dokter kami.<br>
     Berikut ini kami lampirkan link google meet yang akan digunakan selama proses konsultasi.
-        
+    Link Meet : {{ $details['link'] }}
 </p>
    
     <p>Selamat berkonsultasi!</p>

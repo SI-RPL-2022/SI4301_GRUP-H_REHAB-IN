@@ -212,11 +212,11 @@ Route::get('/invmail', function(){
     ];
     \Mail::to('wahdanurul.nw@gmail.com')->send(new \App\Mail\MyTestMail($details));
 })->name('invkons');
-Route::get('/linkmail', function(){
-    $details = [
-        'title' => 'Terima kasih telah melakukan pembayaran!'
-    ];
-    \Mail::to('wahdanurul.nw@gmail.com')->send(new \App\Mail\LinkMail($details));
+
+Route::get('/linkmail/{id}', function($id){
+    // {{dd($id);}}
+    $details = $id;
+    \Mail::to('wahdanurul.nw@gmail.com')->send(new \App\Mail\LinkMail($details)); 
 })->name('linkkons');
 
 

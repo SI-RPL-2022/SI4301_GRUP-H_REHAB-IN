@@ -25,7 +25,7 @@ return new class extends Migration
             $table->foreignId('patientid')->unsigned()->nullable();
             $table->foreign('patientid')->references('id')->on('users');
             $table->foreignId('dokterid')->unsigned()->nullable();
-            $table->foreign('dokterid')->references('id')->on('dokters');
+            $table->foreign('dokterid')->references('id')->on('users');
             $table->timestamps();
         });
     }

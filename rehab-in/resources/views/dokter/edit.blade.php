@@ -117,6 +117,17 @@
                                         </fieldset>
                                     </div>
                                     <div class="user-profile-contentslist">
+                                        <label class="user-profile-label">Link GMeet</label>
+                                        <fieldset>
+                                            <input type="text" name="link" id="link" placeholder="Link Google Meet" class="@error('link') is-invalid @enderror">
+                                            @error('link')
+                                                <div class="alert alert-danger mt-2">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </fieldset>
+                                    </div>
+                                    <div class="user-profile-contentslist">
                                         <label class="user-profile-label">Upload foto profile</label>
                                         <fieldset>
                                             <input type="file" name="pic" class="@error('pic') is-invalid @enderror">

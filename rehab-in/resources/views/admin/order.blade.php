@@ -1,6 +1,6 @@
 @extends('layouts.dashboard-admin')
 @section('main')
-
+{{-- {{dd($order);}} --}}
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Table Order Service</h1>
     <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add-tips"><i
@@ -29,6 +29,7 @@
 
                         <tbody>
                             @foreach($order as $item)
+                            
                                 <tr>
                                     <td>#{{ $item->noInv }}</td>
                                     <td>{{ $item->jenislayanan }}</td>
@@ -61,7 +62,7 @@
                                                 
                                             </a>
                                         @else
-                                            <a href="{{ route('linkkons') }}" class="btn btn-info btn-icon-split">
+                                            <a href="/admin/linkmail/{{ $item->dokterid }}" class="btn btn-info btn-icon-split">
                                                 <span class="icon text-white-50"> Kirim Link
                                                     <i class="fas fa-envelope"></i>
                                                 </span>

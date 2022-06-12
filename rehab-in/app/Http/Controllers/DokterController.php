@@ -141,6 +141,7 @@ class DokterController extends Controller
             $dokter->spesialis=$request->spesialis;
             $dokter->deskripsi=$request->deskripsi;
             $dokter->jadwal_time=$request->jadwal_time;
+            $dokter->link=$request->link;
            
             $dokter->save();
         } else {
@@ -148,7 +149,8 @@ class DokterController extends Controller
         Dokter::where('id_dokter',$id)->update([
             'spesialis' => $request->spesialis,
             'deskripsi' => $request->deskripsi,
-            'jadwal_time' => $request->jadwal_time
+            'jadwal_time' => $request->jadwal_time,
+            'link' => $request->link
         ]);
 
         }

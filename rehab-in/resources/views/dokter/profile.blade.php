@@ -49,7 +49,7 @@
                         </div>
                         <div class="user-profile-contentslist">
                             <label class="user-profile-label">Nama Lengkap</label>
-                            dd($user);
+                            
                             <p class="user-profile-label-p">{{ $user->name }}</p>
                         </div>
                         <div class="user-profile-contentslist">
@@ -63,6 +63,50 @@
                         <div class="user-profile-contentslist">
                             <label class="user-profile-label">Nomor Hp</label>
                             <p class="user-profile-label-p">{{ $user->nohp }}</p>
+                        </div>
+                        <div class="user-profile-contentslist">
+                            <label class="user-profile-label">Link Meet</label>
+                            <p class="user-profile-label-p">
+                                @if ($dokter!=null)
+                                    @if ($dokter->link!=0)
+                                    <a class="btn btn-success" style="color: #fff;">
+                                        {{ $dokter->link }}
+                                    </a>
+                                    @else
+                                    <a class="btn btn-warning" style="color: #fff;">
+                                        Update data profil sekarang!
+                                    </a>
+                                    @endif
+                                @else
+                                    <a class="btn btn-warning" style="color: #fff;">
+                                        Update data profil sekarang!
+                                    </a>
+                                @endif
+                                
+                                
+                            </p>
+                        </div>
+                        <div class="user-profile-contentslist">
+                            <label class="user-profile-label">Spesialis</label>
+                            <p class="user-profile-label-p">
+                                @if ($dokter!=null)
+                                    @if ($dokter->spesialis!=0)
+                                    <a class="btn btn-success" style="color: #fff;">
+                                        {{ $dokter->spesialis }}
+                                    </a>
+                                    @else
+                                    <a class="btn btn-warning" style="color: #fff;">
+                                        Update data profil sekarang!
+                                    </a>
+                                    @endif
+                                @else
+                                    <a class="btn btn-warning" style="color: #fff;">
+                                        Update data profil sekarang!
+                                    </a>
+                                @endif
+                                
+                                
+                            </p>
                         </div>
                         {{-- <div class="user-profile-contentslist">
                             <label class="user-profile-label">Spesialis</label>
