@@ -54,6 +54,9 @@
                             </div>
                             <div class="col text-center">
                                 <br>
+                                <?php 
+                                    $senin = 1;
+                                ?>
                                 <a href="{{ route('ruangan',['id'=>$kamar->id]) }}" class="btn btn-primary mb-2">Pilih Kamar</a>
                             </div>
                         </div>

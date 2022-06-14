@@ -163,7 +163,7 @@ class UserController extends Controller
     public function updateprofile(Request $request){
         //validate form
         $this->validate($request, [
-            'pic'     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'pic'     => 'image|mimes:jpeg,png,jpg,gif,svg|max:10000',
             'name' => 'max:255',
             'tanggallahir' => 'required'
         ]);

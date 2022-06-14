@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('spesialis')->nullable();
             $table->string('jadwal_day')->nullable();
             $table->string('jadwal_time')->nullable();
+            $table->timestamps();
         });
     }
 
