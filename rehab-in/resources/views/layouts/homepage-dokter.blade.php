@@ -37,7 +37,7 @@
                             <a href="{{ route('jadwaldokter') }}"><span class="fa fa-calendar"></span>Input Jadwal</a>
                         </li>
                         <li>
-                            <a href="{{ route('order') }}"><span class="fa fa-shopping-basket"></span>Check order</a>
+                            <a href="{{ route('orderkons') }}"><span class="fa fa-shopping-basket"></span>Check order</a>
                         </li>
                         <li>
                             <a href="{{ route('history') }}"><span class="fa fa-history"></span>Riwayat Pembayaran</a>

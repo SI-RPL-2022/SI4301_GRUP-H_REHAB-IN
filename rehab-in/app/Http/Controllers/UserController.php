@@ -211,7 +211,7 @@ class UserController extends Controller
         $orderd->jenislayanan = $request->layanan;
         $orderd->status = $request->status;
         $orderd->patientid = $request->userid;
-        // $orderd->dokterid = $request->dokterid;
+        $orderd->dokterid = $request->dokterid;
         $orderd->save();
         return redirect('/pasien/order')->with('Done', 'Your order waiting for payment');
     }

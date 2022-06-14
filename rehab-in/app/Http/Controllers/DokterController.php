@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\OrderD;
 use App\Models\Dokter;
 
 class DokterController extends Controller
@@ -14,6 +15,16 @@ class DokterController extends Controller
     public function index()
     {
         return view('dokter.home');
+    }
+
+
+
+    public function orderkons()
+    {
+        $checkdokter = OrderD::where('status', 'Belum membayar')->count();
+        $orderd = OrderD::where('status', 'Belum membayar')->get();
+        // dd($orderd);
+        return view('dokter.orderkons', compact('checkdokter', 'orderd'));
     }
 
     public function jadwal()
@@ -136,6 +147,7 @@ class DokterController extends Controller
             $dokter->spesialis = $request->spesialis;
             $dokter->deskripsi = $request->deskripsi;
             $dokter->jadwal_time = $request->jadwal_time;
+            $dokter->link = $request->link;
 
             $dokter->save();
         } else {
@@ -143,7 +155,8 @@ class DokterController extends Controller
             Dokter::where('id_dokter', $id)->update([
                 'spesialis' => $request->spesialis,
                 'deskripsi' => $request->deskripsi,
-                'jadwal_time' => $request->jadwal_time
+                'jadwal_time' => $request->jadwal_time,
+                'link' => $request->link
             ]);
         }
 

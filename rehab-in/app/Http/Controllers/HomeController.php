@@ -22,6 +22,11 @@ class HomeController extends Controller
         return view('tips');
     }
 
+    public function tesmail()
+    {
+        return view('mail');
+    }
+
     public function tipsid($id){
         $tips = Tip::find($id);
         return view('tips',['tips'=>$tips]);

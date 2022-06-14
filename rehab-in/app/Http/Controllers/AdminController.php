@@ -11,6 +11,9 @@ use App\Models\Kamar;
 use App\Models\Kontak;
 use App\Models\Notesehat;
 use App\Models\histori;
+use App\Models\OrderK;
+use App\Models\Dokter;
+use App\Models\OrderD;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -20,9 +23,9 @@ class AdminController extends Controller
     public function index(){
         $countdokter = DB::table('users')->where('role',2)->count();
         $total_pasien = DB::table('users')->where('role',0)->count();
-        $countreservasi = DB::table('reservasis')->count();
-        $order = DB::table('order_k_s','order_d_s')->count();
-        return view('admin.home', compact('countdokter', 'total_pasien', 'countreservasi','order'));
+        $orderd = DB::table('order_d_s')->where('status',"Belum membayar")->count();
+        $orderk = DB::table('order_k_s')->where('status',"Belum membayar")->count();
+        return view('admin.home', compact('countdokter', 'total_pasien','orderd','orderk'));
         
 
     }
@@ -147,6 +150,8 @@ class AdminController extends Controller
         return redirect(route('tipskesadm'));
     }
 
+    
+
 
     public function jadwalkonsul(){
         return view('admin.jadwalkonsul');
@@ -183,8 +188,11 @@ class AdminController extends Controller
     }
 
     public function order(){
-        return view('admin.order');
         
+        $order = OrderD::all();
+        $dokter = Dokter::all();
+      
+        return view('admin.order',compact('order','dokter'));
     }
 
     public function reservasi(){
@@ -526,9 +534,6 @@ class AdminController extends Controller
         }
 
     }
-
-
-   
 
     public function forgetpw(){
         return view('');

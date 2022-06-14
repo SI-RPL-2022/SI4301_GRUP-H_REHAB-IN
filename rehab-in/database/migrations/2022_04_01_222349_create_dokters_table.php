@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('dokters', function (Blueprint $table) {
-            $table->bigIncrements('id',255)->unsigned();
+            $table->bigIncrements('id', 255)->unsigned();
             $table->foreignId('id_dokter');
             $table->foreign('id_dokter')->references('id')->on('users');
             $table->string('pic')->nullable();
@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('spesialis')->nullable();
             $table->string('jadwal_day')->nullable();
             $table->string('jadwal_time')->nullable();
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }
