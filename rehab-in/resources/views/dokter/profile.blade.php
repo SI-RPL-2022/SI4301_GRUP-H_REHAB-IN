@@ -138,6 +138,28 @@
                                             {{-- <div class="user-profile-contentslist">
                             <label class="user-profile-label">Spesialis</label>
                             <p class="user-profile-label-p">
+                                @if ($dokter != null)
+                                    @if ($dokter->spesialis != 0)
+                                    <a class="btn btn-success" style="color: #fff;">
+                                        {{ $dokter->spesialis }}
+                                    </a>
+                                    @else
+                                    <a class="btn btn-warning" style="color: #fff;" href="{{ route('edit.profile.dokter',['id' => $user->id]) }}">
+                                        Update data profil sekarang!
+                                    </a>
+                                    @endif
+                                @else
+                                    <a class="btn btn-warning" style="color: #fff;" href="{{ route('edit.profile.dokter',['id' => $user->id]) }}">
+                                        Update data profil sekarang!
+                                    </a>
+                                @endif
+                                
+                                
+                            </p>
+                        </div>
+                        {{-- <div class="user-profile-contentslist">
+                            <label class="user-profile-label">Spesialis</label>
+                            <p class="user-profile-label-p">
                             @if ($dokter->spesialis == null)
                                 knkbkdfk
                             @else

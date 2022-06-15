@@ -117,19 +117,24 @@ Route::post('/regisdok', [DokterController::class, 'registerdokter'])->middlewar
 
 
 Route::group(['prefix' => 'dokter', 'middleware' => ['isDokter']], function () {
-    Route::get('/', [DokterController::class, 'index'])->name('landingdokter'); //Landing page for Dokter
+    Route::get('/', function () {
+        $artikel = Artikel::all();
+        $countartikel = Artikel::all()->count();
+        return view('dokter.home', compact('artikel', 'countartikel'));
+    })->name('landingdokter'); //Landing page for Dokter
     Route::get('/profile/{id}', [DokterController::class, 'profile'])->name('dokter.profile');
     Route::get('/profile/edit/{id}', [DokterController::class, 'editprofile'])->name('edit.profile.dokter');
-    Route::get('catkes', [DokterController::class, 'catkes'])->name('catpasien');
-    Route::get('catkes/{id}', [DokterController::class, 'inputcatkes'])->name('inputcat');
-    Route::post('cates', [DokterController::class, 'kirimcatkes'])->name('inputcatkes');
-    Route::get('catkes/edit/{id}', [DokterController::class, 'editcatkes'])->name('editcatkes');
+    Route::post('/profile', [DokterController::class, 'updateprofile'])->name('update.profile.dokter'); //FORM POST UPDATE FOR DOKTER
 
     Route::post('/profile', [DokterController::class, 'updateprofile'])->name('update.profile.dokter'); //FORM POST UPDATE FOR DOKTER
 
     Route::get('/jadwal', [DokterController::class, 'jadwal'])->name('jadwaldokter');
 
     Route::get('/orderkons', [DokterController::class, 'orderkons'])->name('orderkons');
+    Route::get('catkes', [DokterController::class, 'catkes'])->name('catpasien');
+    Route::get('catkes/{id}', [DokterController::class, 'inputcatkes'])->name('inputcat');
+    Route::post('cates', [DokterController::class, 'kirimcatkes'])->name('inputcatkes');
+    Route::get('catkes/edit/{id}', [DokterController::class, 'editcatkes'])->name('editcatkes');
 });
 // Route::get('',[DokterController::class,'register'])->name('register'); //Register for
 // Route::get('',[DokterController::class,'forgetpw'])->name('forgetpw'); // Forget password for

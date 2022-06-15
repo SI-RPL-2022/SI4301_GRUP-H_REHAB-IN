@@ -17,11 +17,29 @@
     <link rel="stylesheet" href="{{ asset('assets/style/css/owl.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/style/user/css/article.css') }}">
 
+<<<<<<< HEAD
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('assets/style/images/favicon-log.png') }}" type="image/x-icon" />
     <link rel="apple-touch-icon" href="{{ asset('assets/style/images/favicon-log.png') }}">
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
+=======
+            <div class="wrapper d-flex align-items-stretch">
+                <nav id="sidebar" class="active">
+                    <h1><a href="{{ route('landingdokter') }}" class="logo">
+                        <img src="{{ asset('assets/style/images/favicon-log-v2.png') }}" alt=""></a></h1>
+                    <ul class="list-unstyled components mb-5">
+                        <li class="active">
+                            <a href="{{ route('landingdokter') }}"><span class="fa fa-home"></span> Home</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('jadwaldokter') }}"><span class="fa fa-calendar"></span>Input Jadwal</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('logout') }}"><span class="fa fa-sign-out"></span>Keluar akun</a>
+                        </li>
+                    </ul>
+>>>>>>> 1665ecb50df22fd293d7b439ce0e8be06dd86875
 
 <body>
 
