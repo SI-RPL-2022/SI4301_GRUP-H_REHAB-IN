@@ -65,6 +65,36 @@
                             <p class="user-profile-label-p">{{ $user->nohp }}</p>
                         </div>
                         <div class="user-profile-contentslist">
+                            <label class="user-profile-label">Hari Praktek</label>
+                            <p class="user-profile-label-p">
+                                @if ($dokter!=null)
+                                    @if ($dokter->jadwal_day!=0)
+                                        {{ $dokter->jadwal_day }}
+                                        @else 
+                                            Update data profil sekarang!
+                                       
+                                        @endif
+                                @else
+                                Update data profil sekarang!
+                                @endif
+                                </p>
+                        </div>
+                        <div class="user-profile-contentslist">
+                            <label class="user-profile-label">Waktu Praktek</label>
+                            <p class="user-profile-label-p">
+                                @if ($dokter!=null)
+                                    @if ($dokter->jadwal_time!=0)
+                                        {{ $dokter->jadwal_time }}
+                                        @else 
+                                            Update data profil sekarang!
+                                       
+                                        @endif
+                                @else
+                                Update data profil sekarang!
+                                @endif
+                                </p>
+                        </div>
+                        <div class="user-profile-contentslist">
                             <label class="user-profile-label">Link Meet</label>
                             <p class="user-profile-label-p">
                                 @if ($dokter!=null)

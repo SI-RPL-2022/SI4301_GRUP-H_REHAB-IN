@@ -8,6 +8,7 @@ use App\models\User;
 use App\models\Kamar;
 use App\models\OrderK;
 use App\models\OrderD;
+use App\models\Dokter;
 use App\models\histori;
 use App\models\Artikel;
 use Illuminate\Support\Facades\Hash;
@@ -208,6 +209,7 @@ class UserController extends Controller
         $orderd->keluhan = $request->keluhan;
         $orderd->detailkel = $request->detailkel;
         $orderd->waktu = $request->waktu;
+        $orderd->durasi = $request->durasi;
         $orderd->jenislayanan = $request->layanan;
         $orderd->status = $request->status;
         $orderd->patientid = $request->userid;

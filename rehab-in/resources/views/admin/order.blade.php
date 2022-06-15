@@ -18,7 +18,9 @@
                         <thead>
                             <tr>
                                 <th>No Invoice</th> 
-                                <th>Nama Layanan</th> 
+                                <th>Nama Layanan</th>
+                                <th>Tanggal</th>
+                                <th>Durasi</th>  
                                 <th>Price</th> 
                                 <th style="width:11%;">Status Pembayaran</th>
                                 <th>Tempat</th> 
@@ -33,6 +35,8 @@
                                 <tr>
                                     <td>#{{ $item->noInv }}</td>
                                     <td>{{ $item->jenislayanan }}</td>
+                                    <td>{{ $item->waktu }}</td>
+                                    <td>{{ $item->durasi }}</td>
                                     <td>
                                         Null
                                     </td>

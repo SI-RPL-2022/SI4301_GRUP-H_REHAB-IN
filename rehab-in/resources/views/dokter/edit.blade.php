@@ -106,6 +106,17 @@
                                         </fieldset>
                                     </div>
                                     <div class="user-profile-contentslist">
+                                        <label class="user-profile-label">Hari Praktek</label>
+                                        <fieldset>
+                                            <input type="text" name="jadwal_day" id="jadwal_day" placeholder="Hari Praktek" class="@error('jadwal_day') is-invalid @enderror">
+                                            @error('jadwal_day')
+                                                <div class="alert alert-danger mt-2">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </fieldset>
+                                    </div>
+                                    <div class="user-profile-contentslist">
                                         <label class="user-profile-label">Waktu Praktek</label>
                                         <fieldset>
                                             <input type="text" name="jadwal_time" id="jadwal_time" placeholder="Waktu Praktek" class="@error('jadwal_time') is-invalid @enderror">

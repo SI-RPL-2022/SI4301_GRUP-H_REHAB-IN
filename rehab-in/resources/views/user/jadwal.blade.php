@@ -61,8 +61,17 @@
                     <textarea name="detailkel" class="form-control ms-3 col-11" placeholder="Leave the detail here" required></textarea>
                 </div>
                 <div class="mb-3 row">
-                    <strong><label class="col-sm-2 col-form-label mb-1">Pilih Waktu</label></strong>
-                    <input type="datetime-local" name="waktu" class="form-control ms-3 col-11" id="exampleFormControlInput1" placeholder="date" required>
+                    <strong><label class="col-sm-2 col-form-label mb-1">Pilih Tanggal</label></strong>
+                    <input type="date" name="waktu" class="form-control ms-3 col-11" id="exampleFormControlInput1" placeholder="date" required>
+                </div>
+                <div class="mb-3 row">
+                    <strong><label class="col-sm-2 col-form-label mb-1">Pilih Durasi</label></strong>
+                    <select aria-label="Default select example" name="durasi" class="form-control form-select ms-3 col-11" id="exampleFormControlInput1" required>
+                        <option selected>Durasi Konsultasi</option>
+                        <option value="1 Jam">1 Jam</option>
+                        <option value="2 Jam">2 Jam</option>
+                        <option value="3 Jam">3 Jam</option>
+                      </select>
                 </div>
 
                 <div class="mb-4 row ms-1">

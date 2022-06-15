@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
+            $table->string('shift')->nullable();
+            $table->string('tempat')->nullable();
+            $table->string('day')->nullable();
+            $table->string('namadokter')->nullable();
+            $table->string('namapasien')->nullable();
+
             $table->timestamps();
         });
     }

@@ -9,7 +9,7 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: ["Online", "Offline"],
     datasets: [{
-      data: [55, 15],
+      data: [$piechartdof, $piechartdon],
       backgroundColor: ['#4e73df', '#36b9cc'],
       hoverBackgroundColor: ['#2e59d9', '#2c9faf'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",

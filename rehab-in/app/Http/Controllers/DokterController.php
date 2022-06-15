@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\OrderD;
+use App\Models\Jadwal;
 use App\Models\Dokter;
 
 class DokterController extends Controller
@@ -28,8 +29,11 @@ class DokterController extends Controller
     }
 
     public function jadwal()
-    {
-        return view('dokter.jadwal');
+    {   
+        $user = User::where('role', 2)->get();
+        $jadwal = Jadwal::all();
+        return view('dokter.jadwal',compact('jadwal','user'));
+
     }
     public function login()
     {
@@ -147,6 +151,7 @@ class DokterController extends Controller
             $dokter->spesialis = $request->spesialis;
             $dokter->deskripsi = $request->deskripsi;
             $dokter->jadwal_time = $request->jadwal_time;
+            $dokter->jadwal_day = $request->jadwal_day;
             $dokter->link = $request->link;
 
             $dokter->save();
@@ -156,6 +161,7 @@ class DokterController extends Controller
                 'spesialis' => $request->spesialis,
                 'deskripsi' => $request->deskripsi,
                 'jadwal_time' => $request->jadwal_time,
+                'jadwal_day' => $request->jadwal_day,
                 'link' => $request->link
             ]);
         }

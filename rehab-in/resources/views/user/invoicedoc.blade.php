@@ -41,7 +41,7 @@
                                             <tr><th>#</th>
                                             <th>Jenis Konsultasi</th>
                                             <th>Nama Dokter</th>
-                                            <th>Quantity</th>
+                                            <th>Durasi</th>
                                             <th>Total</th>
                                         </tr></thead>
                                         <tbody>
@@ -49,7 +49,7 @@
                                                 <td>1</td>
                                                 <td>{{ $inv->jenis }}</td>
                                                 <td>-</td>
-                                                <td>1</td>
+                                                <td>{{ $inv->durasi }}</td>
                                                 <td>$380</td>
                                             </tr>
                                         </tbody>

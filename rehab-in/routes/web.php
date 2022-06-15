@@ -195,6 +195,11 @@ Route::get('tips/delete/{id}',[AdminController::class,'deleteTips']); //del tips
 
 //Page Management - JADWAL KONSUL
 Route::get('jadwalkons',[AdminController::class,'jadwalkonsul'])->name('jadwalkons'); // Forget password for
+Route::get('jadwalkons/input',[AdminController::class,'inputjadwal'])->name('inputjadwal');
+Route::post('jadwalkons/add',[AdminController::class,'saveJadwal'])->name('savejadwal');
+Route::get('jadwalkons/{id}',[AdminController::class,'editJadwal'])->name('editjadwal');
+Route::put('jadwalkons/update', [AdminController::class, 'updatejadwal'])->name('updatejadwal');
+Route::get('jadwalkons/delete/{id}',[AdminController::class,'deletejadwal']);
 
 //Page Management - KONTAK KAMI
 Route::get('contactusadm',[AdminController::class,'contactusadm'])->name('contactusadm'); // Forget password for

@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Kamar;
 use App\Models\Kontak;
 use App\Models\Notesehat;
+use App\Models\Jadwal;
 use App\Models\histori;
 use App\Models\OrderK;
 use App\Models\Dokter;
@@ -21,11 +22,16 @@ use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
     public function index(){
+        // GRAFIK
+        $piechartdon = DB::table('order_d_s')->where('jenis',"online")->count();
+        $piechartdof = DB::table('order_d_s')->where('jenis',"offline")->count();
+        
+
         $countdokter = DB::table('users')->where('role',2)->count();
         $total_pasien = DB::table('users')->where('role',0)->count();
         $orderd = DB::table('order_d_s')->where('status',"Belum membayar")->count();
         $orderk = DB::table('order_k_s')->where('status',"Belum membayar")->count();
-        return view('admin.home', compact('countdokter', 'total_pasien','orderd','orderk'));
+        return view('admin.home', compact('countdokter', 'total_pasien','orderd','orderk','piechartdof','piechartdon'));
         
 
     }
@@ -154,8 +160,58 @@ class AdminController extends Controller
 
 
     public function jadwalkonsul(){
-        return view('admin.jadwalkonsul');
+        $jadwal = Jadwal::all();
+        return view('admin.jadwalkonsul', compact('jadwal'));
+
     }
+
+    public function inputjadwal(){
+        
+        $listpasien = User::where('role',0)->get();
+        $listdokter = User::where('role',2)->get();
+        return view('admin.inputadwal', compact('listpasien','listdokter'));
+    }
+
+    public function saveJadwal(Request $request){
+        // $user = User::find($id);
+        $jadwal = new Jadwal();
+        $jadwal->shift=$request->shift;
+        $jadwal->tempat=$request->tempat;
+        $jadwal->day=$request->day;
+        $jadwal->namadokter = $request->namadokter;
+        $jadwal->namapasien = $request->namapasien;
+
+        $jadwal->save();
+        return redirect(route('jadwalkons'));
+    }
+
+    public function editJadwal($id)
+    {
+        $listpasien = User::where('role',0)->get();
+        $listdokter = User::where('role',2)->get();
+        $jadwal = Jadwal::find($id);
+        return view('admin.editjadwal',['sch'=>$jadwal],compact('listpasien','listdokter'));
+    }
+
+    public function updatejadwal(Request $request){
+        
+        $jadwal = Jadwal::find($request->id);
+        $jadwal->shift=$request->shift;
+        $jadwal->tempat=$request->tempat;
+        $jadwal->day=$request->day;
+        $jadwal->namadokter = $request->namadokter;
+        $jadwal->namapasien = $request->namapasien;
+
+        $jadwal->update();
+        return redirect(route('jadwalkons'));
+    }
+
+    public function deletejadwal($id){
+        $jadwal = Jadwal::find($id);
+        $jadwal->delete();
+        return redirect(route('jadwalkons'));
+    }
+    
 
     public function notes(){
 

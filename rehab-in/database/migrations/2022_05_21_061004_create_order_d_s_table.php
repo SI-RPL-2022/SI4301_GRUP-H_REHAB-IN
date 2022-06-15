@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('keluhan')->nullable();
             $table->string('detailkel')->nullable();
             $table->string('waktu')->nullable();
+            $table->string('durasi')->nullable();
             $table->string('jenislayanan')->nullable();
             $table->string('status')->nullable();
             $table->foreignId('patientid')->unsigned()->nullable();
