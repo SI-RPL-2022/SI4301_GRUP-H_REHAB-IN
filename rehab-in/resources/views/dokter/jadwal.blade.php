@@ -31,10 +31,6 @@
         </tr>
 
         @foreach ($jadwal as $sch)
-            @foreach ($user as $pasien)
-                
-            {{-- @if ($sch->namadokter == $pasien->name) --}}
-                
             
         <tr>
             <th>{{$sch->shift}}</th>
@@ -73,8 +69,7 @@
         
         </tr>
         
-            {{-- @endif --}}
-            @endforeach
+            
         @endforeach
   
     </thead>

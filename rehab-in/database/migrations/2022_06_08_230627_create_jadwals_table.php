@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('day')->nullable();
             $table->string('namadokter')->nullable();
             $table->string('namapasien')->nullable();
-
+            $table->foreignId('id_dokter');
+            $table->foreign('id_dokter')->references('id')->on('users');
             $table->timestamps();
         });
     }

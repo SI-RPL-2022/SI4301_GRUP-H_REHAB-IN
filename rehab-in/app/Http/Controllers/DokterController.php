@@ -30,9 +30,9 @@ class DokterController extends Controller
 
     public function jadwal()
     {   
-        $user = User::where('role', 2)->get();
-        $jadwal = Jadwal::all();
-        return view('dokter.jadwal',compact('jadwal','user'));
+        $user = auth()->user();
+        $jadwal = Jadwal::where('id_dokter', $user->id)->get();
+        return view('dokter.jadwal',compact('jadwal'));
 
     }
     public function login()

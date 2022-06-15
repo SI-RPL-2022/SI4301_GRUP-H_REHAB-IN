@@ -173,14 +173,19 @@ class AdminController extends Controller
     }
 
     public function saveJadwal(Request $request){
-        // $user = User::find($id);
+        $user = User::where([
+            ['role', '=', 2],
+            ['name', '=', $request->namadokter]
+        ])
+        ->first();
+        // dd($user);
         $jadwal = new Jadwal();
         $jadwal->shift=$request->shift;
         $jadwal->tempat=$request->tempat;
         $jadwal->day=$request->day;
         $jadwal->namadokter = $request->namadokter;
         $jadwal->namapasien = $request->namapasien;
-
+        $jadwal->id_dokter = $user->id;
         $jadwal->save();
         return redirect(route('jadwalkons'));
     }
