@@ -115,7 +115,11 @@ Route::post('/regisdok',[DokterController::class,'registerdokter'])->middleware(
 
 
 Route::group(['prefix'=>'dokter', 'middleware'=>['isDokter']], function(){
-    Route::get('/',[DokterController::class, 'index'])->name('landingdokter'); //Landing page for Dokter
+    Route::get('/',function(){
+        $artikel = Artikel::all();
+        $countartikel = Artikel::all()->count();
+        return view('dokter.home',compact('artikel','countartikel'));
+    })->name('landingdokter'); //Landing page for Dokter
     Route::get('/profile/{id}',[DokterController::class, 'profile'])->name('dokter.profile');
     Route::get('/profile/edit/{id}',[DokterController::class, 'editprofile'])->name('edit.profile.dokter');
     Route::post('/profile',[DokterController::class,'updateprofile'])->name('update.profile.dokter'); //FORM POST UPDATE FOR DOKTER
@@ -171,6 +175,7 @@ Route::post('/regis/admin',[AdminController::class,'registeradmfromadm'])->name(
 Route::get('dbadmin/updateadmin/{id}',[AdminController::class,'editadmin'])->name('editadmin');
 Route::put('dbadmin/updateadmin/',[AdminController::class,'updateadmin'])->name('updateadmin');
 Route::get('dbadmin/delete/{id}',[AdminController::class,'deladmin'])->name('deladmin');
+Route::get('dbdokter/delete/{id}',[AdminController::class,'deldokter'])->name('deldokter');
 
 // Page Management - KAMAR
 Route::get('kamar',[AdminController::class,'kamar'])->name('kamaradm'); //tampilan kamar

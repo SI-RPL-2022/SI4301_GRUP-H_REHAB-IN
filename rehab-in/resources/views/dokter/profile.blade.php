@@ -125,12 +125,12 @@
                                         {{ $dokter->spesialis }}
                                     </a>
                                     @else
-                                    <a class="btn btn-warning" style="color: #fff;">
+                                    <a class="btn btn-warning" style="color: #fff;" href="{{ route('edit.profile.dokter',['id' => $user->id]) }}">
                                         Update data profil sekarang!
                                     </a>
                                     @endif
                                 @else
-                                    <a class="btn btn-warning" style="color: #fff;">
+                                    <a class="btn btn-warning" style="color: #fff;" href="{{ route('edit.profile.dokter',['id' => $user->id]) }}">
                                         Update data profil sekarang!
                                     </a>
                                 @endif

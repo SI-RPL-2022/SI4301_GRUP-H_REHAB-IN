@@ -24,23 +24,14 @@
 
             <div class="wrapper d-flex align-items-stretch">
                 <nav id="sidebar" class="active">
-                    <h1><a href="{{ route('landinguser') }}" class="logo">
+                    <h1><a href="{{ route('landingdokter') }}" class="logo">
                         <img src="{{ asset('assets/style/images/favicon-log-v2.png') }}" alt=""></a></h1>
                     <ul class="list-unstyled components mb-5">
                         <li class="active">
-                            <a href="{{ route('landinguser') }}"><span class="fa fa-home"></span> Home</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('user-services') }}"><span class="fa fa-users"></span>Layanan Kami</a>
+                            <a href="{{ route('landingdokter') }}"><span class="fa fa-home"></span> Home</a>
                         </li>
                         <li>
                             <a href="{{ route('jadwaldokter') }}"><span class="fa fa-calendar"></span>Input Jadwal</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('orderkons') }}"><span class="fa fa-shopping-basket"></span>Check order</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('history') }}"><span class="fa fa-history"></span>Riwayat Pembayaran</a>
                         </li>
                         <li>
                             <a href="{{ route('logout') }}"><span class="fa fa-sign-out"></span>Keluar akun</a>

@@ -424,6 +424,12 @@ class AdminController extends Controller
         return redirect(route('dbadmin'));
     }
 
+    public function deldokter($id){
+        $admin = User::where('role',2)->find($id);
+        $admin->delete();
+        return redirect(route('dbdokter'));
+    }
+
     public function addadmin(Request $request){
 
         $admin = new Admin();
