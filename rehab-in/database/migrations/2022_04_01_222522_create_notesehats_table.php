@@ -14,15 +14,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('notesehats', function (Blueprint $table) {
-            $table->bigIncrements('id',255)->unsigned();
+            $table->bigIncrements('id', 255)->unsigned();
             $table->foreignId('patient')->unsigned();
             $table->foreign('patient')->references('id')->on('users');
-            $table->foreignId('doctor')->unsigned();
-            $table->foreign('doctor')->references('id')->on('dokters');
-            $table->time('waktu');
+            $table->string('waktu');
+            $table->longText('descwaktu');
             $table->string('kualitas');
+            $table->longText('desckualitas');
             $table->string('olahraga');
+            $table->longText('descolahraga');
             $table->string('mood');
+            $table->longText('descmood');
+            $table->timestamps();
         });
     }
 

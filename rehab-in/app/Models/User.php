@@ -23,12 +23,28 @@ class User extends Authenticatable
     //     'password',
     // ];
     protected $guarded = ['id'];
-    
-    public function OrderK(){
+
+    public function OrderK()
+    {
         return $this->hasMany(OrderK::class);
     }
-    public function OrderD(){
+    public function OrderD()
+    {
         return $this->hasMany(OrderD::class);
+    }
+    public function note()
+    {
+        return $this->hasOne(Notesehat::class);
+    }
+
+    public function scopeFilter($query, array $filters)
+    {
+
+        $query->when($filters['search'] ?? false, function ($query, $search) {
+            return $query->where(function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%');
+            });
+        });
     }
     /**
      * The attributes that should be hidden for serialization.

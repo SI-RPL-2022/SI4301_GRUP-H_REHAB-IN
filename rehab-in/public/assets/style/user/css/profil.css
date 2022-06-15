@@ -285,21 +285,9 @@ form#contactus input::placeholder {
 }
 
 form#contact textarea {
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-    max-height: 200px;
-    min-height: 200px;
-    height: 200px;
     border-radius: 23px;
-    background-color: transparent;
-    border: 1px solid #eee;
-    outline: none;
-    font-size: 15px;
-    font-weight: 300;
     color: #2a2a2a;
     padding: 15px 20px;
-    margin-top: 30px;
 }
 
 form#contactus textarea {

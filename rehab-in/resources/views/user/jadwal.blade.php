@@ -10,21 +10,22 @@
             </a>
             <div class="row">
                 <div class="col-3 ms-4">
-                    <img src="{{ asset('assets\style\images\user-pict.png') }}" class="rounded" style="width:100%" alt="kamar">
+                    <img src="{{ asset('assets\style\images\user-pict.png') }}" class="rounded" style="width:100%"
+                        alt="kamar">
                 </div>
                 <div class="col mt-5 pt-5">
                     <p style="font-size: 20px">{{ $doc->name }}</p>
-                    <p>Spesialis asam uram | {{ $doc->address }}</p>
+                    <p>{{ $data->spesialis }} | {{ $doc->address }}</p>
                 </div>
             </div>
 
 
             <div class="row ms-3 mt-4">
                 <strong><span style="font-size: 30px; color:grey">About the doctor</span></strong>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro est nemo dolor eaque ad! Obcaecati ipsum architecto qui ipsam et quod harum dolorum totam ipsa illum atque officiis, commodi aperiam ad aut, molestias nobis sunt accusantium quasi debitis ullam. Consequatur fuga dignissimos repudiandae iste animi, atque illo explicabo quaerat assumenda.</p>
+                <p>{{ $data->deskripsi }}</p>
             </div>
         </div>
-   </div>
+    </div>
 
     <div class="container">
         <div class="shadow-sm p-4 mb-5 bg-body rounded">
@@ -38,23 +39,27 @@
                 <div class="mb-3 row">
                     <strong><label class="col-sm-2 col-form-label">Jam Kerja</label></strong>
                     <div class="col-sm-10 ms-md-2">
-                        Value jam kerja
+                        {{ $data->jadwal_time }}
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <strong><label class="col-sm-2 col-form-label mb-1">Tipe konsultasi</label></strong>
                     <div class="col-sm-3 ms-md-2">
-                        <input type="radio" name="jenis" class="btn-check" name="options-outlined" id="success-outlined" value="online" autocomplete="off" required>
+                        <input type="radio" name="jenis" class="btn-check" name="options-outlined"
+                            id="success-outlined" value="online" autocomplete="off" required>
                         <label class="btn btn-outline-success" for="success-outlined">Google Meet (Online)</label>
                     </div>
                     <div class="col">
-                        <input type="radio" name="jenis" class="btn-check" name="options-outlined" id="primary-outlined" value="offline" autocomplete="off" required>
-                        <label class="btn btn-outline-primary" for="primary-outlined">Datang ke rumah sakit (Offline)</label>
+                        <input type="radio" name="jenis" class="btn-check" name="options-outlined"
+                            id="primary-outlined" value="offline" autocomplete="off" required>
+                        <label class="btn btn-outline-primary" for="primary-outlined">Datang ke rumah sakit
+                            (Offline)</label>
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <strong><label class="col-sm-2 col-form-label mb-1">Jenis keluhan</label></strong>
-                    <input type="text" name="keluhan" class="form-control ms-3 col-11" placeholder="Jenis keluhan" aria-label="Keluhan" required>
+                    <input type="text" name="keluhan" class="form-control ms-3 col-11" placeholder="Jenis keluhan"
+                        aria-label="Keluhan" required>
                 </div>
                 <div class="mb-3 row">
                     <strong><label class="col-sm-2 col-form-label mb-1">Detail keluhan</label></strong>
@@ -62,16 +67,18 @@
                 </div>
                 <div class="mb-3 row">
                     <strong><label class="col-sm-2 col-form-label mb-1">Pilih Tanggal</label></strong>
-                    <input type="date" name="waktu" class="form-control ms-3 col-11" id="exampleFormControlInput1" placeholder="date" required>
+                    <input type="date" name="waktu" class="form-control ms-3 col-11" id="exampleFormControlInput1"
+                        placeholder="date" required>
                 </div>
                 <div class="mb-3 row">
                     <strong><label class="col-sm-2 col-form-label mb-1">Pilih Durasi</label></strong>
-                    <select aria-label="Default select example" name="durasi" class="form-control form-select ms-3 col-11" id="exampleFormControlInput1" required>
+                    <select aria-label="Default select example" name="durasi" class="form-control form-select ms-3 col-11"
+                        id="exampleFormControlInput1" required>
                         <option selected>Durasi Konsultasi</option>
                         <option value="1 Jam">1 Jam</option>
                         <option value="2 Jam">2 Jam</option>
                         <option value="3 Jam">3 Jam</option>
-                      </select>
+                    </select>
                 </div>
 
                 <div class="mb-4 row ms-1">
@@ -81,5 +88,5 @@
                 </div>
             </form>
         </div>
-     </div>
+    </div>
 @endsection

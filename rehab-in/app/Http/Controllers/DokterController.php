@@ -10,6 +10,8 @@ use App\Models\User;
 use App\Models\OrderD;
 use App\Models\Jadwal;
 use App\Models\Dokter;
+use App\Models\Notesehat;
+use Illuminate\Support\Facades\DB;
 
 class DokterController extends Controller
 {
@@ -29,11 +31,10 @@ class DokterController extends Controller
     }
 
     public function jadwal()
-    {   
+    {
         $user = auth()->user();
         $jadwal = Jadwal::where('id_dokter', $user->id)->get();
-        return view('dokter.jadwal',compact('jadwal'));
-
+        return view('dokter.jadwal', compact('jadwal'));
     }
     public function login()
     {
@@ -170,5 +171,41 @@ class DokterController extends Controller
         $user = User::find($id);
         $dokter = Dokter::where('id_dokter', $user->id)->first();
         return view('dokter.profile', compact('user', 'dokter'));
+    }
+
+    public function catkes()
+    {
+        // $pasien = User::where('role', '=', '2');
+
+        return view('dokter.catkes', [
+            "pasien" => User::where('role', '=', '0')->filter(request(['search']))->paginate(25)
+        ]);
+    }
+    public function inputcatkes($id)
+    {
+        $user = User::find($id);
+        return view('dokter.inputcatkes', compact('user'));
+    }
+    public function kirimcatkes(Request $request)
+    {
+        $note = new Notesehat();
+        $note->patient = $request->pasien;
+        $note->waktu = $request->waktu;
+        $note->descwaktu = $request->descwaktu;
+        $note->kualitas = $request->kualitas;
+        $note->desckualitas = $request->desckualitas;
+        $note->olahraga = $request->olahraga;
+        $note->descolahraga = $request->descolahraga;
+        $note->mood = $request->mood;
+        $note->descmood = $request->descmood;
+        $note->save();
+        return redirect()->route('catpasien')->with('success', 'Catatan telah berhasil disimpan');
+    }
+    public function editcatkes($id)
+    {
+
+        $user = User::find($id);
+        $note = Notesehat::where('patient', $id)->first();
+        return view('dokter.editcatkes', compact('note', 'user'));
     }
 }
