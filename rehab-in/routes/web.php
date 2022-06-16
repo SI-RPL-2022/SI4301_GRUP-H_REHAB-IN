@@ -66,7 +66,8 @@ Route::group(['middleware' => ['isPasien']], function () {
         $artikel = Artikel::all();
         $countartikel = Artikel::all()->count();
         $note = Notesehat::where('patient', auth()->user()->id)->first();
-        return view('user.home', compact('artikel', 'countartikel', 'note'));
+        $count = Notesehat::where('patient', auth()->user()->id)->count();
+        return view('user.home', compact('artikel', 'countartikel', 'note', 'count'));
     })->name('landinguser')->middleware('auth'); //Londing page user after login
 
     // Profile Pasien
@@ -87,7 +88,8 @@ Route::group(['middleware' => ['isPasien']], function () {
     //Route for Order Dokter
     Route::get('/pasien/service/dokter', [UserController::class, 'dokter'])->name('dokter')->middleware('auth'); // List dokter untuk pasien
     Route::get('/pasien/service/dokter/jadwal/{id}', [UserController::class, 'jadwal'])->name('jadwal')->middleware('auth'); // Input dokter untuk pasien
-    Route::post('/pasien/service/dokter/', [UserController::class, 'orderd'])->name('orderd')->middleware('auth'); // Post request
+    Route::post('/pasien/service/dokter/online', [UserController::class, 'orderd'])->name('orderd')->middleware('auth'); // Post request
+    Route::post('/pasien/service/dokter/offline', [UserController::class, 'orderoff'])->name('orderoff')->middleware('auth'); // Post request
     Route::get('/pasien/{id}/orderd/', [UserController::class, 'invoicedoc'])->name('invdk')->middleware('auth'); // invoice untuk pasien
     Route::post('/pasien/orderd/', [UserController::class, 'pembayaran'])->name('inputd')->middleware('auth'); // Post request Bukti pembayaran
 
@@ -245,7 +247,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin']], function () {
     Route::get('notes', [AdminController::class, 'notes'])->name('catkes'); //catkes pasiens
     Route::get('notes/{id}', [AdminController::class, 'notesid'])->name('adminotesid'); //Login for
 
-    
+
 
     Route::get('reservasi', [AdminController::class, 'reservasi'])->name('servreserv'); //catkes pasiens
     Route::get('listdokter', [AdminController::class, 'listdokter'])->name('listdokter'); //catkes pasiens
