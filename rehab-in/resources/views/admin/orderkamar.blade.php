@@ -20,7 +20,7 @@
                                 <th>No Invoice</th> 
                                 <th>Nama Layanan</th>
                                 <th>Tanggal</th>
-                                <th>Price</th> 
+                                {{-- <th>Price</th>  --}}
                                 <th style="width:11%;">Status Pembayaran</th>
                                 <th style="width:30%;">Aksi</th>
 
@@ -34,9 +34,9 @@
                                     <td>#{{ $item->noInv }}</td>
                                     <td>{{ $item->jenis }}</td>
                                     <td>{{ $item->waktu }}</td>
-                                    <td>
+                                    {{-- <td>
                                         Null
-                                    </td>
+                                    </td> --}}
                                     <td>
                                         {{$item->status}}
                                     </td>
