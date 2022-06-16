@@ -244,6 +244,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin']], function () {
     Route::get('notes', [AdminController::class, 'notes'])->name('catkes'); //catkes pasiens
     Route::get('notes/{id}', [AdminController::class, 'notesid'])->name('adminotesid'); //Login for
 
+    
 
     Route::get('reservasi', [AdminController::class, 'reservasi'])->name('servreserv'); //catkes pasiens
     Route::get('listdokter', [AdminController::class, 'listdokter'])->name('listdokter'); //catkes pasiens

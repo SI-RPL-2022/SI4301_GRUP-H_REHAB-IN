@@ -219,10 +219,9 @@ class AdminController extends Controller
     
 
     public function notes(){
-
+        $patient = User::where('role',0)->get();
         $notesehat = Notesehat::all();
-        // dd($artikel);
-        return view('admin.notes', compact('notesehat'));
+        return view('admin.notes', compact('notesehat','patient'));
 
     }
 

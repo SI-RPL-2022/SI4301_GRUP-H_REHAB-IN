@@ -105,8 +105,8 @@
                             <a class="collapse-item" href="{{ route('jadwalkons') }}">Jadwal Konsultasi</a>
                             <a class="collapse-item" href="{{ route('catkes') }}">Catatan Kesehatan</a>
                             {{-- <a class="collapse-item" href="{{ route('servicers') }}">Layanan Kami - RS</a> --}}
-                            <a class="collapse-item" href="{{ route('servreserv') }}">Layanan Kami - Reservasi</a>
-                            <a class="collapse-item" href="{{ route('listdokter') }}">Layanan Kami - Dokter</a>
+                            {{-- <a class="collapse-item" href="{{ route('servreserv') }}">Layanan Kami - Reservasi</a>
+                            <a class="collapse-item" href="{{ route('listdokter') }}">Layanan Kami - Dokter</a> --}}
                             {{-- <a class="collapse-item" href="{{ route('eduadm') }}">Layanan Kami - Edukasi</a> --}}
                             <div class="collapse-divider"></div>
                             {{-- <h6 class="collapse-header">UI Dokter:</h6>
