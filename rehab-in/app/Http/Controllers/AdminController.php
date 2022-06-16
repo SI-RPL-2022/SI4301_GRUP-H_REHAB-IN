@@ -250,10 +250,16 @@ class AdminController extends Controller
 
     public function order(){
         
-        $order = OrderD::all();
+        $orderd = OrderD::all();
+        $orderk = OrderK::all();
         $dokter = Dokter::all();
       
-        return view('admin.order',compact('order','dokter'));
+        return view('admin.order',compact('orderd'));
+    }
+    public function orderk(){
+
+        $orderk = OrderK::all();      
+        return view('admin.orderkamar',compact('orderk'));
     }
 
     public function reservasi(){

@@ -37,7 +37,7 @@
                             <th>{{$item->id}}</th>
                             <th>{{$item->noinv}}</th> 
                             <th>{{$item->jenis_layanan}}</th>
-                            <th>{{$item->bukti_pembayaran}}</th>
+                            <th><img src="{{asset('images/bukti/'.$item->bukti_pembayaran)}}" alt="" style="width:100%; border-radius:20px; margin:0px;" /></th>
                             <th>@if ($item->bukti_pembayaran>0)
                                 <a class="btn btn-success btn-icon-split">
                                     <span class="text">Lunas</span>

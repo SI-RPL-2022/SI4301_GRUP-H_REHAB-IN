@@ -45,11 +45,7 @@
                                         <i class="fas fa-pencil-alt"></i>
                                     </span>
                                 </a>
-                                <a href="/admin/dbdokter/delete/{{ $item->id }}" class="btn btn-danger btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-trash"></i>
-                                    </span>
-                                </a>
+                               
                             
                             </td>
                         </tr>

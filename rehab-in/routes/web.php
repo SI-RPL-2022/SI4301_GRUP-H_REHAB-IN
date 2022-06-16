@@ -224,6 +224,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin']], function () {
 
     //Page Management - ORDER
     Route::get('order', [AdminController::class, 'order'])->name('orderadm'); // Forget password for
+    Route::get('orderk', [AdminController::class, 'orderk'])->name('orderadmk');
+    Route::get('/invmailkamar', function () {
+        $details = [
+            'title' => 'Konfirmasi Pembayaran'
+        ];
+        Mail::to('wahdanurul.nw@gmail.com')->send(new \App\Mail\InvKamar($details));
+    })->name('invmailkamar');
+
     Route::get('/invmail', function () {
         $details = [
             'title' => 'Konfirmasi Pembayaran'
