@@ -38,7 +38,7 @@
                                     <td>{{ $item->waktu }}</td>
                                     <td>{{ $item->durasi }}</td>
                                     <td>
-                                        Null
+                                        Rp{{ $item->price }}
                                     </td>
                                     <td>
                                         {{$item->status}}
