@@ -22,7 +22,8 @@
                     <thead>
                         <tr>
                             <th>Shift</th> {{-- online or offline --}}
-                            <th>Tempat</th> {{-- take from table pasien with ID Pasien --}}
+                            <th>Durasi</th> {{-- take from table pasien with ID Pasien --}}
+                            <th>Tempat</th>
                             <th>Senin</th>
                             <th>Selasa</th>
                             <th>Rabu</th>
@@ -40,7 +41,24 @@
                         
                         <tr>
                             <th>{{ $sch->shift }}</th> {{-- online or offline --}}
-                            <th>{{ $sch->tempat }}</th> {{-- take from table pasien with ID Pasien --}}
+                            <th>{{ $sch->durasi }}</th>
+                            <th>
+                                @if ($sch->tempat=="Online")
+                                <a class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            {{ $sch->tempat }}
+                                        </span>
+                                    </a>
+                                    
+                                @else
+                                <a class="btn btn-info btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        {{ $sch->tempat }}
+                                    </span>
+                                </a>
+                                @endif
+                                
+                            </th>
                             <th>
                                 @if ($sch->day=="Senin")
                                     {{$sch->namapasien}}

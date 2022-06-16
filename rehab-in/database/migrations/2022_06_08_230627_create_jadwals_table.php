@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('shift')->nullable();
             $table->string('tempat')->nullable();
             $table->string('day')->nullable();
+            $table->string('durasi')->nullable();
             $table->string('namadokter')->nullable();
             $table->string('namapasien')->nullable();
             $table->foreignId('id_dokter');

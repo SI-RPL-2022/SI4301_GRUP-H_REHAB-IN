@@ -183,6 +183,7 @@ class AdminController extends Controller
         $jadwal->shift=$request->shift;
         $jadwal->tempat=$request->tempat;
         $jadwal->day=$request->day;
+        $jadwal->durasi=$request->durasi;
         $jadwal->namadokter = $request->namadokter;
         $jadwal->namapasien = $request->namapasien;
         $jadwal->id_dokter = $user->id;

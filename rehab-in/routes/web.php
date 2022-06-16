@@ -129,6 +129,7 @@ Route::group(['prefix' => 'dokter', 'middleware' => ['isDokter']], function () {
     Route::post('/profile', [DokterController::class, 'updateprofile'])->name('update.profile.dokter'); //FORM POST UPDATE FOR DOKTER
 
     Route::get('/jadwal', [DokterController::class, 'jadwal'])->name('jadwaldokter');
+    Route::get('jadwal/delete/{id}', [DokterController::class, 'confirmjadwal']);
 
     Route::get('/orderkons', [DokterController::class, 'orderkons'])->name('orderkons');
     Route::get('catkes', [DokterController::class, 'catkes'])->name('catpasien');

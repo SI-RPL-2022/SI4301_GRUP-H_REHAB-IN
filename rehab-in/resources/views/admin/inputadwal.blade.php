@@ -53,6 +53,14 @@
                         <option value="Jumat">Jumat</option>
                         <option value="Sabtu">Sabtu</option>
                       </select>
+
+                      <select aria-label="Default select example" name="durasi" id="durasi" class="form-control-user form-select ms-3 col-11" style="padding:15px; margin-bottom:10px;" id="exampleFormControlInput1" required>
+                        <option selected>Durasi Konsultasi</option>
+                        <option value="1 Jam">1 Jam</option>
+                        <option value="2 Jam">2 Jam</option>
+                        <option value="3 Jam">3 Jam</option>
+                        
+                      </select>
                        
                        <input style="margin-bottom: 10px;" type="text" name="tempat" id="tempat" class="form-control form-control-user @error('tempat') is-invalid @enderror" placeholder="Tempat" autocomplete="on" required value="{{ old('tempat') }}">
                        @error('tempat')
@@ -60,12 +68,13 @@
                            {{ $message }}
                            </div>
                        @enderror
-                       <input style="margin-bottom: 10px;" type="text" name="shift" id="shift" class="form-control form-control-user @error('shift') is-invalid @enderror" placeholder="shift" autocomplete="on" required value="{{ old('shift') }}">
+                       <input style="margin-bottom: 10px;" type="text" name="shift" id="shift" class="form-control form-control-user @error('shift') is-invalid @enderror" placeholder="Shift" autocomplete="on" required value="{{ old('shift') }}">
                        @error('shift')
                            <div class="invalid-feedback">
                            {{ $message }}
                            </div>
                        @enderror
+                     
                       
                    </div>
                    

@@ -28,6 +28,9 @@
             <th>Sabtu<br>
                 
             </th>
+            <th>Konfirmasi<br>
+                
+            </th>
         </tr>
 
         @foreach ($jadwal as $sch)
@@ -65,6 +68,13 @@
                 @if ($sch->day=="Sabtu")
                 {{$sch->namapasien}}
                 @endif
+             </th>
+             <th> 
+                <a href="jadwal/delete/{{$sch->id}}" class="btn btn-success btn-icon-split">
+                    <span class="icon text-white-50">
+                        Konsultasi selesai
+                    </span>
+                </a>
              </th>
         
         </tr>

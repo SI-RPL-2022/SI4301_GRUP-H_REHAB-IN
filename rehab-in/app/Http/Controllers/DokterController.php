@@ -36,6 +36,13 @@ class DokterController extends Controller
         $jadwal = Jadwal::where('id_dokter', $user->id)->get();
         return view('dokter.jadwal', compact('jadwal'));
     }
+
+    public function confirmjadwal($id){
+        $jadwal = Jadwal::find($id);
+        $jadwal->delete();
+        return redirect(route('jadwaldokter'));
+    }
+
     public function login()
     {
         return view('dokter.login');
