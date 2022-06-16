@@ -215,6 +215,23 @@ class UserController extends Controller
         return view('user.dokter', compact('dokter', 'jumlahdokter'));
     }
 
+    public function orderoff(Request $request)
+    {
+        $inv  = random_int(1000, 9999);
+        $order = random_int(10000, 99999);
+        $orderd = new OrderD();
+        $orderd->id = $order;
+        $orderd->noInv = $inv;
+        $orderd->jenis = $request->jenis;
+        $orderd->waktu = $request->waktu;
+        $orderd->jenislayanan = $request->layanan;
+        $orderd->status = $request->status;
+        $orderd->patientid = $request->userid;
+        $orderd->price = $request->price;
+        $orderd->save();
+        return redirect('/pasien/order')->with('Done', 'Your order waiting for payment');
+    }
+
     public function orderd(Request $request)
     {
         $inv  = random_int(1000, 9999);
@@ -231,6 +248,7 @@ class UserController extends Controller
         $orderd->status = $request->status;
         $orderd->patientid = $request->userid;
         $orderd->dokterid = $request->dokterid;
+        $orderd->price = $request->price;
         $orderd->save();
         return redirect('/pasien/order')->with('Done', 'Your order waiting for payment');
     }

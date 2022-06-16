@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('order_d_s', function (Blueprint $table) {
-            $table->bigInteger('id',255)->unsigned();
+            $table->bigInteger('id', 255)->unsigned();
             $table->bigInteger('noInv')->nullable();
             $table->string('jenis')->nullable();
             $table->string('keluhan')->nullable();
@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('durasi')->nullable();
             $table->string('jenislayanan')->nullable();
             $table->string('status')->nullable();
+            $table->bigInteger('price')->nullable();
             $table->foreignId('patientid')->unsigned()->nullable();
             $table->foreign('patientid')->references('id')->on('users');
             $table->foreignId('dokterid')->unsigned()->nullable();

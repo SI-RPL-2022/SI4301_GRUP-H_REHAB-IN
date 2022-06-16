@@ -4,8 +4,8 @@
     <div class="container">
         @if (session('Done'))
             <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                {{ (session('Done')) }}
-            <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
+                {{ session('Done') }}
+                <div type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></div>
             </div>
         @endif
         <div class="tab">
@@ -14,7 +14,7 @@
         </div>
         <div id="kamar" class="tabcontent">
             <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-            @if($checkkamar>0)
+            @if ($checkkamar > 0)
                 <div class="card shadow mb-4 mt-3">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">Status Order Kamar</h6>
@@ -24,23 +24,24 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>No Invoice</th> 
-                                        <th>Nama Layanan</th> 
-                                        <th>Price</th> 
+                                        <th>No Invoice</th>
+                                        <th>Nama Layanan</th>
+                                        <th>Price</th>
                                         <th style="width:11%;">Status Pembayaran</th>
                                     </tr>
                                 </thead>
-                            
+
                                 <tbody>
-                                    @foreach($order as $kamar)
+                                    @foreach ($order as $kamar)
                                         <tr>
                                             <td>#{{ $kamar->noInv }}</td>
                                             <td>{{ $kamar->jenis }}</td>
                                             <td>
-                                                Rp  {{ number_format($kamar->kamar->price, 0, ",", ".") }}
+                                                Rp {{ number_format($kamar->kamar->price, 0, ',', '.') }}
                                             </td>
                                             <td>
-                                                <a href="{{ route('harga',['id'=>$kamar->id]) }}" class="btn btn-warning btn-icon-split">
+                                                <a href="{{ route('harga', ['id' => $kamar->id]) }}"
+                                                    class="btn btn-warning btn-icon-split">
                                                     Check Invoice
                                                 </a>
                                             </td>
@@ -63,57 +64,57 @@
             @endif
         </div>
         {{-- Tab untuk dokter --}}
-            <div id="dokter" class="tabcontent">
-                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-                
-                @if($checkdokter>0)
-                    <div class="card shadow mb-4 mt-3">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Riwayat Pembayaran Konsultasi Dokter</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
+        <div id="dokter" class="tabcontent">
+            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+
+            @if ($checkdokter > 0)
+                <div class="card shadow mb-4 mt-3">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Riwayat Pembayaran Konsultasi Dokter</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>No Invoice</th>
+                                        <th>Nama Layanan</th>
+                                        <th>Price</th>
+                                        <th style="width:11%;">Status Pembayaran</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach ($orderd as $order)
                                         <tr>
-                                            <th>No Invoice</th> 
-                                            <th>Nama Layanan</th> 
-                                            <th>Price</th> 
-                                            <th style="width:11%;">Status Pembayaran</th>
+                                            <td>#{{ $order->noInv }}</td>
+                                            <td>{{ $order->jenislayanan }}</td>
+                                            <td>Rp
+                                                {{ number_format($order->price, 0, ',', '.') }}
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('invdk', ['id' => $order->id]) }}"
+                                                    class="btn btn-warning btn-icon-split">
+                                                    Check Invoice
+                                                </a>
+                                            </td>
                                         </tr>
-                                    </thead>
-                                
-                                    <tbody>
-                                        @foreach($orderd as $order)
-                                            <tr>
-                                                <td>#{{ $order->noInv }}</td>
-                                                <td>{{ $order->jenislayanan }}</td>
-                                                <td>
-                                                    Null
-                                                </td>
-                                                <td>
-                                                    <a href="{{ route('invdk',['id'=>$order->id]) }}" class="btn btn-warning btn-icon-split">
-                                                        Check Invoice
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                
-                @else
-                    <div class="card shadow mb-4 mt-3">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Status Order Dokter</h6>
-                        </div>
-                        <div class="card-body">
-                            You have nothing here
-                        </div>
+                </div>
+            @else
+                <div class="card shadow mb-4 mt-3">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Status Order Dokter</h6>
                     </div>
-                @endif
-            </div>
+                    <div class="card-body">
+                        You have nothing here
+                    </div>
+                </div>
+            @endif
+        </div>
     </div>
 @endsection

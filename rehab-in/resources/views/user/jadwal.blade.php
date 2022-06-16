@@ -35,25 +35,16 @@
                 <input type="text" name="userid" value="{{ auth()->user()->id }}" hidden>
                 <input type="text" name="layanan" class="form-control" value="Reservasi Konsultasi" hidden>
                 <input type="text" name="status" class="form-control" value="Belum membayar" hidden>
+                <input type="text" name="jenis" value="Online" hidden>
                 <h3> Masukan jadwal untuk reservasi</h3>
+                <div class="mb-1 row">
+                    <strong><label class="col-sm-2 col-form-label">Tipe konsultasi <span
+                                class="fw-bold text-black">Online</span></label></strong>
+                </div>
                 <div class="mb-3 row">
                     <strong><label class="col-sm-2 col-form-label">Jam Kerja</label></strong>
                     <div class="col-sm-10 ms-md-2">
                         {{ $data->jadwal_time }}
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <strong><label class="col-sm-2 col-form-label mb-1">Tipe konsultasi</label></strong>
-                    <div class="col-sm-3 ms-md-2">
-                        <input type="radio" name="jenis" class="btn-check" name="options-outlined"
-                            id="success-outlined" value="online" autocomplete="off" required>
-                        <label class="btn btn-outline-success" for="success-outlined">Google Meet (Online)</label>
-                    </div>
-                    <div class="col">
-                        <input type="radio" name="jenis" class="btn-check" name="options-outlined"
-                            id="primary-outlined" value="offline" autocomplete="off" required>
-                        <label class="btn btn-outline-primary" for="primary-outlined">Datang ke rumah sakit
-                            (Offline)</label>
                     </div>
                 </div>
                 <div class="mb-3 row">
@@ -81,7 +72,13 @@
                     </select>
                 </div>
 
-                <div class="mb-4 row ms-1">
+                <div class="mb-1 row">
+
+
+                    <strong><label>Harga: Rp. 50.000</label></strong>
+                    <input type="text" name="price" value="50000" class="fw-bold text-black" hidden></input>
+                </div>
+                <div class="mt-3 row ms-1">
                     <button type="submit" class="btn btn-primary me-3 col-sm-2">SUBMIT</button>
                     {{-- <a href="{{ route('invoice',['id'=>$doc->id]) }}" class="btn btn-primary me-3 col-sm-2">SUBMIT</a> --}}
                     <a href="{{ route('dokter') }}" class="btn btn-warning col-sm-2">CANCEL</a>
