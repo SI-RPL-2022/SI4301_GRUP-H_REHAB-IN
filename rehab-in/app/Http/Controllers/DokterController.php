@@ -37,7 +37,8 @@ class DokterController extends Controller
         return view('dokter.jadwal', compact('jadwal'));
     }
 
-    public function confirmjadwal($id){
+    public function confirmjadwal($id)
+    {
         $jadwal = Jadwal::find($id);
         $jadwal->delete();
         return redirect(route('jadwaldokter'));
@@ -213,6 +214,7 @@ class DokterController extends Controller
 
         $user = User::find($id);
         $note = Notesehat::where('patient', $id)->first();
-        return view('dokter.editcatkes', compact('note', 'user'));
+        $count = Notesehat::where('patient', $id)->count();
+        return view('dokter.editcatkes', compact('note', 'user', 'count'));
     }
 }
