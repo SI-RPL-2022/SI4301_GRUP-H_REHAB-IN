@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-lg-6">
                       <fieldset>
-                        <input type="text" name="guest_name" id="guest_name" placeholder="Nama Anda" autocomplete="on" required>
+                        <input type="text" name="guest_name" id="guest_name" class="input" placeholder="Nama Anda" autocomplete="on" required>
                       </fieldset>
                       <fieldset>
                         <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Email Anda">
@@ -66,7 +66,7 @@
                     </div>
                     <div class="col-lg-12">
                       <fieldset>
-                        <button type="submit" id="form-submit" class="main-button">Kirim</button>
+                        <button type="submit" id="form-submit" class="main-button" dusk="kirim">Kirim</button>
                       </fieldset>
                     </div>
                     
