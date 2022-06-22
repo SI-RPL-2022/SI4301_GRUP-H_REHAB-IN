@@ -74,7 +74,7 @@
             </div>
 
             {{-- HEALTH NOTES --}}
-            <div id="contact content" class="p-4 p-md-5" style="">
+            <div id="kesehatan" class="p-4 p-md-5" style="">
                 <div class="row">
                     <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
                         <form id="contact" action="" method="post">
@@ -194,7 +194,7 @@
             </div>
 
             {{-- HEALTH NOTES --}}
-            <div id="contact content" class="p-4 p-md-5" style="">
+            <div id="kesehatan" class="p-4 p-md-5" style="">
                 <div class="row">
                     <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
                         <form id="contact" action="" method="post">
