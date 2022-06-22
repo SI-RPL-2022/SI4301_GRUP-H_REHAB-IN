@@ -283,11 +283,11 @@
     <script src="{{ asset('assets/style/admin/js/sb-admin-2.min.js') }}"></script>
     
     <!-- Page level plugins -->
-    <script src="{{ asset('assets/style/admin/vendor/chart.js/Chart.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets/style/admin/vendor/chart.js/Chart.min.js') }}"></script> --}}
     
     <!-- Page level custom scripts -->
-    <script src="{{ asset('assets/style/admin/js/demo/chart-bar-demo.js') }}"></script>
-    <script src="{{ asset('assets/style/admin/js/demo/chart-pie-demo.js') }}"></script>
+    {{-- <script src="{{ asset('assets/style/admin/js/demo/chart-bar-demo.js') }}"></script>
+    <script src="{{ asset('assets/style/admin/js/demo/chart-pie-demo.js') }}"></script> --}}
     
     <!-- javascript for artikel modal -->
     @yield('script')

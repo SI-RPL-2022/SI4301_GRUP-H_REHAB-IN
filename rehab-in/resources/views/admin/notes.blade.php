@@ -46,7 +46,7 @@
                             <td>{{$item->olahraga}}</td>
                             <td>{{$item->mood}}</td>
                             <td>
-                                <a href="#" id="note-details" class="btn btn-info btn-icon-split" data-id="{{ $item->id }}">
+                                <a href="#" id="note-details" class="btn btn-info btn-icon-split">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-info"></i>
                                     </span>

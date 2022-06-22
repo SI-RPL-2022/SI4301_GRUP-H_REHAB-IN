@@ -6,7 +6,7 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class CreateDokterTest extends DuskTestCase
+class UpdateAdminTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
@@ -22,19 +22,19 @@ class CreateDokterTest extends DuskTestCase
                     ->type('password','12345678')
                     ->press('Login')
                     ->click('li','Manajemen User & Komponen Lainnya')
-                    ->click('a','Dokter')
+                    ->click('a','Administrator')
                     ->pause(3000)
-                    ->visit('/admin/regis/dokter')
-                    ->type('name','Dokter xxxxx')
-                    ->type('email','wahdanurul.nw@gmail.com')
-                    ->type('username','dok-xxxxx')
+                    ->visit('/admin/dbadmin/updateadmin/2')
+                    ->assertSee('Update akun admin sekarang!')
+                    ->type('name','xxxxxxxx')
+                    ->type('email','xxxxx.nw@gmail.com')
+                    ->type('username','admin-nrlwrk')
                     ->type('password','12345678')
                     ->type('confpw','12345678')
-                    ->type('nohp','085298327271')
+                    ->type('nohp','999999999999')
                     ->type('tanggallahir','13/06/2022')
                     ->type('address','Bandung')
-                    ->press('Buat akun')
-                    ->visit('/admin/dbdokter');
+                    ->press('Update akun');
         });
     }
 }

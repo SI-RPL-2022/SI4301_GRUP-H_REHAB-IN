@@ -6,7 +6,7 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class CreatePasienTest extends DuskTestCase
+class DeleteJadwalTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
@@ -21,17 +21,10 @@ class CreatePasienTest extends DuskTestCase
                     ->type('username','admin-n')
                     ->type('password','12345678')
                     ->press('Login')
+                    ->click('li','Manajemen Konten')
+                    ->click('a','Jadwal Konsultasi')
                     ->pause(2000)
-                    ->visit('/admin/regis/pasien')
-                    ->type('name','Pasien NRL')
-                    ->type('email','wahdanurul.nw@gmail.com')
-                    ->type('username','pas-nurul')
-                    ->type('password','12345678')
-                    ->type('confpw','12345678')
-                    ->type('nohp','999999999999')
-                    ->type('tanggallahir','13/06/2022')
-                    ->type('address','Bandung')
-                    ->press('Buat akun');
+                    ->visit('/admin/jadwalkons/delete/2');
         });
     }
 }

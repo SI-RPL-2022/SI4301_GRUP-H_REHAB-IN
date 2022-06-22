@@ -54,6 +54,13 @@
                         <option value="Sabtu">Sabtu</option>
                       </select>
                        
+                      <select aria-label="Default select example" name="durasi" id="durasi" class="form-control-user form-select ms-3 col-11" style="padding:15px; margin-bottom:10px;" id="exampleFormControlInput1" required value="{{ $sch->durasi }}">
+                        <option selected>Durasi Konsultasi</option>
+                        <option value="1 Jam">1 Jam</option>
+                        <option value="2 Jam">2 Jam</option>
+                        <option value="3 Jam">3 Jam</option>
+                        
+                      </select>
                        <input style="margin-bottom: 10px;" type="text" name="tempat" id="tempat" class="form-control form-control-user @error('tempat') is-invalid @enderror" placeholder="Tempat" autocomplete="on" required value="{{ $sch->tempat }}">
                        @error('tempat')
                            <div class="invalid-feedback">

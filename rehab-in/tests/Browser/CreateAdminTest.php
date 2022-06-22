@@ -21,8 +21,19 @@ class CreateAdminTest extends DuskTestCase
                     ->type('username','admin-n')
                     ->type('password','12345678')
                     ->press('Login')
-                    ->click('li','Manajemen User & Komponen Lainnya')
-                    ->click('a','Administrator');
+                    ->pause(2000)
+                    ->visit('/admin/regis/admin')
+                    ->assertSee('Buat akun admin sekarang!')
+                    ->type('name','xxxxxx')
+                    ->type('username','admnurul')
+                    ->type('email','wahdanuxxxrul.nw@gmail.com')
+                    ->type('password','1234567801')
+                    ->type('confpw','1234567801')
+                    ->type('nohp','081111111111')
+                    ->type('tanggallahir','13/06/2022')
+                    ->type('address','Bandungxx')
+                    ->press('Buat akun')
+                    ->assertSee('Table Administrator');
         });
     }
 }

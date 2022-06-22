@@ -253,6 +253,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin']], function () {
 
     //Page Management - CATATAN KESEHATAN
     Route::get('notes', [AdminController::class, 'notes'])->name('catkes'); //catkes pasiens
+    Route::get('notesdetails/{id}', [AdminController::class, 'notesdetails'])->name('catkesdetails'); //catkes pasiens
     Route::get('notes/{id}', [AdminController::class, 'notesid'])->name('adminotesid'); //Login for
 
 

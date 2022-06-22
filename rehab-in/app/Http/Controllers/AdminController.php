@@ -205,6 +205,7 @@ class AdminController extends Controller
         $jadwal->shift=$request->shift;
         $jadwal->tempat=$request->tempat;
         $jadwal->day=$request->day;
+        $jadwal->durasi=$request->durasi;
         $jadwal->namadokter = $request->namadokter;
         $jadwal->namapasien = $request->namapasien;
 
@@ -225,6 +226,12 @@ class AdminController extends Controller
         return view('admin.notes', compact('notesehat','patient'));
 
     }
+
+    // public function notesdetails($id){
+    //     $notes = Notesehat::find($id);
+    //     return view('admin.notesdetails', compact('notes'));
+
+    // }
 
     public function notesid($id){
 
@@ -323,20 +330,33 @@ class AdminController extends Controller
     public function registpasien(Request $request){
 
         if($request->password == $request->confpw){
-            // dd($request);
-            $validated = $request->validate([
-                'name' => 'required|max:255',
-                'username' => 'required|min:5|unique:users',
-                'email' => 'required|email:dns',
-                'password' => 'required|min:6|max:255',
-                'nohp' => 'required|min:10|max:13',
-                'address' => 'required|min:10',
-                'tanggallahir' => 'required',
-                'role' => 'required'
-            ]);
+            $password = $request->password;
+            $user = new User();
+            $user->name=$request->name;
+            $user->email=$request->email;
+            $user->username=$request->username;
+            $user->nohp=$request->nohp;
+            $user->address=$request->address;
+            $user->tanggallahir=$request->tanggallahir;
+            $user->password=Hash::make($password);
+            $user->role=$request->role;
+        
+            $user->save();
+        // if($request->password == $request->confpw){
+        //     // dd($request);
+        //     $validated = $request->validate([
+        //         'name' => 'required|max:255',
+        //         'username' => 'required|min:5|unique:users',
+        //         'email' => 'required|email:dns',
+        //         'password' => 'required|min:6|max:255',
+        //         'nohp' => 'required|min:10|max:13',
+        //         'address' => 'required|min:10',
+        //         'tanggallahir' => 'required',
+        //         'role' => 'required'
+        //     ]);
 
-            $validated['password'] = Hash::make($validated['password']);
-            User::create($validated);
+        //     $validated['password'] = Hash::make($validated['password']);
+        //     User::create($validated);
             return redirect('/admin/dbpasien')->with('success', 'Registrasi Berhasil, please login!');
         }else{
             return redirect('/regis/pasien')->with('Failure','Password Tidak Sama');
@@ -584,25 +604,42 @@ class AdminController extends Controller
         return view('admin.regadmin');
     }
 
-    public function registeradmfromadm(Request $request){
+    public function registeradmfromadm(Request $request){  
+    
 
         if($request->password == $request->confpw){
+            $password = $request->password;
+            $user = new User();
+            $user->name=$request->name;
+            $user->email=$request->email;
+            $user->username=$request->username;
+            $user->nohp=$request->nohp;
+            $user->address=$request->address;
+            $user->tanggallahir=$request->tanggallahir;
+            $user->password=Hash::make($password);
+            $user->role=$request->role;
+        
+            $user->save();
             // dd($request);
-            $validated = $request->validate([
-                'name' => 'required|max:255',
-                'username' => 'required|min:6|unique:users',
-                'email' => 'required|email:dns',
-                'password' => 'required|min:6|max:255',
-                'nohp' => 'required|min:10|max:13',
-                'address' => 'required|min:10',
-                'tanggallahir' => 'required',
-                'role' => 'required'
-            ]);
+            // return view('test');  
 
-            $validated['password'] = Hash::make($validated['password']);
-            User::create($validated);
+            // $validated = $request->validate([
+            //     'name' => 'required|max:255',
+            //     'username' => 'required|min:6|unique:users',
+            //     'email' => 'required|email:dns',
+            //     'password' => 'required|min:6|max:255',
+            //     'nohp' => 'required|min:10|max:13',
+            //     'address' => 'required|min:10',
+            //     'tanggallahir' => 'required',
+            //     'role' => 'required'
+            // ]);
+
+            // $validated['password'] = Hash::make($validated['password']);
+            // User::create($validated);
+            // return view('test');  
             return redirect('/admin/dbadmin')->with('success', 'Registrasi Berhasil, plase login!');
         }else{
+            // return view('test');  
             return redirect('/regis/admin')->with('Failure','Password Tidak Sama');
         }
 
