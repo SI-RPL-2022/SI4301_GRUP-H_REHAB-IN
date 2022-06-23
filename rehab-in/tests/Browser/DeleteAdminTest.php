@@ -6,7 +6,7 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class DeleteJadwalTest extends DuskTestCase
+class DeleteAdminTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
@@ -21,8 +21,8 @@ class DeleteJadwalTest extends DuskTestCase
                     ->type('username','admin-n')
                     ->type('password','12345678')
                     ->press('Login')
-                    ->pause(2000)
-                    ->visit('/admin/jadwalkons/delete/3');
+                    ->pause(3000)
+                    ->visit('/admin/dbadmin/delete/14');
         });
     }
 }

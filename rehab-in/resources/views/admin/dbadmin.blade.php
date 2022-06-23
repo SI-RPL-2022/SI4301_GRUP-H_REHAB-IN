@@ -22,6 +22,7 @@
                         <tr>
                             <th>Id</th>
                             <th>Nama Lengkap</th>
+                            <th>Username</th>
                             <th>Email</th>
                             <th style="width:11%;">Aksi</th>
                         </tr>
@@ -32,6 +33,7 @@
                         <tr>
                             <th>{{$item->id}}</th>
                             <th>{{$item->name}}</th>
+                            <th>{{$item->username}}</th>
                             <th>{{$item->email}}</th>
                             <td>
                                 <a href="dbadmin/updateadmin/{{$item->id}}" class="btn btn-info btn-icon-split" data-id="{{ $item->id }}">
