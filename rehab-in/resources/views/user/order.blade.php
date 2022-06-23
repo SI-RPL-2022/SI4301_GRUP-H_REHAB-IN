@@ -79,6 +79,7 @@
                                     <tr>
                                         <th>No Invoice</th>
                                         <th>Nama Layanan</th>
+                                        <th>Jenis Layanan</th>
                                         <th>Price</th>
                                         <th style="width:11%;">Status Pembayaran</th>
                                     </tr>
@@ -89,6 +90,7 @@
                                         <tr>
                                             <td>#{{ $order->noInv }}</td>
                                             <td>{{ $order->jenislayanan }}</td>
+                                            <td>{{ $order->jenis }}</td>
                                             <td>Rp
                                                 {{ number_format($order->price, 0, ',', '.') }}
                                             </td>

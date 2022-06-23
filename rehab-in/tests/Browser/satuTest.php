@@ -73,6 +73,7 @@ class satuTest extends DuskTestCase
                 ->assertSee('Riwayat Pembayaran Konsultasi Dokter')
                 ->clickLink('Check Invoice')
                 ->assertSee('Sudah Membayar')
+                ->pause(5000)
                 ->screenshot('Layanan Offline');
         });
     }
@@ -124,6 +125,7 @@ class satuTest extends DuskTestCase
                 ->assertSee('Riwayat Pembayaran Konsultasi Dokter')
                 ->clickLink('Check Invoice')
                 ->assertSee('Sudah Membayar')
+                ->pause(5000)
                 ->screenshot('Layanan Online');
         });
     }
