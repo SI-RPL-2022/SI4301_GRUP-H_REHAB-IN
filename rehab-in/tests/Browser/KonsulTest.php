@@ -17,15 +17,14 @@ class KonsulTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/login-dokter')
-                    ->type('username','doktern')
+                    ->type('username','dok-n')
                     ->type('password','12345678')
                     ->press('LOGIN')
                     ->assertPathIs('/dokter')
                     ->click('a','Lihat Jadwal')
-                    ->pause(2000)
+                    ->pause(3000)
                     ->assertSee('Online')
-                    ->pause(2000)
-                    ->visit('/dokter/jadwal/delete/1');
+                    ->visit('/dokter/jadwal/delete/6');
         });
     }
 }

@@ -18,11 +18,11 @@ class DeleteRiwayatTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->visit('/admin/login')
                     ->assertSee('Welcome Back Admin!')
-                    ->type('username','admin-n')
+                    ->type('username','admin-nrlwrk')
                     ->type('password','12345678')
                     ->press('Login')
                     ->pause(2000)
-                    ->visit('/admin/riwayatadm/delete/2');
+                    ->visit('/admin/riwayatadm/delete/3');
         });
     }
 }

@@ -18,19 +18,19 @@ class CreateJadwalTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->visit('/admin/login')
                     ->assertSee('Welcome Back Admin!')
-                    ->type('username','admin-n')
+                    ->type('username','admin-nrlwrk')
                     ->type('password','12345678')
                     ->press('Login')
                     ->click('li','Manajemen Konten')
                     ->click('a','Jadwal Konsultasi')
                     ->pause(2000)
                     ->visit('/admin/jadwalkons/input')
-                    ->select('namapasien','Pasien NWRK')
-                    ->select('namadokter','Nurul Dokter 1')
-                    ->select('day','Senin')
-                    ->select('durasi','2 Jam')
+                    ->select('namapasien','Nama pasien diupdate')
+                    ->select('namadokter','Dokter N')
+                    ->select('day','Sabtu')
+                    ->select('durasi','1 Jam')
                     ->type('tempat','Online')
-                    ->type('shift','08.30')
+                    ->type('shift','07.30')
                     ->press('Buat jadwal');
         });
     }

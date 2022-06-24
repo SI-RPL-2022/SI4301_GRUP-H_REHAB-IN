@@ -18,11 +18,11 @@ class DeleteAdminTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->visit('/admin/login')
                     ->assertSee('Welcome Back Admin!')
-                    ->type('username','admin-n')
+                    ->type('username','admin-nrlwrk')
                     ->type('password','12345678')
                     ->press('Login')
                     ->pause(3000)
-                    ->visit('/admin/dbadmin/delete/14');
+                    ->visit('/admin/dbadmin/delete/23');
         });
     }
 }
