@@ -10,6 +10,38 @@ class satuTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
+     * @group inputartikel
+     * @return void
+     */
+    public function test_inputartikel()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/admin/login')
+                ->pause(2000)
+                ->assertSee('Welcome Back Admin!')
+                ->type('username', 'raflyyogass')
+                ->type('password', '123123')
+                ->press('Login')
+                ->assertPathIs('/admin')
+                ->assertAuthenticated()
+                ->assertSee('Dashboard')
+                ->click('[data-target="#collapsePages"]')
+                ->clickLink('Konten Artikel')
+                ->click('[data-target="#add-article"]')
+                ->pause(1000)
+                ->assertSee('Tambahkan Konten Artikel')
+                ->type('judul_artikel', 'JANGAN BEGADANG')
+                ->type('penulis', 'Admin')
+                ->attach('image_art', base_path("public\assets\style\images\begadang-working-overnight_20141215_014359.jpg"))
+                ->type('konten', 'JANGAN BEGADANG')
+                ->pause(2000)
+                ->press('Tambah')
+                ->pause(5000);
+        });
+    }
+
+    /**
+     * A Dusk test example.
      * @group artikel
      * @return void
      */
@@ -17,6 +49,7 @@ class satuTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/login')
+                ->pause(2000)
                 ->waitForText('LOGIN')
                 ->assertSee('LOGIN')
                 ->type('username', 'raflyyogas')
@@ -29,7 +62,8 @@ class satuTest extends DuskTestCase
                 ->clickLink('Tips and trick sehat')
                 ->pause(1000)
                 ->assertSee('Admin')
-                ->screenshot('Artikel');
+                ->screenshot('Artikel')
+                ->pause(5000);
         });
     }
 
@@ -52,11 +86,12 @@ class satuTest extends DuskTestCase
                 ->visit('/pasien/service/dokter')
                 ->assertSee('Pilih Opsi')
                 ->press('Pilih Offline')
-                ->type('waktu', '26.06.2022')
+                ->type('waktu', '30.06.2022')
                 ->press('Lanjutkan')
                 ->assertPathIs('/pasien/order')
                 ->assertSee('Your order waiting for payment')
                 ->press('Konsultasi Dokter')
+                ->pause(1500)
                 ->assertSee('Riwayat Pembayaran Konsultasi Dokter')
                 ->pause(1500)
                 ->clickLink('Check Invoice')
@@ -73,6 +108,7 @@ class satuTest extends DuskTestCase
                 ->assertSee('Riwayat Pembayaran Konsultasi Dokter')
                 ->clickLink('Check Invoice')
                 ->assertSee('Sudah Membayar')
+                ->assertSee('Offline')
                 ->pause(5000)
                 ->screenshot('Layanan Offline');
         });
@@ -102,13 +138,14 @@ class satuTest extends DuskTestCase
                 ->type('keluhan', 'Pusing')
                 ->type('detailkel', 'Pusing')
                 ->type('keluhan', 'Pusing')
-                ->type('waktu', '26.06.2022')
+                ->type('waktu', '30.06.2022')
                 ->select('durasi', '1 Jam')
                 ->pause(1000)
                 ->press('SUBMIT')
                 ->assertPathIs('/pasien/order')
                 ->assertSee('Your order waiting for payment')
                 ->press('Konsultasi Dokter')
+                ->pause(1500)
                 ->assertSee('Riwayat Pembayaran Konsultasi Dokter')
                 ->pause(1500)
                 ->clickLink('Check Invoice')
@@ -125,6 +162,7 @@ class satuTest extends DuskTestCase
                 ->assertSee('Riwayat Pembayaran Konsultasi Dokter')
                 ->clickLink('Check Invoice')
                 ->assertSee('Sudah Membayar')
+                ->assertSee('Online')
                 ->pause(5000)
                 ->screenshot('Layanan Online');
         });
@@ -138,6 +176,7 @@ class satuTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/login')
+                ->pause(2000)
                 ->waitForText('LOGIN')
                 ->assertSee('LOGIN')
                 ->type('username', 'raflyyogas')
@@ -153,6 +192,7 @@ class satuTest extends DuskTestCase
                 ->clickLink('Lihat selengkapnya')
                 ->pause(1000)
                 ->waitForText('Waktu Tidur')
+                ->pause(5000)
                 ->screenshot('Catatan Kesehatan');
         });
     }

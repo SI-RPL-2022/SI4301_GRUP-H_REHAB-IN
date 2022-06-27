@@ -44,8 +44,6 @@
                     <a href="{{ route('orderkons') }}"><span class="fa fa-shopping-basket"></span>Check order</a>
                 </li>
                 <li>
-                    <a href="{{ route('history') }}"><span class="fa fa-history"></span>Riwayat Pembayaran</a>
-                </li>
                 <li>
                     <a href="{{ route('logout') }}"><span class="fa fa-sign-out"></span>Keluar akun</a>
                 </li>

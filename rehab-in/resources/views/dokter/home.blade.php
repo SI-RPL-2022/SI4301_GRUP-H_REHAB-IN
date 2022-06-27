@@ -1,48 +1,6 @@
 @extends('layouts.homepage-dokter')
 
 @section('main')
-
-    @if ($countartikel > 0)
-        <div id="contact" class="contact-us section p-3 d-flex justify-content-center">
-            {{-- NEWS --}}
-            <div class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
-                <div id="carouselExampleControls" class="carousel carousel-dark slide" data-ride="carousel">
-
-                    <ol class="carousel-indicators">
-                        @foreach ($artikel as $photo)
-                            <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}"
-                                class="{{ $loop->first ? 'active' : '' }}"></li>
-                        @endforeach
-                    </ol>
-
-                    <div class="carousel-inner" role="listbox">
-                        @foreach ($artikel as $photo)
-                            <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                                <img class="d-block img-fluid" src="{{ asset('images/' . $photo->image_art) }}"
-                                    alt="{{ $photo->judul_artikel }}">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <a href="{{ route('artikel', ['id' => $photo->id]) }}">
-                                        <h3>{{ $photo->judul_artikel }}</h3>
-                                    </a>
-                                    <p>{{ $photo->konten }}</p>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    @endif
-
-
     <div class="container-fluid">
         <div class="row row-cols-1 row-cols-md-4 g-4 gap-5">
             <div class="col">
@@ -90,7 +48,7 @@
                                                 <div class="container-fluid">
                                                     <div class="row">
                                                         <div class="col-2">
-                                                            <img src="{{asset('assets/style/images/doc1.png')}}"
+                                                            <img src="{{ asset('assets/style/images/doc1.png') }}"
                                                                 class="w-75 mx-auto d-block" alt="">
                                                         </div>
                                                         <div class="col-3 text-start my-auto d-block">
@@ -110,7 +68,8 @@
                                                                                     <img src="{{ asset('assets/style/images/calendar.png') }}"
                                                                                         alt=""
                                                                                         style="height: 53px; margin-right:12px;">
-                                                                                    Jumat, 25 Maret 2022</p>
+                                                                                    Jumat, 25 Maret 2022
+                                                                                </p>
                                                                             </div>
                                                                             <div class="row">
                                                                                 <p
@@ -118,7 +77,8 @@
                                                                                     <img src="{{ asset('assets/style/images/clock.png') }}"
                                                                                         alt=""
                                                                                         style="height: 56px; margin-right:12px">
-                                                                                    11.00 - 13.00 WIB</p>
+                                                                                    11.00 - 13.00 WIB
+                                                                                </p>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col px-5">
@@ -128,7 +88,8 @@
                                                                                     <img src="{{ asset('assets/style/images/contact.png') }}"
                                                                                         alt=""
                                                                                         style="height: 46px; margin-right:12px">
-                                                                                    Hubungi Pasien</p>
+                                                                                    Hubungi Pasien
+                                                                                </p>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -167,8 +128,8 @@
                                                             <div class="card text-center h-100 bg-transparent"
                                                                 style="border:0px">
                                                                 <img src="{{ asset('assets/style/images/pasien.png') }}"
-                                                                    class="card-img-top w-25 mx-auto d-block h-100" style="color-adjust:#0E8BFF;"
-                                                                    alt="">
+                                                                    class="card-img-top w-25 mx-auto d-block h-100"
+                                                                    style="color-adjust:#0E8BFF;" alt="">
                                                                 <div class="card-body">
                                                                     <p
                                                                         style="color: #ACABAB; margin-top: 24px; font-size: 27px; font-weight:500">
@@ -182,7 +143,7 @@
                                                         <div class="col">
                                                             <div class="card text-center h-100 bg-transparent"
                                                                 style="border:0px">
-                                                                <img src="{{asset('assets/style/images/konsultasi.png')}}"
+                                                                <img src="{{ asset('assets/style/images/konsultasi.png') }}"
                                                                     class="card-img-top w-25 mx-auto d-block h-100"
                                                                     alt="">
                                                                 <div class="card-body">
@@ -198,7 +159,7 @@
                                                         <div class="col">
                                                             <div class="card text-center h-100 bg-transparent"
                                                                 style="border:0px">
-                                                                <img src="{{asset('assets/style/images/resep.png')}}"
+                                                                <img src="{{ asset('assets/style/images/resep.png') }}"
                                                                     class="card-img-top w-25 mx-auto d-block h-100"
                                                                     alt="">
                                                                 <div class="card-body">
@@ -240,10 +201,4 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
 @endsection

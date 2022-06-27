@@ -330,9 +330,9 @@ class UserController extends Controller
     }
     public function history()
     {
-        $jeniskamar = histori::where('jenis_layanan', 'Reservasi Layanan Kamar')->get();
+        $jeniskamar = histori::where('jenis_layanan', 'Reservasi Layanan Kamar')->latest()->get();
         $countkamar = histori::where('jenis_layanan', 'Reservasi Layanan Kamar')->count();
-        $jeniskonsultasi = histori::where('jenis_layanan', 'Reservasi Konsultasi')->get();
+        $jeniskonsultasi = histori::where('jenis_layanan', 'Reservasi Konsultasi')->latest()->get();
         $countkonsultasi = histori::where('jenis_layanan', 'Reservasi Konsultasi')->count();
         return view('user.historypayment', compact('jeniskamar', 'jeniskonsultasi', 'countkamar', 'countkonsultasi'));
     }
