@@ -21,21 +21,20 @@ class UpdateDokterTest extends DuskTestCase
                     ->type('username','admin-nrlwrk')
                     ->type('password','12345678')
                     ->press('Login')
-                    ->click('li','Manajemen User & Komponen Lainnya')
-                    ->click('a','Dokter')
-                    ->pause(3000)
-                    ->visit('/admin/dbdokter/updatedokter/30')
-                    ->pause(3000)
+                    ->visit('/admin/dbdokter/updatedokter/25')
+                    ->pause(2000)
                     ->assertSee('Update akun dokter sekarang!')
                     ->type('name','Dokter Update Rafly')
                     ->type('email','wahdanurul.nw@gmail.com')
-                    ->type('username','dokter-updated')
+                    ->type('username','dokter-updated123456')
                     ->type('password','12345678')
                     ->type('confpw','12345678')
                     ->type('nohp','999999999999')
                     ->type('tanggallahir','13/06/2022')
                     ->type('address','Bandung')
-                    ->press('Update akun');
+                    ->press('Update akun')
+                    ->assertSee('dokter-updated123456')
+                    ->pause(2000);
         });
     }
 }

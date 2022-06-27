@@ -21,12 +21,13 @@ class OrderKamarTest extends DuskTestCase
                     ->type('username','admin-nrlwrk')
                     ->type('password','12345678')
                     ->press('Login')
-                    ->pause(2000)
                     ->visit('/admin/orderk')
                     ->assertSee('Table Order Layanan Kamar')
                     ->assertSee('Belum membayar')
                     ->assertSee('Sudah Membayar')
-                    ->visit('/admin/invmailkamar');
+                    ->visit('/admin/invmailkamar')
+                    ->visit('/admin/orderk')
+                    ->pause(2000);
         });
     }
 }

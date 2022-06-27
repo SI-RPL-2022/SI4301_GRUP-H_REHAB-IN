@@ -10,7 +10,7 @@ class CreateAdminTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
-     *
+     * @group createadmin
      * @return void
      */
     public function testExample()
@@ -24,8 +24,8 @@ class CreateAdminTest extends DuskTestCase
                     ->pause(2000)
                     ->visit('/admin/regis/admin')
                     ->assertSee('Buat akun admin sekarang!')
-                    ->type('name','New Admin rr')
-                    ->type('username','new-adm123')
+                    ->type('name','Admin Baru Lagi')
+                    ->type('username','admin baru lagi')
                     ->type('email','wahdanuxxxrul.nw@gmail.com')
                     ->type('password','1234567801')
                     ->type('confpw','1234567801')
@@ -33,7 +33,8 @@ class CreateAdminTest extends DuskTestCase
                     ->type('tanggallahir','13/06/2022')
                     ->type('address','Bandungxx')
                     ->press('Buat akun')
-                    ->assertSee('Table Administrator');
+                    ->assertSee('Table Administrator')
+                    ->pause(5000);
         });
     }
 }

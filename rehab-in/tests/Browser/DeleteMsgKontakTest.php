@@ -21,8 +21,8 @@ class DeleteMsgKontakTest extends DuskTestCase
                     ->type('username','admin-nrlwrk')
                     ->type('password','12345678')
                     ->press('Login')
-                    ->pause(2000)
-                    ->visit('/admin/contactusadm/delete/2');
+                    ->visit('/admin/contactusadm/delete/5')
+                    ->pause(2000);
         });
     }
 }

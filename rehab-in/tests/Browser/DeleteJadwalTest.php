@@ -22,7 +22,7 @@ class DeleteJadwalTest extends DuskTestCase
                     ->type('password','12345678')
                     ->press('Login')
                     ->pause(2000)
-                    ->visit('/admin/jadwalkons/delete/4');
+                    ->visit('/admin/jadwalkons/delete/9');
         });
     }
 }

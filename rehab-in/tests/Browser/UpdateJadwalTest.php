@@ -21,18 +21,17 @@ class UpdateJadwalTest extends DuskTestCase
                     ->type('username','admin-nrlwrk')
                     ->type('password','12345678')
                     ->press('Login')
-                    ->click('li','Manajemen Konten')
-                    ->click('a','Jadwal Konsultasi')
-                    ->pause(2000)
                     ->visit('/admin/jadwalkons/5')
                     ->pause(2000)
                     ->select('namapasien','Pasien NRL')
                     ->select('namadokter','Dokter NRL')
-                    ->select('day','Senin')
+                    ->select('day','Selasa')
                     ->select('durasi','3 Jam')
-                    ->type('tempat','Offline')
-                    ->type('shift','06.30')
-                    ->press('Update jadwal');
+                    ->type('tempat','Online')
+                    ->type('shift','08.30')
+                    ->press('Update jadwal')
+                    ->assertSee('Selasa')
+                    ->pause(2000);
         });
     }
 }

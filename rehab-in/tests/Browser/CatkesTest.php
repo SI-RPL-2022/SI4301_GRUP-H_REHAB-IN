@@ -10,7 +10,7 @@ class CatkesTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
-     *
+     * @group catkes
      * @return void
      */
     public function testExample()

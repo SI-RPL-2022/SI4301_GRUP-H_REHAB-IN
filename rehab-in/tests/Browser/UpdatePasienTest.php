@@ -21,20 +21,19 @@ class UpdatePasienTest extends DuskTestCase
                     ->type('username','admin-nrlwrk')
                     ->type('password','12345678')
                     ->press('Login')
-                    ->click('li','Manajemen User & Komponen Lainnya')
-                    ->click('a','Pasien')
-                    ->pause(3000)
                     ->visit('/admin/dbpasien/updatepasien/29')
                     ->assertSee('Update akun pasien sekarang!')
-                    ->type('name','Patient Updated')
+                    ->type('name','Patient Updatedaaaaaaaaaaaa')
                     ->type('email','wahdanurul.nw@gmail.com')
-                    ->type('username','nama-pasien-update123456')
+                    ->type('username','xxxxxxss')
                     ->type('password','12345678')
                     ->type('confpw','12345678')
                     ->type('nohp','999999999999')
                     ->type('tanggallahir','13/06/2022')
                     ->type('address','Bandung')
-                    ->press('Update akun');
+                    ->press('Update akun')
+                    ->assertSee('Table Pasien')
+                    ->pause(2000);
         });
     }
 }

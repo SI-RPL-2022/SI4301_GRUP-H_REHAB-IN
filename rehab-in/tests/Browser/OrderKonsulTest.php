@@ -24,7 +24,10 @@ class OrderKonsulTest extends DuskTestCase
                     ->pause(2000)
                     ->visit('/admin/order')
                     ->assertSee('Table Order Layanan Konsultasi')
-                    ->visit('/admin/linkmail/3');
+                    ->visit('/admin/linkmail/3')
+                    ->visit('/admin/order')
+                    ->assertSee('Aksi')
+                    ->pause(2000);
         });
     }
 }

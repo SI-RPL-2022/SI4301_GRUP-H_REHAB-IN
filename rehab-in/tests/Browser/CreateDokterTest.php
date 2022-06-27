@@ -10,7 +10,7 @@ class CreateDokterTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
-     *
+     * @group createdokter
      * @return void
      */
     public function testExample()
@@ -21,20 +21,18 @@ class CreateDokterTest extends DuskTestCase
                     ->type('username','admin-nrlwrk')
                     ->type('password','12345678')
                     ->press('Login')
-                    ->click('li','Manajemen User & Komponen Lainnya')
-                    ->click('a','Dokter')
-                    ->pause(3000)
                     ->visit('/admin/regis/dokter')
-                    ->type('name','New Dokter')
+                    ->type('name','cccc')
                     ->type('email','wahdanurul.nw@gmail.com')
-                    ->type('username','new-doc')
+                    ->type('username','ccc')
                     ->type('password','12345678')
                     ->type('confpw','12345678')
                     ->type('nohp','085298327271')
                     ->type('tanggallahir','13/06/2022')
                     ->type('address','Bandung')
                     ->press('Buat akun')
-                    ->visit('/admin/dbdokter');
+                    ->visit('/admin/dbdokter')
+                    ->pause(2000);
         });
     }
 }

@@ -21,9 +21,7 @@ class KontakKamiTest extends DuskTestCase
                     ->type('email','nrl@mail.com')
                     ->type('subject','Kuliah')
                     ->type('messages','Message lorem')
-                    ->press('Kirim')
-                    ->pause(10000) 
-                    ->assertSee('Get In Touch With Us');
+                    ->press('Kirim');
                             
                    
         });
