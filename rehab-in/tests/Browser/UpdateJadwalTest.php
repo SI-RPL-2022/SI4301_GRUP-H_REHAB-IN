@@ -28,9 +28,9 @@ class UpdateJadwalTest extends DuskTestCase
                     ->pause(2000)
                     ->select('namapasien','Pasien NRL')
                     ->select('namadokter','Dokter NRL')
-                    ->select('day','Kamis')
+                    ->select('day','Senin')
                     ->select('durasi','3 Jam')
-                    ->type('tempat','Online')
+                    ->type('tempat','Offline')
                     ->type('shift','06.30')
                     ->press('Update jadwal');
         });

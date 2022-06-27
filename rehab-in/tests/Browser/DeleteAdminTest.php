@@ -22,7 +22,7 @@ class DeleteAdminTest extends DuskTestCase
                     ->type('password','12345678')
                     ->press('Login')
                     ->pause(3000)
-                    ->visit('/admin/dbadmin/delete/23');
+                    ->visit('/admin/dbadmin/delete/32');
         });
     }
 }

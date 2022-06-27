@@ -25,7 +25,7 @@ class CreatePasienTest extends DuskTestCase
                     ->visit('/admin/regis/pasien')
                     ->type('name','New Patient')
                     ->type('email','wahdanurul.nw@gmail.com')
-                    ->type('username','new-pasien')
+                    ->type('username','pasien-update-123567')
                     ->type('password','12345678')
                     ->type('confpw','12345678')
                     ->type('nohp','999999999999')

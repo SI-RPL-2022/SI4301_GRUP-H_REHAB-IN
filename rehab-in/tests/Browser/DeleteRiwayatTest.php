@@ -22,7 +22,7 @@ class DeleteRiwayatTest extends DuskTestCase
                     ->type('password','12345678')
                     ->press('Login')
                     ->pause(2000)
-                    ->visit('/admin/riwayatadm/delete/3');
+                    ->visit('/admin/riwayatadm/delete/5');
         });
     }
 }
